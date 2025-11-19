@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsSalary" targetNamespace="http://tempuri.org/dsSalary.xsd" xmlns:mstns="http://tempuri.org/dsSalary.xsd" xmlns="http://tempuri.org/dsSalary.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsSalary" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="dsSalary" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsSalary">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dsUnitWiseMonthlyShipmentReport" msprop:Generator_RowEvHandlerName="dsUnitWiseMonthlyShipmentReportRowChangeEventHandler" msprop:Generator_RowDeletedName="dsUnitWiseMonthlyShipmentReportRowDeleted" msprop:Generator_RowDeletingName="dsUnitWiseMonthlyShipmentReportRowDeleting" msprop:Generator_RowEvArgName="dsUnitWiseMonthlyShipmentReportRowChangeEvent" msprop:Generator_TablePropName="dsUnitWiseMonthlyShipmentReport" msprop:Generator_RowChangedName="dsUnitWiseMonthlyShipmentReportRowChanged" msprop:Generator_UserTableName="dsUnitWiseMonthlyShipmentReport" msprop:Generator_RowChangingName="dsUnitWiseMonthlyShipmentReportRowChanging" msprop:Generator_RowClassName="dsUnitWiseMonthlyShipmentReportRow" msprop:Generator_TableClassName="dsUnitWiseMonthlyShipmentReportDataTable" msprop:Generator_TableVarName="tabledsUnitWiseMonthlyShipmentReport">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CompanyName" msprop:Generator_ColumnPropNameInTable="CompanyNameColumn" msprop:Generator_ColumnPropNameInRow="CompanyName" msprop:Generator_UserColumnName="CompanyName" msprop:Generator_ColumnVarNameInTable="columnCompanyName" type="xs:string" minOccurs="0" />
+              <xs:element name="OrderQty" msprop:Generator_ColumnPropNameInTable="OrderQtyColumn" msprop:Generator_ColumnPropNameInRow="OrderQty" msprop:Generator_UserColumnName="OrderQty" msprop:Generator_ColumnVarNameInTable="columnOrderQty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ShipValue" msprop:Generator_ColumnPropNameInTable="ShipValueColumn" msprop:Generator_ColumnPropNameInRow="ShipValue" msprop:Generator_UserColumnName="ShipValue" msprop:Generator_ColumnVarNameInTable="columnShipValue" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ExcessShortQty" msprop:Generator_UserColumnName="ExcessShortQty" msprop:Generator_ColumnPropNameInTable="ExcessShortQtyColumn" msprop:Generator_ColumnPropNameInRow="ExcessShortQty" msprop:Generator_ColumnVarNameInTable="columnExcessShortQty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ExcessShortPer" msprop:Generator_UserColumnName="ExcessShortPer" msprop:Generator_ColumnPropNameInTable="ExcessShortPerColumn" msprop:Generator_ColumnPropNameInRow="ExcessShortPer" msprop:Generator_ColumnVarNameInTable="columnExcessShortPer" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ExcessShortValue" msprop:Generator_UserColumnName="ExcessShortValue" msprop:Generator_ColumnPropNameInTable="ExcessShortValueColumn" msprop:Generator_ColumnPropNameInRow="ExcessShortValue" msprop:Generator_ColumnVarNameInTable="columnExcessShortValue" type="xs:decimal" minOccurs="0" />
+              <xs:element name="AvgFOB" msprop:Generator_UserColumnName="AvgFOB" msprop:Generator_ColumnPropNameInTable="AvgFOBColumn" msprop:Generator_ColumnPropNameInRow="AvgFOB" msprop:Generator_ColumnVarNameInTable="columnAvgFOB" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

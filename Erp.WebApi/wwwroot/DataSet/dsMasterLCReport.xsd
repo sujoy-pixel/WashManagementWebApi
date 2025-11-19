@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsSalary" targetNamespace="http://tempuri.org/dsSalary.xsd" xmlns:mstns="http://tempuri.org/dsSalary.xsd" xmlns="http://tempuri.org/dsSalary.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsSalary" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="dsSalary" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsSalary">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dsMasterLCReport" msprop:Generator_RowEvHandlerName="dsMasterLCReportRowChangeEventHandler" msprop:Generator_RowDeletedName="dsMasterLCReportRowDeleted" msprop:Generator_RowDeletingName="dsMasterLCReportRowDeleting" msprop:Generator_RowEvArgName="dsMasterLCReportRowChangeEvent" msprop:Generator_TablePropName="dsMasterLCReport" msprop:Generator_RowChangedName="dsMasterLCReportRowChanged" msprop:Generator_UserTableName="dsMasterLCReport" msprop:Generator_RowChangingName="dsMasterLCReportRowChanging" msprop:Generator_RowClassName="dsMasterLCReportRow" msprop:Generator_TableClassName="dsMasterLCReportDataTable" msprop:Generator_TableVarName="tabledsMasterLCReport">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MasterLcFileNo" msprop:Generator_ColumnPropNameInTable="MasterLcFileNoColumn" msprop:Generator_ColumnPropNameInRow="MasterLcFileNo" msprop:Generator_UserColumnName="MasterLcFileNo" msprop:Generator_ColumnVarNameInTable="columnMasterLcFileNo" type="xs:string" minOccurs="0" />
+              <xs:element name="MasterLcNo" msprop:Generator_ColumnPropNameInTable="MasterLcNoColumn" msprop:Generator_ColumnPropNameInRow="MasterLcNo" msprop:Generator_UserColumnName="MasterLcNo" msprop:Generator_ColumnVarNameInTable="columnMasterLcNo" type="xs:string" minOccurs="0" />
+              <xs:element name="BankName" msprop:Generator_ColumnPropNameInTable="BankNameColumn" msprop:Generator_ColumnPropNameInRow="BankName" msprop:Generator_UserColumnName="BankName" msprop:Generator_ColumnVarNameInTable="columnBankName" type="xs:string" minOccurs="0" />
+              <xs:element name="Buyer" msprop:Generator_ColumnPropNameInTable="BuyerColumn" msprop:Generator_ColumnPropNameInRow="Buyer" msprop:Generator_UserColumnName="Buyer" msprop:Generator_ColumnVarNameInTable="columnBuyer" type="xs:string" minOccurs="0" />
+              <xs:element name="MasterLcPiNo" msprop:Generator_ColumnPropNameInTable="MasterLcPiNoColumn" msprop:Generator_ColumnPropNameInRow="MasterLcPiNo" msprop:Generator_UserColumnName="MasterLcPiNo" msprop:Generator_ColumnVarNameInTable="columnMasterLcPiNo" type="xs:string" minOccurs="0" />
+              <xs:element name="MasterLcPiDate" msprop:Generator_ColumnPropNameInTable="MasterLcPiDateColumn" msprop:Generator_ColumnPropNameInRow="MasterLcPiDate" msprop:Generator_UserColumnName="MasterLcPiDate" msprop:Generator_ColumnVarNameInTable="columnMasterLcPiDate" type="xs:string" minOccurs="0" />
+              <xs:element name="MasterLcItemDetails" msprop:Generator_ColumnPropNameInTable="MasterLcItemDetailsColumn" msprop:Generator_ColumnPropNameInRow="MasterLcItemDetails" msprop:Generator_UserColumnName="MasterLcItemDetails" msprop:Generator_ColumnVarNameInTable="columnMasterLcItemDetails" type="xs:decimal" minOccurs="0" />
+              <xs:element name="MasterLcQty" msprop:Generator_ColumnPropNameInTable="MasterLcQtyColumn" msprop:Generator_ColumnPropNameInRow="MasterLcQty" msprop:Generator_UserColumnName="MasterLcQty" msprop:Generator_ColumnVarNameInTable="columnMasterLcQty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="MasterLcValue" msprop:Generator_ColumnPropNameInTable="MasterLcValueColumn" msprop:Generator_ColumnPropNameInRow="MasterLcValue" msprop:Generator_UserColumnName="MasterLcValue" msprop:Generator_ColumnVarNameInTable="columnMasterLcValue" type="xs:decimal" minOccurs="0" />
+              <xs:element name="MasterLcDate" msprop:Generator_ColumnPropNameInTable="MasterLcDateColumn" msprop:Generator_ColumnPropNameInRow="MasterLcDate" msprop:Generator_UserColumnName="MasterLcDate" msprop:Generator_ColumnVarNameInTable="columnMasterLcDate" type="xs:string" minOccurs="0" />
+              <xs:element name="Tenor" msprop:Generator_ColumnPropNameInRow="Tenor" msprop:Generator_ColumnPropNameInTable="TenorColumn" msprop:Generator_ColumnVarNameInTable="columnTenor" msprop:Generator_UserColumnName="Tenor" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

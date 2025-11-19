@@ -1,0 +1,6 @@
+﻿namespace RDLCProject.wwwroot.DataSet
+{
+    public class dataset
+    {
+    }
+}

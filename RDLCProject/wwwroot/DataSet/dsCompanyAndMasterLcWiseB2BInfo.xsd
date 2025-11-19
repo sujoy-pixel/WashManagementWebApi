@@ -1,0 +1,6 @@
+﻿namespace Erp.WebApi.wwwroot.DataSet
+{
+    public class dsCompanyAndMasterLcWiseB2BInfo
+    {
+    }
+}

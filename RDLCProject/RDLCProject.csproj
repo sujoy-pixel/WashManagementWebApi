@@ -1,0 +1,123 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\DataSet\dsReport3.Designer.cs" />
+    <Content Remove="wwwroot\DataSet\dsReport3.xsc" />
+    <Content Remove="wwwroot\DataSet\dsReport3.xsd" />
+    <Content Remove="wwwroot\DataSet\dsReport3.xss" />
+    <Content Remove="wwwroot\Reports\dsSalary.Designer.cs" />
+    <Content Remove="wwwroot\Reports\dsSalary.xsc" />
+    <Content Remove="wwwroot\Reports\dsSalary.xsd" />
+    <Content Remove="wwwroot\Reports\dsSalary.xss" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="wwwroot\DataSet\dsReport3.Designer.cs">
+      <DependentUpon>dsReport3.xsd</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="wwwroot\Reports\dsSalary.Designer.cs">
+      <DependentUpon>dsSalary.xsd</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\DataSet\dsReport3.xsc" />
+    <None Include="wwwroot\DataSet\dsReport3.xsd">
+      <SubType>Designer</SubType>
+      <LastGenOutput>dsReport3.Designer.cs</LastGenOutput>
+      <Generator>MSDataSetGenerator</Generator>
+    </None>
+    <None Include="wwwroot\DataSet\dsReport3.xss" />
+    <None Include="wwwroot\Reports\dsSalary.xsc" />
+    <None Include="wwwroot\Reports\dsSalary.xsd">
+      <SubType>Designer</SubType>
+      <LastGenOutput>dsSalary.Designer.cs</LastGenOutput>
+      <Generator>MSDataSetGenerator</Generator>
+    </None>
+    <None Include="wwwroot\Reports\dsSalary.xss" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AspNetCore.Reporting" Version="2.1.0" />
+    <PackageReference Include="System.CodeDom" Version="8.0.0" />
+    <PackageReference Include="System.Drawing.Common" Version="8.0.1" />
+    <PackageReference Include="System.Security.Permissions" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="GarmentsProductionDBDataSet.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>GarmentsProductionDBDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Update="GarmentsProductionDBDataSet1.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>GarmentsProductionDBDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Update="GarmentsProductionDBDataSet2.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>GarmentsProductionDBDataSet2.xsd</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="wwwroot\DataSet\dsCompanyAndMasterLcWiseB2BInfo.xsd">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Update="wwwroot\dsSalary.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>dsSalary.xsd</DependentUpon>
+    </Content>
+    <Content Update="wwwroot\dsSalary.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsSalary.Designer.cs</LastGenOutput>
+    </Content>
+    <Content Update="wwwroot\Reports\dsGoodsDeliveryReport.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>dsGoodsDeliveryReport.xsd</DependentUpon>
+    </Content>
+    <Content Update="wwwroot\Reports\dsGoodsDeliveryReport.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsGoodsDeliveryReport.Designer.cs</LastGenOutput>
+    </Content>
+    <Content Update="wwwroot\Reports\Report1.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\Reports\Report2.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\Reports\Report3.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="GarmentsProductionDBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GarmentsProductionDBDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="GarmentsProductionDBDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GarmentsProductionDBDataSet1.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="GarmentsProductionDBDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GarmentsProductionDBDataSet2.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+</Project>

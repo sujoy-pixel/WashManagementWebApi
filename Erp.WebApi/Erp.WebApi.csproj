@@ -1,0 +1,293 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<UserSecretsId>251cc3e0-0024-481e-a5f6-fc7b9863f7b0</UserSecretsId>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+	  <DefineConstants>TRACE</DefineConstants>
+	  <Optimize>false</Optimize>
+	  <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+	  <DebugType>portable</DebugType>
+	  <DebugSymbols>true</DebugSymbols>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <Compile Remove="Controllers\Auth\**" />
+	  <Compile Remove="Controllers\External-API-Factory\**" />
+	  <Compile Remove="Controllers\Payroll\**" />
+	  <Compile Remove="wwwroot\Files\Admin\**" />
+	  <Compile Remove="wwwroot\Files\Emergency\**" />
+	  <Compile Remove="wwwroot\Files\Father\**" />
+	  <Compile Remove="wwwroot\Files\Guardian1\**" />
+	  <Compile Remove="wwwroot\Files\Guardian2\**" />
+	  <Compile Remove="wwwroot\Files\Health\**" />
+	  <Compile Remove="wwwroot\Files\Mother\**" />
+	  <Compile Remove="wwwroot\Sample\**" />
+	  <Compile Remove="wwwroot\vms\**" />
+	  <Content Remove="Controllers\Auth\**" />
+	  <Content Remove="Controllers\External-API-Factory\**" />
+	  <Content Remove="Controllers\Payroll\**" />
+	  <Content Remove="wwwroot\Files\Admin\**" />
+	  <Content Remove="wwwroot\Files\Emergency\**" />
+	  <Content Remove="wwwroot\Files\Father\**" />
+	  <Content Remove="wwwroot\Files\Guardian1\**" />
+	  <Content Remove="wwwroot\Files\Guardian2\**" />
+	  <Content Remove="wwwroot\Files\Health\**" />
+	  <Content Remove="wwwroot\Files\Mother\**" />
+	  <Content Remove="wwwroot\Sample\**" />
+	  <Content Remove="wwwroot\vms\**" />
+	  <EmbeddedResource Remove="Controllers\Auth\**" />
+	  <EmbeddedResource Remove="Controllers\External-API-Factory\**" />
+	  <EmbeddedResource Remove="Controllers\Payroll\**" />
+	  <EmbeddedResource Remove="wwwroot\Files\Admin\**" />
+	  <EmbeddedResource Remove="wwwroot\Files\Emergency\**" />
+	  <EmbeddedResource Remove="wwwroot\Files\Father\**" />
+	  <EmbeddedResource Remove="wwwroot\Files\Guardian1\**" />
+	  <EmbeddedResource Remove="wwwroot\Files\Guardian2\**" />
+	  <EmbeddedResource Remove="wwwroot\Files\Health\**" />
+	  <EmbeddedResource Remove="wwwroot\Files\Mother\**" />
+	  <EmbeddedResource Remove="wwwroot\Sample\**" />
+	  <EmbeddedResource Remove="wwwroot\vms\**" />
+	  <None Remove="Controllers\Auth\**" />
+	  <None Remove="Controllers\External-API-Factory\**" />
+	  <None Remove="Controllers\Payroll\**" />
+	  <None Remove="wwwroot\Files\Admin\**" />
+	  <None Remove="wwwroot\Files\Emergency\**" />
+	  <None Remove="wwwroot\Files\Father\**" />
+	  <None Remove="wwwroot\Files\Guardian1\**" />
+	  <None Remove="wwwroot\Files\Guardian2\**" />
+	  <None Remove="wwwroot\Files\Health\**" />
+	  <None Remove="wwwroot\Files\Mother\**" />
+	  <None Remove="wwwroot\Sample\**" />
+	  <None Remove="wwwroot\vms\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Remove="wwwroot\DataSet\dsCompanyAndMasterLcWiseB2BInfo.xsd" />
+	  <Content Remove="wwwroot\DataSet\dsCompanyAndSupplierWiseBTBLCReport.xsd" />
+	  <Content Remove="wwwroot\DataSet\dsDayWiseShipmentReport.xsd" />
+	  <Content Remove="wwwroot\DataSet\dsGoodsDeliveryReport.xsd" />
+	  <Content Remove="wwwroot\DataSet\dsMonthlyShipmentReport.xsd" />
+	  <Content Remove="wwwroot\DataSet\dsProformaInvoiceReportForeign.xsd" />
+	  <Content Remove="wwwroot\DataSet\dsSalary.xsc" />
+	  <Content Remove="wwwroot\DataSet\dsSalary.xsd" />
+	  <Content Remove="wwwroot\DataSet\dsSalary.xss" />
+	  <Content Remove="wwwroot\Reports\dsReport3.xsc" />
+	  <Content Remove="wwwroot\Reports\dsReport3.xsd" />
+	  <Content Remove="wwwroot\Reports\dsReport3.xss" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Include="wwwroot\DataSet\dsMonthlyShipmentReport.Designer.cs">
+	    <DependentUpon>dsMonthlyShipmentReport.xsd</DependentUpon>
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Erp.Application\Erp.Application.csproj" />
+		<ProjectReference Include="..\Erp.Infrastructure\Erp.Infrastructure.csproj" />
+		<ProjectReference Include="..\RDLCProject\RDLCProject.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Folder Include="Validators\" />
+		<Folder Include="wwwroot\Files\Admin_Attachment\" />
+		<Folder Include="wwwroot\Files\Medical_Attachment\" />
+		<Folder Include="wwwroot\Files\Emergency_Attachment\" />
+		<Folder Include="wwwroot\Files\Guardians2_Attachment\" />
+		<Folder Include="wwwroot\Files\Guardians1_Attachment\" />
+		<Folder Include="wwwroot\Files\Mother_Attachment\" />
+		<Folder Include="wwwroot\Files\Father_Attachment\" />
+		<Folder Include="wwwroot\Files\Students_Attachment\" />
+		<Folder Include="wwwroot\Files\Students\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Include="wwwroot\DataSet\dsCompanyAndMasterLcWiseB2BInfo.xsc" />
+	  <None Include="wwwroot\DataSet\dsCompanyAndMasterLcWiseB2BInfo.xsd">
+	    <SubType>Designer</SubType>
+	    <LastGenOutput>dsCompanyAndMasterLcWiseB2BInfo.Designer.cs</LastGenOutput>
+	    <Generator>MSDataSetGenerator</Generator>
+	  </None>
+	  <None Include="wwwroot\DataSet\dsCompanyAndMasterLcWiseB2BInfo.xss" />
+	  <None Include="wwwroot\DataSet\dsGoodsDeliveryReport.xsc" />
+	  <None Include="wwwroot\DataSet\dsGoodsDeliveryReport.xsd">
+	    <SubType>Designer</SubType>
+	    <LastGenOutput>dsGoodsDeliveryReport.Designer.cs</LastGenOutput>
+	    <Generator>MSDataSetGenerator</Generator>
+	  </None>
+	  <None Include="wwwroot\DataSet\dsGoodsDeliveryReport.xss" />
+	  <None Include="wwwroot\DataSet\dsProformaInvoiceReportLocal.xsc" />
+	  <None Include="wwwroot\DataSet\dsProformaInvoiceReportForeign.xsd">
+	    <SubType>Designer</SubType>
+	    <LastGenOutput>dsProformaInvoiceReportForeign.Designer.cs</LastGenOutput>
+	    <Generator>MSDataSetGenerator</Generator>
+	  </None>
+	  <None Include="wwwroot\DataSet\dsProformaInvoiceReportLocal.xss" />
+	  <None Include="wwwroot\DataSet\dsCompanyAndSupplierWiseBTBLCReport.xsc" />
+	  <None Include="wwwroot\DataSet\dsCompanyAndSupplierWiseBTBLCReport.xsd">
+	    <SubType>Designer</SubType>
+	    <LastGenOutput>dsCompanyAndSupplierWiseBTBLCReport.Designer.cs</LastGenOutput>
+	    <Generator>MSDataSetGenerator</Generator>
+	  </None>
+	  <None Include="wwwroot\DataSet\dsCompanyAndSupplierWiseBTBLCReport.xss" />
+	  <None Include="wwwroot\DataSet\dsMonthlyShipmentReport.xsc" />
+	  <None Include="wwwroot\DataSet\dsMonthlyShipmentReport.xsd">
+	    <SubType>Designer</SubType>
+	    <LastGenOutput>dsMonthlyShipmentReport.Designer.cs</LastGenOutput>
+	    <Generator>MSDataSetGenerator</Generator>
+	  </None>
+	  <None Include="wwwroot\DataSet\dsMonthlyShipmentReport.xss" />
+	  <None Include="wwwroot\DataSet\dsDayWiseShipmentReport.xsc" />
+	  <None Include="wwwroot\DataSet\dsDayWiseShipmentReport.xsd">
+	    <SubType>Designer</SubType>
+	    <LastGenOutput>dsDayWiseShipmentReport.Designer.cs</LastGenOutput>
+	    <Generator>MSDataSetGenerator</Generator>
+	  </None>
+	  <None Include="wwwroot\DataSet\dsDayWiseShipmentReport.xss" />
+	  <None Include="wwwroot\DataSet\dsSalary.xsc" />
+	  <None Include="wwwroot\DataSet\dsSalary.xsd">
+	    <SubType>Designer</SubType>
+	    <LastGenOutput>dsSalary.Designer.cs</LastGenOutput>
+	    <Generator>MSDataSetGenerator</Generator>
+	  </None>
+	  <None Include="wwwroot\DataSet\dsSalary.xss" />
+	  <None Include="wwwroot\Reports\dsReport3.xsc" />
+	  <None Include="wwwroot\Reports\dsReport3.xsd">
+	    <SubType>Designer</SubType>
+	    <LastGenOutput>dsReport3.Designer.cs</LastGenOutput>
+	    <Generator>MSDataSetGenerator</Generator>
+	  </None>
+	  <None Include="wwwroot\Reports\dsReport3.xss" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="AspNetCore.Reporting" Version="2.1.0" />
+		<PackageReference Include="AutoMapper" Version="12.0.1" />
+		<PackageReference Include="IronXL.Excel" Version="2022.11.10251" />
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.16" />
+		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.16" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.3" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.16" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="6.0.16" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.16">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="6.0.12" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="6.0.16" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.16" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.1.3" />
+		<PackageReference Include="Microsoft.SqlServer.DacFx" Version="162.0.52" />
+		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.3" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+		<PackageReference Include="NSwag.AspNetCore" Version="13.19.0" />
+		<PackageReference Include="NSwag.MSBuild" Version="13.19.0">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Select.HtmlToPdf.NetCore" Version="22.1.0" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+		<PackageReference Include="Swashbuckle.AspNetCore.Filters" Version="7.0.6" />
+		<PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Update="wwwroot\DataSet\ds.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>ds.xsd</DependentUpon>
+	  </Content>
+	  <Content Update="wwwroot\DataSet\dsCompanyAndMasterLcWiseB2BInfo.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>dsCompanyAndMasterLcWiseB2BInfo.xsd</DependentUpon>
+	  </Content>
+	  <Content Update="wwwroot\DataSet\dsCompanyAndSupplierWiseBTBLCReport.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>dsCompanyAndSupplierWiseBTBLCReport.xsd</DependentUpon>
+	  </Content>
+	  <Content Update="wwwroot\DataSet\dsGoodsDeliveryReport.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>dsGoodsDeliveryReport.xsd</DependentUpon>
+	  </Content>
+	  <Content Update="wwwroot\DataSet\dsMasterLCReport.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>dsMasterLCReport.xsd</DependentUpon>
+	  </Content>
+	  <Content Update="wwwroot\DataSet\dsMasterLCReport.xsd">
+	    <Generator>MSDataSetGenerator</Generator>
+	    <LastGenOutput>dsMasterLCReport.Designer.cs</LastGenOutput>
+	  </Content>
+	  <Content Update="wwwroot\DataSet\dsMonthlyShipmentReport.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>dsMonthlyShipmentReport.xsd</DependentUpon>
+	  </Content>
+	  <Content Update="wwwroot\DataSet\dsProformaInvoiceReportForeign.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>dsProformaInvoiceReportForeign.xsd</DependentUpon>
+	  </Content>
+	  <Content Update="wwwroot\DataSet\dsProformaInvoiceReportLocal.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>dsProformaInvoiceReportLocal.xsd</DependentUpon>
+	  </Content>
+	  <Content Update="wwwroot\DataSet\dsProformaInvoiceReportLocal.xsd">
+	    <Generator>MSDataSetGenerator</Generator>
+	    <LastGenOutput>dsProformaInvoiceReportLocal.Designer.cs</LastGenOutput>
+	  </Content>
+	  <Content Update="wwwroot\DataSet\dsDayWiseShipmentReport.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>dsDayWiseShipmentReport.xsd</DependentUpon>
+	  </Content>
+	  <Content Update="wwwroot\DataSet\dsSalary.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>dsSalary.xsd</DependentUpon>
+	  </Content>
+	  <Content Update="wwwroot\Reports\CompanyAndSupplierWiseBTBLCReport.rdlc">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Update="wwwroot\Reports\ProformaInvoiceReportLocalPrev.rdlc">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	    <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+	    <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+	  </Content>
+	  <Content Update="wwwroot\Reports\ProformaInvoiceReportLocal.rdlc">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Update="wwwroot\Reports\dsReport3.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>dsReport3.xsd</DependentUpon>
+	  </Content>
+	  <Content Update="wwwroot\Reports\GoodsDeliveryReport.rdlc">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Update="wwwroot\Reports\Report1.rdlc">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Update="wwwroot\Reports\CompanyAndMasterLcWiseB2BInfo.rdlc">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Update="wwwroot\Reports\Report2.rdlc">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	</ItemGroup>
+
+	<ProjectExtensions>
+		<VisualStudio><UserProperties /></VisualStudio>
+	</ProjectExtensions>
+
+
+</Project>

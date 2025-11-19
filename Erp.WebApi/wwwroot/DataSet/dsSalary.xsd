@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsSalary" targetNamespace="http://tempuri.org/dsSalary.xsd" xmlns:mstns="http://tempuri.org/dsSalary.xsd" xmlns="http://tempuri.org/dsSalary.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsSalary" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="dsSalary" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsSalary">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dsMonthlyShipmentReport" msprop:Generator_RowEvHandlerName="dsMonthlyShipmentReportRowChangeEventHandler" msprop:Generator_RowDeletedName="dsMonthlyShipmentReportRowDeleted" msprop:Generator_RowDeletingName="dsMonthlyShipmentReportRowDeleting" msprop:Generator_RowEvArgName="dsMonthlyShipmentReportRowChangeEvent" msprop:Generator_TablePropName="dsMonthlyShipmentReport" msprop:Generator_RowChangedName="dsMonthlyShipmentReportRowChanged" msprop:Generator_UserTableName="dsMonthlyShipmentReport" msprop:Generator_RowChangingName="dsMonthlyShipmentReportRowChanging" msprop:Generator_RowClassName="dsMonthlyShipmentReportRow" msprop:Generator_TableClassName="dsMonthlyShipmentReportDataTable" msprop:Generator_TableVarName="tabledsMonthlyShipmentReport">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Month" msprop:Generator_ColumnPropNameInTable="MonthColumn" msprop:Generator_ColumnPropNameInRow="Month" msprop:Generator_UserColumnName="Month" msprop:Generator_ColumnVarNameInTable="columnMonth" type="xs:string" minOccurs="0" />
+              <xs:element name="TopLeaderName" msprop:Generator_ColumnPropNameInTable="TopLeaderNameColumn" msprop:Generator_ColumnPropNameInRow="TopLeaderName" msprop:Generator_UserColumnName="TopLeaderName" msprop:Generator_ColumnVarNameInTable="columnTopLeaderName" type="xs:string" minOccurs="0" />
+              <xs:element name="TeamName" msprop:Generator_ColumnPropNameInTable="TeamNameColumn" msprop:Generator_ColumnPropNameInRow="TeamName" msprop:Generator_UserColumnName="TeamName" msprop:Generator_ColumnVarNameInTable="columnTeamName" type="xs:string" minOccurs="0" />
+              <xs:element name="BuyerName" msprop:Generator_UserColumnName="BuyerName" msprop:Generator_ColumnPropNameInTable="BuyerNameColumn" msprop:Generator_ColumnPropNameInRow="BuyerName" msprop:Generator_ColumnVarNameInTable="columnBuyerName" type="xs:string" minOccurs="0" />
+              <xs:element name="ForcastedShipQty" msprop:Generator_UserColumnName="ForcastedShipQty" msprop:Generator_ColumnPropNameInTable="ForcastedShipQtyColumn" msprop:Generator_ColumnPropNameInRow="ForcastedShipQty" msprop:Generator_ColumnVarNameInTable="columnForcastedShipQty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ShipQty" msprop:Generator_UserColumnName="ShipQty" msprop:Generator_ColumnPropNameInTable="ShipQtyColumn" msprop:Generator_ColumnPropNameInRow="ShipQty" msprop:Generator_ColumnVarNameInTable="columnShipQty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="DifferenceQty" msprop:Generator_UserColumnName="DifferenceQty" msprop:Generator_ColumnPropNameInTable="DifferenceQtyColumn" msprop:Generator_ColumnPropNameInRow="DifferenceQty" msprop:Generator_ColumnVarNameInTable="columnDifferenceQty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ForcastedShipValue" msprop:Generator_ColumnPropNameInRow="ForcastedShipValue" msprop:Generator_ColumnPropNameInTable="ForcastedShipValueColumn" msprop:Generator_ColumnVarNameInTable="columnForcastedShipValue" msprop:Generator_UserColumnName="ForcastedShipValue" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ShipmentValue" msprop:Generator_ColumnPropNameInRow="ShipmentValue" msprop:Generator_ColumnPropNameInTable="ShipmentValueColumn" msprop:Generator_ColumnVarNameInTable="columnShipmentValue" msprop:Generator_UserColumnName="ShipmentValue" type="xs:decimal" minOccurs="0" />
+              <xs:element name="DifferenceValue" msprop:Generator_ColumnPropNameInRow="DifferenceValue" msprop:Generator_ColumnPropNameInTable="DifferenceValueColumn" msprop:Generator_ColumnVarNameInTable="columnDifferenceValue" msprop:Generator_UserColumnName="DifferenceValue" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ExcessShortQty" msprop:Generator_ColumnPropNameInRow="ExcessShortQty" msprop:Generator_ColumnPropNameInTable="ExcessShortQtyColumn" msprop:Generator_ColumnVarNameInTable="columnExcessShortQty" msprop:Generator_UserColumnName="ExcessShortQty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ExcessShortValue" msprop:Generator_ColumnPropNameInRow="ExcessShortValue" msprop:Generator_ColumnPropNameInTable="ExcessShortValueColumn" msprop:Generator_ColumnVarNameInTable="columnExcessShortValue" msprop:Generator_UserColumnName="ExcessShortValue" type="xs:decimal" minOccurs="0" />
+              <xs:element name="AvgFOB" msprop:Generator_ColumnPropNameInRow="AvgFOB" msprop:Generator_ColumnPropNameInTable="AvgFOBColumn" msprop:Generator_ColumnVarNameInTable="columnAvgFOB" msprop:Generator_UserColumnName="AvgFOB" type="xs:decimal" minOccurs="0" />
+              <xs:element name="AchivePer" msprop:Generator_ColumnPropNameInRow="AchivePer" msprop:Generator_ColumnPropNameInTable="AchivePerColumn" msprop:Generator_ColumnVarNameInTable="columnAchivePer" msprop:Generator_UserColumnName="AchivePer" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

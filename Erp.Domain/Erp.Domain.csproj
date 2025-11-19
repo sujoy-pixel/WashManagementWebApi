@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Entities\ErpApp\Commercial\**" />
+    <Compile Remove="Entities\ErpApp\Payroll\**" />
+    <EmbeddedResource Remove="Entities\ErpApp\Commercial\**" />
+    <EmbeddedResource Remove="Entities\ErpApp\Payroll\**" />
+    <None Remove="Entities\ErpApp\Commercial\**" />
+    <None Remove="Entities\ErpApp\Payroll\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Entities\ErpApp\SCHOOL\File\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="IronXL.Excel" Version="2022.11.10251" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.8" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.16" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.16" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
+  </ItemGroup>
+
+</Project>

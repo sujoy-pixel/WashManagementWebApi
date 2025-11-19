@@ -1,0 +1,77 @@
+# ASP.NET Core .gitignore
+appsettings.json
+# Ignore build outputs
+bin/
+obj/
+out/
+
+# User-specific files
+*.user
+*.rsuser
+*.suo
+*.userosscache
+*.userprefs
+*.log
+
+# Mono Auto Generated Files
+mono_crash.*
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Ignore build results
+*.exe
+*.dll
+*.pdb
+*.cache
+*.log
+*.csproj.nuget.g.props
+*.csproj.nuget.g.targets
+
+# Ignore VS Code settings
+.vscode/
+.vscode/*
+
+# Visual Studio temporary files, build results, and
+# user preferences
+.vs/
+*.csproj.user
+*.csproj.nuget.dgspec.json
+*.csproj.nuget.g.props
+*.csproj.nuget.g.targets
+
+# Rider projects
+.idea/
+
+# SQL Server files
+*.mdf
+*.ldf
+
+# Azure DevOps related files
+.env
+.env.production
+
+# Configuration files
+
+
+# Resharper files
+_ReSharper*/
+*.DotSettings.user
+
+# Ignore node_modules for frontend dependencies
+node_modules/
+npm-debug.log*
+
+# Ignore Mac-specific files
+.DS_Store
+
+# Ignore JetBrains Rider specific files
+.idea/
+*.sln.iml
