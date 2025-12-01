@@ -30,6 +30,9 @@ using NSwag.Generation.Processors.Security;
 
 namespace Erp.WebApi
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class Startup
     {
         public Startup(IConfiguration configuration)
