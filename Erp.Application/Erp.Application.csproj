@@ -1,48 +1,48 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net10.0</TargetFramework>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <Compile Remove="Requests\ErpApp\External-API-Factory\**" />
-    <Compile Remove="Requests\ErpApp\Payroll\**" />
-    <EmbeddedResource Remove="Requests\ErpApp\External-API-Factory\**" />
-    <EmbeddedResource Remove="Requests\ErpApp\Payroll\**" />
-    <None Remove="Requests\ErpApp\External-API-Factory\**" />
-    <None Remove="Requests\ErpApp\Payroll\**" />
-  </ItemGroup>
+	<ItemGroup>
+		<Compile Remove="Requests\ErpApp\External-API-Factory\**" />
+		<Compile Remove="Requests\ErpApp\Payroll\**" />
+		<EmbeddedResource Remove="Requests\ErpApp\External-API-Factory\**" />
+		<EmbeddedResource Remove="Requests\ErpApp\Payroll\**" />
+		<None Remove="Requests\ErpApp\External-API-Factory\**" />
+		<None Remove="Requests\ErpApp\Payroll\**" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="AutoMapper" Version="12.0.1" />
-    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
-    <PackageReference Include="FluentValidation" Version="8.6.1" />
-    <PackageReference Include="IronXL.Excel" Version="2022.11.10251" />
-    <PackageReference Include="MailKit" Version="2.13.0" />
-    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="8.0.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.16" />
-    <PackageReference Include="Microsoft.AspNetCore.SignalR.Core" Version="1.1.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.16" />
-    <PackageReference Include="MimeKit" Version="2.13.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
-    <PackageReference Include="System.Runtime.Serialization.Primitives" Version="4.3.0" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="AutoMapper" Version="12.0.1" />
+		<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+		<PackageReference Include="FluentValidation" Version="8.6.1" />
+		<PackageReference Include="IronXL.Excel" Version="2022.11.10251" />
+		<PackageReference Include="MailKit" Version="2.13.0" />
+		<PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="8.0.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.16" />
+		<PackageReference Include="Microsoft.AspNetCore.SignalR.Core" Version="1.1.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.16" />
+		<PackageReference Include="MimeKit" Version="2.13.0" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+		<PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
+		<PackageReference Include="System.Runtime.Serialization.Primitives" Version="4.3.0" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Erp.Domain\Erp.Domain.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\Erp.Domain\Erp.Domain.csproj" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Commercial\CommonDataList\Command\" />
-    <Folder Include="Commercial\CommonDataList\Query\NewFolder\" />
-    <Folder Include="Commercial\Setup\Query\" />
-    <Folder Include="Requests\ErpApp\Commercial\FileDelete\Command\" />
-    <Folder Include="Requests\ErpApp\Commercial\File\Command\" />
-    <Folder Include="Requests\ErpApp\Commercial\Settings\Command\" />
-    <Folder Include="Requests\ErpApp\Helper\BuyerDepartment\Query\" />
-    <Folder Include="Requests\ErpApp\Helper\BuyerSizeSet\Query\" />
-  </ItemGroup>
+	<ItemGroup>
+		<Folder Include="Commercial\CommonDataList\Command\" />
+		<Folder Include="Commercial\CommonDataList\Query\NewFolder\" />
+		<Folder Include="Commercial\Setup\Query\" />
+		<Folder Include="Requests\ErpApp\Commercial\FileDelete\Command\" />
+		<Folder Include="Requests\ErpApp\Commercial\File\Command\" />
+		<Folder Include="Requests\ErpApp\Commercial\Settings\Command\" />
+		<Folder Include="Requests\ErpApp\Helper\BuyerDepartment\Query\" />
+		<Folder Include="Requests\ErpApp\Helper\BuyerSizeSet\Query\" />
+	</ItemGroup>
 
 </Project>
