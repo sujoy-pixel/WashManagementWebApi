@@ -60,6 +60,71 @@ namespace Erp.Infrastructure.Services.Commercial
 
             return Result.Success();
         }
+
+        
+
+        public async Task<WrapperResponseProcessName> saveProcessNameEntryData(saveProcessNameData saveDataListDto)
+        {
+            var response = new WrapperResponseProcessName();
+            DynamicParameters parameter = new DynamicParameters();
+            string query = "sp_Insert_Update_Delete_SaveProcessName";
+
+            parameter.Add("@Operation", saveDataListDto.Operation, DbType.String);
+            parameter.Add("@ProcessId", saveDataListDto.ProcessId, DbType.Int32);
+            parameter.Add("@UnitId", saveDataListDto.UnitId, DbType.Int32);
+            parameter.Add("@ProcessName", saveDataListDto.ProcessName, DbType.String);
+            parameter.Add("@Priority", saveDataListDto.Priority, DbType.Int32);
+            parameter.Add("@IsActive", saveDataListDto.IsActive, DbType.Int32);
+            parameter.Add("@CreatedBy", _currentUserService.EmployeeId, DbType.String);
+
+
+            DataTable result = await GetDataByDataTable(query, parameter);
+
+
+
+            if (result != null && result.Rows.Count > 0)
+            {
+                // Assuming the stored procedure returns a column named 'SupResponse'
+                response.ResultCode = result.Rows[0]["ResultCode"].ToString();
+            }
+            else
+            {
+                response.ResultCode = "No data returned.";
+            }
+
+            return response;
+        }
+
+
+
+        public async Task<List<ProcessNameEntryGetList>> GetProcessNameEntryList()
+        {
+
+            List<ProcessNameEntryGetList> list = new List<ProcessNameEntryGetList>();
+            DynamicParameters parameter = new DynamicParameters();
+            string query = "sp_Get_ProcessNameEntry";
+            //parameter.Add("@searchTerm", searchTerm, DbType.String, ParameterDirection.Input);
+
+            var GetList = await GetDisposeErrorFreeListAsyncNew<ProcessNameEntryGetList>(query, parameter);
+            foreach (var item in GetList)
+            {
+                var obj = new ProcessNameEntryGetList
+                {
+                    ProcessId = item.ProcessId,
+                    ProcessName = item.ProcessName,
+                    UnitId = item.UnitId,
+                    Priority = item.Priority,
+                    IsActive = item.IsActive
+
+                };
+                list.Add(obj);
+
+            }
+
+            return list;
+
+        }
+
         public async Task<List<DropdownListDto>> GetReportName(string ReportMenu, string UserId)
         {
 

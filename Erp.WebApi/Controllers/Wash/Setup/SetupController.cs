@@ -33,5 +33,22 @@ namespace Erp.WebApi.Controllers.Commercial.Setup
         }
 
 
+         [HttpPost]
+        [ActionName("SaveProcessNameEntry")]
+        public async Task<IActionResult> SaveProcessNameEntry(saveProcessNameData command)
+        {
+           
+            return Ok(await _mediator.Send(command));
+
+        }
+
+        [HttpGet]
+        [ActionName("GetProcessNameEntryData")]
+        public async Task<IActionResult> GetProcessNameEntryData()
+        {
+            return Ok(await _mediator.Send(new ProcessNameEntryGet()));
+        }
+
+
     }
 }
