@@ -22,5 +22,7 @@ namespace Erp.Application.MascoWash.Setup.Repository
 
         Task<WrapperResponseOperationName> saveOperationNameEntryData(saveOperationNameData saveDataListDto);
         Task<List<OperationNameEntryGetList>> GetOperationNameEntryList();
+
+        Task<WrapperResponseTypeofInspection> saveTypeofInspectionData(saveTypeofInspectionData saveDataListDto);
     }
 }
