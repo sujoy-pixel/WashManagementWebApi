@@ -4,7 +4,7 @@ using Castle.Core.Configuration;
 using Dapper;
 using Erp.Application.Common.Interfaces;
 using Erp.Infrastructure.Persistence;
-using Erp.Infrastructure.Services.Commercial;
+using Erp.Infrastructure.Services.MascoWash;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
@@ -18,12 +18,12 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Threading.Tasks;
-using static Erp.Infrastructure.Services.Commercial.ReportService;
+using static Erp.Infrastructure.Services.MascoWash.ReportService;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 using System.Text.RegularExpressions;
 using System.Linq;
 
-namespace Erp.WebApi.Controllers.Commercial.Report
+namespace Erp.WebApi.Controllers.MascoWash.Report
 {
     [Route("api/[controller]/[action]")]
     [ApiController]

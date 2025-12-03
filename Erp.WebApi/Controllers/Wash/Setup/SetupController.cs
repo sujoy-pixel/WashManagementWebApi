@@ -1,6 +1,8 @@
 ﻿using AspNetCore.Reporting;
 using AspNetCore.Reporting.ReportExecutionService;
 using Erp.Application.Commercial.Setup.Command;
+using Erp.Application.MascoWash.Commands;
+using Erp.Application.MascoWash.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
@@ -49,6 +51,18 @@ namespace Erp.WebApi.Controllers.Commercial.Setup
             return Ok(await _mediator.Send(new ProcessNameEntryGet()));
         }
 
+        [HttpGet]
+        [ActionName("GetUnitName")]
+        public async Task<IActionResult> GetUnitName()
+        {
+            return Ok(await _mediator.Send(new UnitNameGet()));
+        }
 
+        //[HttpDelete]
+        //[ActionName("Delete")]
+        //public async Task<IActionResult> Delete()
+        //{
+        //    return Ok(await _mediator.Send(new UnitNameGet()));
+        //}
     }
 }

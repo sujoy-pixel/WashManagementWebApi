@@ -35,9 +35,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Commercial\CommonDataList\Command\" />
-    <Folder Include="Commercial\CommonDataList\Query\NewFolder\" />
-    <Folder Include="Commercial\Setup\Query\" />
+    <Folder Include="MascoWash\CommonDataList\Command\" />
+    <Folder Include="MascoWash\CommonDataList\Query\NewFolder\" />
+    <Folder Include="MascoWash\DTOs\" />
+    <Folder Include="MascoWash\Setup\Query\" />
     <Folder Include="Requests\ErpApp\Commercial\FileDelete\Command\" />
     <Folder Include="Requests\ErpApp\Commercial\File\Command\" />
     <Folder Include="Requests\ErpApp\Commercial\Settings\Command\" />

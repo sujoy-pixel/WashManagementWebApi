@@ -34,10 +34,10 @@ using Erp.Application.Requests.ErpApp.SCHOOL.File;
 using Erp.Infrastructure.Filter;
 using Erp.Infrastructure.Auth.RoleManagement;
 using Erp.Application.Requests.ErpApp.Commercial.Setup;
-using Erp.Application.Commercial.Setup.Repository;
-using Erp.Infrastructure.Services.Commercial;
+using Erp.Infrastructure.Services.MascoWash;
 using Erp.Application.Commercial.Setup.Command;
 using Erp.Application.Commercial.Setup;
+using Erp.Application.MascoWash.Setup.Repository;
 
 namespace Erp.Infrastructure.IoC
 {
