@@ -34,8 +34,9 @@ namespace Erp.WebApi.Controllers.Commercial.Setup
             System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
         }
 
+                                              /// Process Name Entry ///
 
-         [HttpPost]
+        [HttpPost]
         [ActionName("SaveProcessNameEntry")]
         public async Task<IActionResult> SaveProcessNameEntry(saveProcessNameData command)
         {
@@ -56,6 +57,24 @@ namespace Erp.WebApi.Controllers.Commercial.Setup
         public async Task<IActionResult> GetUnitName()
         {
             return Ok(await _mediator.Send(new UnitNameGet()));
+        }
+
+                                                  /// Operation Name Entry ///
+
+        [HttpPost]
+        [ActionName("SaveOperationNameEntry")]
+        public async Task<IActionResult> SaveOperationNameEntry(saveOperationNameData command)
+        {
+
+            return Ok(await _mediator.Send(command));
+
+        }
+
+        [HttpGet]
+        [ActionName("GetOperationNameEntryData")]
+        public async Task<IActionResult> GetOperationNameEntryData()
+        {
+            return Ok(await _mediator.Send(new OperationNameEntryGet()));
         }
     }
 }

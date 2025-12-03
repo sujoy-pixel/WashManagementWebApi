@@ -20,6 +20,7 @@ namespace Erp.Application.MascoWash.Setup.Repository
         Task<List<ProcessNameEntryGetList>> GetProcessNameEntryList();
         Task<List<DropdownListDto1>> GetUnitNameList();
 
-
+        Task<WrapperResponseOperationName> saveOperationNameEntryData(saveOperationNameData saveDataListDto);
+        Task<List<OperationNameEntryGetList>> GetOperationNameEntryList();
     }
 }

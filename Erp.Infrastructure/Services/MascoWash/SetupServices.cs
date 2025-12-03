@@ -63,7 +63,7 @@ namespace Erp.Infrastructure.Services.MascoWash
             return Result.Success();
         }
 
-        
+                                                 /// Process Name Entry ///
 
         public async Task<WrapperResponseProcessName> saveProcessNameEntryData(saveProcessNameData saveDataListDto)
         {
@@ -145,6 +145,63 @@ namespace Erp.Infrastructure.Services.MascoWash
             }
 
             return list;
+        }
+
+
+                                                     /// Operation Name Entry ///
+
+        public async Task<WrapperResponseOperationName> saveOperationNameEntryData(saveOperationNameData saveDataListDto)
+        {
+            var response = new WrapperResponseOperationName();
+            DynamicParameters parameter = new DynamicParameters();
+            string query = "sp_Insert_Update_Delete_SaveOperationName";
+
+            parameter.Add("@Operation", saveDataListDto.Operation, DbType.String);
+            parameter.Add("@OperationId", saveDataListDto.OperationId, DbType.Int32);
+            parameter.Add("@OperationName", saveDataListDto.OperationName, DbType.String);
+            parameter.Add("@Priority", saveDataListDto.Priority, DbType.Int32);
+            parameter.Add("@IsActive", saveDataListDto.IsActive, DbType.Int32);
+            parameter.Add("@CreatedBy", _currentUserService.EmployeeId, DbType.String);
+
+
+            DataTable result = await GetDataByDataTable(query, parameter);
+            if (result != null && result.Rows.Count > 0)
+            {
+                response.ResultCode = result.Rows[0]["ResultCode"].ToString();
+            }
+            else
+            {
+                response.ResultCode = "No data returned.";
+            }
+
+            return response;
+        }
+
+
+        public async Task<List<OperationNameEntryGetList>> GetOperationNameEntryList()
+        {
+
+            List<OperationNameEntryGetList> list = new List<OperationNameEntryGetList>();
+            DynamicParameters parameter = new DynamicParameters();
+            string query = "sp_Get_OperationNameEntry";
+
+            var GetList = await GetDisposeErrorFreeListAsyncNew<OperationNameEntryGetList>(query, parameter);
+            foreach (var item in GetList)
+            {
+                var obj = new OperationNameEntryGetList
+                {
+                    OperationId = item.OperationId,
+                    OperationName = item.OperationName,
+                    Priority = item.Priority,
+                    IsActive = item.IsActive
+
+                };
+                list.Add(obj);
+
+            }
+
+            return list;
+
         }
 
         public async Task<List<DropdownListDto>> GetReportName(string ReportMenu, string UserId)
