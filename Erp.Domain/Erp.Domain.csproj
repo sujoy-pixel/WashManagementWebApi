@@ -14,6 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Entities\Commercial\Setup\NewFolder\" />
     <Folder Include="Entities\ErpApp\SCHOOL\File\" />
   </ItemGroup>
 
