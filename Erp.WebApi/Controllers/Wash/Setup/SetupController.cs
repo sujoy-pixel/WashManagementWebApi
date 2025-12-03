@@ -52,12 +52,12 @@ namespace Erp.WebApi.Controllers.Commercial.Setup
             return Ok(await _mediator.Send(new ProcessNameEntryGet()));
         }
 
-        [HttpGet]
-        [ActionName("GetUnitName")]
-        public async Task<IActionResult> GetUnitName()
-        {
-            return Ok(await _mediator.Send(new UnitNameGet()));
-        }
+        //[HttpGet]
+        //[ActionName("GetUnitName")]
+        //public async Task<IActionResult> GetUnitName()
+        //{
+        //    return Ok(await _mediator.Send(new UnitNameGet()));
+        //}
 
                                                   /// Operation Name Entry ///
 
