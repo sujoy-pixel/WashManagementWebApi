@@ -76,5 +76,16 @@ namespace Erp.WebApi.Controllers.Commercial.Setup
         {
             return Ok(await _mediator.Send(new OperationNameEntryGet()));
         }
+
+                                                  /// Type of Inspection ///
+
+        [HttpPost]
+        [ActionName("SaveTypeofInspection")]
+        public async Task<IActionResult> SaveTypeofInspection(saveTypeofInspectionData command)
+        {
+
+            return Ok(await _mediator.Send(command));
+
+        }
     }
 }

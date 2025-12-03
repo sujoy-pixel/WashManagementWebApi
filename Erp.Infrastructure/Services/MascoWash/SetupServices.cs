@@ -204,6 +204,35 @@ namespace Erp.Infrastructure.Services.MascoWash
 
         }
 
+                                                         /// Type of Inspection ///
+
+        public async Task<WrapperResponseTypeofInspection> saveTypeofInspectionData(saveTypeofInspectionData saveDataListDto)
+        {
+            var response = new WrapperResponseTypeofInspection();
+            DynamicParameters parameter = new DynamicParameters();
+            string query = "sp_Insert_Update_Delete_SaveTypeofInspection";
+
+            parameter.Add("@Operation", saveDataListDto.Operation, DbType.String);
+            parameter.Add("@TypeofInspectionId", saveDataListDto.TypeofInspectionId, DbType.Int32);
+            parameter.Add("@TypeName", saveDataListDto.TypeName, DbType.String);
+            parameter.Add("@Priority", saveDataListDto.Priority, DbType.Int32);
+            parameter.Add("@IsActive", saveDataListDto.IsActive, DbType.Int32);
+            parameter.Add("@CreatedBy", _currentUserService.EmployeeId, DbType.String);
+
+
+            DataTable result = await GetDataByDataTable(query, parameter);
+            if (result != null && result.Rows.Count > 0)
+            {
+                response.ResultCode = result.Rows[0]["ResultCode"].ToString();
+            }
+            else
+            {
+                response.ResultCode = "No data returned.";
+            }
+
+            return response;
+        }
+
         public async Task<List<DropdownListDto>> GetReportName(string ReportMenu, string UserId)
         {
 
