@@ -57,12 +57,5 @@ namespace Erp.WebApi.Controllers.Commercial.Setup
         {
             return Ok(await _mediator.Send(new UnitNameGet()));
         }
-
-        //[HttpDelete]
-        //[ActionName("Delete")]
-        //public async Task<IActionResult> Delete()
-        //{
-        //    return Ok(await _mediator.Send(new UnitNameGet()));
-        //}
     }
 }
