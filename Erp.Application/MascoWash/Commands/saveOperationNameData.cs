@@ -9,7 +9,9 @@ namespace Erp.Application.MascoWash.Commands
 {
     public class saveOperationNameData : IRequest<WrapperResponseOperationName>
     {
-
+        /// <summary>
+        /// 
+        /// </summary>
         public string Operation { get; set; }
         public int OperationId { get; set; }
         public string OperationName { get; set; }
