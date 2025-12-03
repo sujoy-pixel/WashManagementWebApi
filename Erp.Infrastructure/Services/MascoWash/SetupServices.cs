@@ -232,6 +232,31 @@ namespace Erp.Infrastructure.Services.MascoWash
 
             return response;
         }
+        public async Task<List<TypeofInspectionGetList>> GetTypeofInspectionList()
+        {
+
+            List<TypeofInspectionGetList> list = new List<TypeofInspectionGetList>();
+            DynamicParameters parameter = new DynamicParameters();
+            string query = "sp_Get_TypeofInspection";
+
+            var GetList = await GetDisposeErrorFreeListAsyncNew<TypeofInspectionGetList>(query, parameter);
+            foreach (var item in GetList)
+            {
+                var obj = new TypeofInspectionGetList
+                {
+                    TypeofInspectionId = item.TypeofInspectionId,
+                    TypeName = item.TypeName,
+                    Priority = item.Priority,
+                    IsActive = item.IsActive
+
+                };
+                list.Add(obj);
+
+            }
+
+            return list;
+
+        }
 
         public async Task<List<DropdownListDto>> GetReportName(string ReportMenu, string UserId)
         {
