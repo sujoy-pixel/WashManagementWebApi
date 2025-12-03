@@ -87,5 +87,23 @@ namespace Erp.WebApi.Controllers.Commercial.Setup
         {
             return Ok(await _mediator.Send(new TypeofInspectionGet()));
         }
+
+                                                    /// Inspection Area ///
+                                                   
+        [HttpPost]
+        [ActionName("SaveInspectionArea")]
+        public async Task<IActionResult> SaveInspectionArea(saveInspectionAreaData command)
+        {
+
+            return Ok(await _mediator.Send(command));
+
+        }
+
+        [HttpGet]
+        [ActionName("GetInspectionAreaData")]
+        public async Task<IActionResult> GetInspectionAreaData()
+        {
+            return Ok(await _mediator.Send(new InspectionAreaGet()));
+        }
     }
 }

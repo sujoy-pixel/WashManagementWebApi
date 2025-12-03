@@ -258,6 +258,62 @@ namespace Erp.Infrastructure.Services.MascoWash
 
         }
 
+
+
+                                                           /// Inspection Area ///
+
+        public async Task<WrapperResponseInspectionArea> saveInspectionAreaData(saveInspectionAreaData saveDataListDto)
+        {
+            var response = new WrapperResponseInspectionArea();
+            DynamicParameters parameter = new DynamicParameters();
+            string query = "sp_Insert_Update_Delete_SaveInspectionArea";
+
+            parameter.Add("@Operation", saveDataListDto.Operation, DbType.String);
+            parameter.Add("@InspectionAreaId", saveDataListDto.InspectionAreaId, DbType.Int32);
+            parameter.Add("@InspectionArea", saveDataListDto.InspectionArea, DbType.String);
+            parameter.Add("@Priority", saveDataListDto.Priority, DbType.Int32);
+            parameter.Add("@IsActive", saveDataListDto.IsActive, DbType.Int32);
+            parameter.Add("@CreatedBy", _currentUserService.EmployeeId, DbType.String);
+
+
+            DataTable result = await GetDataByDataTable(query, parameter);
+            if (result != null && result.Rows.Count > 0)
+            {
+                response.ResultCode = result.Rows[0]["ResultCode"].ToString();
+            }
+            else
+            {
+                response.ResultCode = "No data returned.";
+            }
+
+            return response;
+        }
+        public async Task<List<InspectionAreaGetList>> GetInspectionAreaList()
+        {
+
+            List<InspectionAreaGetList> list = new List<InspectionAreaGetList>();
+            DynamicParameters parameter = new DynamicParameters();
+            string query = "sp_Get_InspectionArea";
+
+            var GetList = await GetDisposeErrorFreeListAsyncNew<InspectionAreaGetList>(query, parameter);
+            foreach (var item in GetList)
+            {
+                var obj = new InspectionAreaGetList
+                {
+                    InspectionAreaId = item.InspectionAreaId,
+                    InspectionArea = item.InspectionArea,
+                    Priority = item.Priority,
+                    IsActive = item.IsActive
+
+                };
+                list.Add(obj);
+
+            }
+
+            return list;
+
+        }
+
         public async Task<List<DropdownListDto>> GetReportName(string ReportMenu, string UserId)
         {
 
