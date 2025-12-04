@@ -41,5 +41,12 @@ namespace Erp.WebApi.Controllers.Commercial.Common
         {
             return Ok(await _mediator.Send(new InspectionHeadDDL()));
         }
+
+        [HttpGet]
+        [ActionName("GetOperationNameDDL")]
+        public async Task<IActionResult> GetOperationNameDDL()
+        {
+            return Ok(await _mediator.Send(new OperationNameDDL()));
+        }
     }
 }

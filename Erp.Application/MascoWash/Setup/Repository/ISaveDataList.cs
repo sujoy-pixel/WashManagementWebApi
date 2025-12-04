@@ -40,5 +40,6 @@ namespace Erp.Application.MascoWash.Setup.Repository
         Task<List<FaultNameGetList>> GetFaultNameList();
 
         Task<List<DropdownListDto1>> GetInspectionHeadDDLList();
+        Task<List<DropdownListDto1>> GetOperationNameDDLList();
     }
 }
