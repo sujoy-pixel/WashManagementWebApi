@@ -24,5 +24,9 @@ namespace Erp.Application.MascoWash.Setup.Repository
         Task<List<OperationNameEntryGetList>> GetOperationNameEntryList();
 
         Task<WrapperResponseTypeofInspection> saveTypeofInspectionData(saveTypeofInspectionData saveDataListDto);
+        Task<List<TypeofInspectionGetList>> GetTypeofInspectionList();
+
+        Task<WrapperResponseInspectionArea> saveInspectionAreaData(saveInspectionAreaData saveDataListDto);
+        Task<List<InspectionAreaGetList>> GetInspectionAreaList();
     }
 }

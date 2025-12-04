@@ -7,16 +7,16 @@ using System.Threading.Tasks;
 
 namespace Erp.Application.MascoWash.Commands
 {
-    public class saveOperationNameData : IRequest<WrapperResponseOperationName>
+    public class saveInspectionAreaData : IRequest<WrapperResponseInspectionArea>
     {
         public string Operation { get; set; }
-        public int OperationId { get; set; }
-        public string OperationName { get; set; }
+        public int InspectionAreaId { get; set; }
+        public string InspectionArea { get; set; }
         public int Priority { get; set; }
         public bool IsActive { get; set; }
 
     }
-    public class WrapperResponseOperationName
+    public class WrapperResponseInspectionArea
     {
         public string ResultCode { get; set; }
     }
