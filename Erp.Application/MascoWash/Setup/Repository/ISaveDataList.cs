@@ -28,5 +28,8 @@ namespace Erp.Application.MascoWash.Setup.Repository
 
         Task<WrapperResponseInspectionArea> saveInspectionAreaData(saveInspectionAreaData saveDataListDto);
         Task<List<InspectionAreaGetList>> GetInspectionAreaList();
+
+        Task<WrapperResponseFaultHead> saveFaultHeadData(saveFaultHeadData saveDataListDto);
+        Task<List<FaultHeadGetList>> GetFaultHeadList();
     }
 }
