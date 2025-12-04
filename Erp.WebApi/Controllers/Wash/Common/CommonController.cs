@@ -34,5 +34,12 @@ namespace Erp.WebApi.Controllers.Commercial.Common
         {
             return Ok(await _mediator.Send(new FaultHeadDDL()));
         }
+
+        [HttpGet]
+        [ActionName("GetInspectionHeadDDL")]
+        public async Task<IActionResult> GetInspectionHeadDDL()
+        {
+            return Ok(await _mediator.Send(new InspectionHeadDDL()));
+        }
     }
 }

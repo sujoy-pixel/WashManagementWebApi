@@ -1,22 +1,22 @@
 ﻿using Dapper;
-using Erp.Application.Auth.RoleManagement.Command;
 using Erp.Application.Auth.RoleManagement;
+using Erp.Application.Auth.RoleManagement.Command;
 using Erp.Application.Common.Interfaces;
+using Erp.Application.MascoWash.Queries;
 using Erp.Application.Requests.ErpApp.Commercial.Setup;
 using Erp.Infrastructure.Persistence;
+using MediatR;
+using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Data;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
-
-using Microsoft.Extensions.Configuration;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using Microsoft.EntityFrameworkCore.Metadata;
-using System.Net.NetworkInformation;
-using MediatR;
-using System.ComponentModel.Design;
 
 namespace Erp.Infrastructure.Services.MascoWash
 {
@@ -33,6 +33,5 @@ namespace Erp.Infrastructure.Services.MascoWash
             _currentUserService = currentUserService;
 
         }
-       
     }
 }
