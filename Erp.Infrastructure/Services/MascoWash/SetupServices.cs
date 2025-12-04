@@ -377,6 +377,66 @@ namespace Erp.Infrastructure.Services.MascoWash
         }
 
 
+                                                     /// Inspection Head Layout ///
+
+        public async Task<WrapperResponseInspectionHead> saveInspectionHeadData(saveInspectionHeadData saveDataListDto)
+        {
+            var response = new WrapperResponseInspectionHead();
+            DynamicParameters parameter = new DynamicParameters();
+            string query = "sp_Insert_Update_Delete_SaveInspectionHead";
+
+            parameter.Add("@Operation", saveDataListDto.Operation, DbType.String);
+            parameter.Add("@InspectionHeadId", saveDataListDto.InspectionHeadId, DbType.Int32);
+            parameter.Add("@HeadName", saveDataListDto.HeadName, DbType.String);
+            parameter.Add("@Priority", saveDataListDto.Priority, DbType.Int32);
+            parameter.Add("@IsActive", saveDataListDto.IsActive, DbType.Int32);
+            parameter.Add("@CreatedBy", _currentUserService.EmployeeId, DbType.String);
+
+
+            DataTable result = await GetDataByDataTable(query, parameter);
+            if (result != null && result.Rows.Count > 0)
+            {
+                // Assuming the stored procedure returns a column named 'SupResponse'
+                response.ResultCode = result.Rows[0]["ResultCode"].ToString();
+            }
+            else
+            {
+                response.ResultCode = "No data returned.";
+            }
+
+            return response;
+        }
+
+
+
+        public async Task<List<InspectionHeadGetList>> GetInspectionHeadList()
+        {
+
+            List<InspectionHeadGetList> list = new List<InspectionHeadGetList>();
+            DynamicParameters parameter = new DynamicParameters();
+            string query = "sp_Get_InspectionHead";
+            //parameter.Add("@searchTerm", searchTerm, DbType.String, ParameterDirection.Input);
+
+            var GetList = await GetDisposeErrorFreeListAsyncNew<InspectionHeadGetList>(query, parameter);
+            foreach (var item in GetList)
+            {
+                var obj = new InspectionHeadGetList
+                {
+                    InspectionHeadId = item.InspectionHeadId,
+                    HeadName = item.HeadName,
+                    Priority = item.Priority,
+                    IsActive = item.IsActive
+
+                };
+                list.Add(obj);
+
+            }
+
+            return list;
+
+        }
+
+
 
         public async Task<List<DropdownListDto>> GetReportName(string ReportMenu, string UserId)
         {

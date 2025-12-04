@@ -124,5 +124,23 @@ namespace Erp.WebApi.Controllers.Commercial.Setup
         {
             return Ok(await _mediator.Send(new FaultHeadGet()));
         }
+
+                                                 /// Inspection Head Layout ///
+
+        [HttpPost]
+        [ActionName("SaveInspectionHead")]
+        public async Task<IActionResult> SaveInspectionHead(saveInspectionHeadData command)
+        {
+
+            return Ok(await _mediator.Send(command));
+
+        }
+
+        [HttpGet]
+        [ActionName("GetInspectionHeadData")]
+        public async Task<IActionResult> GetInspectionHeadData()
+        {
+            return Ok(await _mediator.Send(new InspectionHeadGet()));
+        }
     }
 }
