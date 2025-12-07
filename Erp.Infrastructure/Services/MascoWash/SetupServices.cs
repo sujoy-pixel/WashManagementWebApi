@@ -215,7 +215,7 @@ namespace Erp.Infrastructure.Services.MascoWash
             parameter.Add("@Operation", saveDataListDto.Operation, DbType.String);
             parameter.Add("@TypeofInspectionId", saveDataListDto.TypeofInspectionId, DbType.Int32);
             parameter.Add("@TypeName", saveDataListDto.TypeName, DbType.String);
-            parameter.Add("@Priority", saveDataListDto.Priority, DbType.Int32);
+            //parameter.Add("@Priority", saveDataListDto.Priority, DbType.Int32);
             parameter.Add("@IsActive", saveDataListDto.IsActive, DbType.Int32);
             parameter.Add("@CreatedBy", _currentUserService.EmployeeId, DbType.String);
 

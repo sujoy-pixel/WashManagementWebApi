@@ -13,7 +13,7 @@ namespace Erp.Application.MascoWash.Commands
         public string Operation { get; set; }
         public int TypeofInspectionId { get; set; }
         public string TypeName { get; set; }
-        public int Priority { get; set; }
+        //public int Priority { get; set; }
         public bool IsActive { get; set; }
 
     }

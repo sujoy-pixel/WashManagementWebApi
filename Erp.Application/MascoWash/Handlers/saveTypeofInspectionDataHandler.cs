@@ -26,7 +26,7 @@ namespace Erp.Application.MascoWash.Handlers
                 Operation = request.Operation,
                 TypeofInspectionId = request.TypeofInspectionId,
                 TypeName = request.TypeName,
-                Priority = request.Priority,
+                //Priority = request.Priority,
                 IsActive = request.IsActive
             };
 
