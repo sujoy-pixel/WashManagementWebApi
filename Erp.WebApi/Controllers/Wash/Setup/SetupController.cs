@@ -142,5 +142,24 @@ namespace Erp.WebApi.Controllers.Commercial.Setup
         {
             return Ok(await _mediator.Send(new InspectionHeadGet()));
         }
+
+
+                                                     /// Fault Name Layout ///
+
+        [HttpPost]
+        [ActionName("SaveFaultName")]
+        public async Task<IActionResult> SaveFaultName(saveFaultNameData command)
+        {
+
+            return Ok(await _mediator.Send(command));
+
+        }
+
+        [HttpGet]
+        [ActionName("GetFaultNameData")]
+        public async Task<IActionResult> GetFaultNameData()
+        {
+            return Ok(await _mediator.Send(new FaultNameGet()));
+        }
     }
 }

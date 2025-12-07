@@ -34,5 +34,12 @@ namespace Erp.Application.MascoWash.Setup.Repository
 
         Task<WrapperResponseInspectionHead> saveInspectionHeadData(saveInspectionHeadData saveDataListDto);
         Task<List<InspectionHeadGetList>> GetInspectionHeadList();
+
+        Task<List<DropdownListDto1>> GetFaultHeadDDLList();
+        Task<WrapperResponseFaultName> saveFaultNameData(saveFaultNameData saveDataListDto);
+        Task<List<FaultNameGetList>> GetFaultNameList();
+
+        Task<List<DropdownListDto1>> GetInspectionHeadDDLList();
+        Task<List<DropdownListDto1>> GetOperationNameDDLList();
     }
 }

@@ -29,5 +29,25 @@ namespace Erp.WebApi.Controllers.Commercial.Common
         }
        
 
+        [HttpGet]
+        [ActionName("GetFaultHead")]
+        public async Task<IActionResult> GetFaultHead()
+        {
+            return Ok(await _mediator.Send(new FaultHeadDDL()));
+        }
+
+        [HttpGet]
+        [ActionName("GetInspectionHeadDDL")]
+        public async Task<IActionResult> GetInspectionHeadDDL()
+        {
+            return Ok(await _mediator.Send(new InspectionHeadDDL()));
+        }
+
+        [HttpGet]
+        [ActionName("GetOperationNameDDL")]
+        public async Task<IActionResult> GetOperationNameDDL()
+        {
+            return Ok(await _mediator.Send(new OperationNameDDL()));
+        }
     }
 }

@@ -437,7 +437,134 @@ namespace Erp.Infrastructure.Services.MascoWash
         }
 
 
+                                                    /// Fault Name Layout ///
 
+        public async Task<WrapperResponseFaultName> saveFaultNameData(saveFaultNameData saveDataListDto)
+        {
+            var response = new WrapperResponseFaultName();
+            DynamicParameters parameter = new DynamicParameters();
+            string query = "sp_Insert_Update_Delete_SaveFaultName";
+
+            parameter.Add("@Operation", saveDataListDto.Operation, DbType.String);
+            parameter.Add("@FaultNameId", saveDataListDto.FaultNameId, DbType.Int32);
+            parameter.Add("@FaultName", saveDataListDto.FaultName, DbType.String);
+            parameter.Add("@FaultHeadId", saveDataListDto.FaultHeadId, DbType.String);
+            parameter.Add("@CodeNo", saveDataListDto.CodeNo, DbType.String);
+            parameter.Add("@Priority", saveDataListDto.Priority, DbType.Int32);
+            parameter.Add("@IsActive", saveDataListDto.IsActive, DbType.Int32);
+            parameter.Add("@CreatedBy", _currentUserService.EmployeeId, DbType.String);
+
+
+            DataTable result = await GetDataByDataTable(query, parameter);
+            if (result != null && result.Rows.Count > 0)
+            {
+                // Assuming the stored procedure returns a column named 'SupResponse'
+                response.ResultCode = result.Rows[0]["ResultCode"].ToString();
+            }
+            else
+            {
+                response.ResultCode = "No data returned.";
+            }
+
+            return response;
+        }
+
+
+
+        public async Task<List<FaultNameGetList>> GetFaultNameList()
+        {
+
+            List<FaultNameGetList> list = new List<FaultNameGetList>();
+            DynamicParameters parameter = new DynamicParameters();
+            string query = "sp_Get_FaultName";
+            //parameter.Add("@searchTerm", searchTerm, DbType.String, ParameterDirection.Input);
+
+            var GetList = await GetDisposeErrorFreeListAsyncNew<FaultNameGetList>(query, parameter);
+            foreach (var item in GetList)
+            {
+                var obj = new FaultNameGetList
+                {
+                    FaultNameId = item.FaultNameId,
+                    FaultName = item.FaultName,
+                    FaultHeadId = item.FaultHeadId,
+                    FaultHeadName = item.FaultHeadName,
+                    CodeNo = item.CodeNo,
+                    Priority = item.Priority,
+                    IsActive = item.IsActive
+
+                };
+                list.Add(obj);
+
+            }
+
+            return list;
+
+        }
+        public async Task<List<DropdownListDto1>> GetFaultHeadDDLList()
+        {
+            List<DropdownListDto1> list = new List<DropdownListDto1>();
+            DynamicParameters parameter = new DynamicParameters();
+            string query = "sp_Get_FaultHeadDDL";
+
+            var GetList = await GetDisposeErrorFreeListAsyncNew<DropdownListDto1>(query, parameter);
+            foreach (var item in GetList)
+            {
+                var obj = new DropdownListDto1
+                {
+                    ID = item.ID,
+                    DisplayName = item.DisplayName
+
+                };
+                list.Add(obj);
+
+            }
+
+            return list;
+        }
+
+        public async Task<List<DropdownListDto1>> GetInspectionHeadDDLList()
+        {
+            List<DropdownListDto1> list = new List<DropdownListDto1>();
+            DynamicParameters parameter = new DynamicParameters();
+            string query = "sp_Get_InspectionHeadDDL";
+
+            var GetList = await GetDisposeErrorFreeListAsyncNew<DropdownListDto1>(query, parameter);
+            foreach (var item in GetList)
+            {
+                var obj = new DropdownListDto1
+                {
+                    ID = item.ID,
+                    DisplayName = item.DisplayName
+
+                };
+                list.Add(obj);
+
+            }
+
+            return list;
+        }
+
+        public async Task<List<DropdownListDto1>> GetOperationNameDDLList()
+        {
+            List<DropdownListDto1> list = new List<DropdownListDto1>();
+            DynamicParameters parameter = new DynamicParameters();
+            string query = "sp_Get_OperationNameDDL";
+
+            var GetList = await GetDisposeErrorFreeListAsyncNew<DropdownListDto1>(query, parameter);
+            foreach (var item in GetList)
+            {
+                var obj = new DropdownListDto1
+                {
+                    ID = item.ID,
+                    DisplayName = item.DisplayName
+
+                };
+                list.Add(obj);
+
+            }
+
+            return list;
+        }
         public async Task<List<DropdownListDto>> GetReportName(string ReportMenu, string UserId)
         {
 
