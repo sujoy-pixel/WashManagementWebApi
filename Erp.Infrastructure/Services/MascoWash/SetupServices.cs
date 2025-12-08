@@ -246,7 +246,7 @@ namespace Erp.Infrastructure.Services.MascoWash
                 {
                     TypeofInspectionId = item.TypeofInspectionId,
                     TypeName = item.TypeName,
-                    Priority = item.Priority,
+                    //Priority = item.Priority,
                     IsActive = item.IsActive
 
                 };

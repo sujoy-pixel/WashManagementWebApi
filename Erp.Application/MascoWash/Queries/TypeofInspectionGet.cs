@@ -15,7 +15,7 @@ namespace Erp.Application.MascoWash.Queries
     {
         public int TypeofInspectionId { get; set; }
         public string TypeName { get; set; }
-        public int Priority { get; set; }
+        //public int Priority { get; set; }
         public bool IsActive { get; set; }
     }
 }
