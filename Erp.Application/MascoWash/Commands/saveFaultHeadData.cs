@@ -7,17 +7,18 @@ using System.Threading.Tasks;
 
 namespace Erp.Application.MascoWash.Commands
 {
-    public class saveTypeofInspectionData : IRequest<WrapperResponseTypeofInspection>
+    public class saveFaultHeadData : IRequest<WrapperResponseFaultHead>
     {
 
         public string Operation { get; set; }
-        public int TypeofInspectionId { get; set; }
-        public string TypeName { get; set; }
-        //public int Priority { get; set; }
+        public int FaultHeadId { get; set; }
+        public int CodeNo { get; set; }
+        public string FaultHeadName { get; set; }
+        public int Priority { get; set; }
         public bool IsActive { get; set; }
 
     }
-    public class WrapperResponseTypeofInspection
+    public class WrapperResponseFaultHead
     {
         public string ResultCode { get; set; }
     }
