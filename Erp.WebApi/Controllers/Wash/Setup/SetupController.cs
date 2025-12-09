@@ -102,6 +102,7 @@ namespace Erp.WebApi.Controllers.Commercial.Setup
         [HttpGet]
         [ActionName("GetInspectionAreaData")]
         public async Task<IActionResult> GetInspectionAreaData()
+        
         {
             return Ok(await _mediator.Send(new InspectionAreaGet()));
         }
