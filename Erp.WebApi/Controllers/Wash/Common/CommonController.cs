@@ -55,5 +55,6 @@ namespace Erp.WebApi.Controllers.Commercial.Common
         {
             return Ok(await _mediator.Send(new OperationNameDDL()));
         }
+        
     }
 }
