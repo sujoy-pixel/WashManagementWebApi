@@ -314,8 +314,35 @@ namespace Erp.Infrastructure.Services.MascoWash
 
         }
 
+        public async Task<WrapperResponseInspectionArea> DeleteInspectionsArea(saveInspectionAreaData saveDataListDto)
+        {
+            var response = new WrapperResponseInspectionArea();
+            DynamicParameters parameter = new DynamicParameters();
+            string query = "sp_Insert_Update_Delete_SaveInspectionArea";
 
-                                                    /// Fault Head Name Layout ///
+            parameter.Add("@Operation", saveDataListDto.Operation, DbType.String);
+            parameter.Add("@InspectionAreaId", saveDataListDto.InspectionAreaId, DbType.Int32);
+            parameter.Add("@InspectionArea", saveDataListDto.InspectionArea, DbType.String);
+            parameter.Add("@Priority", saveDataListDto.Priority, DbType.Int32);
+            parameter.Add("@IsActive", saveDataListDto.IsActive, DbType.Int32);
+            parameter.Add("@CreatedBy", _currentUserService.EmployeeId, DbType.String);
+
+
+            DataTable result = await GetDataByDataTable(query, parameter);
+            if (result != null && result.Rows.Count > 0)
+            {
+                response.ResultCode = result.Rows[0]["ResultCode"].ToString();
+            }
+            else
+            {
+                response.ResultCode = "No data returned.";
+            }
+
+            return response;
+        }
+
+
+        /// Fault Head Name Layout ///
 
         public async Task<WrapperResponseFaultHead> saveFaultHeadData(saveFaultHeadData saveDataListDto)
         {
