@@ -5,17 +5,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Entities\Commercial\Setup\NewFolder\**" />
     <Compile Remove="Entities\ErpApp\Commercial\**" />
     <Compile Remove="Entities\ErpApp\Payroll\**" />
+    <EmbeddedResource Remove="Entities\Commercial\Setup\NewFolder\**" />
     <EmbeddedResource Remove="Entities\ErpApp\Commercial\**" />
     <EmbeddedResource Remove="Entities\ErpApp\Payroll\**" />
+    <None Remove="Entities\Commercial\Setup\NewFolder\**" />
     <None Remove="Entities\ErpApp\Commercial\**" />
     <None Remove="Entities\ErpApp\Payroll\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Entities\Commercial\Setup\NewFolder\" />
     <Folder Include="Entities\ErpApp\SCHOOL\File\" />
+    <Folder Include="Entities\NewFolder\" />
+    <Folder Include="Entities\Wash\Setup\" />
   </ItemGroup>
 
   <ItemGroup>

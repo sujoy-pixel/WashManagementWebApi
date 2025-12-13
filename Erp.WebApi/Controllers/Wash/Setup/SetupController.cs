@@ -16,6 +16,7 @@ using System.IO;
 using System.Net.NetworkInformation;
 using System.Threading.Tasks;
 
+
 namespace Erp.WebApi.Controllers.Commercial.Setup
 {
     [Route("api/[controller]/[action]")]
@@ -162,6 +163,35 @@ namespace Erp.WebApi.Controllers.Commercial.Setup
         {
             return Ok(await _mediator.Send(new FaultNameGet()));
         }
+
+        //[HttpPost]
+        //[ActionName("SaveMachineMasterDetailEntry")]
+        //public async Task<IActionResult> SaveMachineMasterDetailEntry([FromBody] SaveMachineName dto)
+        //{
+        //    // You can map dto to a mediator command that will transform MachineList -> DataTable and call the SP.
+        //    return Ok(await _mediator.Send(new SaveMachineMasterDetailCommand(dto)));
+        //}
+        [HttpPost]
+        [ActionName("SaveMachineName")]
+        public async Task<IActionResult> SaveMachineName(SaveMachineName command)
+        {         
+            return Ok(await _mediator.Send(command));
+        }
+
+        //[HttpPost]
+        //[ActionName("CheckMachineExists")]
+        //public async Task<IActionResult> CheckMachineExists([FromBody] CheckMachineExistsDto dto)
+        //{
+        //    // mediator command should run sp_Check_MachineExists and return ExistsFlag
+        //    return Ok(await _mediator.Send(new CheckMachineExistsQuery(dto.UnitId, dto.OperationId, dto.MachineName)));
+        //}
+
+        //[HttpGet]
+        //[ActionName("GetMachineMasterList")]
+        //public async Task<IActionResult> GetMachineMasterList()
+        //{
+        //    return Ok(await _mediator.Send(new GetMachineMasterListQuery()));
+        //}
 
                                                      /// Fault Wise Name Tag ///
     }

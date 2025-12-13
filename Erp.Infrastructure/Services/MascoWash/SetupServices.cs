@@ -8,8 +8,10 @@ using Erp.Application.Common.Interfaces;
 using Erp.Application.Common.Models;
 using Erp.Application.MascoWash.Commands;
 using Erp.Application.MascoWash.Queries;
+
 using Erp.Application.MascoWash.Setup.Repository;
 using Erp.Domain.Entities.Commercial.Setup;
+
 using Erp.Infrastructure.Persistence;
 using FluentValidation.Validators;
 using MailKit.Search;
@@ -36,8 +38,14 @@ using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace Erp.Infrastructure.Services.MascoWash
 {
-    public class SetupServices : DbContext<SaveDataList>, ISaveDataList, ISetup
+
+ 
+
+
+
+        public class SetupServices : DbContext<SaveDataList>, ISaveDataList, ISetup
     {
+    
         private readonly ApplicationDbContext _dbContext;
         private readonly ICurrentUserService _currentUserService;
         private readonly ISaveDataList _setupService;
@@ -617,6 +625,37 @@ namespace Erp.Infrastructure.Services.MascoWash
         }
 
 
-     
+       
+        public async Task<List<machineDetailModel>> SaveMachineName(SaveMachineName saveDataListDto)
+        {
+
+            List<machineDetailModel> list = new List<machineDetailModel>();
+            List<machineDetailModel> listDetail = saveDataListDto._listData.ToList();
+            DataTable dataTable = ListToDataTableConversion.ConvertListToDataTable(listDetail);
+            DynamicParameters parameterMaster = new DynamicParameters();
+            DynamicParameters parameter = new DynamicParameters();
+            string queryMasterFile = "sp_Generate_MasterLcFileNo";
+            parameterMaster.Add("@UnitId", saveDataListDto.UnitId, DbType.Int32, ParameterDirection.Input);
+      
+            //string query = "sp_Insert_Update_MasterLc_Master_Detail_Cursor_1";
+            string query = "sp_Insert_Update_MasterLc_Master_Detail_Cursor_1_test";
+            parameter.Add("@TableParam", dataTable.AsTableValuedParameter());
+            //parameter.Add("@MasterLcId", saveDataListDto.MasterLcId, DbType.Int32, ParameterDirection.Input);
+            //parameter.Add("@MasterLcType", saveDataListDto.MasterLcType, DbType.String, ParameterDirection.Input);
+            //parameter.Add("@AmendmentDate", saveDataListDto.AmendmentDate, DbType.String, ParameterDirection.Input);
+
+            //parameter.Add("@MasterLcFileNo", masterLcFileNo, DbType.String, ParameterDirection.Input);
+            //parameter.Add("@UnitId", saveDataListDto.UnitId, DbType.Int32, ParameterDirection.Input);
+            //parameter.Add("@BuyerId", saveDataListDto.BuyerId, DbType.Int32, ParameterDirection.Input);
+            //parameter.Add("@Udno", saveDataListDto.UDNo, DbType.String, ParameterDirection.Input);
+            parameter.Add("@CreatedBy", _currentUserService.EmployeeId, DbType.String, ParameterDirection.Input);
+            parameter.Add("@ClientIpAddress", _currentUserService.IpAddress, DbType.String, ParameterDirection.Input);
+
+            //====================Execute
+            var GetList = await GetDataByDataTable<SaveListModel>(query, parameter, dataTable);
+
+            return list;
+        }
+
     }
 }
