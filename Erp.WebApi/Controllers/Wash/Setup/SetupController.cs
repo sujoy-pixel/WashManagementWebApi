@@ -162,5 +162,7 @@ namespace Erp.WebApi.Controllers.Commercial.Setup
         {
             return Ok(await _mediator.Send(new FaultNameGet()));
         }
+
+                                                     /// Fault Wise Name Tag ///
     }
 }
