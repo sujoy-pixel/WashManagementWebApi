@@ -1,4 +1,5 @@
-﻿using Erp.Application.Common.Models;
+﻿using Erp.Application.Commercial.Setup.Command;
+using Erp.Application.Common.Models;
 using Erp.Application.MascoWash.Commands;
 using Erp.Application.MascoWash.Queries;
 using Erp.Application.Requests.ErpApp.SCHOOL.User;
@@ -8,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 
 namespace Erp.Application.MascoWash.Setup.Repository
 {
@@ -41,5 +43,13 @@ namespace Erp.Application.MascoWash.Setup.Repository
 
         Task<List<DropdownListDto1>> GetInspectionHeadDDLList();
         Task<List<DropdownListDto1>> GetOperationNameDDLList();
+
+        Task<List<machineDetailModel>> SaveMachineName(SaveMachineName saveDataListDto);
+
+
+
+
+
+
     }
 }
