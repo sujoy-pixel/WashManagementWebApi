@@ -786,6 +786,37 @@ namespace Erp.Infrastructure.Persistence
                 ConnectionClose();
             }
         }
+
+
+        public async Task<DataTable> GetDataByDataTableAsync(string sqlQuery, DynamicParameters parameter, DataTable dataTable)
+        {
+            var dt = dataTable;
+
+            try
+            {
+                using (var connection = _con)
+                {
+                    await connection.OpenAsync();
+
+                    using (var reader = await connection.ExecuteReaderAsync(sqlQuery, parameter, commandType: CommandType.StoredProcedure))
+                    {
+                        dt.Load(reader); // fill DataTable from reader
+                    }
+                }
+
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error executing stored procedure", ex);
+            }
+            finally
+            {
+                ConnectionClose(); // or connection.Close() if not using _con globally
+            }
+        }
+
+
         public async Task<(List<SaveCashLc> GetList, List<SaveCashLc> GetList1)> GetDataByDataTableMulti<SaveCashLc>(
      string sqlQuery,
      DynamicParameters parameter)

@@ -1,4 +1,5 @@
-﻿using Erp.Application.Commercial.Setup.Command;
+﻿using Erp.Application.Auth.RoleManagement;
+using Erp.Application.Commercial.Setup.Command;
 using Erp.Application.Common.Models;
 using Erp.Application.MascoWash.Commands;
 using Erp.Application.MascoWash.Queries;
@@ -44,8 +45,13 @@ namespace Erp.Application.MascoWash.Setup.Repository
         Task<List<DropdownListDto1>> GetInspectionHeadDDLList();
         Task<List<DropdownListDto1>> GetOperationNameDDLList();
 
-        Task<List<machineDetailModel>> SaveMachineName(SaveMachineName saveDataListDto);
+        //Task<List<Result> saveMachineName(SaveMachineName saveDataListDto);
+        //Task<WrapperResponseMachineMasterDetail> saveMachineMasterDetailEntry(saveMachineMasterDetailEntry request);
+        Task<Result> saveMachineName(SaveMachineName saveDataListDto);
 
+
+        Task<List<MachineDuplicateCheckModel>> CheckMachineExists(int unitId, int operationId,string machineName);
+        Task<List<MachineMasterDetailModel>> GetMachineMasterList();
 
 
 

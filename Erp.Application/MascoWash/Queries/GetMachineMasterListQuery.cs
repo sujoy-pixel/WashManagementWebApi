@@ -4,7 +4,13 @@ using System.Text;
 
 namespace Erp.Application.MascoWash.Queries
 {
-    internal class GetMachineMasterListQuery
+    using Erp.Application.MascoWash.Commands;
+    using MediatR;
+    using System.Collections.Generic;
+
+    public class GetMachineMasterListQuery : IRequest<List<MachineMasterDetailModel>>
     {
+        // No input parameters needed for this query
     }
+
 }

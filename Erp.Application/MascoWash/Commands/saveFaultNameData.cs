@@ -22,5 +22,7 @@ namespace Erp.Application.MascoWash.Commands
     public class WrapperResponseFaultName
     {
         public string ResultCode { get; set; }
+        public bool IsSuccess { get; internal set; }
+        public string Message { get; internal set; }
     }
 }

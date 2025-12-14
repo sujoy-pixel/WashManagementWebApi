@@ -45,4 +45,8 @@
 		<Folder Include="Requests\ErpApp\Helper\BuyerSizeSet\Query\" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <None Include="MascoWash\Commands\CheckMachineExistsDto.cs" />
+	</ItemGroup>
+
 </Project>
