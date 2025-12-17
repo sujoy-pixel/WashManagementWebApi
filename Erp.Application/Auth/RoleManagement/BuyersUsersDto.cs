@@ -158,6 +158,10 @@ namespace Erp.Application.Auth.RoleManagement
         public string PortOfLoadingFrom { get; set; }
         public string PortOfLoadingTo { get; set; }
     }
+    public class MachineDuplicateCheckModel
+    {
+        public int ExistsFlag { get; set; }
+    }
 
-   
+
 }

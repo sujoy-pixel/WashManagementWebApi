@@ -26,6 +26,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
 using System.Data;
+using System.Drawing;
 using System.Drawing.Imaging;
 using System.Linq;
 using System.Net.NetworkInformation;
@@ -36,23 +37,48 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
+using System.Data.SqlClient;
+
+
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace Erp.Infrastructure.Services.MascoWash
 {
+
+
+
+
+
+    public class SetupServices : DbContext<SaveDataList>, ISaveDataList, ISetup
     public class SetupServices : DbContext<SaveDataList>, ISaveDataList, ISetup
     {
 
         private readonly ApplicationDbContext _dbContext;
         private readonly ICurrentUserService _currentUserService;
+        private readonly string _connectionString;
         private readonly ISaveDataList _setupService;
+        private readonly IDbConnection _con;
 
         public SetupServices(ICurrentUserService currentUserService, IConfiguration configuration, ApplicationDbContext dbcontext) : base(configuration)
         {
             _dbContext = dbcontext;
             _currentUserService = currentUserService;
-
+            _connectionString = configuration.GetConnectionString("DefaultConnection");
+            _con = base.GetType()
+                .GetField("_con", BindingFlags.Instance | BindingFlags.NonPublic)
+                ?.GetValue(this) as IDbConnection;
         }
+
+        // Helper method to create connection
+        private IDbConnection CreateConnection()
+        {
+            var conn = new SqlConnection(_connectionString);
+            if (conn.State != ConnectionState.Open)
+                conn.Open();
+            return conn;
+        }
+
+
 
         public async Task<Result> CreateDataList(SaveDataListDto saveDataListDto)
         {
@@ -624,13 +650,51 @@ namespace Erp.Infrastructure.Services.MascoWash
 
 
 
-        public async Task<List<machineDetailModel>> SaveMachineName(SaveMachineName saveDataListDto)
-        {
+        //public async Task<List<machineDetailModel>> SaveMachineName(SaveMachineName saveDataListDto)
+        //{
 
-            List<machineDetailModel> list = new List<machineDetailModel>();
-            List<machineDetailModel> listDetail = saveDataListDto._listData.ToList();
-            DataTable dataTable = ListToDataTableConversion.ConvertListToDataTable(listDetail);
-            DynamicParameters parameterMaster = new DynamicParameters();
+        //    List<machineDetailModel> list = new List<machineDetailModel>();
+        //    List<machineDetailModel> listDetail = saveDataListDto._listData.ToList();
+        //    DataTable dataTable = ListToDataTableConversion.ConvertListToDataTable(listDetail);
+        //    DynamicParameters parameterMaster = new DynamicParameters();
+        //    DynamicParameters parameter = new DynamicParameters();
+        //    string queryMasterFile = "sp_Generate_MasterLcFileNo";
+        //    parameterMaster.Add("@UnitId", saveDataListDto.UnitId, DbType.Int32, ParameterDirection.Input);
+
+        //    //string query = "sp_Insert_Update_MasterLc_Master_Detail_Cursor_1";
+        //    string query = "sp_Insert_Update_MasterLc_Master_Detail_Cursor_1_test";
+        //    parameter.Add("@TableParam", dataTable.AsTableValuedParameter());
+        //    //parameter.Add("@MasterLcId", saveDataListDto.MasterLcId, DbType.Int32, ParameterDirection.Input);
+        //    //parameter.Add("@MasterLcType", saveDataListDto.MasterLcType, DbType.String, ParameterDirection.Input);
+        //    //parameter.Add("@AmendmentDate", saveDataListDto.AmendmentDate, DbType.String, ParameterDirection.Input);
+
+        //    //parameter.Add("@MasterLcFileNo", masterLcFileNo, DbType.String, ParameterDirection.Input);
+        //    //parameter.Add("@UnitId", saveDataListDto.UnitId, DbType.Int32, ParameterDirection.Input);
+        //    //parameter.Add("@BuyerId", saveDataListDto.BuyerId, DbType.Int32, ParameterDirection.Input);
+        //    //parameter.Add("@Udno", saveDataListDto.UDNo, DbType.String, ParameterDirection.Input);
+        //    parameter.Add("@CreatedBy", _currentUserService.EmployeeId, DbType.String, ParameterDirection.Input);
+        //    parameter.Add("@ClientIpAddress", _currentUserService.IpAddress, DbType.String, ParameterDirection.Input);
+
+        //    //====================Execute
+        //    var GetList = await GetDataByDataTable<SaveListModel>(query, parameter, dataTable);
+
+        //    return list;
+        //}
+       
+
+
+
+
+
+
+
+        public async Task<List<MachineDuplicateCheckModel>> CheckMachineExists(
+     int unitId,
+     int operationId,
+     string machineName)
+        {
+            List<MachineDuplicateCheckModel> list = new List<MachineDuplicateCheckModel>();
+
             DynamicParameters parameter = new DynamicParameters();
             string queryMasterFile = "sp_Generate_MasterLcFileNo";
             parameterMaster.Add("@UnitId", saveDataListDto.UnitId, DbType.Int32, ParameterDirection.Input);
@@ -641,16 +705,27 @@ namespace Erp.Infrastructure.Services.MascoWash
             //parameter.Add("@MasterLcId", saveDataListDto.MasterLcId, DbType.Int32, ParameterDirection.Input);
             //parameter.Add("@MasterLcType", saveDataListDto.MasterLcType, DbType.String, ParameterDirection.Input);
             //parameter.Add("@AmendmentDate", saveDataListDto.AmendmentDate, DbType.String, ParameterDirection.Input);
+            string query = "Duplicate_Check_SaveMachineMasterDetailEntry";
 
-            //parameter.Add("@MasterLcFileNo", masterLcFileNo, DbType.String, ParameterDirection.Input);
-            //parameter.Add("@UnitId", saveDataListDto.UnitId, DbType.Int32, ParameterDirection.Input);
-            //parameter.Add("@BuyerId", saveDataListDto.BuyerId, DbType.Int32, ParameterDirection.Input);
-            //parameter.Add("@Udno", saveDataListDto.UDNo, DbType.String, ParameterDirection.Input);
-            parameter.Add("@CreatedBy", _currentUserService.EmployeeId, DbType.String, ParameterDirection.Input);
-            parameter.Add("@ClientIpAddress", _currentUserService.IpAddress, DbType.String, ParameterDirection.Input);
+            parameter.Add("@UnitId", unitId, DbType.Int32, ParameterDirection.Input);
+            parameter.Add("@OperationId", operationId, DbType.Int32, ParameterDirection.Input);
+            parameter.Add("@MachineName", machineName, DbType.String, ParameterDirection.Input);
 
-            //====================Execute
-            var GetList = await GetDataByDataTable<SaveListModel>(query, parameter, dataTable);
+            var getList =
+                await GetDisposeErrorFreeListAsyncNew<MachineDuplicateCheckModel>(
+                    query,
+                    parameter
+                );
+
+            foreach (var item in getList)
+            {
+                var obj = new MachineDuplicateCheckModel
+                {
+                    ExistsFlag = item.ExistsFlag
+                };
+
+                list.Add(obj);
+            }
 
             return list;
         }
@@ -793,5 +868,163 @@ namespace Erp.Infrastructure.Services.MascoWash
 
         }
 
+        public async Task<List<MachineMasterDetailModel>> GetMachineMasterList()
+        {
+            List<MachineMasterDetailModel> list = new List<MachineMasterDetailModel>();
+            DynamicParameters parameter = new DynamicParameters();
+            string query = "sp_Get_MachineMasterDetail_List";
+
+            var getList = await GetDisposeErrorFreeListAsyncNew<MachineMasterDetailModel>(query, parameter);
+
+            foreach (var item in getList)
+            {
+                var obj = new MachineMasterDetailModel
+                {
+                    MachineNameMasterId = item.MachineNameMasterId,
+                    UnitId = item.UnitId,
+                    UnitName = item.UnitName,
+                    OperationId = item.OperationId,
+                    OperationName = item.OperationName,
+                    MachineDetailId = item.MachineDetailId,
+                    MachineName = item.MachineName,
+                    IsActive = item.IsActive
+                };
+                list.Add(obj);
+            }
+
+            return list;
+        }
+
+        //async Task<List<Result>> ISaveDataList.saveMachineName(SaveMachineName saveDataListDto)
+        //{
+        //    List<machineDetailModel> listDetail = saveDataListDto._listData.ToList();
+        //    DataTable dataTable = ListToDataTableConversion.ConvertListToDataTable(listDetail);
+        //    DynamicParameters parameter = new DynamicParameters();
+        //    string query = "sp_Insert_Update_Delete_SaveMachineMasterDetailEntry";
+        //    parameter.Add("@Operation", saveDataListDto.Operation, DbType.String, ParameterDirection.Input);
+        //    parameter.Add("@UnitId", saveDataListDto.UnitId, DbType.Int32, ParameterDirection.Input);
+        //    parameter.Add("@OperationId", saveDataListDto.OperationId, DbType.Int32, ParameterDirection.Input);
+        //    parameter.Add("@CreatedBy", _currentUserService.EmployeeId, DbType.String, ParameterDirection.Input);
+        //    parameter.Add("@TableParam", dataTable.AsTableValuedParameter());
+        //    var GetList = await GetDataByDataTable<SaveMachineName>(query, parameter, dataTable);
+
+        //    return Result.Success().ToList();
+        //}
+
+        //public async Task<List<machineDetailModel>> SaveMachineName(SaveMachineName saveDataListDto)
+        //{
+        //    List<machineDetailModel> list = new List<machineDetailModel>();
+
+        //    // Convert list to DataTable (TVP)
+        //    List<machineDetailModel> listDetail = saveDataListDto._listData.ToList();
+        //    DataTable dataTable = ListToDataTableConversion.ConvertListToDataTable(listDetail);
+
+        //    DynamicParameters parameter = new DynamicParameters();
+
+        //    string query = "[dbo].[sp_Insert_Update_Delete_SaveMachineMasterDetailEntry]";
+
+        //    // ======== SP PARAMETERS ========
+        //    parameter.Add("@Operation", saveDataListDto.Operation, DbType.String, ParameterDirection.Input);
+        //    parameter.Add("@UnitId", saveDataListDto.UnitId, DbType.Int32, ParameterDirection.Input);
+        //    parameter.Add("@OperationId", saveDataListDto.OperationId, DbType.Int32, ParameterDirection.Input);
+        //    parameter.Add("@CreatedBy", _currentUserService.EmployeeId, DbType.String, ParameterDirection.Input);
+
+        //    // TVP
+        //    parameter.Add(
+        //        "@TableParam",
+        //        dataTable.AsTableValuedParameter("dbo.tbl_Save_List_Master_Detail_MachineEntry")
+        //    );
+
+        //    // ======== EXECUTION ========
+        //    var result = await GetDataByDataTable<machineDetailModel>(query, parameter, dataTable);
+
+        //    return list;
+        //}
+        //public async Task<List<machineDetailModel>> SaveMachineName(SaveMachineName saveDataListDto)
+        //{
+        //    List<machineDetailModel> list = new List<machineDetailModel>();
+
+        //    // Convert list to DataTable (TVP)
+        //    List<machineDetailModel> listDetail = saveDataListDto._listData.ToList();
+        //    DataTable dataTable = ListToDataTableConversion.ConvertListToDataTable(listDetail);
+
+        //    DynamicParameters parameter = new DynamicParameters();
+
+        //    string query = "[dbo].[sp_Insert_Update_Delete_SaveMachineMasterDetailEntry]";
+
+        //    // ======== SP PARAMETERS ========
+        //    parameter.Add("@Operation", saveDataListDto.Operation, DbType.String, ParameterDirection.Input);
+        //    parameter.Add("@UnitId", saveDataListDto.UnitId, DbType.Int32, ParameterDirection.Input);
+        //    parameter.Add("@OperationId", saveDataListDto.OperationId, DbType.Int32, ParameterDirection.Input);
+        //    parameter.Add("@CreatedBy", _currentUserService.EmployeeId, DbType.String, ParameterDirection.Input);
+
+        //    // TVP
+        //    parameter.Add(
+        //        "@TableParam",
+        //        dataTable.AsTableValuedParameter("dbo.tbl_Save_List_Master_Detail_MachineEntry")
+        //    );
+
+        //    // ======== EXECUTION ========
+        //    var result = await GetDataByDataTable<machineDetailModel>(query, parameter, dataTable);
+
+        //    return list;
+        //}
+
+        //public Task<List<Result>> saveMachineName(SaveMachineName saveDataListDto)
+        //{
+        //    return _setupService.saveMachineName(saveDataListDto);
+        //}
+
+
+
+
+        public async Task<Result> saveMachineName(SaveMachineName dto)
+        {
+
+
+            if (dto == null)
+                return Result.Failure(new[] { "Request data is null" });
+
+            //if (dto._listData == null || !dto._listData.Any())
+            //    return Result.Failure(new[] { "Machine detail list is empty" });
+
+            // Convert list to DataTable for TVP
+            var dataTable = ListToDataTableConversion.ConvertListToDataTable(dto._listData);
+
+            var parameter = new DynamicParameters();
+            parameter.Add("@Operation", dto.Operation);
+            parameter.Add("@UnitId", dto.UnitId);
+            parameter.Add("@OperationId", dto.OperationId);
+            parameter.Add("@MasterId", dto.MasterId); // Nullable int
+            parameter.Add("@CreatedBy", _currentUserService?.EmployeeId ?? "SYSTEM");
+            parameter.Add("@TableParam", dataTable.AsTableValuedParameter("dbo.tbl_Save_List_Master_Detail_MachineEntry"));
+
+            try
+            {
+                using var conn = CreateConnection();
+                int affectedRows = await conn.ExecuteAsync(
+                    "[dbo].[sp_Insert_Update_Delete_SaveMachineMasterDetailEntry]",
+                    parameter,
+                    commandType: CommandType.StoredProcedure
+                );
+
+                return affectedRows > 0
+                    ? Result.Success("Saved successfully")
+                    : Result.Failure(new[] { "No rows affected by database operation" });
+            }
+            catch (SqlException ex)
+            {
+                return Result.Failure(new[] { $"Database error: {ex.Message}" });
+            }
+            catch (System.Exception ex)
+            {
+                return Result.Failure(new[] { $"Unexpected error: {ex.Message}" });
+            }
+        }
+
+
+
     }
 }
+    
+
