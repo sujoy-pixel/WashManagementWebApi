@@ -16,6 +16,7 @@ using Erp.Infrastructure.Persistence;
 using FluentValidation.Validators;
 using MailKit.Search;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.EntityFrameworkCore.SqlServer.Query.Internal;
 using Microsoft.Extensions.Configuration;
@@ -31,6 +32,7 @@ using System.Net.NetworkInformation;
 using System.Reflection;
 using System.Security.AccessControl;
 using System.Security.Cryptography;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
@@ -38,17 +40,13 @@ using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace Erp.Infrastructure.Services.MascoWash
 {
-
- 
-
-
-
-        public class SetupServices : DbContext<SaveDataList>, ISaveDataList, ISetup
+    public class SetupServices : DbContext<SaveDataList>, ISaveDataList, ISetup
     {
-    
+
         private readonly ApplicationDbContext _dbContext;
         private readonly ICurrentUserService _currentUserService;
         private readonly ISaveDataList _setupService;
+
         public SetupServices(ICurrentUserService currentUserService, IConfiguration configuration, ApplicationDbContext dbcontext) : base(configuration)
         {
             _dbContext = dbcontext;
@@ -71,7 +69,7 @@ namespace Erp.Infrastructure.Services.MascoWash
             return Result.Success();
         }
 
-                                                 /// Process Name Entry ///
+        /// Process Name Entry ///
 
         public async Task<WrapperResponseProcessName> saveProcessNameEntryData(saveProcessNameData saveDataListDto)
         {
@@ -156,7 +154,7 @@ namespace Erp.Infrastructure.Services.MascoWash
         }
 
 
-                                                     /// Operation Name Entry ///
+        /// Operation Name Entry ///
 
         public async Task<WrapperResponseOperationName> saveOperationNameEntryData(saveOperationNameData saveDataListDto)
         {
@@ -212,7 +210,7 @@ namespace Erp.Infrastructure.Services.MascoWash
 
         }
 
-                                                         /// Type of Inspection ///
+        /// Type of Inspection ///
 
         public async Task<WrapperResponseTypeofInspection> saveTypeofInspectionData(saveTypeofInspectionData saveDataListDto)
         {
@@ -268,7 +266,7 @@ namespace Erp.Infrastructure.Services.MascoWash
 
 
 
-                                                           /// Inspection Area ///
+        /// Inspection Area ///
 
         public async Task<WrapperResponseInspectionArea> saveInspectionAreaData(saveInspectionAreaData saveDataListDto)
         {
@@ -412,7 +410,7 @@ namespace Erp.Infrastructure.Services.MascoWash
         }
 
 
-                                                     /// Inspection Head Layout ///
+        /// Inspection Head Layout ///
 
         public async Task<WrapperResponseInspectionHead> saveInspectionHeadData(saveInspectionHeadData saveDataListDto)
         {
@@ -472,7 +470,7 @@ namespace Erp.Infrastructure.Services.MascoWash
         }
 
 
-                                                    /// Fault Name Layout ///
+        /// Fault Name Layout ///
 
         public async Task<WrapperResponseFaultName> saveFaultNameData(saveFaultNameData saveDataListDto)
         {
@@ -625,7 +623,7 @@ namespace Erp.Infrastructure.Services.MascoWash
         }
 
 
-       
+
         public async Task<List<machineDetailModel>> SaveMachineName(SaveMachineName saveDataListDto)
         {
 
@@ -636,7 +634,7 @@ namespace Erp.Infrastructure.Services.MascoWash
             DynamicParameters parameter = new DynamicParameters();
             string queryMasterFile = "sp_Generate_MasterLcFileNo";
             parameterMaster.Add("@UnitId", saveDataListDto.UnitId, DbType.Int32, ParameterDirection.Input);
-      
+
             //string query = "sp_Insert_Update_MasterLc_Master_Detail_Cursor_1";
             string query = "sp_Insert_Update_MasterLc_Master_Detail_Cursor_1_test";
             parameter.Add("@TableParam", dataTable.AsTableValuedParameter());
@@ -655,6 +653,144 @@ namespace Erp.Infrastructure.Services.MascoWash
             var GetList = await GetDataByDataTable<SaveListModel>(query, parameter, dataTable);
 
             return list;
+        }
+        public async Task<WrapperResponseFaultWiseValueTag> saveFaultWiseValueTagData(saveFaultWiseValueTagData saveDataDto)
+        {
+            var response = new WrapperResponseFaultWiseValueTag();
+            DynamicParameters parameter = new DynamicParameters();
+
+            string query = "sp_Insert_Update_Delete_SaveFaultWiseValueTag";
+
+            parameter.Add("@Operation", saveDataDto.Operation, DbType.String);
+            parameter.Add("@FaultWiseMasterId", saveDataDto.FaultWiseMasterId, DbType.Int32);
+            parameter.Add("@Type", saveDataDto.Type, DbType.String);
+            parameter.Add("@InspectionHeadId", saveDataDto.InspectionHeadId, DbType.Int32);
+            parameter.Add("@FaultHeadId", saveDataDto.FaultHeadId, DbType.Int32);
+            parameter.Add("@CreatedBy", _currentUserService.EmployeeId, DbType.Int32);
+
+            DataTable tvpTable = new DataTable();
+            tvpTable.Columns.Add("FaultWiseMasterId", typeof(int));
+            tvpTable.Columns.Add("FaultNameId", typeof(int));
+            tvpTable.Columns.Add("Value", typeof(decimal));
+            tvpTable.Columns.Add("IsChecked", typeof(bool));
+
+            if (saveDataDto.FaultWiseDetails != null && saveDataDto.FaultWiseDetails.Count > 0)
+            {
+                foreach (var item in saveDataDto.FaultWiseDetails)
+                {
+                    tvpTable.Rows.Add(
+                        item.FaultWiseMasterId,
+                        item.FaultNameId,
+                        item.Value,
+                        item.IsChecked ? 1 : 0
+                    );
+                }
+            }
+
+            parameter.Add(
+                "@TableParam",
+                tvpTable.AsTableValuedParameter("dbo.tbl_FaultWiseType")
+            );
+
+            DataTable result = await GetDataByDataTable(query, parameter);
+
+            if (result != null && result.Rows.Count > 0)
+            {
+                response.ResultCode = result.Rows[0]["ResultCode"].ToString();
+            }
+            else
+            {
+                response.ResultCode = "No data returned.";
+            }
+
+            return response;
+        }
+
+        //public async Task<List<FaultWiseValueTagGetList>> Handle(FaultWiseValueTagGet request,CancellationToken cancellationToken)
+        //{
+        //    var result = await _connection.QueryMultipleAsync(
+        //        "sp_GetAll_FaultWiseValueTag",
+        //        commandType: CommandType.StoredProcedure
+        //    );
+
+        //    var masters = (await result
+        //        .ReadAsync<FaultWiseValueTagGetList>())
+        //        .ToList();
+
+        //    var details = (await result
+        //        .ReadAsync<FaultWiseValueTagDetailGetList>())
+        //        .ToList();
+
+        //    foreach (var master in masters)
+        //    {
+        //        master.FaultWiseDetails = details
+        //            .Where(d => d.FaultWiseMasterId == master.FaultWiseMasterId)
+        //            .ToList();
+        //    }
+
+        //    return masters;
+        //}
+
+        
+        public async Task<List<FaultWiseValueTagDetailGetAll>> GetFaultWiseValueTagList()
+        {
+
+            List<FaultWiseValueTagDetailGetAll> list = new List<FaultWiseValueTagDetailGetAll>();
+            DynamicParameters parameter = new DynamicParameters();
+            string query = "sp_GetAll_FaultWiseValueTag";
+
+            var GetList = await GetDisposeErrorFreeListAsyncNew<FaultWiseValueTagDetailGetAll>(query, parameter);
+            foreach (var item in GetList)
+            {
+                var obj = new FaultWiseValueTagDetailGetAll
+                {
+                    FaultWiseMasterId=item.FaultWiseMasterId,
+                    Type =item.Type,
+                    InspectionHeadId=item.InspectionHeadId,
+                    FaultHeadId =item.FaultHeadId,
+                    FaultWiseDetailsId=item.FaultWiseDetailsId,
+                    FaultNameId=item.FaultNameId,
+                    Value=item.Value,
+                    IsChecked=item.IsChecked
+
+               };
+                list.Add(obj);
+
+            }
+
+            return list;
+
+        }
+
+
+        public async Task<List<FaultWiseValueTagDetailGetAll>> GetFaultWiseValueTagListByFaultWiseMasterId(int FaultWiseMasterId)
+        {
+
+            List<FaultWiseValueTagDetailGetAll> list = new List<FaultWiseValueTagDetailGetAll>();
+            DynamicParameters parameter = new DynamicParameters();
+            string query = "sp_GetAll_FaultWiseValueTagByFaultMasterId";
+            parameter.Add("@FaultWiseMasterId", FaultWiseMasterId, DbType.Int32, ParameterDirection.Input);
+            var GetList = await GetDisposeErrorFreeListAsyncNew<FaultWiseValueTagDetailGetAll>(query, parameter);
+            foreach (var item in GetList)
+            {
+                var obj = new FaultWiseValueTagDetailGetAll
+                {
+                    FaultWiseMasterId = item.FaultWiseMasterId,
+                    Type = item.Type,
+                    InspectionHeadId = item.InspectionHeadId,
+                    FaultHeadId = item.FaultHeadId,
+                    FaultWiseDetailsId = item.FaultWiseDetailsId,
+                    FaultNameId = item.FaultNameId,
+                    Value = item.Value,
+                    IsChecked = item.IsChecked
+
+                };
+                list.Add(obj);
+
+            }
+
+            return list;
+
         }
 
     }

@@ -46,10 +46,11 @@ namespace Erp.Application.MascoWash.Setup.Repository
 
         Task<List<machineDetailModel>> SaveMachineName(SaveMachineName saveDataListDto);
 
+        Task<WrapperResponseFaultWiseValueTag> saveFaultWiseValueTagData(saveFaultWiseValueTagData saveDataListDto);
 
+        Task<List<FaultWiseValueTagDetailGetAll>> GetFaultWiseValueTagList();
 
-
-
+        Task<List<FaultWiseValueTagDetailGetAll>> GetFaultWiseValueTagListByFaultWiseMasterId(int FaultWiseMasterId);
 
     }
 }

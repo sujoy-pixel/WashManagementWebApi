@@ -194,5 +194,26 @@ namespace Erp.WebApi.Controllers.Commercial.Setup
         //}
 
                                                      /// Fault Wise Name Tag ///
+        [HttpPost]
+        [ActionName("SaveFaultWiseValueTag")]
+        public async Task<IActionResult> SaveFaultWiseValueTag(saveFaultWiseValueTagData command)
+        {
+            return Ok(await _mediator.Send(command));
+        }
+
+        [HttpGet]
+        [ActionName("GetFaultWiseValueTagData")]
+        public async Task<IActionResult> GetFaultWiseValueTagData()
+        {
+            return Ok(await _mediator.Send(new FaultWiseValueTagGet()));
+        }
+
+
+        [HttpGet]
+        [ActionName("GetFaultWiseValueTagDataByMasterId")]
+        public async Task<IActionResult> GetFaultWiseValueTagDataByMasterId(int FaultWiseMasterId)
+        {
+            return Ok(await _mediator.Send(new FaultWiseValueTagGetByMasterId(FaultWiseMasterId)));
+        }
     }
 }
