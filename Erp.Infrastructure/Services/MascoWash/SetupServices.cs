@@ -44,12 +44,6 @@ using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace Erp.Infrastructure.Services.MascoWash
 {
-
-
-
-
-
-    public class SetupServices : DbContext<SaveDataList>, ISaveDataList, ISetup
     public class SetupServices : DbContext<SaveDataList>, ISaveDataList, ISetup
     {
 
@@ -680,31 +674,12 @@ namespace Erp.Infrastructure.Services.MascoWash
 
         //    return list;
         //}
-       
 
-
-
-
-
-
-
-        public async Task<List<MachineDuplicateCheckModel>> CheckMachineExists(
-     int unitId,
-     int operationId,
-     string machineName)
+        public async Task<List<MachineDuplicateCheckModel>> CheckMachineExists(int unitId,int operationId,string machineName)
         {
             List<MachineDuplicateCheckModel> list = new List<MachineDuplicateCheckModel>();
 
             DynamicParameters parameter = new DynamicParameters();
-            string queryMasterFile = "sp_Generate_MasterLcFileNo";
-            parameterMaster.Add("@UnitId", saveDataListDto.UnitId, DbType.Int32, ParameterDirection.Input);
-
-            //string query = "sp_Insert_Update_MasterLc_Master_Detail_Cursor_1";
-            string query = "sp_Insert_Update_MasterLc_Master_Detail_Cursor_1_test";
-            parameter.Add("@TableParam", dataTable.AsTableValuedParameter());
-            //parameter.Add("@MasterLcId", saveDataListDto.MasterLcId, DbType.Int32, ParameterDirection.Input);
-            //parameter.Add("@MasterLcType", saveDataListDto.MasterLcType, DbType.String, ParameterDirection.Input);
-            //parameter.Add("@AmendmentDate", saveDataListDto.AmendmentDate, DbType.String, ParameterDirection.Input);
             string query = "Duplicate_Check_SaveMachineMasterDetailEntry";
 
             parameter.Add("@UnitId", unitId, DbType.Int32, ParameterDirection.Input);
@@ -729,6 +704,7 @@ namespace Erp.Infrastructure.Services.MascoWash
 
             return list;
         }
+
         public async Task<WrapperResponseFaultWiseValueTag> saveFaultWiseValueTagData(saveFaultWiseValueTagData saveDataDto)
         {
             var response = new WrapperResponseFaultWiseValueTag();
