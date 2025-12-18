@@ -998,7 +998,27 @@ namespace Erp.Infrastructure.Services.MascoWash
             }
         }
 
+        public async Task<List<DropdownListDto1>> GetBuyerDDLList()
+        {
+            List<DropdownListDto1> list = new List<DropdownListDto1>();
+            DynamicParameters parameter = new DynamicParameters();
+            string query = "sp_Get_Buyer";
 
+            var GetList = await GetDisposeErrorFreeListAsyncNew<DropdownListDto1>(query, parameter);
+            foreach (var item in GetList)
+            {
+                var obj = new DropdownListDto1
+                {
+                    ID = item.ID,
+                    DisplayName = item.DisplayName
+
+                };
+                list.Add(obj);
+
+            }
+
+            return list;
+        }
 
     }
 }

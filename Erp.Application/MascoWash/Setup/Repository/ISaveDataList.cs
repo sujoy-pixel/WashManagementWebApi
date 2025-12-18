@@ -44,12 +44,7 @@ namespace Erp.Application.MascoWash.Setup.Repository
 
         Task<List<DropdownListDto1>> GetInspectionHeadDDLList();
         Task<List<DropdownListDto1>> GetOperationNameDDLList();
-
-        //Task<List<Result> saveMachineName(SaveMachineName saveDataListDto);
-        //Task<WrapperResponseMachineMasterDetail> saveMachineMasterDetailEntry(saveMachineMasterDetailEntry request);
         Task<Result> saveMachineName(SaveMachineName saveDataListDto);
-
-
         Task<WrapperResponseFaultWiseValueTag> saveFaultWiseValueTagData(saveFaultWiseValueTagData saveDataListDto);
         Task<List<MachineDuplicateCheckModel>> CheckMachineExists(int unitId, int operationId,string machineName);
         Task<List<MachineMasterDetailModel>> GetMachineMasterList();
@@ -57,6 +52,8 @@ namespace Erp.Application.MascoWash.Setup.Repository
         Task<List<FaultWiseValueTagDetailGetAll>> GetFaultWiseValueTagList();
 
         Task<List<FaultWiseValueTagDetailGetAll>> GetFaultWiseValueTagListByFaultWiseMasterId(int FaultWiseMasterId);
+
+        Task<List<DropdownListDto1>> GetBuyerDDLList();
 
     }
 }
