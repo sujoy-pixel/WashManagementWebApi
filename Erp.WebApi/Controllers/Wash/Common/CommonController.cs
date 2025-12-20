@@ -113,5 +113,12 @@ namespace Erp.WebApi.Controllers.Commercial.Common
         {
             return Ok(await _mediator.Send(new DressPartDDL(itemText)));
         }
+
+        [HttpGet]
+        [ActionName("GetUOM")]
+        public async Task<IActionResult> GetUOM(string itemText)
+        {
+            return Ok(await _mediator.Send(new UOMDDL(itemText)));
+        }
     }
 }

@@ -62,6 +62,7 @@ namespace Erp.Application.MascoWash.Setup.Repository
         Task<List<DropdownListDto1>> GetFabricationDDLList(string itemText);
         Task<List<DropdownListDto1>> GetGSMDDLList(string itemText);
         Task<List<DropdownListDto1>> GetDressPartDDLList(string itemText);
+        Task<List<DropdownListDto1>> GetUOMDDLList(string itemText);
 
     }
 }
