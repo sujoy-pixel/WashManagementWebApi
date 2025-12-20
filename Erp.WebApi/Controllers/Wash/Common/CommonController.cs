@@ -93,5 +93,18 @@ namespace Erp.WebApi.Controllers.Commercial.Common
             return Ok(await _mediator.Send(new TypeDDL()));
         }
 
+        [HttpGet]
+        [ActionName("GetFabricationDDL")]
+        public async Task<IActionResult> GetFabricationDDL(string itemText)
+        {
+            return Ok(await _mediator.Send(new FabricationDDL(itemText)));
+        }
+
+        [HttpGet]
+        [ActionName("GetGSMDDL")]
+        public async Task<IActionResult> GetGSMDDL(string itemText)
+        {
+            return Ok(await _mediator.Send(new GSMDDL(itemText)));
+        }
     }
 }
