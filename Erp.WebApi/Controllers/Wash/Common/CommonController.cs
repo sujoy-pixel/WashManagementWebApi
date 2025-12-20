@@ -62,5 +62,36 @@ namespace Erp.WebApi.Controllers.Commercial.Common
         {
             return Ok(await _mediator.Send(new BuyerDDL()));
         }
+
+        [HttpGet]
+        [ActionName("GetJobDDL")]
+        public async Task<IActionResult> GetJobDDL(string itemText)
+        {
+
+            return Ok(await _mediator.Send(new JobDDL(itemText)));
+        }
+
+
+        [HttpGet]
+        [ActionName("GetStyleDDL")]
+        public async Task<IActionResult> GetStyleDDL(string itemText)
+        {
+            return Ok(await _mediator.Send(new StyleDDL(itemText)));
+        }
+
+        [HttpGet]
+        [ActionName("GetOrderDDL")]
+        public async Task<IActionResult> GetOrderDDL(string itemText)
+        {
+            return Ok(await _mediator.Send(new OrderDDL(itemText)));
+        }
+
+        [HttpGet]
+        [ActionName("GetTypeDDL")]
+        public async Task<IActionResult> GetTypeDDL()
+        {
+            return Ok(await _mediator.Send(new TypeDDL()));
+        }
+
     }
 }

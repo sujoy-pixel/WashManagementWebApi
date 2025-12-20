@@ -675,7 +675,7 @@ namespace Erp.Infrastructure.Services.MascoWash
         //    return list;
         //}
 
-        public async Task<List<MachineDuplicateCheckModel>> CheckMachineExists(int unitId,int operationId,string machineName)
+        public async Task<List<MachineDuplicateCheckModel>> CheckMachineExists(int unitId, int operationId, string machineName)
         {
             List<MachineDuplicateCheckModel> list = new List<MachineDuplicateCheckModel>();
 
@@ -756,33 +756,6 @@ namespace Erp.Infrastructure.Services.MascoWash
 
             return response;
         }
-
-        //public async Task<List<FaultWiseValueTagGetList>> Handle(FaultWiseValueTagGet request,CancellationToken cancellationToken)
-        //{
-        //    var result = await _connection.QueryMultipleAsync(
-        //        "sp_GetAll_FaultWiseValueTag",
-        //        commandType: CommandType.StoredProcedure
-        //    );
-
-        //    var masters = (await result
-        //        .ReadAsync<FaultWiseValueTagGetList>())
-        //        .ToList();
-
-        //    var details = (await result
-        //        .ReadAsync<FaultWiseValueTagDetailGetList>())
-        //        .ToList();
-
-        //    foreach (var master in masters)
-        //    {
-        //        master.FaultWiseDetails = details
-        //            .Where(d => d.FaultWiseMasterId == master.FaultWiseMasterId)
-        //            .ToList();
-        //    }
-
-        //    return masters;
-        //}
-
-        
         public async Task<List<FaultWiseValueTagDetailGetAll>> GetFaultWiseValueTagList()
         {
 
@@ -795,16 +768,16 @@ namespace Erp.Infrastructure.Services.MascoWash
             {
                 var obj = new FaultWiseValueTagDetailGetAll
                 {
-                    FaultWiseMasterId=item.FaultWiseMasterId,
-                    Type =item.Type,
-                    InspectionHeadId=item.InspectionHeadId,
-                    FaultHeadId =item.FaultHeadId,
-                    FaultWiseDetailsId=item.FaultWiseDetailsId,
-                    FaultNameId=item.FaultNameId,
-                    Value=item.Value,
-                    IsChecked=item.IsChecked
+                    FaultWiseMasterId = item.FaultWiseMasterId,
+                    Type = item.Type,
+                    InspectionHeadId = item.InspectionHeadId,
+                    FaultHeadId = item.FaultHeadId,
+                    FaultWiseDetailsId = item.FaultWiseDetailsId,
+                    FaultNameId = item.FaultNameId,
+                    Value = item.Value,
+                    IsChecked = item.IsChecked
 
-               };
+                };
                 list.Add(obj);
 
             }
@@ -1020,7 +993,90 @@ namespace Erp.Infrastructure.Services.MascoWash
             return list;
         }
 
+        public async Task<List<DropdownListDto1>> GetJobDDLList(string itemText)
+        {
+
+            List<DropdownListDto1> list = new List<DropdownListDto1>();
+            DynamicParameters parameter = new DynamicParameters();
+            string query = "sp_Get_Job";
+            parameter.Add("@ItemText", itemText, DbType.String, ParameterDirection.Input);
+
+            var GetList = await GetDisposeErrorFreeListAsyncNew<DropdownListDto1>(query, parameter);
+            foreach (var item in GetList)
+            {
+                var obj = new DropdownListDto1
+                {
+                    ID = item.ID,
+                    DisplayName = item.DisplayName,
+                    Option1 = item.Option1
+                };
+                list.Add(obj);
+
+            }
+
+            return list;
+        }
+
+
+        public async Task<List<DropdownListDto1>> GetStyleDDLList(string itemText)
+        {
+            List<DropdownListDto1> list = new List<DropdownListDto1>();
+            DynamicParameters parameter = new DynamicParameters();
+            string query = "sp_Get_Style";
+            parameter.Add("@ItemText", itemText, DbType.String, ParameterDirection.Input);
+
+            var GetList = await GetDisposeErrorFreeListAsyncNew<DropdownListDto1>(query, parameter);
+            foreach (var item in GetList)
+            {
+                var obj = new DropdownListDto1
+                {
+                    ID = item.ID,
+                    DisplayName = item.DisplayName
+
+                };
+                list.Add(obj);
+
+            }
+
+            return list;
+        }
+
+        public async Task<List<DropdownListDto1>> GetOrderDDLList(string itemText)
+        {
+            List<DropdownListDto1> list = new List<DropdownListDto1>();
+            DynamicParameters parameter = new DynamicParameters();
+            string query = "sp_Get_Order";
+            parameter.Add("@ItemText", itemText, DbType.String, ParameterDirection.Input);
+
+            var GetList = await GetDisposeErrorFreeListAsyncNew<DropdownListDto1>(query, parameter);
+            foreach (var item in GetList)
+            {
+                var obj = new DropdownListDto1
+                {
+                    ID = item.ID,
+                    DisplayName = item.DisplayName
+
+                };
+                list.Add(obj);
+
+            }
+
+            return list;
+        }
+
+        public async Task<List<DropdownListDto1>> GetTypeDDLList()
+        {
+            var list = new List<DropdownListDto1>
+    {
+        new DropdownListDto1 { ID = 1, DisplayName = "Fabrics" },
+        new DropdownListDto1 { ID = 2, DisplayName = "Gmt" },
+        new DropdownListDto1 { ID = 3, DisplayName = "Cutting points" }
+    };
+
+            return await Task.FromResult(list);
+        }
+
     }
 }
-    
+
 

@@ -54,6 +54,11 @@ namespace Erp.Application.MascoWash.Setup.Repository
         Task<List<FaultWiseValueTagDetailGetAll>> GetFaultWiseValueTagListByFaultWiseMasterId(int FaultWiseMasterId);
 
         Task<List<DropdownListDto1>> GetBuyerDDLList();
+        Task<List<DropdownListDto1>> GetJobDDLList(string itemText);
+        Task<List<DropdownListDto1>> GetStyleDDLList(string itemText);
+        Task<List<DropdownListDto1>> GetOrderDDLList(string itemText);
+
+        Task<List<DropdownListDto1>> GetTypeDDLList();
 
     }
 }
