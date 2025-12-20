@@ -1121,6 +1121,29 @@ namespace Erp.Infrastructure.Services.MascoWash
 
             return list;
         }
+
+        public async Task<List<DropdownListDto1>> GetDressPartDDLList(string itemText)
+        {
+            List<DropdownListDto1> list = new List<DropdownListDto1>();
+            DynamicParameters parameter = new DynamicParameters();
+            string query = "sp_Get_DressPart";
+            parameter.Add("@ItemText", itemText, DbType.String, ParameterDirection.Input);
+
+            var GetList = await GetDisposeErrorFreeListAsyncNew<DropdownListDto1>(query, parameter);
+            foreach (var item in GetList)
+            {
+                var obj = new DropdownListDto1
+                {
+                    ID = item.ID,
+                    DisplayName = item.DisplayName,
+                    Option1 = item.Option1
+                };
+                list.Add(obj);
+
+            }
+
+            return list;
+        }
     }
 }
 

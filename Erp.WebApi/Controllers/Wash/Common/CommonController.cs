@@ -106,5 +106,12 @@ namespace Erp.WebApi.Controllers.Commercial.Common
         {
             return Ok(await _mediator.Send(new GSMDDL(itemText)));
         }
+
+        [HttpGet]
+        [ActionName("GetDressPart")]
+        public async Task<IActionResult> GetDressPart(string itemText)
+        {
+            return Ok(await _mediator.Send(new DressPartDDL(itemText)));
+        }
     }
 }
