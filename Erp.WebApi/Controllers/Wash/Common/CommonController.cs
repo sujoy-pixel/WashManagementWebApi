@@ -120,5 +120,12 @@ namespace Erp.WebApi.Controllers.Commercial.Common
         {
             return Ok(await _mediator.Send(new UOMDDL(itemText)));
         }
+
+        [HttpGet]
+        [ActionName("GetTrackingNo")]
+        public async Task<IActionResult> GetTrackingNo(string itemText)
+        {
+            return Ok(await _mediator.Send(new TrackingNoDDL(itemText)));
+        }
     }
 }
