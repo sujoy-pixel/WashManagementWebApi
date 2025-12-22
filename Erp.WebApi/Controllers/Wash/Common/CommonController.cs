@@ -127,5 +127,12 @@ namespace Erp.WebApi.Controllers.Commercial.Common
         {
             return Ok(await _mediator.Send(new TrackingNoDDL(itemText)));
         }
+
+        [HttpGet]
+        [ActionName("GetTypeOfInspectionDDL")]
+        public async Task<IActionResult> GetTypeOfInspectionDDL()
+        {
+            return Ok(await _mediator.Send(new TypeOfInspectionDDL()));
+        }
     }
 }
