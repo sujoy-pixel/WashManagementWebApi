@@ -46,7 +46,7 @@ namespace Erp.WebApi.Controllers.Commercial.Common
         [ActionName("GetFaultHeadDDL")]
         public async Task<IActionResult> GetFaultHeadDDL()
         {
-            return Ok(await _mediator.Send(new DropdownListDto1()));
+            return Ok(await _mediator.Send(new FaultHeadDDL()));
         }
 
         [HttpGet]
@@ -126,6 +126,13 @@ namespace Erp.WebApi.Controllers.Commercial.Common
         public async Task<IActionResult> GetTrackingNo(string itemText)
         {
             return Ok(await _mediator.Send(new TrackingNoDDL(itemText)));
+        }
+
+        [HttpGet]
+        [ActionName("GetTypeOfInspectionDDL")]
+        public async Task<IActionResult> GetTypeOfInspectionDDL()
+        {
+            return Ok(await _mediator.Send(new TypeOfInspectionDDL()));
         }
     }
 }
