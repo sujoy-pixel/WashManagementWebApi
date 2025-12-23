@@ -64,6 +64,6 @@ namespace Erp.Application.MascoWash.Setup.Repository
         Task<List<DropdownListDto1>> GetDressPartDDLList(string itemText);
         Task<List<DropdownListDto1>> GetUOMDDLList(string itemText);
         Task<List<DropdownListDto1>> GetTrackingNoDDLList(string itemText);
-
+        Task<List<TrackingNoWiseReceiveDto>> GetReceiveDataList(string trackingNo);
     }
 }

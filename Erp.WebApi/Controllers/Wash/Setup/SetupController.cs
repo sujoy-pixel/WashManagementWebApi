@@ -237,5 +237,18 @@ namespace Erp.WebApi.Controllers.Commercial.Setup
         {
             return Ok(await _mediator.Send(new FaultWiseValueTagGetByMasterId(FaultWiseMasterId)));
         }
+
+        [HttpGet]
+        [ActionName("GetReceiveByTrackingNo")]
+        public async Task<IActionResult> GetReceiveByTrackingNo(string trackingNo)
+        {
+            var result = await _mediator.Send(
+                new GetReceiveByTrackingNoQuery(trackingNo)
+            );
+
+            return Ok(result);
+        }
+
+
     }
 }

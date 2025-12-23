@@ -1,17 +1,14 @@
 ﻿using Castle.Core;
 using Dapper;
 using Erp.Application.Auth.RoleManagement;
-
 using Erp.Application.Commercial.Setup;
 using Erp.Application.Commercial.Setup.Command;
 using Erp.Application.Common.Interfaces;
 using Erp.Application.Common.Models;
 using Erp.Application.MascoWash.Commands;
 using Erp.Application.MascoWash.Queries;
-
 using Erp.Application.MascoWash.Setup.Repository;
 using Erp.Domain.Entities.Commercial.Setup;
-
 using Erp.Infrastructure.Persistence;
 using FluentValidation.Validators;
 using MailKit.Search;
@@ -26,6 +23,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Linq;
@@ -36,10 +34,7 @@ using System.Security.Cryptography;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Xml.Linq;
-
-using System.Data.SqlClient;
-
-
+using static Erp.Infrastructure.Services.MascoWash.SetupServices;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace Erp.Infrastructure.Services.MascoWash
@@ -843,89 +838,7 @@ namespace Erp.Infrastructure.Services.MascoWash
 
             return list;
         }
-
-        //async Task<List<Result>> ISaveDataList.saveMachineName(SaveMachineName saveDataListDto)
-        //{
-        //    List<machineDetailModel> listDetail = saveDataListDto._listData.ToList();
-        //    DataTable dataTable = ListToDataTableConversion.ConvertListToDataTable(listDetail);
-        //    DynamicParameters parameter = new DynamicParameters();
-        //    string query = "sp_Insert_Update_Delete_SaveMachineMasterDetailEntry";
-        //    parameter.Add("@Operation", saveDataListDto.Operation, DbType.String, ParameterDirection.Input);
-        //    parameter.Add("@UnitId", saveDataListDto.UnitId, DbType.Int32, ParameterDirection.Input);
-        //    parameter.Add("@OperationId", saveDataListDto.OperationId, DbType.Int32, ParameterDirection.Input);
-        //    parameter.Add("@CreatedBy", _currentUserService.EmployeeId, DbType.String, ParameterDirection.Input);
-        //    parameter.Add("@TableParam", dataTable.AsTableValuedParameter());
-        //    var GetList = await GetDataByDataTable<SaveMachineName>(query, parameter, dataTable);
-
-        //    return Result.Success().ToList();
-        //}
-
-        //public async Task<List<machineDetailModel>> SaveMachineName(SaveMachineName saveDataListDto)
-        //{
-        //    List<machineDetailModel> list = new List<machineDetailModel>();
-
-        //    // Convert list to DataTable (TVP)
-        //    List<machineDetailModel> listDetail = saveDataListDto._listData.ToList();
-        //    DataTable dataTable = ListToDataTableConversion.ConvertListToDataTable(listDetail);
-
-        //    DynamicParameters parameter = new DynamicParameters();
-
-        //    string query = "[dbo].[sp_Insert_Update_Delete_SaveMachineMasterDetailEntry]";
-
-        //    // ======== SP PARAMETERS ========
-        //    parameter.Add("@Operation", saveDataListDto.Operation, DbType.String, ParameterDirection.Input);
-        //    parameter.Add("@UnitId", saveDataListDto.UnitId, DbType.Int32, ParameterDirection.Input);
-        //    parameter.Add("@OperationId", saveDataListDto.OperationId, DbType.Int32, ParameterDirection.Input);
-        //    parameter.Add("@CreatedBy", _currentUserService.EmployeeId, DbType.String, ParameterDirection.Input);
-
-        //    // TVP
-        //    parameter.Add(
-        //        "@TableParam",
-        //        dataTable.AsTableValuedParameter("dbo.tbl_Save_List_Master_Detail_MachineEntry")
-        //    );
-
-        //    // ======== EXECUTION ========
-        //    var result = await GetDataByDataTable<machineDetailModel>(query, parameter, dataTable);
-
-        //    return list;
-        //}
-        //public async Task<List<machineDetailModel>> SaveMachineName(SaveMachineName saveDataListDto)
-        //{
-        //    List<machineDetailModel> list = new List<machineDetailModel>();
-
-        //    // Convert list to DataTable (TVP)
-        //    List<machineDetailModel> listDetail = saveDataListDto._listData.ToList();
-        //    DataTable dataTable = ListToDataTableConversion.ConvertListToDataTable(listDetail);
-
-        //    DynamicParameters parameter = new DynamicParameters();
-
-        //    string query = "[dbo].[sp_Insert_Update_Delete_SaveMachineMasterDetailEntry]";
-
-        //    // ======== SP PARAMETERS ========
-        //    parameter.Add("@Operation", saveDataListDto.Operation, DbType.String, ParameterDirection.Input);
-        //    parameter.Add("@UnitId", saveDataListDto.UnitId, DbType.Int32, ParameterDirection.Input);
-        //    parameter.Add("@OperationId", saveDataListDto.OperationId, DbType.Int32, ParameterDirection.Input);
-        //    parameter.Add("@CreatedBy", _currentUserService.EmployeeId, DbType.String, ParameterDirection.Input);
-
-        //    // TVP
-        //    parameter.Add(
-        //        "@TableParam",
-        //        dataTable.AsTableValuedParameter("dbo.tbl_Save_List_Master_Detail_MachineEntry")
-        //    );
-
-        //    // ======== EXECUTION ========
-        //    var result = await GetDataByDataTable<machineDetailModel>(query, parameter, dataTable);
-
-        //    return list;
-        //}
-
-        //public Task<List<Result>> saveMachineName(SaveMachineName saveDataListDto)
-        //{
-        //    return _setupService.saveMachineName(saveDataListDto);
-        //}
-
-
-
+        
 
         public async Task<Result> saveMachineName(SaveMachineName dto)
         {
@@ -1188,6 +1101,25 @@ namespace Erp.Infrastructure.Services.MascoWash
 
             return list;
         }
+
+   
+        
+            public async Task<List<TrackingNoWiseReceiveDto>> GetReceiveDataList(string trackingNo)
+            {
+                var parameter = new DynamicParameters();
+                parameter.Add("@TrackingNo", trackingNo);
+
+                const string spName = "[dbo].[tbl_SP_GetTrackingNoWiseReceiveData]";
+
+                var result = await GetDisposeErrorFreeListAsyncNew<TrackingNoWiseReceiveDto>(
+                    spName,
+                    parameter
+                );
+
+                return result?.ToList() ?? new List<TrackingNoWiseReceiveDto>();
+            }
+        
+
     }
 }
 
