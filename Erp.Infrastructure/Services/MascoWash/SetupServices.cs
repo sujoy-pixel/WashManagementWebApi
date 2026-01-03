@@ -1143,8 +1143,200 @@ namespace Erp.Infrastructure.Services.MascoWash
 
             return list;
         }
+        //public async Task<Result> SaveTrackingReceive(SaveTrackingNoReceive dto)
+        //{
+        //    if (dto == null)
+        //        return Result.Failure(new[] { "Request data is null" });
 
+        //    var dataTable =
+        //        ListToDataTableConversion.ConvertListToDataTable(dto.DetailList);
+
+        //    var param = new DynamicParameters();
+        //    param.Add("@Operation", dto.Operation);
+        //    param.Add("@MasterId", dto.MasterId);
+        //    param.Add("@CreatedBy", _currentUserService?.EmployeeId ?? "SYSTEM");
+        //    param.Add("@TableParam",
+        //        dataTable.AsTableValuedParameter("dbo.tbl_Wash_Receive_Operation_TVP"));
+
+        //    try
+        //    {
+        //        using var conn = CreateConnection();
+
+        //        int affectedRows = await conn.ExecuteAsync(
+        //            "[dbo].[sp_Save_Wash_Order_Receive_Operation]",
+        //            param,
+        //            commandType: CommandType.StoredProcedure);
+
+        //        return affectedRows > 0
+        //            ? Result.Success("Saved successfully")
+        //            : Result.Failure(new[] { "No rows affected" });
+        //    }
+        //    catch (SqlException ex)
+        //    {
+        //        return Result.Failure(new[] { $"Database error: {ex.Message}" });
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return Result.Failure(new[] { $"Unexpected error: {ex.Message}" });
+        //    }
+        //}
+        //public async Task<Result> SaveTrackingReceive(SaveTrackingNoReceive dto)
+        //{
+        //    if (dto?.Master == null)
+        //        return Result.Failure(new[] { "Invalid request" });
+
+        //    var tvpRows = new List<WashReceiveTvpRow>();
+
+        //    foreach (var d in dto.Details)
+        //    {
+        //        foreach (var s in d.SizeDetails)
+        //        {
+        //            tvpRows.Add(new WashReceiveTvpRow
+        //            {
+        //                TrackingBatchNo = d.TrackingBatchNo,
+        //                FromUnitId = d.FromUnitId,
+        //                TypeName = d.TypeName,
+        //                FabricationId = d.FabricationId,
+        //                Composition = d.Composition,
+        //                IszId = d.IszId,
+        //                ColorId = d.ColorId,
+        //                DressPartId = d.DressPartId,
+        //                OperationType = d.OperationType,
+        //                UOMId = d.UOMId,
+        //                Size = s.Size,
+        //                Qty = s.Qty,
+        //                ProbableDeliveryDate = d.ProbableDeliveryDate,
+        //                ShipmentDate = d.ShipmentDate
+        //            });
+        //        }
+        //    }
+
+        //    var table = CreateWashReceiveTvpTable(tvpRows);
+
+        //    var param = new DynamicParameters();
+        //    param.Add("@Operation", dto.Master.Operation);
+        //    param.Add("@UnitId", dto.Master.UnitId);
+        //    param.Add("@ReceiveNo", dto.Master.ReceiveNo);
+        //    param.Add("@CreatedBy", dto.Master.CreatedBy ?? "SYSTEM");
+        //    param.Add("@DetailsTVP",
+        //        table.AsTableValuedParameter("dbo.tbl_Wash_Receive_Operation_TVP"));
+
+        //    using var conn = CreateConnection();
+
+        //    var result = await conn.QueryFirstOrDefaultAsync<int>(
+        //        "[dbo].[sp_Save_Wash_Order_Receive_Operation]",
+        //        param,
+        //        commandType: CommandType.StoredProcedure);
+
+        //    return result == 1
+        //        ? Result.Success("Saved successfully")
+        //        : Result.Failure(new[] { "Save failed" });
+        //}
+        public async Task<Result> SaveTrackingReceive(SaveTrackingNoReceive dto)
+        {
+            if (dto?.Master == null)
+                return Result.Failure(new[] { "Invalid request" });
+
+            var operation = dto.Master.Operation?.ToUpper();
+            if (operation != "INSERT" && operation != "UPDATE")
+                return Result.Failure(new[] { "Operation must be INSERT or UPDATE" });
+
+            var tvpRows = new List<WashReceiveTvpRow>();
+
+            foreach (var d in dto.Details)
+            {
+                foreach (var s in d.SizeDetails)
+                {
+                    tvpRows.Add(new WashReceiveTvpRow
+                    {
+                        TrackingBatchNo = d.TrackingBatchNo,
+                        FromUnitId = d.FromUnitId,
+                        TypeName = d.TypeName,
+                        FabricationId = d.FabricationId,
+                        Composition = d.Composition,
+                        IszId = d.IszId,
+                        ColorId = d.ColorId,
+                        DressPartId = d.DressPartId,
+                        OperationType = d.OperationType,
+                        UOMId = d.UOMId,
+                        Size = s.Size,
+                        Qty = s.Qty,
+                        ProbableDeliveryDate = d.ProbableDeliveryDate,
+                        ShipmentDate = d.ShipmentDate
+                    });
+                }
+            }
+
+            if (!tvpRows.Any())
+                return Result.Failure(new[] { "No size rows generated" });
+
+            var table = CreateWashReceiveTvpTable(tvpRows);
+
+            var param = new DynamicParameters();
+            param.Add("@Operation", operation);
+            param.Add("@UnitId", dto.Master.UnitId);
+            param.Add("@TrackingNo", dto.Master.TrackingNo);
+            //param.Add("@CreatedBy", dto.Master.CreatedBy ?? "SYSTEM");
+            param.Add("@CreatedBy", _currentUserService?.EmployeeId ?? "SYSTEM");
+            param.Add("@DetailsTVP",
+                table.AsTableValuedParameter("dbo.tbl_Wash_Receive_Operation_TVP"));
+
+            using var conn = CreateConnection();
+
+            var affected = await conn.ExecuteAsync(
+                "[dbo].[sp_Save_Wash_Order_Receive_Operation]",
+                param,
+                commandType: CommandType.StoredProcedure);
+
+            return affected > 0
+                ? Result.Success("Saved successfully")
+                : Result.Failure(new[] { "Save failed" });
+        }
+
+        // 🔥 HELPER METHOD (MUST BE HERE)
+        private DataTable CreateWashReceiveTvpTable(List<WashReceiveTvpRow> rows)
+        {
+            var dt = new DataTable();
+
+            dt.Columns.Add("TrackingBatchNo", typeof(string));
+            dt.Columns.Add("FromUnitId", typeof(int));
+            dt.Columns.Add("TypeName", typeof(string));
+            dt.Columns.Add("FabricationId", typeof(int));
+            dt.Columns.Add("Composition", typeof(string));
+            dt.Columns.Add("IszId", typeof(int));
+            dt.Columns.Add("ColorId", typeof(int));
+            dt.Columns.Add("DressPartId", typeof(int));
+            dt.Columns.Add("OperationType", typeof(string));
+            dt.Columns.Add("UOMId", typeof(int));
+            dt.Columns.Add("Size", typeof(string));
+            dt.Columns.Add("Qty", typeof(decimal));
+            dt.Columns.Add("ProbableDeliveryDate", typeof(DateTime));
+            dt.Columns.Add("ShipmentDate", typeof(DateTime));
+
+            foreach (var r in rows)
+            {
+                dt.Rows.Add(
+                    r.TrackingBatchNo,
+                    r.FromUnitId,
+                    r.TypeName ?? (object)DBNull.Value,
+                    r.FabricationId ?? (object)DBNull.Value,
+                    r.Composition ?? (object)DBNull.Value,
+                    r.IszId ?? (object)DBNull.Value,
+                    r.ColorId ?? (object)DBNull.Value,
+                    r.DressPartId ?? (object)DBNull.Value,
+                    r.OperationType ?? (object)DBNull.Value,
+                    r.UOMId ?? (object)DBNull.Value,
+                    r.Size,
+                    r.Qty,
+                    r.ProbableDeliveryDate ?? (object)DBNull.Value,
+                    r.ShipmentDate ?? (object)DBNull.Value
+                );
+            }
+
+            return dt;
+        }
     }
+
 }
 
 

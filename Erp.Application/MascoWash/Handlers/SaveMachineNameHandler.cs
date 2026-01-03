@@ -63,34 +63,7 @@ namespace Erp.Application.MascoWash.Handlers
         }
     }
 
-    //public class SaveMachineNameHandler
-    //: IRequestHandler<SaveMachineName, Result>
-    //{
-    //    private readonly ISaveDataList _setupService;
-
-    //    public SaveMachineNameHandler(ISaveDataList setupService)
-    //    {
-    //        _setupService = setupService;
-    //    }
-
-    //    public async Task<Result> Handle(
-    //        SaveMachineName request,
-    //        CancellationToken cancellationToken)
-    //    {
-    //        if (request == null)
-    //        {
-    //            return Result.Failure(new[] { "Request data is null" });
-    //        }
-
-    //        if (request._listData == null || !request._listData.Any())
-    //        {
-    //            return Result.Failure(new[] { "Machine detail list is empty" });
-    //        }
-
-    //        return await _setupService.saveMachineName(request);
-    //    }
-    //}
-
+    
 
 }
 

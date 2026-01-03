@@ -249,6 +249,12 @@ namespace Erp.WebApi.Controllers.Commercial.Setup
             return Ok(result);
         }
 
+        [HttpPost]
+        [ActionName("SaveTrackingNoReceive")]
+        public async Task<IActionResult> SaveTrackingNoReceive(SaveTrackingNoReceive command)
+        {
+            return Ok(await _mediator.Send(command));
+        }
 
     }
 }

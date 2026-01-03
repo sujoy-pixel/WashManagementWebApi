@@ -69,6 +69,8 @@ namespace Erp.Application.MascoWash.Setup.Repository
 
         Task<List<DropdownListDto1>> GetTypeOfInspectionDDLList();
 
-
+       
+       Task<Result> SaveTrackingReceive(SaveTrackingNoReceive dto);
+        
     }
 }
