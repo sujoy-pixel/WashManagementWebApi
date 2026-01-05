@@ -66,6 +66,7 @@ namespace Erp.Application.MascoWash.Setup.Repository
         Task<List<DropdownListDto1>> GetTrackingNoDDLList(string itemText);
 
         Task<List<TrackingNoWiseReceiveDto>> GetReceiveDataList(string trackingNo);
+        Task<List<TrackingNoWiseReceiveDto>> GetReceiveDataListBatchNo(string batchNo);
 
         Task<List<DropdownListDto1>> GetTypeOfInspectionDDLList();
 

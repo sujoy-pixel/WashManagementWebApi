@@ -248,6 +248,16 @@ namespace Erp.WebApi.Controllers.Commercial.Setup
 
             return Ok(result);
         }
+        [HttpGet]
+        [ActionName("GetReceiveByBatchNo")]
+        public async Task<IActionResult> GetReceiveByBatchNo(string batchNo)
+        {
+            var result = await _mediator.Send(
+                new GetReceiveByBatchNoQuery(batchNo)
+            );
+
+            return Ok(result);
+        }
 
         [HttpPost]
         [ActionName("SaveTrackingNoReceive")]

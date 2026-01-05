@@ -1120,6 +1120,21 @@ namespace Erp.Infrastructure.Services.MascoWash
                 return result?.ToList() ?? new List<TrackingNoWiseReceiveDto>();
             }
         
+            public async Task<List<TrackingNoWiseReceiveDto>> GetReceiveDataListBatchNo(string batchNo)
+            {
+                var parameter = new DynamicParameters();
+                parameter.Add("@BatchNo", batchNo);
+
+                const string spName = "[dbo].[tbl_SP_GetBatchNoWiseReceiveData]";
+
+                var result = await GetDisposeErrorFreeListAsyncNew<TrackingNoWiseReceiveDto>(
+                    spName,
+                    parameter
+                );
+
+                return result?.ToList() ?? new List<TrackingNoWiseReceiveDto>();
+            }
+        
 
 
         public async Task<List<DropdownListDto1>> GetTypeOfInspectionDDLList()
@@ -1242,7 +1257,7 @@ namespace Erp.Infrastructure.Services.MascoWash
                 return Result.Failure(new[] { "Operation must be INSERT or UPDATE" });
 
             var tvpRows = new List<WashReceiveTvpRow>();
-
+                
             foreach (var d in dto.Details)
             {
                 foreach (var s in d.SizeDetails)

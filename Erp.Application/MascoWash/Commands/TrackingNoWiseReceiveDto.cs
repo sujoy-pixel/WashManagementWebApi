@@ -48,5 +48,6 @@ namespace Erp.Application.MascoWash.Queries
 
         public DateTime ProbableDeliveryDate { get; set; }
         public DateTime ShipmentDate { get; set; }
+      
     }
 }
