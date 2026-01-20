@@ -9,8 +9,12 @@ namespace Erp.Application.MascoWash.Queries
     {
         public string TrackingBatchNo { get; set; }
         public int FromUnitId { get; set; }
+        public int BuyerId { get; set; }
+        public int JobId { get; set; }
+        public int StyleId { get; set; }
+        public int OrderId { get; set; }
         public string TypeName { get; set; }
-        public int? FabricationId { get; set; }
+        public int FabricationId { get; set; }
         public string Composition { get; set; }
         public int? IszId { get; set; }
         public int? ColorId { get; set; }

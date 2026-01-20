@@ -27,9 +27,13 @@ namespace Erp.Application.MascoWash.Commands
         public string TrackingBatchNo { get; set; }
         public int FromUnitId { get; set; }
         public DateTime ReceiveDate { get; set; }
+        public int BuyerId { get; set; }
+        public int JobId { get; set; }
+        public int StyleId { get; set; }
+        public int OrderId { get; set; }
 
         public string TypeName { get; set; }
-        public int? FabricationId { get; set; }
+        public int FabricationId { get; set; }
         public string Composition { get; set; }
         public int? IszId { get; set; }
         public int? ColorId { get; set; }
@@ -50,36 +54,3 @@ namespace Erp.Application.MascoWash.Commands
         public decimal Qty { get; set; }
     }
 }
-
-//namespace Erp.Application.MascoWash.Commands
-//{
-//    public class SaveTrackingNoReceive : IRequest<Result>
-//    {
-//        public string Operation { get; set; }   // INSERT | UPDATE
-//        public int? MasterId { get; set; }      // Required for UPDATE
-//        public string CreatedBy { get; set; }
-
-//        public List<TrackingReceiveDetailModel> DetailList { get; set; } = new();
-//    }
-
-//    public class TrackingReceiveDetailModel
-//    {
-//        public int DetailsId { get; set; }
-//        public int MasterId { get; set; }
-//        public string TrackingBatchNo { get; set; }
-//        public int FromUnitId { get; set; }
-//        public DateTime ReceiveDate { get; set; }
-
-//        public string TypeName { get; set; }
-//        public int? FabricationId { get; set; }
-//        public string Composition { get; set; }
-//        public int? IszId { get; set; }
-//        public int? ColorId { get; set; }
-//        public int? DressPartId { get; set; }
-//        public string OperationType { get; set; }
-//        public int? UOMId { get; set; }
-//        public decimal? TotalQty { get; set; }
-//        public DateTime? ProbableDeliveryDate { get; set; }
-//        public DateTime? ShipmentDate { get; set; }
-//    }
-//}

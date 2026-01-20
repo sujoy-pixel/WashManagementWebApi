@@ -134,5 +134,54 @@ namespace Erp.WebApi.Controllers.Commercial.Common
         {
             return Ok(await _mediator.Send(new TypeOfInspectionDDL()));
         }
+
+      
+        [HttpGet]
+        [ActionName("GetJobByUnitAndBuyerDDL")]
+        public async Task<IActionResult> GetUnitBuyerWiseJob(int unitId,int buyerId)
+        {
+            var result = await _mediator.Send(
+                new JobUnitBuyerDDL(unitId,buyerId)
+            );
+
+            return Ok(result);
+        }
+
+        [HttpGet]
+        [ActionName("GetStyleByUnitBuyerAndJobDDL")]
+        public async Task<IActionResult> GetUnitBuyerJobWiseStyle(int unitId,int buyerId,int jobId)
+        {
+            var result = await _mediator.Send(
+                new StyleUnitBuyerJobWiseDDL(unitId,buyerId,jobId)
+            );
+
+            return Ok(result);
+        }
+
+        [HttpGet]
+        [ActionName("GetOrderByUnitBuyerJobAndStyleDDL")]
+        public async Task<IActionResult> GetStyleUnitBuyerJobStyleWiseOrder(int unitId, int buyerId, int jobId,int styleId)
+        {
+            var result = await _mediator.Send(
+                new OrderStyleUnitBuyerJobDDL(unitId, buyerId, jobId,styleId)
+            );
+
+            return Ok(result);
+        }
+
+        [HttpGet]
+        [ActionName("GetProcessNameDDL")]
+        public async Task<IActionResult> GetProcessNameDDL()
+        {
+            return Ok(await _mediator.Send(new ProcessNameDDL()));
+        }
+
+        [HttpGet]
+        [ActionName("GetMachineNoDDL")]
+        public async Task<IActionResult> GetMachineNoDDL()
+        {
+            return Ok(await _mediator.Send(new MachineNoDDL()));
+        }
+
     }
 }

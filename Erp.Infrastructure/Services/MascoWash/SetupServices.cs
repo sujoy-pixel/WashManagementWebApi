@@ -639,36 +639,6 @@ namespace Erp.Infrastructure.Services.MascoWash
 
 
 
-        //public async Task<List<machineDetailModel>> SaveMachineName(SaveMachineName saveDataListDto)
-        //{
-
-        //    List<machineDetailModel> list = new List<machineDetailModel>();
-        //    List<machineDetailModel> listDetail = saveDataListDto._listData.ToList();
-        //    DataTable dataTable = ListToDataTableConversion.ConvertListToDataTable(listDetail);
-        //    DynamicParameters parameterMaster = new DynamicParameters();
-        //    DynamicParameters parameter = new DynamicParameters();
-        //    string queryMasterFile = "sp_Generate_MasterLcFileNo";
-        //    parameterMaster.Add("@UnitId", saveDataListDto.UnitId, DbType.Int32, ParameterDirection.Input);
-
-        //    //string query = "sp_Insert_Update_MasterLc_Master_Detail_Cursor_1";
-        //    string query = "sp_Insert_Update_MasterLc_Master_Detail_Cursor_1_test";
-        //    parameter.Add("@TableParam", dataTable.AsTableValuedParameter());
-        //    //parameter.Add("@MasterLcId", saveDataListDto.MasterLcId, DbType.Int32, ParameterDirection.Input);
-        //    //parameter.Add("@MasterLcType", saveDataListDto.MasterLcType, DbType.String, ParameterDirection.Input);
-        //    //parameter.Add("@AmendmentDate", saveDataListDto.AmendmentDate, DbType.String, ParameterDirection.Input);
-
-        //    //parameter.Add("@MasterLcFileNo", masterLcFileNo, DbType.String, ParameterDirection.Input);
-        //    //parameter.Add("@UnitId", saveDataListDto.UnitId, DbType.Int32, ParameterDirection.Input);
-        //    //parameter.Add("@BuyerId", saveDataListDto.BuyerId, DbType.Int32, ParameterDirection.Input);
-        //    //parameter.Add("@Udno", saveDataListDto.UDNo, DbType.String, ParameterDirection.Input);
-        //    parameter.Add("@CreatedBy", _currentUserService.EmployeeId, DbType.String, ParameterDirection.Input);
-        //    parameter.Add("@ClientIpAddress", _currentUserService.IpAddress, DbType.String, ParameterDirection.Input);
-
-        //    //====================Execute
-        //    var GetList = await GetDataByDataTable<SaveListModel>(query, parameter, dataTable);
-
-        //    return list;
-        //}
 
         public async Task<List<MachineDuplicateCheckModel>> CheckMachineExists(int unitId, int operationId, string machineName)
         {
@@ -1123,7 +1093,8 @@ namespace Erp.Infrastructure.Services.MascoWash
             public async Task<List<TrackingNoWiseReceiveDto>> GetReceiveDataListBatchNo(string batchNo)
             {
                 var parameter = new DynamicParameters();
-                parameter.Add("@BatchNo", batchNo);
+                
+            parameter.Add("@BatchNo", batchNo);
 
                 const string spName = "[dbo].[tbl_SP_GetBatchNoWiseReceiveData]";
 
@@ -1158,103 +1129,15 @@ namespace Erp.Infrastructure.Services.MascoWash
 
             return list;
         }
-        //public async Task<Result> SaveTrackingReceive(SaveTrackingNoReceive dto)
-        //{
-        //    if (dto == null)
-        //        return Result.Failure(new[] { "Request data is null" });
-
-        //    var dataTable =
-        //        ListToDataTableConversion.ConvertListToDataTable(dto.DetailList);
-
-        //    var param = new DynamicParameters();
-        //    param.Add("@Operation", dto.Operation);
-        //    param.Add("@MasterId", dto.MasterId);
-        //    param.Add("@CreatedBy", _currentUserService?.EmployeeId ?? "SYSTEM");
-        //    param.Add("@TableParam",
-        //        dataTable.AsTableValuedParameter("dbo.tbl_Wash_Receive_Operation_TVP"));
-
-        //    try
-        //    {
-        //        using var conn = CreateConnection();
-
-        //        int affectedRows = await conn.ExecuteAsync(
-        //            "[dbo].[sp_Save_Wash_Order_Receive_Operation]",
-        //            param,
-        //            commandType: CommandType.StoredProcedure);
-
-        //        return affectedRows > 0
-        //            ? Result.Success("Saved successfully")
-        //            : Result.Failure(new[] { "No rows affected" });
-        //    }
-        //    catch (SqlException ex)
-        //    {
-        //        return Result.Failure(new[] { $"Database error: {ex.Message}" });
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return Result.Failure(new[] { $"Unexpected error: {ex.Message}" });
-        //    }
-        //}
-        //public async Task<Result> SaveTrackingReceive(SaveTrackingNoReceive dto)
-        //{
-        //    if (dto?.Master == null)
-        //        return Result.Failure(new[] { "Invalid request" });
-
-        //    var tvpRows = new List<WashReceiveTvpRow>();
-
-        //    foreach (var d in dto.Details)
-        //    {
-        //        foreach (var s in d.SizeDetails)
-        //        {
-        //            tvpRows.Add(new WashReceiveTvpRow
-        //            {
-        //                TrackingBatchNo = d.TrackingBatchNo,
-        //                FromUnitId = d.FromUnitId,
-        //                TypeName = d.TypeName,
-        //                FabricationId = d.FabricationId,
-        //                Composition = d.Composition,
-        //                IszId = d.IszId,
-        //                ColorId = d.ColorId,
-        //                DressPartId = d.DressPartId,
-        //                OperationType = d.OperationType,
-        //                UOMId = d.UOMId,
-        //                Size = s.Size,
-        //                Qty = s.Qty,
-        //                ProbableDeliveryDate = d.ProbableDeliveryDate,
-        //                ShipmentDate = d.ShipmentDate
-        //            });
-        //        }
-        //    }
-
-        //    var table = CreateWashReceiveTvpTable(tvpRows);
-
-        //    var param = new DynamicParameters();
-        //    param.Add("@Operation", dto.Master.Operation);
-        //    param.Add("@UnitId", dto.Master.UnitId);
-        //    param.Add("@ReceiveNo", dto.Master.ReceiveNo);
-        //    param.Add("@CreatedBy", dto.Master.CreatedBy ?? "SYSTEM");
-        //    param.Add("@DetailsTVP",
-        //        table.AsTableValuedParameter("dbo.tbl_Wash_Receive_Operation_TVP"));
-
-        //    using var conn = CreateConnection();
-
-        //    var result = await conn.QueryFirstOrDefaultAsync<int>(
-        //        "[dbo].[sp_Save_Wash_Order_Receive_Operation]",
-        //        param,
-        //        commandType: CommandType.StoredProcedure);
-
-        //    return result == 1
-        //        ? Result.Success("Saved successfully")
-        //        : Result.Failure(new[] { "Save failed" });
-        //}
+       
         public async Task<Result> SaveTrackingReceive(SaveTrackingNoReceive dto)
         {
             if (dto?.Master == null)
                 return Result.Failure(new[] { "Invalid request" });
 
             var operation = dto.Master.Operation?.ToUpper();
-            if (operation != "INSERT" && operation != "UPDATE")
-                return Result.Failure(new[] { "Operation must be INSERT or UPDATE" });
+            //if (operation != "TrackingNo" && operation != "UPDATE")
+            //    return Result.Failure(new[] { "Operation must be INSERT or UPDATE" });
 
             var tvpRows = new List<WashReceiveTvpRow>();
                 
@@ -1266,6 +1149,10 @@ namespace Erp.Infrastructure.Services.MascoWash
                     {
                         TrackingBatchNo = d.TrackingBatchNo,
                         FromUnitId = d.FromUnitId,
+                        BuyerId=d.BuyerId,
+                        JobId=d.JobId,
+                        StyleId=d.StyleId,
+                        OrderId=d.StyleId,
                         TypeName = d.TypeName,
                         FabricationId = d.FabricationId,
                         Composition = d.Composition,
@@ -1291,7 +1178,7 @@ namespace Erp.Infrastructure.Services.MascoWash
             param.Add("@Operation", operation);
             param.Add("@UnitId", dto.Master.UnitId);
             param.Add("@TrackingNo", dto.Master.TrackingNo);
-            //param.Add("@CreatedBy", dto.Master.CreatedBy ?? "SYSTEM");
+            param.Add("@MasterId", dto.Master.MasterId);           
             param.Add("@CreatedBy", _currentUserService?.EmployeeId ?? "SYSTEM");
             param.Add("@DetailsTVP",
                 table.AsTableValuedParameter("dbo.tbl_Wash_Receive_Operation_TVP"));
@@ -1315,6 +1202,10 @@ namespace Erp.Infrastructure.Services.MascoWash
 
             dt.Columns.Add("TrackingBatchNo", typeof(string));
             dt.Columns.Add("FromUnitId", typeof(int));
+            dt.Columns.Add("BuyerId", typeof(int));
+            dt.Columns.Add("JobId", typeof(int));
+            dt.Columns.Add("StyleId", typeof(int));
+            dt.Columns.Add("OrderId", typeof(int));
             dt.Columns.Add("TypeName", typeof(string));
             dt.Columns.Add("FabricationId", typeof(int));
             dt.Columns.Add("Composition", typeof(string));
@@ -1333,8 +1224,12 @@ namespace Erp.Infrastructure.Services.MascoWash
                 dt.Rows.Add(
                     r.TrackingBatchNo,
                     r.FromUnitId,
+                    r.BuyerId,
+                    r.JobId,
+                    r.StyleId,
+                    r.OrderId,
                     r.TypeName ?? (object)DBNull.Value,
-                    r.FabricationId ?? (object)DBNull.Value,
+                    r.FabricationId,
                     r.Composition ?? (object)DBNull.Value,
                     r.IszId ?? (object)DBNull.Value,
                     r.ColorId ?? (object)DBNull.Value,
@@ -1349,6 +1244,256 @@ namespace Erp.Infrastructure.Services.MascoWash
             }
 
             return dt;
+        }
+
+        public async Task<List<TrackingNoWiseReceiveDto>> GetDataBySearchForEditService(
+     int unitId,
+     string receiveNo,
+     string fromDate,
+     string toDate)
+            {
+            var parameter = new DynamicParameters();
+
+            parameter.Add("@UnitId", unitId, DbType.Int32);
+
+            parameter.Add("@ReceiveNo",
+                string.IsNullOrWhiteSpace(receiveNo) ? null : receiveNo,
+                DbType.String);
+
+            parameter.Add("@FromDate",
+                string.IsNullOrWhiteSpace(fromDate) ? null : fromDate,
+                DbType.String);
+
+            parameter.Add("@ToDate",
+                string.IsNullOrWhiteSpace(toDate) ? null : toDate,
+                DbType.String);
+
+            const string spName = "[dbo].[tbl_SP_GetDataBySearchForEdit]";
+
+            var result = await GetDisposeErrorFreeListAsyncNew<TrackingNoWiseReceiveDto>(
+                spName,
+                parameter
+            );
+
+            return result?.ToList() ?? new List<TrackingNoWiseReceiveDto>();
+        }
+
+        public async Task<List<DropdownListDto1>> GetJobDDLListData(int unitId,int buyerId)
+        {
+
+            List<DropdownListDto1> list = new List<DropdownListDto1>();
+            DynamicParameters parameter = new DynamicParameters();
+            string query = "sp_Get_Job_BY_Unit_Buyer";
+            parameter.Add("@UnitId", unitId, DbType.Int32, ParameterDirection.Input);
+            parameter.Add("@BuyerId", buyerId, DbType.Int32, ParameterDirection.Input);
+
+            var GetList = await GetDisposeErrorFreeListAsyncNew<DropdownListDto1>(query, parameter);
+            foreach (var item in GetList)
+            {
+                var obj = new DropdownListDto1
+                {
+                    ID = item.ID,
+                    DisplayName = item.DisplayName,
+                    Option1 = item.Option1
+                };
+                list.Add(obj);
+
+            }
+
+            return list;
+        }
+
+        public async Task<List<DropdownListDto1>> GetStyleDDLListData(int unitId,int buyerId,int jobId)
+        {
+
+            List<DropdownListDto1> list = new List<DropdownListDto1>();
+            DynamicParameters parameter = new DynamicParameters();
+            string query = "sp_Get_Style_By_Unit_Buyer_Job";
+            parameter.Add("@UnitId", unitId, DbType.Int32, ParameterDirection.Input);
+            parameter.Add("@BuyerId", buyerId, DbType.Int32, ParameterDirection.Input);
+            parameter.Add("@JobId", jobId, DbType.Int32, ParameterDirection.Input);
+
+            var GetList = await GetDisposeErrorFreeListAsyncNew<DropdownListDto1>(query, parameter);
+            foreach (var item in GetList)
+            {
+                var obj = new DropdownListDto1
+                {
+                    ID = item.ID,
+                    DisplayName = item.DisplayName,
+                    Option1 = item.Option1
+                };
+                list.Add(obj);
+
+            }
+
+            return list;
+        }
+
+        public async Task<List<DropdownListDto1>> GetOrderDDLListData(int unitId,int buyerId,int jobId,int styleId)
+        {
+
+            List<DropdownListDto1> list = new List<DropdownListDto1>();
+            DynamicParameters parameter = new DynamicParameters();
+            string query = "sp_Get_Order_By_Unit_Buyer_Job_Style";
+            parameter.Add("@UnitId", unitId, DbType.Int32, ParameterDirection.Input);
+            parameter.Add("@BuyerId", buyerId, DbType.Int32, ParameterDirection.Input);
+            parameter.Add("@JobId", jobId, DbType.Int32, ParameterDirection.Input);
+            parameter.Add("@StyleId", styleId, DbType.Int32, ParameterDirection.Input);
+
+            var GetList = await GetDisposeErrorFreeListAsyncNew<DropdownListDto1>(query, parameter);
+            foreach (var item in GetList)
+            {
+                var obj = new DropdownListDto1
+                {
+                    ID = item.ID,
+                    DisplayName = item.DisplayName,
+                    Option1 = item.Option1
+                };
+                list.Add(obj);
+
+            }
+
+            return list;
+        }
+        public async Task<List<TrackingNoWiseReceiveDto>> GetBatchPrepareDataList(int unitId, int buyerId, int jobId, int styleId, int orderId)
+        {
+            var parameter = new DynamicParameters();
+            parameter.Add("@UnitId", unitId, DbType.Int32, ParameterDirection.Input);
+            parameter.Add("@BuyerId", buyerId, DbType.Int32, ParameterDirection.Input);
+            parameter.Add("@JobId", jobId, DbType.Int32, ParameterDirection.Input);
+            parameter.Add("@StyleId", styleId, DbType.Int32, ParameterDirection.Input);
+            parameter.Add("@OrderId", orderId, DbType.Int32, ParameterDirection.Input);
+
+            const string spName = "[dbo].[tbl_SP_GetBatchPrepareDataListeData]";
+
+            var result = await GetDisposeErrorFreeListAsyncNew<TrackingNoWiseReceiveDto>(
+                spName,
+                parameter
+            );
+
+            return result?.ToList() ?? new List<TrackingNoWiseReceiveDto>();
+        }
+
+        public async Task<List<DropdownListDto1>> GetProcessNameList()
+        {
+            List<DropdownListDto1> list = new List<DropdownListDto1>();
+            DynamicParameters parameter = new DynamicParameters();
+            string query = "sp_Get_ProcessNameDDL";
+
+            var GetList = await GetDisposeErrorFreeListAsyncNew<DropdownListDto1>(query, parameter);
+            foreach (var item in GetList)
+            {
+                var obj = new DropdownListDto1
+                {
+                    ID = item.ID,
+                    DisplayName = item.DisplayName
+
+                };
+                list.Add(obj);
+
+            }
+
+            return list;
+        }
+
+        public async Task<List<DropdownListDto1>> GetMachineNoList()
+        {
+            List<DropdownListDto1> list = new List<DropdownListDto1>();
+            DynamicParameters parameter = new DynamicParameters();
+            string query = "sp_Get_MachineNoDDL";
+
+            var GetList = await GetDisposeErrorFreeListAsyncNew<DropdownListDto1>(query, parameter);
+            foreach (var item in GetList)
+            {
+                var obj = new DropdownListDto1
+                {
+                    ID = item.ID,
+                    DisplayName = item.DisplayName
+
+                };
+                list.Add(obj);
+
+            }
+
+            return list;
+        }
+
+        public async Task<Result> SaveWashBatchPrepareData(
+            SaveWashBatchPrepareModel dto)
+        {
+            if (dto == null)
+                return Result.Failure(new[] { "Request data is null" });
+
+            // 🔥 Convert SizeDetails → DataTable (TVP)
+            var sizeTable = new DataTable();
+            sizeTable.Columns.Add("SizeId", typeof(int));
+            sizeTable.Columns.Add("Size", typeof(string));
+            sizeTable.Columns.Add("Qty", typeof(int));
+            sizeTable.Columns.Add("Kg", typeof(decimal));
+
+            foreach (var s in dto.SizeDetails)
+            {
+                sizeTable.Rows.Add(
+                    s.sizeId=0,
+                    s.size,
+                    s.qty,
+                    s.kg
+                );
+            }
+
+            var param = new DynamicParameters();
+
+            // ===== MASTER =====
+            param.Add("@Operation", dto.Master.operation);
+            param.Add("@CreatedBy", _currentUserService?.EmployeeId ?? "SYSTEM");
+            //param.Add("@CreatedBy", dto.Master.createdBy);
+            param.Add("@MasterId", dto.Master.masterId);
+            param.Add("@UnitId", dto.Master.unitId);
+            param.Add("@TrackingNo", dto.Master.trackingNo);
+            param.Add("@BatchNo", dto.Master.batchNo);
+            param.Add("@DocumentNo", dto.Master.documentNo);
+            param.Add("@EffectiveDate", dto.Master.effectiveDate);
+            param.Add("@RevisionDate", dto.Master.revisionDate);
+            param.Add("@RevisionNo", dto.Master.revisionNo);
+            param.Add("@Date", dto.Master.date);
+
+            param.Add("@BuyerId", dto.Master.buyerId);
+            param.Add("@JobId", dto.Master.jobId);
+            param.Add("@StyleId", dto.Master.styleId);
+            param.Add("@OrderId", dto.Master.orderId);
+            param.Add("@FabricationId", dto.Master.fabricationId);
+            param.Add("@ColorId", dto.Master.colorId);
+            param.Add("@DressPartId", dto.Master.dressPartId);
+            param.Add("@UomId", dto.Master.uomId);
+            param.Add("@IszId", dto.Master.iszId);
+
+            param.Add("@ProcessIds", dto.Master.processIds);
+            param.Add("@MachineIds", dto.Master.machineIds);
+            param.Add("@TotalPcs", dto.Master.totalKg);
+            param.Add("@TotalKg", dto.Master.totalPcs);
+
+            // ===== TVP =====
+            param.Add(
+                "@SizeDetails",
+                sizeTable.AsTableValuedParameter("dbo.TVP_WashPrepare_Size")
+            );
+
+            try
+            {
+                using var conn = CreateConnection();
+
+                await conn.ExecuteAsync(
+                    "[dbo].[sp_SaveWashBatchPrepare]",
+                    param,
+                    commandType: CommandType.StoredProcedure
+                );
+
+                return Result.Success("Saved successfully");
+            }
+            catch (SqlException ex)
+            {
+                return Result.Failure(new[] { ex.Message });
+            }
         }
     }
 

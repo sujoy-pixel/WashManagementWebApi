@@ -72,6 +72,19 @@ namespace Erp.Application.MascoWash.Setup.Repository
 
        
        Task<Result> SaveTrackingReceive(SaveTrackingNoReceive dto);
+        Task<List<TrackingNoWiseReceiveDto>> GetDataBySearchForEditService(int unitId, string receiveNo, string fromDate, string toDate);
+        Task<List<DropdownListDto1>> GetJobDDLListData(int unitId, int buyerId);
+        Task<List<DropdownListDto1>> GetStyleDDLListData(int unitId, int buyerId, int jobId);
+        Task<List<DropdownListDto1>> GetOrderDDLListData(int unitId, int buyerId, int jobId, int styleId);
+        Task<List<TrackingNoWiseReceiveDto>> GetBatchPrepareDataList(int unitId, int buyerId, int jobId, int styleId,int orderId);
+
+        Task<List<DropdownListDto1>> GetProcessNameList();
+        Task<List<DropdownListDto1>> GetMachineNoList();
+
+        //Task<Result> SaveWashBatchPrepareData(SaveWashBatchPrepareModel saveDataListDto);
+
+       
+            Task<Result> SaveWashBatchPrepareData(SaveWashBatchPrepareModel dto);
         
     }
 }

@@ -265,6 +265,32 @@ namespace Erp.WebApi.Controllers.Commercial.Setup
         {
             return Ok(await _mediator.Send(command));
         }
+        [HttpGet]
+        [ActionName("getSearchDataByReceiveNoOrDate")]
+        public async Task<IActionResult> getSearchDataForEdit(int unitId, string receiveNo , string fromDate , string toDate )
+        {
+            var result = await _mediator.Send(
+                new GetDataBySearchForEdit(unitId, receiveNo, fromDate, toDate)
+            );
 
+            return Ok(result);
+        }
+
+        [ActionName("GetWashBatchPrepareGrid")]
+        public async Task<IActionResult> GetWashBatchPrepareGridData(int unitId,int buyerId,int jobId,int styleId, int orderId)
+        {
+            var result = await _mediator.Send(
+                new GetWashBatchPrepareGridQuery(unitId, buyerId, jobId, styleId, orderId)
+            );
+
+            return Ok(result);
+        }
+
+        [HttpPost]
+        [ActionName("SaveWashBatchPrepare")]
+        public async Task<IActionResult> SaveWashBatchPrepare(SaveWashBatchPrepareModel command)
+        {
+            return Ok(await _mediator.Send(command));
+        }
     }
 }

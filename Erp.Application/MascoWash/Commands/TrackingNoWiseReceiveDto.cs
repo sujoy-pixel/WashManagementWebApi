@@ -5,8 +5,13 @@ namespace Erp.Application.MascoWash.Queries
     public class TrackingNoWiseReceiveDto
     {
         public string TrackingNo { get; set; }
+        public string ReceiveNo { get; set; }
+        public string ReceivedBy { get; set; }
 
         public int FromUnitId { get; set; }
+        public int MasterId { get; set; }
+        public int DetailsId { get; set; }
+        public int UnitId { get; set; }
         public string FromUnitName { get; set; }
 
         public DateTime ReceiveDate { get; set; }
@@ -25,7 +30,7 @@ namespace Erp.Application.MascoWash.Queries
 
         public string Type { get; set; }
 
-        public int Fabrication { get; set; }
+        public string Fabrication { get; set; }    
         public string FabricationName { get; set; }
         public string Composition { get; set; }
 
