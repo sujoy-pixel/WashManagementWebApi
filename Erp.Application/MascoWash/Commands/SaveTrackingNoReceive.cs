@@ -35,7 +35,8 @@ namespace Erp.Application.MascoWash.Commands
         public string TypeName { get; set; }
         public int FabricationId { get; set; }
         public string Composition { get; set; }
-        public int? IszId { get; set; }
+        public int? SizeId { get; set; }
+        public int? GsmId { get; set; }
         public int? ColorId { get; set; }
         public int? DressPartId { get; set; }
         public string OperationType { get; set; }
@@ -50,6 +51,7 @@ namespace Erp.Application.MascoWash.Commands
     }
     public class TrackingReceiveSizeDto
     {
+        public int SizeId { get; set; }
         public string Size { get; set; }
         public decimal Qty { get; set; }
     }

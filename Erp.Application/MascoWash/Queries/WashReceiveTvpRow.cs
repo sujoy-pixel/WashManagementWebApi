@@ -16,7 +16,8 @@ namespace Erp.Application.MascoWash.Queries
         public string TypeName { get; set; }
         public int FabricationId { get; set; }
         public string Composition { get; set; }
-        public int? IszId { get; set; }
+        public int? SizeId { get; set; }
+        public int? GsmId { get; set; }
         public int? ColorId { get; set; }
         public int? DressPartId { get; set; }
         public string OperationType { get; set; }

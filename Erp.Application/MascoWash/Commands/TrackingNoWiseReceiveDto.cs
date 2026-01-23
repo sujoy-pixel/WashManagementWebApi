@@ -35,7 +35,10 @@ namespace Erp.Application.MascoWash.Queries
         public string Composition { get; set; }
 
         public int ISZID { get; set; }
+        public int GsmId { get; set; }
         public string GSM { get; set; }
+        public string Size { get; set; }
+        public decimal Qty { get; set; }
 
         public int ICLEID { get; set; }
         public string Color { get; set; }
@@ -48,8 +51,6 @@ namespace Erp.Application.MascoWash.Queries
         public int? UOMDetailsId { get; set; }
         public string UOM { get; set; }
 
-        public string Size { get; set; }
-        public decimal Qty { get; set; }
 
         public DateTime ProbableDeliveryDate { get; set; }
         public DateTime ShipmentDate { get; set; }

@@ -1156,7 +1156,8 @@ namespace Erp.Infrastructure.Services.MascoWash
                         TypeName = d.TypeName,
                         FabricationId = d.FabricationId,
                         Composition = d.Composition,
-                        IszId = d.IszId,
+                        GsmId=d.GsmId,
+                        SizeId = s.SizeId,
                         ColorId = d.ColorId,
                         DressPartId = d.DressPartId,
                         OperationType = d.OperationType,
@@ -1209,7 +1210,8 @@ namespace Erp.Infrastructure.Services.MascoWash
             dt.Columns.Add("TypeName", typeof(string));
             dt.Columns.Add("FabricationId", typeof(int));
             dt.Columns.Add("Composition", typeof(string));
-            dt.Columns.Add("IszId", typeof(int));
+            dt.Columns.Add("GsmId", typeof(int));
+            dt.Columns.Add("SizeId", typeof(int));
             dt.Columns.Add("ColorId", typeof(int));
             dt.Columns.Add("DressPartId", typeof(int));
             dt.Columns.Add("OperationType", typeof(string));
@@ -1231,7 +1233,8 @@ namespace Erp.Infrastructure.Services.MascoWash
                     r.TypeName ?? (object)DBNull.Value,
                     r.FabricationId,
                     r.Composition ?? (object)DBNull.Value,
-                    r.IszId ?? (object)DBNull.Value,
+                    r.GsmId ?? (object)DBNull.Value,
+                    r.SizeId,
                     r.ColorId ?? (object)DBNull.Value,
                     r.DressPartId ?? (object)DBNull.Value,
                     r.OperationType ?? (object)DBNull.Value,
@@ -1434,7 +1437,7 @@ namespace Erp.Infrastructure.Services.MascoWash
             foreach (var s in dto.SizeDetails)
             {
                 sizeTable.Rows.Add(
-                    s.sizeId=0,
+                    s.sizeId,
                     s.size,
                     s.qty,
                     s.kg
