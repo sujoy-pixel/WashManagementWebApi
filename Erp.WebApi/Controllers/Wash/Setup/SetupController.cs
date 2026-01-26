@@ -292,5 +292,15 @@ namespace Erp.WebApi.Controllers.Commercial.Setup
         {
             return Ok(await _mediator.Send(command));
         }
+
+        [ActionName("GetWashItemDeliveryList")]
+        public async Task<IActionResult> GetWashItemDeliveryListOfData(int unitId, string fromDate, string toDate, string trackingBatchNo)
+        {
+            var result = await _mediator.Send(
+                new GetWashItemDeliveryListQuery(unitId, fromDate, toDate, trackingBatchNo)
+            );
+
+            return Ok(result);
+        }
     }
 }

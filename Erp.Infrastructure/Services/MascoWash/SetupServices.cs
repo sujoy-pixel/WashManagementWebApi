@@ -808,7 +808,7 @@ namespace Erp.Infrastructure.Services.MascoWash
 
             return list;
         }
-        
+
 
         public async Task<Result> saveMachineName(SaveMachineName dto)
         {
@@ -1073,39 +1073,39 @@ namespace Erp.Infrastructure.Services.MascoWash
         }
 
 
-   
-        
-            public async Task<List<TrackingNoWiseReceiveDto>> GetReceiveDataList(string trackingNo)
-            {
-                var parameter = new DynamicParameters();
-                parameter.Add("@TrackingNo", trackingNo);
 
-                const string spName = "[dbo].[tbl_SP_GetTrackingNoWiseReceiveData]";
 
-                var result = await GetDisposeErrorFreeListAsyncNew<TrackingNoWiseReceiveDto>(
-                    spName,
-                    parameter
-                );
+        public async Task<List<TrackingNoWiseReceiveDto>> GetReceiveDataList(string trackingNo)
+        {
+            var parameter = new DynamicParameters();
+            parameter.Add("@TrackingNo", trackingNo);
 
-                return result?.ToList() ?? new List<TrackingNoWiseReceiveDto>();
-            }
-        
-            public async Task<List<TrackingNoWiseReceiveDto>> GetReceiveDataListBatchNo(string batchNo)
-            {
-                var parameter = new DynamicParameters();
-                
+            const string spName = "[dbo].[tbl_SP_GetTrackingNoWiseReceiveData]";
+
+            var result = await GetDisposeErrorFreeListAsyncNew<TrackingNoWiseReceiveDto>(
+                spName,
+                parameter
+            );
+
+            return result?.ToList() ?? new List<TrackingNoWiseReceiveDto>();
+        }
+
+        public async Task<List<TrackingNoWiseReceiveDto>> GetReceiveDataListBatchNo(string batchNo)
+        {
+            var parameter = new DynamicParameters();
+
             parameter.Add("@BatchNo", batchNo);
 
-                const string spName = "[dbo].[tbl_SP_GetBatchNoWiseReceiveData]";
+            const string spName = "[dbo].[tbl_SP_GetBatchNoWiseReceiveData]";
 
-                var result = await GetDisposeErrorFreeListAsyncNew<TrackingNoWiseReceiveDto>(
-                    spName,
-                    parameter
-                );
+            var result = await GetDisposeErrorFreeListAsyncNew<TrackingNoWiseReceiveDto>(
+                spName,
+                parameter
+            );
 
-                return result?.ToList() ?? new List<TrackingNoWiseReceiveDto>();
-            }
-        
+            return result?.ToList() ?? new List<TrackingNoWiseReceiveDto>();
+        }
+
 
 
         public async Task<List<DropdownListDto1>> GetTypeOfInspectionDDLList()
@@ -1129,7 +1129,7 @@ namespace Erp.Infrastructure.Services.MascoWash
 
             return list;
         }
-       
+
         public async Task<Result> SaveTrackingReceive(SaveTrackingNoReceive dto)
         {
             if (dto?.Master == null)
@@ -1140,7 +1140,7 @@ namespace Erp.Infrastructure.Services.MascoWash
             //    return Result.Failure(new[] { "Operation must be INSERT or UPDATE" });
 
             var tvpRows = new List<WashReceiveTvpRow>();
-                
+
             foreach (var d in dto.Details)
             {
                 foreach (var s in d.SizeDetails)
@@ -1149,14 +1149,14 @@ namespace Erp.Infrastructure.Services.MascoWash
                     {
                         TrackingBatchNo = d.TrackingBatchNo,
                         FromUnitId = d.FromUnitId,
-                        BuyerId=d.BuyerId,
-                        JobId=d.JobId,
-                        StyleId=d.StyleId,
-                        OrderId=d.StyleId,
+                        BuyerId = d.BuyerId,
+                        JobId = d.JobId,
+                        StyleId = d.StyleId,
+                        OrderId = d.StyleId,
                         TypeName = d.TypeName,
                         FabricationId = d.FabricationId,
                         Composition = d.Composition,
-                        GsmId=d.GsmId,
+                        GsmId = d.GsmId,
                         SizeId = s.SizeId,
                         ColorId = d.ColorId,
                         DressPartId = d.DressPartId,
@@ -1179,7 +1179,7 @@ namespace Erp.Infrastructure.Services.MascoWash
             param.Add("@Operation", operation);
             param.Add("@UnitId", dto.Master.UnitId);
             param.Add("@TrackingNo", dto.Master.TrackingNo);
-            param.Add("@MasterId", dto.Master.MasterId);           
+            param.Add("@MasterId", dto.Master.MasterId);
             param.Add("@CreatedBy", _currentUserService?.EmployeeId ?? "SYSTEM");
             param.Add("@DetailsTVP",
                 table.AsTableValuedParameter("dbo.tbl_Wash_Receive_Operation_TVP"));
@@ -1254,7 +1254,7 @@ namespace Erp.Infrastructure.Services.MascoWash
      string receiveNo,
      string fromDate,
      string toDate)
-            {
+        {
             var parameter = new DynamicParameters();
 
             parameter.Add("@UnitId", unitId, DbType.Int32);
@@ -1281,7 +1281,7 @@ namespace Erp.Infrastructure.Services.MascoWash
             return result?.ToList() ?? new List<TrackingNoWiseReceiveDto>();
         }
 
-        public async Task<List<DropdownListDto1>> GetJobDDLListData(int unitId,int buyerId)
+        public async Task<List<DropdownListDto1>> GetJobDDLListData(int unitId, int buyerId)
         {
 
             List<DropdownListDto1> list = new List<DropdownListDto1>();
@@ -1306,7 +1306,7 @@ namespace Erp.Infrastructure.Services.MascoWash
             return list;
         }
 
-        public async Task<List<DropdownListDto1>> GetStyleDDLListData(int unitId,int buyerId,int jobId)
+        public async Task<List<DropdownListDto1>> GetStyleDDLListData(int unitId, int buyerId, int jobId)
         {
 
             List<DropdownListDto1> list = new List<DropdownListDto1>();
@@ -1332,7 +1332,7 @@ namespace Erp.Infrastructure.Services.MascoWash
             return list;
         }
 
-        public async Task<List<DropdownListDto1>> GetOrderDDLListData(int unitId,int buyerId,int jobId,int styleId)
+        public async Task<List<DropdownListDto1>> GetOrderDDLListData(int unitId, int buyerId, int jobId, int styleId)
         {
 
             List<DropdownListDto1> list = new List<DropdownListDto1>();
@@ -1474,6 +1474,7 @@ namespace Erp.Infrastructure.Services.MascoWash
             param.Add("@MachineIds", dto.Master.machineIds);
             param.Add("@TotalPcs", dto.Master.totalKg);
             param.Add("@TotalKg", dto.Master.totalPcs);
+            param.Add("@Type", dto.Master.type);
 
             // ===== TVP =====
             param.Add(
@@ -1498,6 +1499,44 @@ namespace Erp.Infrastructure.Services.MascoWash
                 return Result.Failure(new[] { ex.Message });
             }
         }
+
+        public async Task<List<TrackingNoWiseReceiveDto>> GetWashItemDeliveryList(
+    int unitId,
+    string fromDate,
+    string toDate,
+    string trackingBatchNo)
+        {
+            var parameter = new DynamicParameters();
+
+            parameter.Add("@UnitId", unitId, DbType.Int32);
+
+
+            parameter.Add("@FromDate",
+                string.IsNullOrWhiteSpace(fromDate) ? null : fromDate,
+                DbType.String);
+
+            parameter.Add("@ToDate",
+                string.IsNullOrWhiteSpace(toDate) ? null : toDate,
+                DbType.String);
+
+            parameter.Add("@TrackingBatchNo",
+            string.IsNullOrWhiteSpace(trackingBatchNo) ? null : trackingBatchNo,
+            DbType.String);
+            const string spName = "[dbo].[SP_GetDataForDeliveryBatchItem]";
+
+             var result = await GetDisposeErrorFreeListAsyncNew<TrackingNoWiseReceiveDto>(
+                spName,
+                parameter
+            );
+
+            return result?.ToList() ?? new List<TrackingNoWiseReceiveDto>();
+        }
+
+
+
+
+
+
     }
 
 }

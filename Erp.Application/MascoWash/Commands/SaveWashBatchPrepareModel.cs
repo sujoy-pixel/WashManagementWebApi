@@ -28,6 +28,7 @@ namespace Erp.Application.MascoWash.Commands
 
         // Display Fields
         public string batchNo { get; set; }
+        public string type { get; set; }
         public string documentNo { get; set; }
         public DateTime? effectiveDate { get; set; }
         public DateTime? revisionDate { get; set; }
