@@ -1534,6 +1534,74 @@ namespace Erp.Infrastructure.Services.MascoWash
 
 
 
+        public async Task<Result> SaveWashItemDeliveryData(
+            SaveWashItemDeliveryModel dto)
+        {
+            if (dto == null)
+                return Result.Failure(new[] { "Request data is null" });
+
+            // 🔥 Convert SizeDetails → DataTable (TVP)
+            var sizeTable = new DataTable();
+            sizeTable.Columns.Add("SizeId", typeof(int));
+            sizeTable.Columns.Add("Size", typeof(string));
+            sizeTable.Columns.Add("Qty", typeof(int));
+            sizeTable.Columns.Add("Kg", typeof(decimal));
+
+
+            foreach (var s in dto.SizeDetails)
+            {
+                sizeTable.Rows.Add(
+                    s.sizeId,
+                    s.size,
+                    s.qty,
+                    s.kg
+                );
+            }
+
+            var param = new DynamicParameters();
+
+            // ===== MASTER =====
+            param.Add("@Operation", dto.Master.operation);
+            param.Add("@CreatedBy", _currentUserService?.EmployeeId ?? "SYSTEM");
+            //param.Add("@CreatedBy", dto.Master.createdBy);
+            param.Add("@MasterId", dto.Master.masterId);
+            param.Add("@UnitId", dto.Master.unitId);
+            param.Add("@TrackingNo", dto.Master.trackingNo);
+            param.Add("@BuyerId", dto.Master.buyerId);
+            param.Add("@JobId", dto.Master.jobId);
+            param.Add("@StyleId", dto.Master.styleId);
+            param.Add("@OrderId", dto.Master.orderId);
+            param.Add("@FabricationId", dto.Master.fabricationId);
+            param.Add("@ColorId", dto.Master.colorId);
+            param.Add("@DressPartId", dto.Master.dressPartId);
+            param.Add("@UomId", dto.Master.uomId);
+            param.Add("@IszId", dto.Master.iszId);
+            param.Add("@TotalPcs", dto.Master.totalKg);
+            param.Add("@Type", dto.Master.type);
+
+            // ===== TVP =====
+            param.Add(
+                "@SizeDetails",
+                sizeTable.AsTableValuedParameter("dbo.TVP_WashPrepare_Size")
+            );
+
+            try
+            {
+                using var conn = CreateConnection();
+
+                await conn.ExecuteAsync(
+                    "[dbo].[sp_SaveWashItemDeliveryData]",
+                    param,
+                    commandType: CommandType.StoredProcedure
+                );
+
+                return Result.Success("Saved successfully");
+            }
+            catch (SqlException ex)
+            {
+                return Result.Failure(new[] { ex.Message });
+            }
+        }
 
 
 

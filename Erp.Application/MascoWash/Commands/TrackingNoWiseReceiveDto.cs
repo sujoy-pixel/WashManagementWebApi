@@ -35,6 +35,7 @@ namespace Erp.Application.MascoWash.Queries
         public string Composition { get; set; }
 
         public int ISZID { get; set; }
+        public int FabricationId { get; set; }
         public int GsmId { get; set; }
         public string GSM { get; set; }
         public string Size { get; set; }

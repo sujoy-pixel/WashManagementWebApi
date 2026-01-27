@@ -302,5 +302,13 @@ namespace Erp.WebApi.Controllers.Commercial.Setup
 
             return Ok(result);
         }
+
+
+        [HttpPost]
+        [ActionName("SaveWashItemDelivery")]
+        public async Task<IActionResult>SaveWashItemDelivery(SaveWashItemDeliveryModel command)
+        {
+            return Ok(await _mediator.Send(command));
+        }
     }
 }

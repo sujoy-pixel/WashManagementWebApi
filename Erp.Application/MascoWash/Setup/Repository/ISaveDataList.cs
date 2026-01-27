@@ -85,6 +85,7 @@ namespace Erp.Application.MascoWash.Setup.Repository
 
        
             Task<Result> SaveWashBatchPrepareData(SaveWashBatchPrepareModel dto);
+            Task<Result> SaveWashItemDeliveryData(SaveWashItemDeliveryModel dto);
         Task<List<TrackingNoWiseReceiveDto>> GetWashItemDeliveryList(int unitId, string fromDate, string toDate, string trackingBatchNo);
 
     }
