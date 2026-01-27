@@ -1,4 +1,4 @@
-using System.IO;
+﻿using System.IO;
 using System.Linq;
 using System.Reflection;
 using CorePush.Apple;
@@ -28,11 +28,9 @@ using Microsoft.Extensions.Hosting;
 using NSwag;
 using NSwag.Generation.Processors.Security;
 
+
 namespace Erp.WebApi
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -55,9 +53,8 @@ namespace Erp.WebApi
             services.AddInfrastructure(Configuration);
 
             services.AddScoped<ICurrentUserService, CurrentUserService>();
-     
-            services.AddHttpClient<FcmSender>();
 
+            services.AddHttpClient<FcmSender>();
             //services.AddHttpClient<ApnSender>();
             var appSettingsSection = Configuration.GetSection("FcmNotification");
             services.Configure<FcmNotificationSetting>(appSettingsSection);
@@ -75,7 +72,7 @@ namespace Erp.WebApi
 
                 configure.OperationProcessors.Add(new AspNetCoreOperationSecurityScopeProcessor("JWT"));
 
-       
+
 
 
             });
@@ -103,7 +100,7 @@ namespace Erp.WebApi
             app.UseRouting();
 
             app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin().WithExposedHeaders("content-disposition")); ;
-        
+
 
             app.UseAuthentication();
 
@@ -111,13 +108,12 @@ namespace Erp.WebApi
 
             app.UseDefaultFiles();
             app.UseStaticFiles();
-            app.UseCors("AllowSpecificOrigins");
-            app.UseCors("AllowAngularApp");
+
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-               
+
             });
         }
     }
