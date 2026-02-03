@@ -1524,10 +1524,10 @@ namespace Erp.Infrastructure.Services.MascoWash
             DbType.String);
             const string spName = "[dbo].[SP_GetDataForDeliveryBatchItem]";
 
-             var result = await GetDisposeErrorFreeListAsyncNew<TrackingNoWiseReceiveDto>(
-                spName,
-                parameter
-            );
+            var result = await GetDisposeErrorFreeListAsyncNew<TrackingNoWiseReceiveDto>(
+               spName,
+               parameter
+           );
 
             return result?.ToList() ?? new List<TrackingNoWiseReceiveDto>();
         }
@@ -1603,6 +1603,104 @@ namespace Erp.Infrastructure.Services.MascoWash
             }
         }
 
+
+        public async Task<List<GetFaultWiseListDto>> GetFaultWiseListDataList(
+   int inspectionTypeId, int inspectionHeadId, int faultHeadId)
+        {
+            var parameter = new DynamicParameters();
+
+            parameter.Add("@InspectionTypeId", inspectionTypeId, DbType.Int32, ParameterDirection.Input);
+            parameter.Add("@InspectionHeadId", inspectionHeadId, DbType.Int32, ParameterDirection.Input);
+            parameter.Add("@FaultHeadId", faultHeadId, DbType.Int32, ParameterDirection.Input);
+
+
+           
+            const string spName = "[dbo].[SP_GetFaultNameAndValueByTypeInspectionHeadAndFaultHeade]";
+
+            var result = await GetDisposeErrorFreeListAsyncNew<GetFaultWiseListDto>(
+               spName,
+               parameter
+           );
+
+            return result?.ToList() ?? new List<GetFaultWiseListDto>();
+        }
+
+
+
+        public async Task<Result> SaveFaultWiseValueData(SaveFaultWiseValueModel dto)
+        {
+            if (dto == null)
+                return Result.Failure(new[] { "Request data is null" });
+
+            if (dto.Details == null || !dto.Details.Any())
+                return Result.Failure(new[] { "No detail data found" });
+
+            try
+            {
+                // ============================
+                // Convert List → DataTable (TVP)
+                // ============================
+
+                var table = new DataTable();
+
+                table.Columns.Add("FaultNameId", typeof(int));
+                table.Columns.Add("FaultValue", typeof(decimal));
+                table.Columns.Add("IsActive", typeof(bool));
+
+                foreach (var item in dto.Details)
+                {
+                    table.Rows.Add(
+                        item.FaultNameId,
+                        item.FaultValue,
+                        item.IsActive
+                    );
+                }
+
+                // ============================
+                // Parameters
+                // ============================
+
+                var parameter = new DynamicParameters();
+
+                parameter.Add("@InspectionTypeId", dto.InspectionTypeId);
+                parameter.Add("@InspectionHeadId", dto.InspectionHeadId);
+                parameter.Add("@FaultHeadId", dto.FaultHeadId);
+
+                parameter.Add("@CreatedBy",
+                    string.IsNullOrEmpty(dto.CreatedBy)
+                        ? _currentUserService?.EmployeeId ?? "SYSTEM"
+                        : dto.CreatedBy);
+
+                parameter.Add(
+                    "@Details",
+                    table.AsTableValuedParameter("dbo.FaultWiseValueTagType")
+                );
+
+                // ============================
+                // Execute SP
+                // ============================
+
+                using var conn = CreateConnection();
+
+                int affectedRows = await conn.ExecuteAsync(
+                    "dbo.SP_SaveFaultWiseValueTag",
+                    parameter,
+                    commandType: CommandType.StoredProcedure
+                );
+
+                return affectedRows >= 0
+                    ? Result.Success("Saved successfully")
+                    : Result.Failure(new[] { "No rows affected" });
+            }
+            catch (SqlException ex)
+            {
+                return Result.Failure(new[] { $"Database error: {ex.Message}" });
+            }
+            catch (Exception ex)
+            {
+                return Result.Failure(new[] { $"Unexpected error: {ex.Message}" });
+            }
+        }
 
 
     }

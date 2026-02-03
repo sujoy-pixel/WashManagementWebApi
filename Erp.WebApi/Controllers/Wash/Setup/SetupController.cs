@@ -35,13 +35,13 @@ namespace Erp.WebApi.Controllers.Commercial.Setup
             System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
         }
 
-                                              /// Process Name Entry ///
+        /// Process Name Entry ///
 
         [HttpPost]
         [ActionName("SaveProcessNameEntry")]
         public async Task<IActionResult> SaveProcessNameEntry(saveProcessNameData command)
         {
-           
+
             return Ok(await _mediator.Send(command));
 
         }
@@ -53,7 +53,7 @@ namespace Erp.WebApi.Controllers.Commercial.Setup
             return Ok(await _mediator.Send(new ProcessNameEntryGet()));
         }
 
-                                                  /// Operation Name Entry ///
+        /// Operation Name Entry ///
 
         [HttpPost]
         [ActionName("SaveOperationNameEntry")]
@@ -71,7 +71,7 @@ namespace Erp.WebApi.Controllers.Commercial.Setup
             return Ok(await _mediator.Send(new OperationNameEntryGet()));
         }
 
-                                                  /// Type of Inspection ///
+        /// Type of Inspection ///
 
         [HttpPost]
         [ActionName("SaveTypeofInspection")]
@@ -89,8 +89,8 @@ namespace Erp.WebApi.Controllers.Commercial.Setup
             return Ok(await _mediator.Send(new TypeofInspectionGet()));
         }
 
-                                                    /// Inspection Area ///
-                                                   
+        /// Inspection Area ///
+
         [HttpPost]
         [ActionName("SaveInspectionArea")]
         public async Task<IActionResult> SaveInspectionArea(saveInspectionAreaData command)
@@ -103,13 +103,13 @@ namespace Erp.WebApi.Controllers.Commercial.Setup
         [HttpGet]
         [ActionName("GetInspectionAreaData")]
         public async Task<IActionResult> GetInspectionAreaData()
-        
+
         {
             return Ok(await _mediator.Send(new InspectionAreaGet()));
         }
 
 
-                                                 /// Fault Head Name Layout ///
+        /// Fault Head Name Layout ///
 
         [HttpPost]
         [ActionName("SaveFaultHead")]
@@ -127,7 +127,7 @@ namespace Erp.WebApi.Controllers.Commercial.Setup
             return Ok(await _mediator.Send(new FaultHeadGet()));
         }
 
-                                                 /// Inspection Head Layout ///
+        /// Inspection Head Layout ///
 
         [HttpPost]
         [ActionName("SaveInspectionHead")]
@@ -146,7 +146,7 @@ namespace Erp.WebApi.Controllers.Commercial.Setup
         }
 
 
-                                                     /// Fault Name Layout ///
+        /// Fault Name Layout ///
 
         [HttpPost]
         [ActionName("SaveFaultName")]
@@ -215,7 +215,7 @@ namespace Erp.WebApi.Controllers.Commercial.Setup
         }
 
 
-                                                     /// Fault Wise Name Tag ///
+        /// Fault Wise Name Tag ///
         [HttpPost]
         [ActionName("SaveFaultWiseValueTag")]
         public async Task<IActionResult> SaveFaultWiseValueTag(saveFaultWiseValueTagData command)
@@ -267,7 +267,7 @@ namespace Erp.WebApi.Controllers.Commercial.Setup
         }
         [HttpGet]
         [ActionName("getSearchDataByReceiveNoOrDate")]
-        public async Task<IActionResult> getSearchDataForEdit(int unitId, string receiveNo , string fromDate , string toDate )
+        public async Task<IActionResult> getSearchDataForEdit(int unitId, string receiveNo, string fromDate, string toDate)
         {
             var result = await _mediator.Send(
                 new GetDataBySearchForEdit(unitId, receiveNo, fromDate, toDate)
@@ -277,7 +277,7 @@ namespace Erp.WebApi.Controllers.Commercial.Setup
         }
 
         [ActionName("GetWashBatchPrepareGrid")]
-        public async Task<IActionResult> GetWashBatchPrepareGridData(int unitId,int buyerId,int jobId,int styleId, int orderId)
+        public async Task<IActionResult> GetWashBatchPrepareGridData(int unitId, int buyerId, int jobId, int styleId, int orderId)
         {
             var result = await _mediator.Send(
                 new GetWashBatchPrepareGridQuery(unitId, buyerId, jobId, styleId, orderId)
@@ -306,9 +306,31 @@ namespace Erp.WebApi.Controllers.Commercial.Setup
 
         [HttpPost]
         [ActionName("SaveWashItemDelivery")]
-        public async Task<IActionResult>SaveWashItemDelivery(SaveWashItemDeliveryModel command)
+        public async Task<IActionResult> SaveWashItemDelivery(SaveWashItemDeliveryModel command)
         {
             return Ok(await _mediator.Send(command));
         }
+
+
+        [HttpGet]
+        [ActionName("getFaultWiseList")]
+        public async Task<IActionResult> GetFaultWiseListData(int inspectionTypeId, int inspectionHeadId, int faultHeadId)
+        {
+            var result = await _mediator.Send(
+                new GetFaultWiseListDataQuery(inspectionTypeId, inspectionHeadId, faultHeadId)
+            );
+
+            return Ok(result);
+        }
+
+        [HttpPost]
+        
+        [ActionName("SaveFaultWiseValue")]
+        public async Task<IActionResult> SaveFaultWiseValue(
+    [FromBody] SaveFaultWiseValueModel command)
+        {
+            return Ok(await _mediator.Send(command));
+        }
+
     }
 }
