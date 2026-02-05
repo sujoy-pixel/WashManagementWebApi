@@ -50,6 +50,7 @@
   <!-- Folders -->
   <ItemGroup>
     <Folder Include="Validators\" />
+    <Folder Include="wwwroot\DataSet\" />
     <Folder Include="wwwroot\Files\Admin_Attachment\" />
     <Folder Include="wwwroot\Files\Medical_Attachment\" />
     <Folder Include="wwwroot\Files\Emergency_Attachment\" />
@@ -74,6 +75,17 @@
     <None Update="wwwroot\Reports\**\*.*">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Update="wwwroot\DataSet\dsCompanyAndMasterLcWiseB2BInfo.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>dsCompanyAndMasterLcWiseB2BInfo.xsd</DependentUpon>
+    </Content>
+    <Content Update="wwwroot\DataSet\dsCompanyAndMasterLcWiseB2BInfo.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsCompanyAndMasterLcWiseB2BInfo.Designer.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
 
 </Project>
