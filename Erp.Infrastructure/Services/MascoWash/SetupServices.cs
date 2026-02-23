@@ -17,6 +17,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.EntityFrameworkCore.SqlServer.Query.Internal;
 using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
 using Org.BouncyCastle.Asn1.Ocsp;
 using SixLabors.ImageSharp;
 using System;
@@ -1136,8 +1137,6 @@ namespace Erp.Infrastructure.Services.MascoWash
                 return Result.Failure(new[] { "Invalid request" });
 
             var operation = dto.Master.Operation?.ToUpper();
-            //if (operation != "TrackingNo" && operation != "UPDATE")
-            //    return Result.Failure(new[] { "Operation must be INSERT or UPDATE" });
 
             var tvpRows = new List<WashReceiveTvpRow>();
 
@@ -1185,15 +1184,18 @@ namespace Erp.Infrastructure.Services.MascoWash
                 table.AsTableValuedParameter("dbo.tbl_Wash_Receive_Operation_TVP"));
 
             using var conn = CreateConnection();
+            var result = await conn.QueryFirstOrDefaultAsync<ReceiveResult>(
+    "[dbo].[sp_Save_Wash_Order_Receive_Operation]",
+    param,
+    commandType: CommandType.StoredProcedure);
 
-            var affected = await conn.ExecuteAsync(
-                "[dbo].[sp_Save_Wash_Order_Receive_Operation]",
-                param,
-                commandType: CommandType.StoredProcedure);
+            if (result == null || result.ResultCode == 0)
+                return Result.Failure(new[] { result?.Message ?? "Save failed" });
 
-            return affected > 0
-                ? Result.Success("Saved successfully")
-                : Result.Failure(new[] { "Save failed" });
+            return Result.Success(JsonConvert.SerializeObject(result));
+
+
+
         }
 
         // 🔥 HELPER METHOD (MUST BE HERE)
@@ -1703,8 +1705,198 @@ namespace Erp.Infrastructure.Services.MascoWash
         }
 
 
+        public async Task<List<GetBatchPriorityDto>> GetPrioritySetDataList(int unitId, string date)
+        {
+            var parameter = new DynamicParameters();
+
+            parameter.Add("@UnitId", unitId, DbType.Int32, ParameterDirection.Input); 
+            parameter.Add("@Date", date, DbType.String, ParameterDirection.Input);
+
+
+            const string spName = "[dbo].[SP_GetBatchwisePrioritySetData]";
+
+            var result = await GetDisposeErrorFreeListAsyncNew<GetBatchPriorityDto>(
+               spName,
+               parameter
+           );
+
+            return result?.ToList() ?? new List<GetBatchPriorityDto>();
+        }
+
+
+
+        //public async Task<Result> SaveBatchPriorityBulk(SaveBatchPriorityModel dto)
+        //{
+        //    if (dto == null || dto.Rows == null || !dto.Rows.Any())
+        //        return Result.Failure(new[] { "Request data is null or empty" });
+
+        //    try
+        //    {
+        //        // ============================
+        //        // Convert List → DataTable (TVP)
+        //        // ============================
+        //        var table = new DataTable();
+        //        table.Columns.Add("BatchNo", typeof(string));
+        //        table.Columns.Add("UnitId", typeof(int));
+        //        table.Columns.Add("Date", typeof(DateTime));
+        //        table.Columns.Add("MachineId", typeof(int));
+        //        table.Columns.Add("Priority", typeof(int));
+        //        table.Columns.Add("Qty", typeof(decimal));
+        //        table.Columns.Add("BuyerId", typeof(int));
+        //        table.Columns.Add("JobId", typeof(int));
+        //        table.Columns.Add("StyleId", typeof(int));
+        //        table.Columns.Add("OrderId", typeof(int));
+        //        table.Columns.Add("ColorId", typeof(int));
+
+        //        foreach (var item in dto.Rows)
+        //        {
+        //            table.Rows.Add(
+        //                item.BatchNo,
+        //                item.UnitId,
+        //                item.Date,
+        //                item.MachineId,
+        //                item.Priority,
+        //                item.Qty,
+        //                item.BuyerId,
+        //                item.JobId,
+        //                item.StyleId,
+        //                item.OrderId,
+        //                item.ColorId
+        //            );
+        //        }
+
+        //        // ============================
+        //        // Parameters
+        //        // ============================
+        //        var parameter = new DynamicParameters();
+        //        // Use a single CreatedBy from first row if not null, otherwise SYSTEM
+        //        var createdBy = dto.Rows.FirstOrDefault()?.CreatedBy ?? _currentUserService?.EmployeeId ?? "SYSTEM";
+        //        parameter.Add("@CreatedBy", createdBy);
+
+        //        parameter.Add("@Details", table.AsTableValuedParameter("dbo.tbl_BatchPriority_TVP"));
+
+        //        // ============================
+        //        // Execute SP
+        //        // ============================
+        //        using var conn = CreateConnection();
+
+        //        int affectedRows = await conn.ExecuteAsync(
+        //            "dbo.sp_Save_BatchPriorityData",
+        //            parameter,
+        //            commandType: CommandType.StoredProcedure
+        //        );
+
+        //        return affectedRows > 0
+        //            ? Result.Success("Saved successfully")
+        //            : Result.Failure(new[] { "No rows affected" });
+        //    }
+        //    catch (SqlException ex)
+        //    {
+        //        return Result.Failure(new[] { $"Database error: {ex.Message}" });
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return Result.Failure(new[] { $"Unexpected error: {ex.Message}" });
+        //    }
+        //}
+        public async Task<WrapperResponseBatchPriority> SaveBatchPriorityBulk(SaveBatchPriorityModel dto)
+        {
+            var response = new WrapperResponseBatchPriority();
+
+            if (dto == null || dto.Rows == null || !dto.Rows.Any())
+            {
+                response.IsSuccess = false;
+                response.Message = "Request data is null or empty";
+                return response;
+            }
+
+            try
+            {
+                // ============================
+                // Convert List → DataTable (TVP)
+                // ============================
+                var table = new DataTable();
+                table.Columns.Add("UnitId", typeof(int));
+                table.Columns.Add("BatchNo", typeof(string));
+               
+               // table.Columns.Add("Date", typeof(DateTime));
+                table.Columns.Add("MachineId", typeof(int));
+                
+               
+                table.Columns.Add("BuyerId", typeof(int));
+                table.Columns.Add("JobId", typeof(int));
+                table.Columns.Add("StyleId", typeof(int));
+                table.Columns.Add("OrderId", typeof(int));
+                table.Columns.Add("ColorId", typeof(int));
+                table.Columns.Add("Priority", typeof(int));
+                table.Columns.Add("Qty", typeof(decimal));
+                table.Columns.Add("Date", typeof(DateTime));
+                foreach (var item in dto.Rows)
+                {
+                    table.Rows.Add(
+                        item.UnitId,
+                        item.BatchNo,
+                        
+                       // item.Date,
+                        item.MachineId,
+                       
+                        item.BuyerId,
+                        item.JobId,
+                        item.StyleId,
+                        item.OrderId,
+                        item.ColorId,
+                         item.Priority,
+                        item.Qty,
+                        item.Date
+                    );
+                }
+
+                // ============================
+                // Parameters
+                // ============================
+                var parameter = new DynamicParameters();
+                var createdBy = dto.Rows.FirstOrDefault()?.CreatedBy ?? _currentUserService?.EmployeeId ?? "SYSTEM";
+                parameter.Add("@CreatedBy", createdBy);
+                parameter.Add("@Details", table.AsTableValuedParameter("dbo.tbl_BatchPriority_TVP"));
+
+                // ============================
+                // Execute SP
+                // ============================
+                using var conn = CreateConnection();
+                int affectedRows = await conn.ExecuteAsync(
+                    "dbo.sp_Save_WashBatchPriority",
+                    parameter,
+                    commandType: CommandType.StoredProcedure
+                );
+
+                response.IsSuccess = affectedRows > 0;
+                response.ResultCode = affectedRows > 0 ? "1" : "0";
+                response.Message = affectedRows > 0 ? "Saved successfully" : "No rows affected";
+
+                return response;
+            }
+            catch (SqlException ex)
+            {
+                response.IsSuccess = false;
+                response.Message = $"Database error: {ex.Message}";
+                response.ResultCode = "0";
+                return response;
+            }
+            catch (Exception ex)
+            {
+                response.IsSuccess = false;
+                response.Message = $"Unexpected error: {ex.Message}";
+                response.ResultCode = "0";
+                return response;
+            }
+        }
+
     }
 
+
 }
+
+
+
 
 

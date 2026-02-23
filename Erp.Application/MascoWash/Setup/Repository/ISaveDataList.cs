@@ -89,6 +89,12 @@ namespace Erp.Application.MascoWash.Setup.Repository
             Task<Result> SaveFaultWiseValueData(SaveFaultWiseValueModel dto);
         Task<List<TrackingNoWiseReceiveDto>> GetWashItemDeliveryList(int unitId, string fromDate, string toDate, string trackingBatchNo);
         Task<List<GetFaultWiseListDto>> GetFaultWiseListDataList(int inspectionTypeId, int inspectionHeadId, int faultHeadId);
+        Task<List<GetBatchPriorityDto>> GetPrioritySetDataList(int unitId,string date);
+
+
+        Task<WrapperResponseBatchPriority> SaveBatchPriorityBulk(SaveBatchPriorityModel saveDataListDto);
+
+
 
     }
 }

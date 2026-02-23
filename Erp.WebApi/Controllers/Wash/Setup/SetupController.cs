@@ -332,5 +332,25 @@ namespace Erp.WebApi.Controllers.Commercial.Setup
             return Ok(await _mediator.Send(command));
         }
 
+
+
+        [HttpGet]
+        [ActionName("getBatchPriorityList")]
+        public async Task<IActionResult> GetBatchPriorityListData(int unitId, string date)
+        {
+            var result = await _mediator.Send(
+                new GetBatchPriorityDataQuery(unitId, date)
+            );
+
+            return Ok(result);
+        }
+        [HttpPost]
+        [ActionName("SaveBatchPriorityBulk")]
+        public async Task<IActionResult> SaveBatchPriorityData(SaveBatchPriorityModel command)
+        {
+            var result = await _mediator.Send(command);
+            return Ok(result);
+        }
+
     }
 }
