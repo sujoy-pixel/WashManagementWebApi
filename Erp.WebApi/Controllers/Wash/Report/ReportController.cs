@@ -38,7 +38,6 @@ namespace Erp.WebApi.Controllers.MascoWash.Report
         {
             _mediator = mediator;
             this._webHostEnvironment = webHostEnvironment;
-            //this._salaryService = salaryService;
             System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
             _service = service;
         }
@@ -64,88 +63,16 @@ namespace Erp.WebApi.Controllers.MascoWash.Report
 
                     if (objparam != null)
                     {
-                        if (ReportNameShow == "Company And Master Lc Wise B2B Info")
+                        if (ReportNameShow == "Date Wise Batch Plan Report")
                         {
                             param = new DynamicParameters();
-                            DateTimeOffset parsedFromDate = DateTimeOffset.Parse(objparam.FromDate);
-                            string formattedFromDate = parsedFromDate.ToString("MM/dd/yyyy");
-                            DateTimeOffset parsedToDate = DateTimeOffset.Parse(objparam.ToDate);
-                            string formattedToDate = parsedToDate.ToString("MM/dd/yyyy");
-                            param.Add("@CompanyId", objparam.CompanyId);
-                            param.Add("@FromDate", formattedFromDate);
-                            param.Add("@ToDate", formattedToDate);
-                            param.Add("@BankId", objparam.BankId);
-                            param.Add("@BuyerId", objparam.BuyerId);
-                            param.Add("@MasterLc", objparam.MasterLc);
-                        }
-                        else if(ReportNameShow == "Master LC Report")
-                        {
-                            param = new DynamicParameters();
-                            DateTimeOffset parsedFromDate = DateTimeOffset.Parse(objparam.FromDate);
-                            string formattedFromDate = parsedFromDate.ToString("MM/dd/yyyy");
-                            DateTimeOffset parsedToDate = DateTimeOffset.Parse(objparam.ToDate);
-                            string formattedToDate = parsedToDate.ToString("MM/dd/yyyy");
-                            param.Add("@CompanyId", objparam.CompanyId);
-                            param.Add("@FromDate", formattedFromDate);
-                            param.Add("@ToDate", formattedToDate);
-                            param.Add("@BankNo", objparam.BankId);
-                            param.Add("@BuyerId", objparam.BuyerId);
-                        }
-                        else if (ReportNameShow == "Goods Delivery Report")
-                        {
-                            param = new DynamicParameters();
-                            DateTimeOffset parsedFromDate = DateTimeOffset.Parse(objparam.FromDate);
-                            string formattedFromDate = parsedFromDate.ToString("MM/dd/yyyy");
-                       
-                            param.Add("@FromDate", formattedFromDate);
-                         }
-                        else if (ReportNameShow == "Proforma Invoice Report Local")
-                        {
-                            param = new DynamicParameters();
-                            param.Add("@InvoiceNo", objparam.InvoiceNo);
-                        }
-                        else if (ReportNameShow == "Proforma Invoice Report Foreign")
-                        {
-                            param = new DynamicParameters();
-                            param.Add("@InvoiceNo", objparam.InvoiceNo);
-                        }
-                    else if (ReportNameShow == "Company And Supplier Wise BTB LC Report")
-                    {
-                        param = new DynamicParameters();
-                        DateTimeOffset parsedFromDate = DateTimeOffset.Parse(objparam.FromDate);
-                        string formattedFromDate = parsedFromDate.ToString("MM/dd/yyyy");
-                        DateTimeOffset parsedToDate = DateTimeOffset.Parse(objparam.ToDate);
-                        string formattedToDate = parsedToDate.ToString("MM/dd/yyyy");
-                        param.Add("@CompanyId", objparam.CompanyId);
-                        param.Add("@SupplierId", objparam.SupplierId);
-                        param.Add("@FromDate", formattedFromDate);
-                        param.Add("@ToDate", formattedToDate);
-                    }
-                    else if (ReportNameShow == "Unit Wise Monthly Shipment Report")
-                    {
-                        param = new DynamicParameters();
-                        param.Add("@LCUnitId", objparam.UnitId);
-                        param.Add("@Month", objparam.Month);
-
-                    }
-                    else if (ReportNameShow == "Day Wise Shipment Report")
-                    {
-                        param = new DynamicParameters();
-                        DateTimeOffset parsedFromDate = DateTimeOffset.Parse(objparam.FromDate);
-                        string formattedFromDate = parsedFromDate.ToString("MM/dd/yyyy");
-                        DateTimeOffset parsedToDate = DateTimeOffset.Parse(objparam.ToDate);
-                        string formattedToDate = parsedToDate.ToString("MM/dd/yyyy");
-                        param.Add("@FromDate", formattedFromDate);
-                        param.Add("@ToDate", formattedToDate);
-
-                    }
-                    else if (ReportNameShow == "Monthly Shipment Report")
-                    {
-                        param = new DynamicParameters();
-                        param.Add("@FinYear", objparam.FinYear);
-                        param.Add("@Month", objparam.Month);
-
-                    }
+                            //DateTimeOffset parsedFromDate = DateTimeOffset.Parse(objparam.FromDate);
+                            //string formattedFromDate = parsedFromDate.ToString("MM/dd/yyyy");
+                            //DateTimeOffset parsedToDate = DateTimeOffset.Parse(objparam.ToDate);
+                            //string formattedToDate = parsedToDate.ToString("MM/dd/yyyy");
+                            param.Add("@TrackingNo", objparam.TrackingNo);
+                        }                      
+                    
                 }
 
                     else
@@ -155,7 +82,7 @@ namespace Erp.WebApi.Controllers.MascoWash.Report
                     
                 
 
-                DataTable dt = await _service.GetDataByDataTable(query, param);
+                DataTable dt = await _service.GetDataByDataTableReadOnly(query, param);
                 if (dt == null || dt.Rows.Count == 0)
                 {
                     return BadRequest("No data available for the report.");
@@ -168,11 +95,7 @@ namespace Erp.WebApi.Controllers.MascoWash.Report
                     return NotFound($"The specified report file '{downLoadReportName}.rdlc' was not found.");
                 }
 
-               // var localReport = new LocalReport(path);
                 var localReport = new LocalReport(Path.Combine(this._webHostEnvironment.WebRootPath, "Reports", $"{downLoadReportName}.rdlc"));
-
-
-
                 var dataset = "ds" + downLoadReportName;
                
                 localReport.AddDataSource(dataset.Trim(), dt);
@@ -193,76 +116,6 @@ namespace Erp.WebApi.Controllers.MascoWash.Report
                     parameters.Add("FromDate", formattedFromDate);
                     parameters.Add("ToDate", formattedToDate);
                 }
-                else if (ReportNameShow == "Master LC Report")
-                {
-                        DateTimeOffset parsedFromDate = DateTimeOffset.Parse(objparam.FromDate);
-                        string formattedFromDate = parsedFromDate.ToString("MM/dd/yyyy");
-                        DateTimeOffset parsedToDate = DateTimeOffset.Parse(objparam.ToDate);
-                        string formattedToDate = parsedToDate.ToString("MM/dd/yyyy");
-                        parameters.Add("ReportHeader", ReportNameShow);
-                        parameters.Add("FromDate", formattedFromDate);
-                        parameters.Add("ToDate", formattedToDate);
-                    
-                }
-                else if (ReportNameShow == "Goods Delivery Report")
-                {
-                    DateTimeOffset parsedFromDate = DateTimeOffset.Parse(objparam.FromDate);
-                    string formattedFromDate = parsedFromDate.ToString("MM/dd/yyyy");
-                    parameters.Add("ReportHeader", ReportNameShow);
-                    parameters.Add("FromDate", formattedFromDate);
-                }
-                else if (ReportNameShow == "Proforma Invoice Report Local")
-                {
-                    decimal TotalAmount = 0;
-                    string AmountInWords = "";
-                    if (dt.Rows.Count > 0)
-                    {
-                        for(int i = 0; i < dt.Rows.Count; i++)
-                        {
-                            TotalAmount += Convert.ToDecimal(dt.Rows[i]["TotalAmount"].ToString());
-                        }
-                        AmountInWords = NumberToWordsLocal(TotalAmount);
-                    }
-                    parameters.Add("ReportHeader", ReportNameShow);
-                    parameters.Add("AmountInWord", AmountInWords);
-                }
-                else if (ReportNameShow == "Proforma Invoice Report Foreign")
-                {
-                    parameters.Add("ReportHeader", ReportNameShow);
-                }
-                else if (ReportNameShow == "Company And Supplier Wise BTB LC Report")
-                {
-                    DateTimeOffset parsedFromDate = DateTimeOffset.Parse(objparam.FromDate);
-                    string formattedFromDate = parsedFromDate.ToString("MM/dd/yyyy");
-                    DateTimeOffset parsedToDate = DateTimeOffset.Parse(objparam.ToDate);
-                    string formattedToDate = parsedToDate.ToString("MM/dd/yyyy");
-                    parameters.Add("ReportHeader", "Company Wise BTB LC Report");
-                    parameters.Add("FromDate", formattedFromDate);
-                    parameters.Add("ToDate", formattedToDate);
-                    parameters.Add("CompanyName", objparam.CompanyName);
-                    parameters.Add("SupplierName", objparam.SupplierName);
-                }
-                else if (ReportNameShow == "Unit Wise Monthly Shipment Report")
-                {
-                    parameters.Add("ReportHeader", "Shipment Report of "+ objparam.Month + "");
-                    //parameters.Add("ReportHeader", "Shipment Report of");
-                    parameters.Add("Month", objparam.Month);
-                }
-                else if (ReportNameShow == "Day Wise Shipment Report")
-                {
-                  
-                    //parameters.Add("ReportHeader", "Day Wise Shipment Report of");
-                    parameters.Add("ReportHeader", "Day Wise Shipment Report of " + dt.Rows[0]["Month"] +"");
-                    //parameters.Add("Month", objparam.Month);
-                }
-                else if (ReportNameShow == "Monthly Shipment Report")
-                {
-
-                    //parameters.Add("ReportHeader", "Day Wise Shipment Report of");
-                    parameters.Add("ReportHeader", "Monthly Shipment Report of " + dt.Rows[0]["Month"] + "");
-                    //parameters.Add("Month", objparam.Month);
-                }
-
 
                 // Render the report
                 var reportResult = localReport.Execute(renderType, 1, parameters, mimtype);
@@ -438,19 +291,11 @@ namespace Erp.WebApi.Controllers.MascoWash.Report
         {
             public string ReportName { get; set; }
             public string Type { get; set; }
-            public int CompanyId { get; set; }
+            public string TrackingNo { get; set; }
             public string FromDate { get; set; }
             public string ToDate { get; set; }
-            public int BankId { get; set; }
-            public int BuyerId { get; set; }
-            public string MasterLc { get; set; }
-            public string InvoiceNo { get; set; }
-            public int SupplierId { get; set; }
-            public string CompanyName { get; set; }
-            public string SupplierName { get; set; }
-            public int UnitId { get; set; }
-            public string Month { get; set; }
-            public string FinYear { get; set; }
+      
+      
         }
 
 
