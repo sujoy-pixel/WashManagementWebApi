@@ -73,9 +73,9 @@ namespace Erp.Infrastructure.Services.MascoWash
         public string GetStoredProcedure(string ReportName)
         {
             string _storeProcedure = "";
-            if(ReportName== "Date Wise Batch Plan Report")
+            if(ReportName== "Batch Card Preview")
             {
-                _storeProcedure = "rpt_sp_CompanyAndMasterLcWiseB2BInfo";
+                _storeProcedure = "rpt_sp_BatchCardPreview";
                 
             }
             

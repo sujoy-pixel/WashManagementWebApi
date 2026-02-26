@@ -10,75 +10,38 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DefineConstants>TRACE</DefineConstants>
     <Optimize>true</Optimize>
-    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
     <DebugType>portable</DebugType>
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
 
+  <!-- Remove attachment folders from build -->
   <ItemGroup>
-<<<<<<< Updated upstream
-    <Content Remove="wwwroot\DataSet\dsBatchCardPreview.xsd" />
-    <Content Remove="wwwroot\DataSet\dsEmployee.Designer.cs" />
-    <Content Remove="wwwroot\DataSet\dsEmployee.xsc" />
-    <Content Remove="wwwroot\DataSet\dsEmployee.xss" />
+    <Compile Remove="wwwroot\Files\**" />
+    <Content Remove="wwwroot\Files\**" />
+    <EmbeddedResource Remove="wwwroot\Files\**" />
+    <None Remove="wwwroot\Files\**" />
   </ItemGroup>
 
+  <!-- Dataset auto generation -->
   <ItemGroup>
-    <Compile Include="wwwroot\DataSet\dsBatchCardPreview.Designer.cs">
-      <DependentUpon>dsBatchCardPreview.xsd</DependentUpon>
-=======
-    <Compile Remove="wwwroot\Files\Admin_Attachment\**" />
-    <Compile Remove="wwwroot\Files\Emergency_Attachment\**" />
-    <Compile Remove="wwwroot\Files\Father_Attachment\**" />
-    <Compile Remove="wwwroot\Files\Guardians1_Attachment\**" />
-    <Compile Remove="wwwroot\Files\Guardians2_Attachment\**" />
-    <Compile Remove="wwwroot\Files\Medical_Attachment\**" />
-    <Compile Remove="wwwroot\Files\Mother_Attachment\**" />
-    <Compile Remove="wwwroot\Files\Students\**" />
-    <Compile Remove="wwwroot\Files\Students_Attachment\**" />
-    <Content Remove="wwwroot\Files\Admin_Attachment\**" />
-    <Content Remove="wwwroot\Files\Emergency_Attachment\**" />
-    <Content Remove="wwwroot\Files\Father_Attachment\**" />
-    <Content Remove="wwwroot\Files\Guardians1_Attachment\**" />
-    <Content Remove="wwwroot\Files\Guardians2_Attachment\**" />
-    <Content Remove="wwwroot\Files\Medical_Attachment\**" />
-    <Content Remove="wwwroot\Files\Mother_Attachment\**" />
-    <Content Remove="wwwroot\Files\Students\**" />
-    <Content Remove="wwwroot\Files\Students_Attachment\**" />
-    <EmbeddedResource Remove="wwwroot\Files\Admin_Attachment\**" />
-    <EmbeddedResource Remove="wwwroot\Files\Emergency_Attachment\**" />
-    <EmbeddedResource Remove="wwwroot\Files\Father_Attachment\**" />
-    <EmbeddedResource Remove="wwwroot\Files\Guardians1_Attachment\**" />
-    <EmbeddedResource Remove="wwwroot\Files\Guardians2_Attachment\**" />
-    <EmbeddedResource Remove="wwwroot\Files\Medical_Attachment\**" />
-    <EmbeddedResource Remove="wwwroot\Files\Mother_Attachment\**" />
-    <EmbeddedResource Remove="wwwroot\Files\Students\**" />
-    <EmbeddedResource Remove="wwwroot\Files\Students_Attachment\**" />
-    <None Remove="wwwroot\Files\Admin_Attachment\**" />
-    <None Remove="wwwroot\Files\Emergency_Attachment\**" />
-    <None Remove="wwwroot\Files\Father_Attachment\**" />
-    <None Remove="wwwroot\Files\Guardians1_Attachment\**" />
-    <None Remove="wwwroot\Files\Guardians2_Attachment\**" />
-    <None Remove="wwwroot\Files\Medical_Attachment\**" />
-    <None Remove="wwwroot\Files\Mother_Attachment\**" />
-    <None Remove="wwwroot\Files\Students\**" />
-    <None Remove="wwwroot\Files\Students_Attachment\**" />
-  </ItemGroup>
+    <None Update="wwwroot\DataSet\**\*.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>%(Filename).Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
 
-  <ItemGroup>
-    <Content Remove="wwwroot\DataSet\DateWiseBatchPlanReport.xsd" />
-    <Content Remove="wwwroot\DataSet\dsSalary.Designer.cs" />
-    <Content Remove="wwwroot\DataSet\dsSalary.xsc" />
-    <Content Remove="wwwroot\DataSet\dsSalary.xss" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Include="wwwroot\DataSet\DateWiseBatchPlanReport.Designer.cs">
-      <DependentUpon>DateWiseBatchPlanReport.xsd</DependentUpon>
->>>>>>> Stashed changes
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
+    <Compile Update="wwwroot\DataSet\**\*.Designer.cs">
+      <DesignTime>true</DesignTime>
+      <AutoGen>true</AutoGen>
+      <DependentUpon>%(Filename).xsd</DependentUpon>
     </Compile>
+  </ItemGroup>
+
+  <!-- RDLC Reports -->
+  <ItemGroup>
+    <None Update="wwwroot\Reports\**\*.*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
   <!-- Project references -->
@@ -90,20 +53,17 @@
 
   <!-- NuGet packages -->
   <ItemGroup>
-    <!-- .NET 6 compatible version of System.Drawing.Common -->
+    <PackageReference Include="Dapper" Version="2.1.66" />
     <PackageReference Include="System.Drawing.Common" Version="7.0.0" />
     <PackageReference Include="AspNetCore.Reporting" Version="2.1.0" />
     <PackageReference Include="AutoMapper" Version="12.0.1" />
     <PackageReference Include="IronXL.Excel" Version="2022.11.10251" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.16" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.16" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.16" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="6.0.16" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.16" PrivateAssets="all" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="6.0.12" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="6.0.16" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.16" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.16" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="NSwag.AspNetCore" Version="13.19.0" />
     <PackageReference Include="NSwag.MSBuild" Version="13.19.0" PrivateAssets="all" />
@@ -111,83 +71,6 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
     <PackageReference Include="Swashbuckle.AspNetCore.Filters" Version="7.0.6" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
-  </ItemGroup>
-
-  <!-- Folders -->
-  <ItemGroup>
-    <Folder Include="Validators\" />
-<<<<<<< Updated upstream
-    <Folder Include="wwwroot\Files\Admin_Attachment\" />
-    <Folder Include="wwwroot\Files\Medical_Attachment\" />
-    <Folder Include="wwwroot\Files\Emergency_Attachment\" />
-    <Folder Include="wwwroot\Files\Guardians2_Attachment\" />
-    <Folder Include="wwwroot\Files\Guardians1_Attachment\" />
-    <Folder Include="wwwroot\Files\Mother_Attachment\" />
-    <Folder Include="wwwroot\Files\Father_Attachment\" />
-    <Folder Include="wwwroot\Files\Students_Attachment\" />
-    <Folder Include="wwwroot\Files\Students\" />
-=======
-    <Folder Include="wwwroot\Files\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="wwwroot\DataSet\DateWiseBatchPlanReport.xsc" />
-    <None Include="wwwroot\DataSet\DateWiseBatchPlanReport.xsd" />
-    <None Include="wwwroot\DataSet\DateWiseBatchPlanReport.xss" />
->>>>>>> Stashed changes
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="wwwroot\DataSet\dsBatchCardPreview.xsc" />
-    <None Include="wwwroot\DataSet\dsBatchCardPreview.xsd" />
-    <None Include="wwwroot\DataSet\dsBatchCardPreview.xss" />
-  </ItemGroup>
-
-  <!-- Dataset / RDLC files -->
-  <ItemGroup>
-    <!-- All datasets: automatically generate Designer.cs files -->
-    <None Update="wwwroot\DataSet\**\*.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>%(Filename).Designer.cs</LastGenOutput>
-    </None>
-
-    <!-- All reports: copy to output directory on build -->
-    <None Update="wwwroot\Reports\**\*.*">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-<<<<<<< Updated upstream
-    <Content Update="wwwroot\dataset\dsBatchCardPreview.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>dsBatchCardPreview.xsd</DependentUpon>
-=======
-    <Content Update="wwwroot\DataSet\DateWiseBatchPlanReport.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>DateWiseBatchPlanReport.xsd</DependentUpon>
->>>>>>> Stashed changes
-    </Content>
-    <Content Update="wwwroot\DataSet\dsCompanyAndMasterLcWiseB2BInfo.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>dsCompanyAndMasterLcWiseB2BInfo.xsd</DependentUpon>
-    </Content>
-    <Content Update="wwwroot\DataSet\dsCompanyAndMasterLcWiseB2BInfo.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>dsCompanyAndMasterLcWiseB2BInfo.Designer.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-<<<<<<< Updated upstream
-    <None Update="wwwroot\DataSet\dsBatchCardPreview.xsd">
-      <LastGenOutput>dsBatchCardPreview.Designer.cs</LastGenOutput>
-=======
-    <None Update="wwwroot\DataSet\DateWiseBatchPlanReport.xsd">
-      <LastGenOutput>DateWiseBatchPlanReport.Designer.cs</LastGenOutput>
-      <Generator>MSDataSetGenerator</Generator>
->>>>>>> Stashed changes
-    </None>
   </ItemGroup>
 
 </Project>
