@@ -16,7 +16,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-<<<<<<< Updated upstream
     <Content Remove="wwwroot\DataSet\dsBatchCardPreview.xsd" />
     <Content Remove="wwwroot\DataSet\dsEmployee.Designer.cs" />
     <Content Remove="wwwroot\DataSet\dsEmployee.xsc" />
@@ -26,56 +25,6 @@
   <ItemGroup>
     <Compile Include="wwwroot\DataSet\dsBatchCardPreview.Designer.cs">
       <DependentUpon>dsBatchCardPreview.xsd</DependentUpon>
-=======
-    <Compile Remove="wwwroot\Files\Admin_Attachment\**" />
-    <Compile Remove="wwwroot\Files\Emergency_Attachment\**" />
-    <Compile Remove="wwwroot\Files\Father_Attachment\**" />
-    <Compile Remove="wwwroot\Files\Guardians1_Attachment\**" />
-    <Compile Remove="wwwroot\Files\Guardians2_Attachment\**" />
-    <Compile Remove="wwwroot\Files\Medical_Attachment\**" />
-    <Compile Remove="wwwroot\Files\Mother_Attachment\**" />
-    <Compile Remove="wwwroot\Files\Students\**" />
-    <Compile Remove="wwwroot\Files\Students_Attachment\**" />
-    <Content Remove="wwwroot\Files\Admin_Attachment\**" />
-    <Content Remove="wwwroot\Files\Emergency_Attachment\**" />
-    <Content Remove="wwwroot\Files\Father_Attachment\**" />
-    <Content Remove="wwwroot\Files\Guardians1_Attachment\**" />
-    <Content Remove="wwwroot\Files\Guardians2_Attachment\**" />
-    <Content Remove="wwwroot\Files\Medical_Attachment\**" />
-    <Content Remove="wwwroot\Files\Mother_Attachment\**" />
-    <Content Remove="wwwroot\Files\Students\**" />
-    <Content Remove="wwwroot\Files\Students_Attachment\**" />
-    <EmbeddedResource Remove="wwwroot\Files\Admin_Attachment\**" />
-    <EmbeddedResource Remove="wwwroot\Files\Emergency_Attachment\**" />
-    <EmbeddedResource Remove="wwwroot\Files\Father_Attachment\**" />
-    <EmbeddedResource Remove="wwwroot\Files\Guardians1_Attachment\**" />
-    <EmbeddedResource Remove="wwwroot\Files\Guardians2_Attachment\**" />
-    <EmbeddedResource Remove="wwwroot\Files\Medical_Attachment\**" />
-    <EmbeddedResource Remove="wwwroot\Files\Mother_Attachment\**" />
-    <EmbeddedResource Remove="wwwroot\Files\Students\**" />
-    <EmbeddedResource Remove="wwwroot\Files\Students_Attachment\**" />
-    <None Remove="wwwroot\Files\Admin_Attachment\**" />
-    <None Remove="wwwroot\Files\Emergency_Attachment\**" />
-    <None Remove="wwwroot\Files\Father_Attachment\**" />
-    <None Remove="wwwroot\Files\Guardians1_Attachment\**" />
-    <None Remove="wwwroot\Files\Guardians2_Attachment\**" />
-    <None Remove="wwwroot\Files\Medical_Attachment\**" />
-    <None Remove="wwwroot\Files\Mother_Attachment\**" />
-    <None Remove="wwwroot\Files\Students\**" />
-    <None Remove="wwwroot\Files\Students_Attachment\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Remove="wwwroot\DataSet\DateWiseBatchPlanReport.xsd" />
-    <Content Remove="wwwroot\DataSet\dsSalary.Designer.cs" />
-    <Content Remove="wwwroot\DataSet\dsSalary.xsc" />
-    <Content Remove="wwwroot\DataSet\dsSalary.xss" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Include="wwwroot\DataSet\DateWiseBatchPlanReport.Designer.cs">
-      <DependentUpon>DateWiseBatchPlanReport.xsd</DependentUpon>
->>>>>>> Stashed changes
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
     </Compile>
@@ -116,7 +65,6 @@
   <!-- Folders -->
   <ItemGroup>
     <Folder Include="Validators\" />
-<<<<<<< Updated upstream
     <Folder Include="wwwroot\Files\Admin_Attachment\" />
     <Folder Include="wwwroot\Files\Medical_Attachment\" />
     <Folder Include="wwwroot\Files\Emergency_Attachment\" />
@@ -126,14 +74,6 @@
     <Folder Include="wwwroot\Files\Father_Attachment\" />
     <Folder Include="wwwroot\Files\Students_Attachment\" />
     <Folder Include="wwwroot\Files\Students\" />
-=======
-    <Folder Include="wwwroot\Files\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="wwwroot\DataSet\DateWiseBatchPlanReport.xsc" />
-    <None Include="wwwroot\DataSet\DateWiseBatchPlanReport.xsd" />
-    <None Include="wwwroot\DataSet\DateWiseBatchPlanReport.xss" />
->>>>>>> Stashed changes
   </ItemGroup>
   <ItemGroup>
     <None Include="wwwroot\DataSet\dsBatchCardPreview.xsc" />
@@ -156,17 +96,19 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-<<<<<<< Updated upstream
+    <Content Update="wwwroot\dataset\DateWiseBatchPlanReport.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DateWiseBatchPlanReport.xsd</DependentUpon>
+    </Content>
+    <Content Update="wwwroot\dataset\DateWiseBatchPlanReport.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DateWiseBatchPlanReport.Designer.cs</LastGenOutput>
+    </Content>
     <Content Update="wwwroot\dataset\dsBatchCardPreview.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>dsBatchCardPreview.xsd</DependentUpon>
-=======
-    <Content Update="wwwroot\DataSet\DateWiseBatchPlanReport.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>DateWiseBatchPlanReport.xsd</DependentUpon>
->>>>>>> Stashed changes
     </Content>
     <Content Update="wwwroot\DataSet\dsCompanyAndMasterLcWiseB2BInfo.Designer.cs">
       <DesignTime>True</DesignTime>
@@ -179,14 +121,8 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-<<<<<<< Updated upstream
     <None Update="wwwroot\DataSet\dsBatchCardPreview.xsd">
       <LastGenOutput>dsBatchCardPreview.Designer.cs</LastGenOutput>
-=======
-    <None Update="wwwroot\DataSet\DateWiseBatchPlanReport.xsd">
-      <LastGenOutput>DateWiseBatchPlanReport.Designer.cs</LastGenOutput>
-      <Generator>MSDataSetGenerator</Generator>
->>>>>>> Stashed changes
     </None>
   </ItemGroup>
 

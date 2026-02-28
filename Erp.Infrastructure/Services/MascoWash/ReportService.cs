@@ -75,7 +75,7 @@ namespace Erp.Infrastructure.Services.MascoWash
             string _storeProcedure = "";
             if(ReportName== "Date Wise Batch Plan Report")
             {
-                _storeProcedure = "rpt_sp_CompanyAndMasterLcWiseB2BInfo";
+                _storeProcedure = "rpt_sp_CompanyAndMasterLcWiseB2BInfo";          
                 
             }
             
