@@ -1488,18 +1488,24 @@ namespace Erp.Infrastructure.Services.MascoWash
             {
                 using var conn = CreateConnection();
 
-                await conn.ExecuteAsync(
-                    "[dbo].[sp_SaveWashBatchPrepare]",
-                    param,
-                    commandType: CommandType.StoredProcedure
-                );
+                var result = await conn.QueryFirstOrDefaultAsync<SaveWashBatchResponse>(
+                  "[dbo].[sp_SaveWashBatchPrepare]",
+                  param,
+                  commandType: CommandType.StoredProcedure
+              );
 
-                return Result.Success("Saved successfully");
+                return Result.Success(result.AutoBatchNo);
             }
             catch (SqlException ex)
             {
                 return Result.Failure(new[] { ex.Message });
             }
+        }
+        public class SaveWashBatchResponse
+        {
+            public int ResultCode { get; set; }
+            public int MasterId { get; set; }
+            public string AutoBatchNo { get; set; }
         }
 
         public async Task<List<TrackingNoWiseReceiveDto>> GetWashItemDeliveryList(

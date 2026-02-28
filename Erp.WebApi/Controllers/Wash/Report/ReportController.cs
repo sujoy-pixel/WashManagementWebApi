@@ -45,44 +45,45 @@ namespace Erp.WebApi.Controllers.MascoWash.Report
 
         [HttpPost]
         [ActionName("ShowReport")]
-        public async Task<IActionResult> Report([FromBody] ParamModel objparam)
+        public async Task<IActionResult> Report([FromBody] Model objparam)
         {
             try
             {
                 string mimtype = "";
-                string ReportNameShow = objparam.ReportName.Trim();             
-                string downLoadReportName = Regex.Replace(ReportNameShow, @"\s+", ""); 
-                string fileName = objparam.Type == "PDF" ? downLoadReportName+".pdf" : downLoadReportName+".xls";
+                if (objparam == null)
+                    return BadRequest("Invalid request.");
+
+                string ReportNameShow = objparam.ReportName?.Trim() ?? "";
+                if (string.IsNullOrWhiteSpace(ReportNameShow))
+                    return BadRequest("ReportName is required.");
+
+                string reportType = objparam.Type?.Trim().ToUpper() ?? "PDF";
+
+                string downLoadReportName = Regex.Replace(ReportNameShow, @"\s+", "");
+
+                string fileName = reportType == "PDF"
+      ? $"{downLoadReportName}.pdf"
+      : $"{downLoadReportName}.xlsx";
 
                 string filePath = Path.Combine(this._webHostEnvironment.WebRootPath, "reports", fileName);
-                DynamicParameters param = new DynamicParameters();
-                
-
-                // Fetch data from the database
+           
                 string query = _service.GetStoredProcedure(ReportNameShow);
 
-                    if (objparam != null)
-                    {
-                        if (ReportNameShow == "Date Wise Batch Plan Report")
-                        {
-                            param = new DynamicParameters();
-                            //DateTimeOffset parsedFromDate = DateTimeOffset.Parse(objparam.FromDate);
-                            //string formattedFromDate = parsedFromDate.ToString("MM/dd/yyyy");
-                            //DateTimeOffset parsedToDate = DateTimeOffset.Parse(objparam.ToDate);
-                            //string formattedToDate = parsedToDate.ToString("MM/dd/yyyy");
-                            param.Add("@TrackingNo", objparam.TrackingNo);
-                        }                      
-                    
+                DynamicParameters param = new DynamicParameters();
+
+                if (ReportNameShow == "Batch Card Preview")
+                {
+                    param = new DynamicParameters();
+
+                    param.Add("@TrackingNo", objparam.GenerateNumber ?? "", DbType.String, ParameterDirection.Input);
+
+
+
                 }
 
-                    else
-                    {
-                        param = new DynamicParameters();
-                    }
-                    
-                
+            
 
-                DataTable dt = await _service.GetDataByDataTableReadOnly(query, param);
+                DataTable dt = await _service.GetDataByDataTable(query, param);
                 if (dt == null || dt.Rows.Count == 0)
                 {
                     return BadRequest("No data available for the report.");
@@ -106,19 +107,16 @@ namespace Erp.WebApi.Controllers.MascoWash.Report
                     ? "application/pdf"
                     : "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
                 Dictionary<string, string> parameters = new Dictionary<string, string>();
-                if (ReportNameShow == "Company And Master Lc Wise B2B Info")
+                if (ReportNameShow == "Batch Card Preview")
                 {
-                    DateTimeOffset parsedFromDate = DateTimeOffset.Parse(objparam.FromDate);
-                    string formattedFromDate = parsedFromDate.ToString("MM/dd/yyyy");
-                    DateTimeOffset parsedToDate = DateTimeOffset.Parse(objparam.ToDate);
-                    string formattedToDate = parsedToDate.ToString("MM/dd/yyyy");
+                 
                     parameters.Add("ReportHeader", ReportNameShow);
-                    parameters.Add("FromDate", formattedFromDate);
-                    parameters.Add("ToDate", formattedToDate);
+                    
                 }
 
                 // Render the report
                 var reportResult = localReport.Execute(renderType, 1, parameters, mimtype);
+
 
                 if (objparam.Type == "PDF")
                 {
@@ -134,8 +132,9 @@ namespace Erp.WebApi.Controllers.MascoWash.Report
             }
             catch (Exception ex)
             {
+
                 Console.Error.WriteLine($"Error generating report: {ex.Message}");
-                return StatusCode(500, "An error occurred while generating the report.");
+                return StatusCode(500, ex.Message);
             }
         }
 
@@ -287,15 +286,13 @@ namespace Erp.WebApi.Controllers.MascoWash.Report
         /// </summary>
 
 
-        public class ParamModel
+        
+        public class Model
         {
-            public string ReportName { get; set; }
-            public string Type { get; set; }
-            public string TrackingNo { get; set; }
-            public string FromDate { get; set; }
-            public string ToDate { get; set; }
-      
-      
+            public string? ReportName { get; set; }
+            public string? Type { get; set; }
+            public string? GenerateNumber { get; set; }
+
         }
 
 
