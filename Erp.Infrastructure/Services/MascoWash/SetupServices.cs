@@ -1897,6 +1897,26 @@ namespace Erp.Infrastructure.Services.MascoWash
             }
         }
 
+
+        public async Task<List<BatchWishQCDataDto>> GetBatchWishQCDataList( string batchNo)
+        {
+            var parameter = new DynamicParameters();
+
+         
+            parameter.Add("@BatchNo", batchNo, DbType.String, ParameterDirection.Input);
+
+
+            const string spName = "[dbo].[tbl_SP_Get_BatchWiseQCData]";
+
+            var result = await GetDisposeErrorFreeListAsyncNew<BatchWishQCDataDto>(
+               spName,
+               parameter
+           );
+
+            return result?.ToList() ?? new List<BatchWishQCDataDto>();
+        }
+
+
     }
 
 

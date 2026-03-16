@@ -1,5 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
+  <!-- ================= BASIC ================= -->
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
@@ -10,74 +11,31 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DefineConstants>TRACE</DefineConstants>
     <Optimize>true</Optimize>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
     <DebugType>portable</DebugType>
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
 
-  <!-- Remove attachment folders from build -->
-  <ItemGroup>
-<<<<<<< HEAD
-    <Content Remove="wwwroot\DataSet\dsBatchCardPreview.xsd" />
-    <Content Remove="wwwroot\DataSet\dsEmployee.Designer.cs" />
-    <Content Remove="wwwroot\DataSet\dsEmployee.xsc" />
-    <Content Remove="wwwroot\DataSet\dsEmployee.xss" />
-=======
-    <Compile Remove="wwwroot\Files\**" />
-    <Content Remove="wwwroot\Files\**" />
-    <EmbeddedResource Remove="wwwroot\Files\**" />
-    <None Remove="wwwroot\Files\**" />
->>>>>>> 17b97b1791be6ab7b7c603b15446fe85f2136313
-  </ItemGroup>
 
-  <!-- Dataset auto generation -->
-  <ItemGroup>
-<<<<<<< HEAD
-    <Compile Include="wwwroot\DataSet\dsBatchCardPreview.Designer.cs">
-      <DependentUpon>dsBatchCardPreview.xsd</DependentUpon>
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-=======
-    <None Update="wwwroot\DataSet\**\*.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>%(Filename).Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-
-    <Compile Update="wwwroot\DataSet\**\*.Designer.cs">
-      <DesignTime>true</DesignTime>
-      <AutoGen>true</AutoGen>
-      <DependentUpon>%(Filename).xsd</DependentUpon>
->>>>>>> 17b97b1791be6ab7b7c603b15446fe85f2136313
-    </Compile>
-  </ItemGroup>
-
-  <!-- RDLC Reports -->
-  <ItemGroup>
-    <None Update="wwwroot\Reports\**\*.*">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-
-  <!-- Project references -->
+  <!-- ================= PROJECT REFERENCES ================= -->
   <ItemGroup>
     <ProjectReference Include="..\Erp.Application\Erp.Application.csproj" />
     <ProjectReference Include="..\Erp.Infrastructure\Erp.Infrastructure.csproj" />
     <ProjectReference Include="..\RDLCProject\RDLCProject.csproj" />
   </ItemGroup>
 
-  <!-- NuGet packages -->
+
+  <!-- ================= NUGET PACKAGES ================= -->
   <ItemGroup>
-    <PackageReference Include="Dapper" Version="2.1.66" />
     <PackageReference Include="System.Drawing.Common" Version="7.0.0" />
     <PackageReference Include="AspNetCore.Reporting" Version="2.1.0" />
     <PackageReference Include="AutoMapper" Version="12.0.1" />
     <PackageReference Include="IronXL.Excel" Version="2022.11.10251" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.16" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.16" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.16" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.16" PrivateAssets="all" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.16" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.16" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.16" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.16" PrivateAssets="all" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="NSwag.AspNetCore" Version="13.19.0" />
     <PackageReference Include="NSwag.MSBuild" Version="13.19.0" PrivateAssets="all" />
@@ -87,72 +45,27 @@
     <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
   </ItemGroup>
 
-<<<<<<< HEAD
-  <!-- Folders -->
-  <ItemGroup>
-    <Folder Include="Validators\" />
-    <Folder Include="wwwroot\Files\Admin_Attachment\" />
-    <Folder Include="wwwroot\Files\Medical_Attachment\" />
-    <Folder Include="wwwroot\Files\Emergency_Attachment\" />
-    <Folder Include="wwwroot\Files\Guardians2_Attachment\" />
-    <Folder Include="wwwroot\Files\Guardians1_Attachment\" />
-    <Folder Include="wwwroot\Files\Mother_Attachment\" />
-    <Folder Include="wwwroot\Files\Father_Attachment\" />
-    <Folder Include="wwwroot\Files\Students_Attachment\" />
-    <Folder Include="wwwroot\Files\Students\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="wwwroot\DataSet\dsBatchCardPreview.xsc" />
-    <None Include="wwwroot\DataSet\dsBatchCardPreview.xsd" />
-    <None Include="wwwroot\DataSet\dsBatchCardPreview.xss" />
-  </ItemGroup>
 
-  <!-- Dataset / RDLC files -->
+  <!-- ================= DATASET AUTO GENERATION ================= -->
   <ItemGroup>
-    <!-- All datasets: automatically generate Designer.cs files -->
+    <!-- Auto create all Designer.cs from XSD -->
     <None Update="wwwroot\DataSet\**\*.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>%(Filename).Designer.cs</LastGenOutput>
     </None>
 
-    <!-- All reports: copy to output directory on build -->
+    <!-- Copy all RDLC reports -->
     <None Update="wwwroot\Reports\**\*.*">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
+
+
+  <!-- ================= FOLDERS ================= -->
   <ItemGroup>
-    <Content Update="wwwroot\dataset\DateWiseBatchPlanReport.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>DateWiseBatchPlanReport.xsd</DependentUpon>
-    </Content>
-    <Content Update="wwwroot\dataset\DateWiseBatchPlanReport.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DateWiseBatchPlanReport.Designer.cs</LastGenOutput>
-    </Content>
-    <Content Update="wwwroot\dataset\dsBatchCardPreview.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>dsBatchCardPreview.xsd</DependentUpon>
-    </Content>
-    <Content Update="wwwroot\DataSet\dsCompanyAndMasterLcWiseB2BInfo.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>dsCompanyAndMasterLcWiseB2BInfo.xsd</DependentUpon>
-    </Content>
-    <Content Update="wwwroot\DataSet\dsCompanyAndMasterLcWiseB2BInfo.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>dsCompanyAndMasterLcWiseB2BInfo.Designer.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <None Update="wwwroot\DataSet\dsBatchCardPreview.xsd">
-      <LastGenOutput>dsBatchCardPreview.Designer.cs</LastGenOutput>
-    </None>
+    <Folder Include="Validators\" />
+    <Folder Include="wwwroot\Files\" />
   </ItemGroup>
 
 </Project>
-=======
-</Project>
->>>>>>> 17b97b1791be6ab7b7c603b15446fe85f2136313

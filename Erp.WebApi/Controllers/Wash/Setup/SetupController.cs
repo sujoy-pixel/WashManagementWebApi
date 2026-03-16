@@ -267,7 +267,11 @@ namespace Erp.WebApi.Controllers.Commercial.Setup
         }
         [HttpGet]
         [ActionName("getSearchDataByReceiveNoOrDate")]
-        public async Task<IActionResult> getSearchDataForEdit(int unitId, string receiveNo, string fromDate, string toDate)
+        public async Task<IActionResult> getSearchDataForEdit(
+      int unitId,
+      string? receiveNo,
+      string? fromDate,
+      string? toDate)
         {
             var result = await _mediator.Send(
                 new GetDataBySearchForEdit(unitId, receiveNo, fromDate, toDate)
@@ -275,7 +279,6 @@ namespace Erp.WebApi.Controllers.Commercial.Setup
 
             return Ok(result);
         }
-
         [ActionName("GetWashBatchPrepareGrid")]
         public async Task<IActionResult> GetWashBatchPrepareGridData(int unitId, int buyerId, int jobId, int styleId, int orderId)
         {
@@ -324,7 +327,7 @@ namespace Erp.WebApi.Controllers.Commercial.Setup
         }
 
         [HttpPost]
-        
+
         [ActionName("SaveFaultWiseValue")]
         public async Task<IActionResult> SaveFaultWiseValue(
     [FromBody] SaveFaultWiseValueModel command)
@@ -352,5 +355,16 @@ namespace Erp.WebApi.Controllers.Commercial.Setup
             return Ok(result);
         }
 
+
+        [HttpGet]
+        [ActionName("getBatchWishQCDataList")]
+        public async Task<IActionResult> BatchWishQCData(string batchNo)
+        {
+            var result = await _mediator.Send(
+                new BatchWishQCDataQuery(batchNo)
+            );
+
+            return Ok(result);
+        }
     }
 }

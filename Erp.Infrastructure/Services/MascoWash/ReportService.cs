@@ -75,11 +75,10 @@ namespace Erp.Infrastructure.Services.MascoWash
             string _storeProcedure = "";
             if(ReportName== "Batch Card Preview")
             {
-<<<<<<< HEAD
-                _storeProcedure = "rpt_sp_CompanyAndMasterLcWiseB2BInfo";          
-=======
+     
+
                 _storeProcedure = "rpt_sp_BatchCardPreview";
->>>>>>> 17b97b1791be6ab7b7c603b15446fe85f2136313
+
                 
             }
             
