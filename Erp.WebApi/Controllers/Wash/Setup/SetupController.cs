@@ -366,5 +366,12 @@ namespace Erp.WebApi.Controllers.Commercial.Setup
 
             return Ok(result);
         }
+
+        //[HttpPost]
+        //[ActionName("SaveQCData")]
+        //public async Task<IActionResult> SaveQCData(SaveQCDataModel command)
+        //{
+        //    return Ok(await _mediator.Send(command));
+        //}
     }
 }
