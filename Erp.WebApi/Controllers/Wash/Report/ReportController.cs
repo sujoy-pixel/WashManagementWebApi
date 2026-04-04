@@ -1,27 +1,17 @@
 ﻿using AspNetCore.Reporting;
-using AspNetCore.ReportingServices.ReportProcessing.ReportObjectModel;
-using Castle.Core.Configuration;
 using Dapper;
-using Erp.Application.Common.Interfaces;
-using Erp.Infrastructure.Persistence;
 using Erp.Infrastructure.Services.MascoWash;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using QRCoder;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.Common;
-using System.Data.SqlClient;
-using System.Drawing;
 using System.IO;
-using System.Threading.Tasks;
-using static Erp.Infrastructure.Services.MascoWash.ReportService;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 using System.Text.RegularExpressions;
-using System.Linq;
+using System.Threading.Tasks;
 
 namespace Erp.WebApi.Controllers.MascoWash.Report
 {
@@ -32,16 +22,22 @@ namespace Erp.WebApi.Controllers.MascoWash.Report
     {
         private readonly IMediator _mediator;
         private readonly IWebHostEnvironment _webHostEnvironment;
-      
-        public ReportService _service { get; set; }
-        public ReportController(IMediator mediator, IWebHostEnvironment webHostEnvironment, ReportService service)
+        private readonly ReportService _service;
+
+        public ReportController(
+            IMediator mediator,
+            IWebHostEnvironment webHostEnvironment,
+            ReportService service)
         {
             _mediator = mediator;
-            this._webHostEnvironment = webHostEnvironment;
-            System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
+            _webHostEnvironment = webHostEnvironment;
             _service = service;
+
+            System.Text.Encoding.RegisterProvider(
+                System.Text.CodePagesEncodingProvider.Instance);
         }
-        #region Report 
+
+        #region MAIN REPORT API
 
         [HttpPost]
         [ActionName("ShowReport")]
@@ -49,252 +45,165 @@ namespace Erp.WebApi.Controllers.MascoWash.Report
         {
             try
             {
-                string mimtype = "";
                 if (objparam == null)
                     return BadRequest("Invalid request.");
 
-                string ReportNameShow = objparam.ReportName?.Trim() ?? "";
-                if (string.IsNullOrWhiteSpace(ReportNameShow))
+                string reportName = objparam.ReportName?.Trim();
+                if (string.IsNullOrWhiteSpace(reportName))
                     return BadRequest("ReportName is required.");
 
                 string reportType = objparam.Type?.Trim().ToUpper() ?? "PDF";
 
-                string downLoadReportName = Regex.Replace(ReportNameShow, @"\s+", "");
+                string cleanName = Regex.Replace(reportName, @"\s+", "");
+
+                string query = _service.GetStoredProcedure(reportName);
+
+                var param = new DynamicParameters();
+
+                byte[] qrBytes = null;
+
+                // ==============================
+                // SPECIAL CASE: QR GENERATION
+                // ==============================
+                if (reportName == "Batch Card Preview")
+                {
+                    string trackingNo = objparam.GenerateNumber ?? "";
+
+                    param.Add("@TrackingNo", trackingNo, DbType.String, ParameterDirection.Input);
+
+                    qrBytes = GenerateQrCode(trackingNo);
+                }
+
+
+                // ==============================
+                // GET DATA FROM DB
+                // ==============================
+                DataTable dt = await _service.GetDataByDataTable(query, param);
+
+                if (dt == null || dt.Rows.Count == 0)
+                    return BadRequest("No data available for the report.");
+
+                // ==============================
+                // ADD QR COLUMN (IMPORTANT FIX)
+                // ==============================
+                if (qrBytes != null)
+                {
+                    if (!dt.Columns.Contains("QrCode"))
+                        dt.Columns.Add("QrCode", typeof(byte[]));
+                    DataTable cloneTable = dt.Clone(); // copy structure
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        DataRow newRow = cloneTable.NewRow();
+
+                        foreach (DataColumn col in dt.Columns)
+                        {
+                            newRow[col.ColumnName] = row[col.ColumnName];
+                        }
+
+                        newRow["QrCode"] = qrBytes;
+
+                        cloneTable.Rows.Add(newRow);
+                    }
+
+                    dt = cloneTable;
+                    //foreach (DataRow row in dt.Rows)
+                    //{
+                    //    row["QrCode"] = qrBytes;
+                    //    dt.Rows.Add
+                    //}
+                }
+
+
+                // ==============================
+                // LOAD RDLC FILE
+                // ==============================
+                string rdlcPath = Path.Combine(
+                    _webHostEnvironment.WebRootPath,
+                    "Reports",
+                    $"{cleanName}.rdlc"
+                );
+
+                if (!System.IO.File.Exists(rdlcPath))
+                    return NotFound("RDLC file not found.");
+
+                var localReport = new LocalReport(rdlcPath);
+
+                string datasetName = "ds" + cleanName;
+                localReport.AddDataSource(datasetName, dt);
+
+                // ==============================
+                // PARAMETERS
+                // ==============================
+                var parameters = new Dictionary<string, string>();
+
+                if (reportName == "Batch Card Preview")
+                {
+                    parameters.Add("ReportHeader", reportName);
+                }
+
+                // ==============================
+                // RENDER REPORT
+                // ==============================
+                RenderType renderType =
+                    reportType == "PDF"
+                        ? RenderType.Pdf
+                        : RenderType.ExcelOpenXml;
+
+                var result = localReport.Execute(renderType, 1, parameters, "");
 
                 string fileName = reportType == "PDF"
-      ? $"{downLoadReportName}.pdf"
-      : $"{downLoadReportName}.xlsx";
+                    ? $"{cleanName}.pdf"
+                    : $"{cleanName}.xlsx";
 
-                string filePath = Path.Combine(this._webHostEnvironment.WebRootPath, "reports", fileName);
-           
-                string query = _service.GetStoredProcedure(ReportNameShow);
-
-                DynamicParameters param = new DynamicParameters();
-
-                if (ReportNameShow == "Batch Card Preview")
-                {
-                    param = new DynamicParameters();
-
-                    param.Add("@TrackingNo", objparam.GenerateNumber ?? "", DbType.String, ParameterDirection.Input);
-
-
-
-                }
-
-            
-
-                DataTable dt = await _service.GetDataByDataTable(query, param);
-                if (dt == null || dt.Rows.Count == 0)
-                {
-                    return BadRequest("No data available for the report.");
-                }
-
-                // Load the RDLC report
-                var path = Path.Combine(this._webHostEnvironment.WebRootPath, "Reports", $"{downLoadReportName}.rdlc");
-                if (!System.IO.File.Exists(path))
-                {
-                    return NotFound($"The specified report file '{downLoadReportName}.rdlc' was not found.");
-                }
-
-                var localReport = new LocalReport(Path.Combine(this._webHostEnvironment.WebRootPath, "Reports", $"{downLoadReportName}.rdlc"));
-                var dataset = "ds" + downLoadReportName;
-               
-                localReport.AddDataSource(dataset.Trim(), dt);
-
-                // Determine render type and file MIME type
-                RenderType renderType = objparam.Type == "PDF" ? RenderType.Pdf : RenderType.ExcelOpenXml;
-                string fileType = objparam.Type == "PDF"
+                string mimeType = reportType == "PDF"
                     ? "application/pdf"
                     : "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
-                Dictionary<string, string> parameters = new Dictionary<string, string>();
-                if (ReportNameShow == "Batch Card Preview")
+
+                string filePath = Path.Combine(_webHostEnvironment.WebRootPath, "reports", fileName);
+
+                if (reportType == "PDF")
                 {
-                 
-                    parameters.Add("ReportHeader", ReportNameShow);
-                    
+                    System.IO.File.WriteAllBytes(filePath, result.MainStream);
+
+                    string url =
+                        $"{Request.Scheme}://{Request.Host}/reports/{fileName}?t={DateTime.Now.Ticks}";
+
+                    return Ok(new { url });
                 }
 
-                // Render the report
-                var reportResult = localReport.Execute(renderType, 1, parameters, mimtype);
-
-
-                if (objparam.Type == "PDF")
-                {
-                    System.IO.File.WriteAllBytes(filePath, reportResult.MainStream);
-                    string reportUrl = $"{Request.Scheme}://{Request.Host}/reports/{fileName}?t={DateTime.Now.Ticks}";
-                    return Ok(new { url = reportUrl }); // ✅ Return URL for PDFs
-                }
-                else
-                {
-                    return File(reportResult.MainStream, fileType, fileName); // ✅ Directly download Excel
-                }
-
+                return File(result.MainStream, mimeType, fileName);
             }
             catch (Exception ex)
             {
-
-                Console.Error.WriteLine($"Error generating report: {ex.Message}");
                 return StatusCode(500, ex.Message);
             }
         }
 
-        public static string NumberToWords(decimal amount)
+        #endregion
+
+        #region QR GENERATOR (FIXED)
+
+        private byte[] GenerateQrCode(string text)
         {
-            long taka = (long)amount;
-            int paisa = (int)((amount - taka) * 100);
+            using var generator = new QRCodeGenerator();
+            using var data = generator.CreateQrCode(text, QRCodeGenerator.ECCLevel.Q);
 
-            string takaPart = $"{NumberToWordsInt(taka)} ";
-            string paisaPart = paisa > 0 ? $" and {NumberToWordsInt(paisa)} " : "";
-
-            return takaPart + paisaPart + " Only";
+            // ✅ BEST FOR .NET 6 (NO System.Drawing ISSUE)
+            var qrCode = new PngByteQRCode(data);
+            return qrCode.GetGraphic(20);
         }
 
-        // Helper function for integer-to-words
-        public static string NumberToWordsInt(long number)
-        {
-            if (number == 0) return "Zero";
+        #endregion
 
-            string[] unitsMap = { "Zero", "One", "Two", "Three", "Four", "Five", "Six",
-                          "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve",
-                          "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen",
-                          "Eighteen", "Nineteen" };
+        #region MODEL
 
-            string[] tensMap = { "Zero", "Ten", "Twenty", "Thirty", "Forty", "Fifty",
-                         "Sixty", "Seventy", "Eighty", "Ninety" };
-
-            string words = "";
-
-            if ((number / 10000000) > 0)
-            {
-                words += NumberToWordsInt(number / 10000000) + " Crore ";
-                number %= 10000000;
-            }
-
-            if ((number / 100000) > 0)
-            {
-                words += NumberToWordsInt(number / 100000) + " Lakh ";
-                number %= 100000;
-            }
-
-            if ((number / 1000) > 0)
-            {
-                words += NumberToWordsInt(number / 1000) + " Thousand ";
-                number %= 1000;
-            }
-
-            if ((number / 100) > 0)
-            {
-                words += NumberToWordsInt(number / 100) + " Hundred ";
-                number %= 100;
-            }
-
-            if (number > 0)
-            {
-                if (words != "") words += "and ";
-
-                if (number < 20)
-                    words += unitsMap[number];
-                else
-                {
-                    words += tensMap[number / 10];
-                    if ((number % 10) > 0)
-                        words += " " + unitsMap[number % 10];
-                }
-            }
-
-            return words.Trim();
-        }
-
-
-        /// <summary>
-        /// Helper function for English and western format Start
-        /// </summary>
-        /// 
-        public static string NumberToWordsLocal(decimal amount)
-        {
-            long whole = (long)amount;
-            int fraction = (int)Math.Round((amount - whole) * 100); // handle decimals
-
-            string words = NumberToWordsIntLocal(whole);
-
-            if (fraction > 0)
-            {
-                // Convert each digit of the fraction individually (dot format)
-                string fractionWords = string.Join(" ", fraction.ToString().Select(d => NumberToWordsIntLocal(int.Parse(d.ToString()))));
-                words += " point " + fractionWords;
-            }
-
-            return words + " Only";
-        }
-
-        private static string NumberToWordsIntLocal(long number)
-        {
-            if (number == 0)
-                return "Zero";
-
-            if (number < 0)
-                return "Minus " + NumberToWordsIntLocal(Math.Abs(number));
-
-            string words = "";
-
-            if ((number / 1000000) > 0)
-            {
-                words += NumberToWordsInt(number / 1000000) + " Million ";
-                number %= 1000000;
-            }
-
-            if ((number / 1000) > 0)
-            {
-                words += NumberToWordsInt(number / 1000) + " Thousand ";
-                number %= 1000;
-            }
-
-            if ((number / 100) > 0)
-            {
-                words += NumberToWordsInt(number / 100) + " Hundred ";
-                number %= 100;
-            }
-
-            string[] unitsMap = { "Zero", "One", "Two", "Three", "Four", "Five", "Six",
-                          "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve",
-                          "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen",
-                          "Eighteen", "Nineteen" };
-
-            string[] tensMap = { "Zero", "Ten", "Twenty", "Thirty", "Forty", "Fifty",
-                         "Sixty", "Seventy", "Eighty", "Ninety" };
-
-            if (number > 0)
-            {
-                if (words != "")
-                    words += "";
-
-                if (number < 20)
-                    words += unitsMap[number];
-                else
-                {
-                    words += tensMap[number / 10];
-                    if ((number % 10) > 0)
-                        words += " " + unitsMap[number % 10];
-                }
-            }
-
-            return words.Trim();
-        }
-
-        /////// <summary>
-        /// Helper function for English and western format End
-        /// </summary>
-
-
-        
         public class Model
         {
             public string? ReportName { get; set; }
             public string? Type { get; set; }
             public string? GenerateNumber { get; set; }
-
         }
-
 
         #endregion
     }

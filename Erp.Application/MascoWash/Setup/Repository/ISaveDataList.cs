@@ -94,6 +94,7 @@ namespace Erp.Application.MascoWash.Setup.Repository
 
 
         Task<WrapperResponseBatchPriority> SaveBatchPriorityBulk(SaveBatchPriorityModel saveDataListDto);
+        Task<WrapperResponseQCData> SaveQcData(SaveQCDataModel saveDataListDto);
 
 
 

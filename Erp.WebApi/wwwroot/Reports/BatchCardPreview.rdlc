@@ -132,6 +132,10 @@
           <DataField>GroupName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="QrCode">
+          <DataField>QrCode</DataField>
+          <rd:TypeName>System.Byte</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>dsEmployee</rd:DataSetName>
@@ -371,7 +375,8 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>dsBatchCardPreview</DataSetName>
-            <Top>1.93031in</Top>
+            <Top>2.49584in</Top>
+            <Left>0.18282in</Left>
             <Height>0.49378in</Height>
             <Width>3.71862in</Width>
             <Style>
@@ -382,7 +387,7 @@
           </Tablix>
           <Line Name="Line1">
             <Top>0.12835in</Top>
-            <Left>0.04733in</Left>
+            <Left>0.15504in</Left>
             <Height>0in</Height>
             <Width>3.69239in</Width>
             <ZIndex>1</ZIndex>
@@ -394,7 +399,7 @@
           </Line>
           <Line Name="Line2">
             <Top>0.12303in</Top>
-            <Left>3.73972in</Left>
+            <Left>3.84743in</Left>
             <Height>1.13519in</Height>
             <Width>0in</Width>
             <ZIndex>2</ZIndex>
@@ -404,42 +409,6 @@
               </Border>
             </Style>
           </Line>
-          <Textbox Name="RevisionNo">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=First(Fields!RevisionNo.Value, "dsBatchCardPreview")</Value>
-                    <Style>
-                      <FontFamily>Times New Roman</FontFamily>
-                      <FontSize>9pt</FontSize>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Left</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>RevisionNo</rd:DefaultName>
-            <Top>1.0027in</Top>
-            <Left>5.09753in</Left>
-            <Height>0.18608in</Height>
-            <Width>2.38435in</Width>
-            <ZIndex>3</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <VerticalAlign>Middle</VerticalAlign>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
           <Textbox Name="Textbox54">
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
@@ -462,10 +431,10 @@
             </Paragraphs>
             <rd:DefaultName>Textbox45</rd:DefaultName>
             <Top>0.96764in</Top>
-            <Left>3.87399in</Left>
+            <Left>3.9817in</Left>
             <Height>0.18956in</Height>
             <Width>1.06306in</Width>
-            <ZIndex>4</ZIndex>
+            <ZIndex>3</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -495,10 +464,10 @@
             </Paragraphs>
             <rd:DefaultName>Textbox45</rd:DefaultName>
             <Top>0.73642in</Top>
-            <Left>3.87399in</Left>
+            <Left>3.9817in</Left>
             <Height>0.18956in</Height>
             <Width>1.0772in</Width>
-            <ZIndex>5</ZIndex>
+            <ZIndex>4</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -513,7 +482,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=First(Fields!RevisionDate.Value, "dsBatchCardPreview")</Value>
+                    <Value>=Fields!RevisionDate.Value</Value>
                     <Style>
                       <FontFamily>Times New Roman</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -527,10 +496,10 @@
             </Paragraphs>
             <rd:DefaultName>RevisionDate</rd:DefaultName>
             <Top>0.75031in</Top>
-            <Left>5.09008in</Left>
+            <Left>5.19779in</Left>
             <Height>0.19684in</Height>
             <Width>2.3918in</Width>
-            <ZIndex>6</ZIndex>
+            <ZIndex>5</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -549,7 +518,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=First(Fields!EffectiveDate.Value, "dsBatchCardPreview")</Value>
+                    <Value>=Fields!EffectiveDate.Value</Value>
                     <Style>
                       <FontFamily>Times New Roman</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -563,10 +532,10 @@
             </Paragraphs>
             <rd:DefaultName>EffectiveDate</rd:DefaultName>
             <Top>0.44475in</Top>
-            <Left>5.09008in</Left>
+            <Left>5.19779in</Left>
             <Height>0.23611in</Height>
             <Width>2.3793in</Width>
-            <ZIndex>7</ZIndex>
+            <ZIndex>6</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -600,10 +569,10 @@
             </Paragraphs>
             <rd:DefaultName>Textbox45</rd:DefaultName>
             <Top>0.45864in</Top>
-            <Left>3.87399in</Left>
+            <Left>3.9817in</Left>
             <Height>0.22222in</Height>
             <Width>1.0772in</Width>
-            <ZIndex>8</ZIndex>
+            <ZIndex>7</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -633,51 +602,15 @@
             </Paragraphs>
             <rd:DefaultName>Textbox45</rd:DefaultName>
             <Top>0.19963in</Top>
-            <Left>3.85985in</Left>
+            <Left>3.96756in</Left>
             <Height>0.18956in</Height>
             <Width>1.0772in</Width>
-            <ZIndex>9</ZIndex>
+            <ZIndex>8</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
               </Border>
               <VerticalAlign>Middle</VerticalAlign>
-            </Style>
-          </Textbox>
-          <Textbox Name="DocumentNo">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=First(Fields!DocumentNo.Value, "dsBatchCardPreview")</Value>
-                    <Style>
-                      <FontFamily>Times New Roman</FontFamily>
-                      <FontSize>9pt</FontSize>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Left</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>DocumentNo</rd:DefaultName>
-            <Top>0.18294in</Top>
-            <Left>5.09008in</Left>
-            <Height>0.19237in</Height>
-            <Width>2.3793in</Width>
-            <ZIndex>10</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <VerticalAlign>Middle</VerticalAlign>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
           <Textbox Name="Textbox46">
@@ -702,10 +635,10 @@
             </Paragraphs>
             <rd:DefaultName>Textbox45</rd:DefaultName>
             <Top>0.42902in</Top>
-            <Left>0.07511in</Left>
+            <Left>0.18282in</Left>
             <Height>0.18956in</Height>
             <Width>0.63959in</Width>
-            <ZIndex>11</ZIndex>
+            <ZIndex>9</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -735,10 +668,10 @@
             </Paragraphs>
             <rd:DefaultName>Textbox45</rd:DefaultName>
             <Top>0.96764in</Top>
-            <Left>0.07511in</Left>
+            <Left>0.18282in</Left>
             <Height>0.23502in</Height>
             <Width>0.63959in</Width>
-            <ZIndex>12</ZIndex>
+            <ZIndex>10</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -768,10 +701,10 @@
             </Paragraphs>
             <rd:DefaultName>Textbox45</rd:DefaultName>
             <Top>0.72252in</Top>
-            <Left>0.07511in</Left>
+            <Left>0.18282in</Left>
             <Height>0.18956in</Height>
             <Width>0.62679in</Width>
-            <ZIndex>13</ZIndex>
+            <ZIndex>11</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -801,10 +734,10 @@
             </Paragraphs>
             <rd:DefaultName>Textbox45</rd:DefaultName>
             <Top>0.17002in</Top>
-            <Left>0.07511in</Left>
+            <Left>0.18282in</Left>
             <Height>0.18956in</Height>
             <Width>0.62678in</Width>
-            <ZIndex>14</ZIndex>
+            <ZIndex>12</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -831,10 +764,10 @@
             </Paragraphs>
             <rd:DefaultName>JobNo</rd:DefaultName>
             <Top>0.4339in</Top>
-            <Left>0.84734in</Left>
+            <Left>0.95505in</Left>
             <Height>0.23306in</Height>
             <Width>2.76357in</Width>
-            <ZIndex>15</ZIndex>
+            <ZIndex>13</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -864,10 +797,10 @@
             </Paragraphs>
             <rd:DefaultName>StyleNo</rd:DefaultName>
             <Top>0.72252in</Top>
-            <Left>0.84734in</Left>
+            <Left>0.95505in</Left>
             <Height>0.22462in</Height>
             <Width>2.76357in</Width>
-            <ZIndex>16</ZIndex>
+            <ZIndex>14</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -897,10 +830,10 @@
             </Paragraphs>
             <rd:DefaultName>OrderNo</rd:DefaultName>
             <Top>0.97492in</Top>
-            <Left>0.85455in</Left>
+            <Left>0.96226in</Left>
             <Height>0.22774in</Height>
             <Width>2.75636in</Width>
-            <ZIndex>17</ZIndex>
+            <ZIndex>15</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -932,10 +865,10 @@
             </Paragraphs>
             <rd:DefaultName>Buyer</rd:DefaultName>
             <Top>0.14224in</Top>
-            <Left>0.85455in</Left>
+            <Left>0.96226in</Left>
             <Height>0.22222in</Height>
             <Width>2.77078in</Width>
-            <ZIndex>18</ZIndex>
+            <ZIndex>16</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -949,10 +882,10 @@
           </Textbox>
           <Line Name="Line3">
             <Top>0.12303in</Top>
-            <Left>0.04733in</Left>
+            <Left>0.15504in</Left>
             <Height>1.13519in</Height>
             <Width>0in</Width>
-            <ZIndex>19</ZIndex>
+            <ZIndex>17</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -961,7 +894,31 @@
           </Line>
           <Line Name="Line4">
             <Top>1.25822in</Top>
-            <Left>0.04733in</Left>
+            <Left>0.15504in</Left>
+            <Height>0in</Height>
+            <Width>3.69239in</Width>
+            <ZIndex>18</ZIndex>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+              </Border>
+            </Style>
+          </Line>
+          <Line Name="Line5">
+            <Top>0.11349in</Top>
+            <Left>3.9817in</Left>
+            <Height>0in</Height>
+            <Width>3.69239in</Width>
+            <ZIndex>19</ZIndex>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+              </Border>
+            </Style>
+          </Line>
+          <Line Name="Line6">
+            <Top>1.23044in</Top>
+            <Left>3.96756in</Left>
             <Height>0in</Height>
             <Width>3.69239in</Width>
             <ZIndex>20</ZIndex>
@@ -971,36 +928,12 @@
               </Border>
             </Style>
           </Line>
-          <Line Name="Line5">
-            <Top>0.11349in</Top>
-            <Left>3.87399in</Left>
-            <Height>0in</Height>
-            <Width>3.69239in</Width>
-            <ZIndex>21</ZIndex>
-            <Style>
-              <Border>
-                <Style>Solid</Style>
-              </Border>
-            </Style>
-          </Line>
-          <Line Name="Line6">
-            <Top>1.23044in</Top>
-            <Left>3.85985in</Left>
-            <Height>0in</Height>
-            <Width>3.69239in</Width>
-            <ZIndex>22</ZIndex>
-            <Style>
-              <Border>
-                <Style>Solid</Style>
-              </Border>
-            </Style>
-          </Line>
           <Line Name="Line8">
             <Top>0.11349in</Top>
-            <Left>7.56638in</Left>
+            <Left>7.67409in</Left>
             <Height>1.11695in</Height>
             <Width>0in</Width>
-            <ZIndex>23</ZIndex>
+            <ZIndex>21</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -1009,10 +942,10 @@
           </Line>
           <Line Name="Line9">
             <Top>0.11349in</Top>
-            <Left>3.85985in</Left>
+            <Left>3.96756in</Left>
             <Height>1.11695in</Height>
             <Width>0in</Width>
-            <ZIndex>24</ZIndex>
+            <ZIndex>22</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -1021,7 +954,31 @@
           </Line>
           <Line Name="Line10">
             <Top>0.40308in</Top>
-            <Left>0.06122in</Left>
+            <Left>0.16893in</Left>
+            <Height>0in</Height>
+            <Width>3.6785in</Width>
+            <ZIndex>23</ZIndex>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+              </Border>
+            </Style>
+          </Line>
+          <Line Name="Line11">
+            <Top>0.70863in</Top>
+            <Left>0.16893in</Left>
+            <Height>0in</Height>
+            <Width>3.6785in</Width>
+            <ZIndex>24</ZIndex>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+              </Border>
+            </Style>
+          </Line>
+          <Line Name="Line12">
+            <Top>0.95375in</Top>
+            <Left>0.16893in</Left>
             <Height>0in</Height>
             <Width>3.6785in</Width>
             <ZIndex>25</ZIndex>
@@ -1031,36 +988,12 @@
               </Border>
             </Style>
           </Line>
-          <Line Name="Line11">
-            <Top>0.70863in</Top>
-            <Left>0.06122in</Left>
-            <Height>0in</Height>
-            <Width>3.6785in</Width>
-            <ZIndex>26</ZIndex>
-            <Style>
-              <Border>
-                <Style>Solid</Style>
-              </Border>
-            </Style>
-          </Line>
-          <Line Name="Line12">
-            <Top>0.95375in</Top>
-            <Left>0.06122in</Left>
-            <Height>0in</Height>
-            <Width>3.6785in</Width>
-            <ZIndex>27</ZIndex>
-            <Style>
-              <Border>
-                <Style>Solid</Style>
-              </Border>
-            </Style>
-          </Line>
           <Line Name="Line13">
             <Top>0.12835in</Top>
-            <Left>0.77133in</Left>
+            <Left>0.87904in</Left>
             <Height>1.12987in</Height>
             <Width>0in</Width>
-            <ZIndex>28</ZIndex>
+            <ZIndex>26</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -1069,10 +1002,10 @@
           </Line>
           <Line Name="Line14">
             <Top>0.10958in</Top>
-            <Left>5.05586in</Left>
+            <Left>5.16357in</Left>
             <Height>1.12086in</Height>
             <Width>0in</Width>
-            <ZIndex>29</ZIndex>
+            <ZIndex>27</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -1086,23 +1019,30 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=First(Fields!Process.Value, "dsBatchCardPreview")</Value>
-                    <Style />
+                    <Value>=Fields!Process.Value</Value>
+                    <Style>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>9pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
                   </TextRun>
                 </TextRuns>
-                <Style />
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Process</rd:DefaultName>
-            <Top>1.32003in</Top>
-            <Left>1.00225in</Left>
+            <Top>1.24433in</Top>
+            <Left>1.05265in</Left>
             <Height>0.25in</Height>
-            <Width>6.54999in</Width>
-            <ZIndex>30</ZIndex>
+            <Width>2.79478in</Width>
+            <ZIndex>28</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
               </Border>
+              <VerticalAlign>Middle</VerticalAlign>
               <PaddingLeft>2pt</PaddingLeft>
               <PaddingRight>2pt</PaddingRight>
               <PaddingTop>2pt</PaddingTop>
@@ -1127,10 +1067,10 @@
             </Paragraphs>
             <rd:DefaultName>Textbox45</rd:DefaultName>
             <Top>1.33368in</Top>
-            <Left>0.06122in</Left>
+            <Left>0.16893in</Left>
             <Height>0.23636in</Height>
             <Width>0.81428in</Width>
-            <ZIndex>31</ZIndex>
+            <ZIndex>29</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1144,23 +1084,30 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=First(Fields!MachineNo.Value, "dsBatchCardPreview")</Value>
-                    <Style />
+                    <Value>=Fields!MachineNo.Value</Value>
+                    <Style>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>9pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
                   </TextRun>
                 </TextRuns>
-                <Style />
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>MachineNo</rd:DefaultName>
             <Top>1.63948in</Top>
-            <Left>1.00225in</Left>
+            <Left>1.05265in</Left>
             <Height>0.19768in</Height>
-            <Width>6.54999in</Width>
-            <ZIndex>32</ZIndex>
+            <Width>2.79478in</Width>
+            <ZIndex>30</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
               </Border>
+              <VerticalAlign>Middle</VerticalAlign>
               <PaddingLeft>2pt</PaddingLeft>
               <PaddingRight>2pt</PaddingRight>
               <PaddingTop>2pt</PaddingTop>
@@ -1185,83 +1132,451 @@
             </Paragraphs>
             <rd:DefaultName>Textbox45</rd:DefaultName>
             <Top>1.63948in</Top>
-            <Left>0.04733in</Left>
+            <Left>0.15504in</Left>
             <Height>0.19768in</Height>
             <Width>0.82817in</Width>
+            <ZIndex>31</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Textbox>
+          <Line Name="Line15">
+            <Top>0.38919in</Top>
+            <Left>3.9817in</Left>
+            <Height>0in</Height>
+            <Width>3.70653in</Width>
+            <ZIndex>32</ZIndex>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+              </Border>
+            </Style>
+          </Line>
+          <Line Name="Line16">
+            <Top>0.72252in</Top>
+            <Left>3.96756in</Left>
+            <Height>0in</Height>
+            <Width>3.70653in</Width>
             <ZIndex>33</ZIndex>
             <Style>
               <Border>
-                <Style>None</Style>
+                <Style>Solid</Style>
               </Border>
             </Style>
-          </Textbox>
-          <Textbox Name="Textbox55">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>Date:</Value>
-                    <Style>
-                      <FontFamily>Times New Roman</FontFamily>
-                      <FontSize>9pt</FontSize>
-                      <FontWeight>Bold</FontWeight>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Center</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox45</rd:DefaultName>
-            <Top>1.94109in</Top>
-            <Left>3.81584in</Left>
-            <Height>0.18956in</Height>
-            <Width>1.12121in</Width>
+          </Line>
+          <Line Name="Line17">
+            <Top>0.95375in</Top>
+            <Left>3.9817in</Left>
+            <Height>0in</Height>
+            <Width>3.70653in</Width>
             <ZIndex>34</ZIndex>
             <Style>
               <Border>
-                <Style>None</Style>
+                <Style>Solid</Style>
               </Border>
-              <VerticalAlign>Middle</VerticalAlign>
             </Style>
-          </Textbox>
-          <Textbox Name="Textbox56">
+          </Line>
+          <Textbox Name="DocumentNo">
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
             <Paragraphs>
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Fabrication:</Value>
-                    <Style>
-                      <FontFamily>Times New Roman</FontFamily>
-                      <FontSize>9pt</FontSize>
-                      <FontWeight>Bold</FontWeight>
-                    </Style>
+                    <Value>=First(Fields!DocumentNo.Value, "dsBatchCardPreview")</Value>
+                    <Style />
                   </TextRun>
                 </TextRuns>
-                <Style>
-                  <TextAlign>Center</TextAlign>
-                </Style>
+                <Style />
               </Paragraph>
             </Paragraphs>
-            <rd:DefaultName>Textbox45</rd:DefaultName>
-            <Top>2.17232in</Top>
-            <Left>3.81584in</Left>
-            <Height>0.18956in</Height>
-            <Width>1.12121in</Width>
+            <rd:DefaultName>DocumentNo</rd:DefaultName>
+            <Top>0.16905in</Top>
+            <Left>5.21913in</Left>
+            <Height>0.19541in</Height>
+            <Width>2.35796in</Width>
             <ZIndex>35</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
               </Border>
-              <VerticalAlign>Middle</VerticalAlign>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
-          <Textbox Name="Textbox57">
+          <Textbox Name="RevisionNo">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!RevisionNo.Value, "dsBatchCardPreview")</Value>
+                    <Style>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>9pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>RevisionNo</rd:DefaultName>
+            <Top>1.00931in</Top>
+            <Left>5.23301in</Left>
+            <Height>0.20725in</Height>
+            <Width>2.34408in</Width>
+            <ZIndex>36</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <VerticalAlign>Middle</VerticalAlign>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Time2">
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!Time.Value, "dsBatchCardPreview")</Value>
+                    <Style>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>9pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Time2</rd:DefaultName>
+            <Top>3.28473in</Top>
+            <Left>0.15187in</Left>
+            <Height>0.25in</Height>
+            <Width>1.88067in</Width>
+            <ZIndex>37</ZIndex>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+              </Border>
+              <VerticalAlign>Middle</VerticalAlign>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox140">
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Time</Value>
+                    <Style>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>9pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox140</rd:DefaultName>
+            <Top>3.05011in</Top>
+            <Left>0.1409in</Left>
+            <Height>0.25in</Height>
+            <Width>1.88067in</Width>
+            <ZIndex>38</ZIndex>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+              </Border>
+              <VerticalAlign>Middle</VerticalAlign>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox141">
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Load Time </Value>
+                    <Style>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>9pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox140</rd:DefaultName>
+            <Top>3.05011in</Top>
+            <Left>2.03407in</Left>
+            <Height>0.25in</Height>
+            <Width>1.49014in</Width>
+            <ZIndex>39</ZIndex>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+              </Border>
+              <VerticalAlign>Middle</VerticalAlign>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox142">
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Unload Time</Value>
+                    <Style>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>9pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox140</rd:DefaultName>
+            <Top>3.04656in</Top>
+            <Left>3.5256in</Left>
+            <Height>0.25in</Height>
+            <Width>1.37025in</Width>
+            <ZIndex>40</ZIndex>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+              </Border>
+              <VerticalAlign>Middle</VerticalAlign>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox143">
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Load Time</Value>
+                    <Style>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>9pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox140</rd:DefaultName>
+            <Top>3.04656in</Top>
+            <Left>4.90974in</Left>
+            <Height>0.25in</Height>
+            <Width>1.43449in</Width>
+            <ZIndex>41</ZIndex>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+              </Border>
+              <VerticalAlign>Middle</VerticalAlign>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox144">
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Unload Time</Value>
+                    <Style>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>9pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>General</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox140</rd:DefaultName>
+            <Top>3.05907in</Top>
+            <Left>6.33034in</Left>
+            <Height>0.25in</Height>
+            <Width>1.43449in</Width>
+            <ZIndex>42</ZIndex>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+              </Border>
+              <VerticalAlign>Middle</VerticalAlign>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="LoadTime">
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!LoadTime.Value, "dsBatchCardPreview")</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>LoadTime</rd:DefaultName>
+            <Top>3.28473in</Top>
+            <Left>2.03254in</Left>
+            <Height>0.25in</Height>
+            <Width>1.49306in</Width>
+            <ZIndex>43</ZIndex>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+              </Border>
+              <VerticalAlign>Middle</VerticalAlign>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="UnloadTime">
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!UnloadTime.Value, "dsBatchCardPreview")</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>UnloadTime</rd:DefaultName>
+            <Top>3.31045in</Top>
+            <Left>3.53393in</Left>
+            <Height>0.23817in</Height>
+            <Width>1.36192in</Width>
+            <ZIndex>44</ZIndex>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="LoadTime2">
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!LoadTime.Value, "dsBatchCardPreview")</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>LoadTime</rd:DefaultName>
+            <Top>3.31045in</Top>
+            <Left>4.90974in</Left>
+            <Height>0.25in</Height>
+            <Width>1.43449in</Width>
+            <ZIndex>45</ZIndex>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+              </Border>
+              <VerticalAlign>Middle</VerticalAlign>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="UnloadTime2">
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!UnloadTime.Value, "dsBatchCardPreview")</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>UnloadTime</rd:DefaultName>
+            <Top>3.32295in</Top>
+            <Left>6.34423in</Left>
+            <Height>0.23817in</Height>
+            <Width>1.4206in</Width>
+            <ZIndex>46</ZIndex>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox55">
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
             <Paragraphs>
@@ -1282,11 +1597,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox45</rd:DefaultName>
-            <Top>2.40354in</Top>
-            <Left>3.81584in</Left>
+            <Top>2.12477in</Top>
+            <Left>4.02972in</Left>
             <Height>0.18956in</Height>
-            <Width>1.12121in</Width>
-            <ZIndex>36</ZIndex>
+            <Width>1.06306in</Width>
+            <ZIndex>47</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1294,40 +1609,7 @@
               <VerticalAlign>Middle</VerticalAlign>
             </Style>
           </Textbox>
-          <Textbox Name="Textbox58">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>GSM:</Value>
-                    <Style>
-                      <FontFamily>Times New Roman</FontFamily>
-                      <FontSize>9pt</FontSize>
-                      <FontWeight>Bold</FontWeight>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Center</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox45</rd:DefaultName>
-            <Top>2.63477in</Top>
-            <Left>3.80195in</Left>
-            <Height>0.18956in</Height>
-            <Width>1.1351in</Width>
-            <ZIndex>37</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <VerticalAlign>Middle</VerticalAlign>
-            </Style>
-          </Textbox>
-          <Textbox Name="Textbox61">
+          <Textbox Name="Textbox56">
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
             <Paragraphs>
@@ -1348,11 +1630,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox45</rd:DefaultName>
-            <Top>2.866in</Top>
-            <Left>3.80195in</Left>
+            <Top>1.89355in</Top>
+            <Left>4.01608in</Left>
             <Height>0.18956in</Height>
-            <Width>1.1351in</Width>
-            <ZIndex>38</ZIndex>
+            <Width>1.0772in</Width>
+            <ZIndex>48</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1360,14 +1642,175 @@
               <VerticalAlign>Middle</VerticalAlign>
             </Style>
           </Textbox>
-          <Textbox Name="Date">
+          <Textbox Name="Textbox57">
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
             <Paragraphs>
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=First(Fields!Date.Value, "dsBatchCardPreview")</Value>
+                    <Value>Fabrication:</Value>
+                    <Style>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>9pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox45</rd:DefaultName>
+            <Top>1.60189in</Top>
+            <Left>4.01608in</Left>
+            <Height>0.22222in</Height>
+            <Width>1.0772in</Width>
+            <ZIndex>49</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <VerticalAlign>Middle</VerticalAlign>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox58">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Date:</Value>
+                    <Style>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>9pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox45</rd:DefaultName>
+            <Top>1.34287in</Top>
+            <Left>3.9817in</Left>
+            <Height>0.18956in</Height>
+            <Width>1.0772in</Width>
+            <ZIndex>50</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <VerticalAlign>Middle</VerticalAlign>
+            </Style>
+          </Textbox>
+          <Line Name="Line7">
+            <Top>1.27062in</Top>
+            <Left>3.9817in</Left>
+            <Height>0in</Height>
+            <Width>3.72677in</Width>
+            <ZIndex>51</ZIndex>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+              </Border>
+            </Style>
+          </Line>
+          <Line Name="Line18">
+            <Top>2.38757in</Top>
+            <Left>3.9817in</Left>
+            <Height>0in</Height>
+            <Width>3.71263in</Width>
+            <ZIndex>52</ZIndex>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+              </Border>
+            </Style>
+          </Line>
+          <Line Name="Line19">
+            <Top>1.27062in</Top>
+            <Left>7.70847in</Left>
+            <Height>1.11695in</Height>
+            <Width>0in</Width>
+            <ZIndex>53</ZIndex>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+              </Border>
+            </Style>
+          </Line>
+          <Line Name="Line20">
+            <Top>1.27062in</Top>
+            <Left>3.97694in</Left>
+            <Height>1.11695in</Height>
+            <Width>0in</Width>
+            <ZIndex>54</ZIndex>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+              </Border>
+            </Style>
+          </Line>
+          <Line Name="Line21">
+            <Top>1.26671in</Top>
+            <Left>5.19795in</Left>
+            <Height>1.12086in</Height>
+            <Width>0in</Width>
+            <ZIndex>55</ZIndex>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+              </Border>
+            </Style>
+          </Line>
+          <Line Name="Line22">
+            <Top>1.54632in</Top>
+            <Left>3.9817in</Left>
+            <Height>0in</Height>
+            <Width>3.74091in</Width>
+            <ZIndex>56</ZIndex>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+              </Border>
+            </Style>
+          </Line>
+          <Line Name="Line23">
+            <Top>1.87965in</Top>
+            <Left>3.9817in</Left>
+            <Height>0in</Height>
+            <Width>3.72677in</Width>
+            <ZIndex>57</ZIndex>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+              </Border>
+            </Style>
+          </Line>
+          <Line Name="Line24">
+            <Top>2.11088in</Top>
+            <Left>3.9817in</Left>
+            <Height>0in</Height>
+            <Width>3.74091in</Width>
+            <ZIndex>58</ZIndex>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+              </Border>
+            </Style>
+          </Line>
+          <Textbox Name="Time">
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!Time.Value, "dsBatchCardPreview")</Value>
                     <Style>
                       <FontFamily>Times New Roman</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -1379,120 +1822,12 @@
                 </Style>
               </Paragraph>
             </Paragraphs>
-            <rd:DefaultName>Date</rd:DefaultName>
-            <Top>1.93031in</Top>
-            <Left>5.05586in</Left>
-            <Height>0.20345in</Height>
-            <Width>2.4686in</Width>
-            <ZIndex>39</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <VerticalAlign>Middle</VerticalAlign>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="Fabrication">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=First(Fields!Fabrication.Value, "dsBatchCardPreview")</Value>
-                    <Style>
-                      <FontFamily>Times New Roman</FontFamily>
-                      <FontSize>9pt</FontSize>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Left</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Fabrication</rd:DefaultName>
-            <Top>2.1772in</Top>
-            <Left>5.05586in</Left>
-            <Height>0.20082in</Height>
-            <Width>2.4686in</Width>
-            <ZIndex>40</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <VerticalAlign>Middle</VerticalAlign>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="Composition">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=First(Fields!Composition.Value, "dsBatchCardPreview")</Value>
-                    <Style>
-                      <FontFamily>Times New Roman</FontFamily>
-                      <FontSize>9pt</FontSize>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Left</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Composition</rd:DefaultName>
-            <Top>2.39191in</Top>
-            <Left>5.05586in</Left>
-            <Height>0.1875in</Height>
-            <Width>2.4614in</Width>
-            <ZIndex>41</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <VerticalAlign>Middle</VerticalAlign>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="GSM">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=First(Fields!GSM.Value, "dsBatchCardPreview")</Value>
-                    <Style>
-                      <FontFamily>Times New Roman</FontFamily>
-                      <FontSize>9pt</FontSize>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Left</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>GSM</rd:DefaultName>
-            <Top>2.57941in</Top>
-            <Left>5.04866in</Left>
-            <Height>0.21734in</Height>
-            <Width>2.4686in</Width>
-            <ZIndex>42</ZIndex>
+            <rd:DefaultName>Time</rd:DefaultName>
+            <Top>1.32618in</Top>
+            <Left>5.19779in</Left>
+            <Height>0.19237in</Height>
+            <Width>2.3793in</Width>
+            <ZIndex>59</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1524,11 +1859,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Color</rd:DefaultName>
-            <Top>2.82453in</Top>
-            <Left>5.04866in</Left>
-            <Height>0.20259in</Height>
-            <Width>2.4686in</Width>
-            <ZIndex>43</ZIndex>
+            <Top>1.89355in</Top>
+            <Left>5.22573in</Left>
+            <Height>0.18955in</Height>
+            <Width>2.35136in</Width>
+            <ZIndex>60</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1540,54 +1875,90 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
-          <Line Name="Line15">
-            <Top>0.38919in</Top>
-            <Left>3.87399in</Left>
-            <Height>0in</Height>
-            <Width>3.70653in</Width>
-            <ZIndex>44</ZIndex>
+          <Textbox Name="Composition">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!Composition.Value, "dsBatchCardPreview")</Value>
+                    <Style>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>9pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Composition</rd:DefaultName>
+            <Top>2.12477in</Top>
+            <Left>5.2674in</Left>
+            <Height>0.22113in</Height>
+            <Width>2.30969in</Width>
+            <ZIndex>61</ZIndex>
             <Style>
               <Border>
-                <Style>Solid</Style>
+                <Style>None</Style>
               </Border>
+              <VerticalAlign>Middle</VerticalAlign>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
             </Style>
-          </Line>
-          <Line Name="Line16">
-            <Top>0.72252in</Top>
-            <Left>3.85985in</Left>
-            <Height>0in</Height>
-            <Width>3.70653in</Width>
-            <ZIndex>45</ZIndex>
+          </Textbox>
+          <Textbox Name="Fabrication">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!Fabrication.Value, "dsBatchCardPreview")</Value>
+                    <Style>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>9pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Fabrication</rd:DefaultName>
+            <Top>1.61261in</Top>
+            <Left>5.2674in</Left>
+            <Height>0.21148in</Height>
+            <Width>2.30969in</Width>
+            <ZIndex>62</ZIndex>
             <Style>
               <Border>
-                <Style>Solid</Style>
+                <Style>None</Style>
               </Border>
+              <VerticalAlign>Middle</VerticalAlign>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
             </Style>
-          </Line>
-          <Line Name="Line17">
-            <Top>0.95375in</Top>
-            <Left>3.87399in</Left>
-            <Height>0in</Height>
-            <Width>3.70653in</Width>
-            <ZIndex>46</ZIndex>
-            <Style>
-              <Border>
-                <Style>Solid</Style>
-              </Border>
-            </Style>
-          </Line>
+          </Textbox>
         </ReportItems>
-        <Height>4.55674in</Height>
+        <Height>3.6022in</Height>
         <Style>
           <Border>
-            <Style>None</Style>
+            <Style>Solid</Style>
           </Border>
         </Style>
       </Body>
-      <Width>7.77985in</Width>
+      <Width>7.80997in</Width>
       <Page>
         <PageHeader>
-          <Height>0.91541in</Height>
+          <Height>1.34447in</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -1618,10 +1989,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>ReportHeader</rd:DefaultName>
-              <Top>0.6125in</Top>
-              <Left>1.00225in</Left>
+              <Top>0.63088in</Top>
+              <Left>1.10996in</Left>
               <Height>0.16911in</Height>
-              <Width>6.56413in</Width>
+              <Width>5.22038in</Width>
               <Style>
                 <Border />
                 <VerticalAlign>Middle</VerticalAlign>
@@ -1631,8 +2002,8 @@
               <Source>Embedded</Source>
               <Value>Masco</Value>
               <Sizing>FitProportional</Sizing>
-              <Top>0.01334in</Top>
-              <Left>0.12167in</Left>
+              <Top>0.03172in</Top>
+              <Left>0.22938in</Left>
               <Height>0.79999in</Height>
               <Width>0.63958in</Width>
               <ZIndex>1</ZIndex>
@@ -1663,10 +2034,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>ReportHeader</rd:DefaultName>
-              <Top>0.31345in</Top>
-              <Left>1.00225in</Left>
+              <Top>0.33183in</Top>
+              <Left>1.10996in</Left>
               <Height>0.22961in</Height>
-              <Width>6.56413in</Width>
+              <Width>5.22038in</Width>
               <ZIndex>2</ZIndex>
               <Style>
                 <Border />
@@ -1694,16 +2065,103 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox36</rd:DefaultName>
-              <Top>0.00789in</Top>
-              <Left>1.00225in</Left>
+              <Top>0.01239in</Top>
+              <Left>1.10996in</Left>
               <Height>0.25in</Height>
-              <Width>6.56413in</Width>
+              <Width>5.22038in</Width>
               <ZIndex>3</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
                 </Border>
                 <VerticalAlign>Middle</VerticalAlign>
+              </Style>
+            </Textbox>
+            <Image Name="Image4">
+              <Source>Database</Source>
+              <Value>=First(Fields!QrCode.Value, "dsBatchCardPreview")</Value>
+              <MIMEType>image/png</MIMEType>
+              <Sizing>Fit</Sizing>
+              <Left>6.39978in</Left>
+              <Height>0.79999in</Height>
+              <Width>1.23238in</Width>
+              <ZIndex>4</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+              </Style>
+            </Image>
+            <Textbox Name="Textbox105">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>BatchNo:</Value>
+                      <Style>
+                        <FontFamily>Times New Roman</FontFamily>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox105</rd:DefaultName>
+              <Top>0.93822in</Top>
+              <Left>2.6602in</Left>
+              <Height>0.25in</Height>
+              <Width>1in</Width>
+              <ZIndex>5</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="BatchNo">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=First(Fields!BatchNo.Value, "dsBatchCardPreview")</Value>
+                      <Style>
+                        <FontFamily>Times New Roman</FontFamily>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Left</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>BatchNo</rd:DefaultName>
+              <Top>0.93822in</Top>
+              <Left>3.70187in</Left>
+              <Height>0.25in</Height>
+              <Width>1in</Width>
+              <ZIndex>6</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
               </Style>
             </Textbox>
           </ReportItems>
@@ -1714,7 +2172,7 @@
           </Style>
         </PageHeader>
         <PageFooter>
-          <Height>0.87083in</Height>
+          <Height>1.20359in</Height>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
             <Textbox Name="ExecutionTime">
@@ -1735,8 +2193,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>ExecutionTime</rd:DefaultName>
-              <Top>0.15151in</Top>
-              <Left>6.1481in</Left>
+              <Top>0.31944in</Top>
+              <Left>6.22952in</Left>
               <Height>0.25in</Height>
               <Width>1.09993in</Width>
               <Style>
@@ -1756,7 +2214,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>Batch Prepared By</Value>
+                      <Value>Operator Name</Value>
                       <Style />
                     </TextRun>
                   </TextRuns>
@@ -1764,10 +2222,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox33</rd:DefaultName>
-              <Top>0.15151in</Top>
-              <Left>0.12167in</Left>
-              <Height>0.25in</Height>
-              <Width>1.3125in</Width>
+              <Top>0.31944in</Top>
+              <Left>0.1409in</Left>
+              <Height>0.33207in</Height>
+              <Width>1.88067in</Width>
               <ZIndex>1</ZIndex>
               <Style>
                 <Border>
@@ -1794,8 +2252,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox33</rd:DefaultName>
-              <Top>0.15151in</Top>
-              <Left>4.14543in</Left>
+              <Top>0.31944in</Top>
+              <Left>4.22685in</Left>
               <Height>0.25in</Height>
               <Width>1.3125in</Width>
               <ZIndex>2</ZIndex>
@@ -1824,11 +2282,41 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox33</rd:DefaultName>
-              <Top>0.15151in</Top>
-              <Left>2.11779in</Left>
+              <Top>0.31944in</Top>
+              <Left>2.19921in</Left>
               <Height>0.25in</Height>
               <Width>1.3125in</Width>
               <ZIndex>3</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="OperatorName">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=First(Fields!OperatorName.Value, "dsBatchCardPreview")</Value>
+                      <Style />
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>OperatorName</rd:DefaultName>
+              <Top>0.06944in</Top>
+              <Left>0.16893in</Left>
+              <Height>0.22222in</Height>
+              <Width>1.85264in</Width>
+              <ZIndex>4</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
