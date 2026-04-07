@@ -374,6 +374,15 @@ namespace Erp.WebApi.Controllers.Commercial.Setup
             return Ok(result);
         }
 
+        [HttpGet]
+        [ActionName("getBatchWishStartEndData")]
+        public async Task<IActionResult> BatchWishStartEndData(string batchNo)
+        {
+            var result = await _mediator.Send(
+                new BatchWishQCDataQuery(batchNo)
+            );
 
+            return Ok(result);
+        }
     }
 }

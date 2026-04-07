@@ -91,6 +91,7 @@ namespace Erp.Application.MascoWash.Setup.Repository
         Task<List<GetFaultWiseListDto>> GetFaultWiseListDataList(int inspectionTypeId, int inspectionHeadId, int faultHeadId);
         Task<List<GetBatchPriorityDto>> GetPrioritySetDataList(int unitId,string date);
         Task<List<BatchWishQCDataDto>> GetBatchWishQCDataList(string batchNo);
+        Task<List<BatchWishQCDataDto>> GetBatchWishStartEndDataList(string batchNo);
 
 
         Task<WrapperResponseBatchPriority> SaveBatchPriorityBulk(SaveBatchPriorityModel saveDataListDto);
