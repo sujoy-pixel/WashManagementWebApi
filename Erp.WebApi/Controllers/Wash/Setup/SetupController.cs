@@ -379,10 +379,30 @@ namespace Erp.WebApi.Controllers.Commercial.Setup
         public async Task<IActionResult> BatchWishStartEndData(string batchNo)
         {
             var result = await _mediator.Send(
-                new BatchWishQCDataQuery(batchNo)
+                new BatchWiseStartEndDataQuery(batchNo)
             );
 
             return Ok(result);
         }
+        [HttpGet]
+        [ActionName("getStartEndOperationData")]
+        public async Task<IActionResult> StartEndOperationData(string batchNo)
+        {
+            var result = await _mediator.Send(
+                new BatchStartEndOperationQuery(batchNo)
+            );
+
+            return Ok(result);
+        }
+
+
+        [HttpPost]
+        [ActionName("SaveWashStartEndData")]
+        public async Task<IActionResult> SaveWashStartEnd(SaveWashStartEndModel command)
+        {
+            var result = await _mediator.Send(command);
+            return Ok(result);
+        }
     }
+
 }

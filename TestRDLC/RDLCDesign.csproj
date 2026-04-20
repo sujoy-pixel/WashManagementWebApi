@@ -24,6 +24,7 @@
 
   <ItemGroup>
     <PackageReference Include="QRCoder" Version="1.6.0" />
+    <PackageReference Include="ReportViewerCore.NETCore" Version="15.1.10" />
   </ItemGroup>
 
   <ItemGroup>

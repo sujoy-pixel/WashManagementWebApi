@@ -50,12 +50,15 @@ namespace Erp.Application.MascoWash.Queries
         public string OperationType { get; set; }
 
         public int? UOMDetailsId { get; set; }
+     
         public string UOM { get; set; }
 
 
         public DateTime ProbableDeliveryDate { get; set; }
         public DateTime ShipmentDate { get; set; }
-      
+        public int? TotalQty { get; set; }
+        public int? RemainingQty { get; set; }
+        public int? AlreadyPreparedQty { get; set; }
 
     }
 }

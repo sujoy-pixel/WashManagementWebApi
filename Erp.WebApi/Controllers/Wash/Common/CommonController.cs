@@ -170,11 +170,14 @@ namespace Erp.WebApi.Controllers.Commercial.Common
         }
 
         [HttpGet]
-        [ActionName("GetProcessNameDDL")]
-        public async Task<IActionResult> GetProcessNameDDL()
+        [ActionName("getStartEndOperationData")]
+        public async Task<IActionResult> GetStartEndOperationData(string batchNo)
         {
-            return Ok(await _mediator.Send(new ProcessNameDDL()));
+            // Use the correct Query class name
+            var result = await _mediator.Send(new BatchWiseStartEndDataQuery(batchNo));
+            return Ok(result);
         }
+
 
         [HttpGet]
         [ActionName("GetMachineNoDDL")]
@@ -183,5 +186,11 @@ namespace Erp.WebApi.Controllers.Commercial.Common
             return Ok(await _mediator.Send(new MachineNoDDL()));
         }
 
+        [HttpGet]
+        [ActionName("GetProcessNameDDL")]
+        public async Task<IActionResult> GetProcessNameDDL()
+        {
+            return Ok(await _mediator.Send(new MachineNoDDL()));
+        }
     }
 }

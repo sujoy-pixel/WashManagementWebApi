@@ -97,7 +97,8 @@ namespace Erp.Application.MascoWash.Setup.Repository
         Task<WrapperResponseBatchPriority> SaveBatchPriorityBulk(SaveBatchPriorityModel saveDataListDto);
         Task<WrapperResponseQCData> SaveQcData(SaveQCDataModel saveDataListDto);
 
+        Task<WrapperResponseData> SaveWashStartEndService(SaveWashStartEndModel dto);
 
-
+        Task<List<WashStartEndResponseDtos>> GetStartEndOperationData(string batchNo);
     }
 }

@@ -54,6 +54,9 @@ namespace Erp.Application.MascoWash.Commands
         // Totals
         public int totalPcs { get; set; }
         public decimal totalKg { get; set; }
+
+        public bool IsManualTotal { get; set; }
+        public bool shade { get; set; }
     }
 
 

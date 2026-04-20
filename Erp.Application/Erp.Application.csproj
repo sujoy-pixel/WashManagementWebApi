@@ -27,6 +27,7 @@
 		<PackageReference Include="MimeKit" Version="2.13.0" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 		<PackageReference Include="QRCoder" Version="1.6.0" />
+		<PackageReference Include="ReportViewerCore.NETCore" Version="15.1.10" />
 		<PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
 		<PackageReference Include="System.Runtime.Serialization.Primitives" Version="4.3.0" />
 	</ItemGroup>

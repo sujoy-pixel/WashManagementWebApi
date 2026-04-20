@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Erp.Application.MascoWash.Handlers
 {
-    public class BatchWishStartEndDataHandler : IRequestHandler<BatchWishQCDataQuery, List<BatchWishQCDataDto>>
+    public class BatchWishStartEndDataHandler : IRequestHandler<BatchWiseStartEndDataQuery, List<BatchWishQCDataDto>>
     {
         private readonly ISaveDataList _setupService;
         public BatchWishStartEndDataHandler(ISaveDataList setupService)
@@ -19,7 +19,7 @@ namespace Erp.Application.MascoWash.Handlers
             _setupService = setupService;
         }
         public async Task<List<BatchWishQCDataDto>> Handle(
-     BatchWishQCDataQuery request,
+     BatchWiseStartEndDataQuery request,
      CancellationToken cancellationToken)
         {
             return await _setupService.GetBatchWishStartEndDataList(request.batchNo);

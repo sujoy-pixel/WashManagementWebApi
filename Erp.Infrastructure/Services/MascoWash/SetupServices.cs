@@ -1423,44 +1423,149 @@ namespace Erp.Infrastructure.Services.MascoWash
             return list;
         }
 
-        public async Task<Result> SaveWashBatchPrepareData(
-            SaveWashBatchPrepareModel dto)
+        //public async Task<Result> SaveWashBatchPrepareData(SaveWashBatchPrepareModel dto)
+        //{
+        //    if (dto == null)
+        //        return Result.Failure(new[] { "Request data is null" });
+
+        //    // 🔥 Create DataTable ONLY if SizeDetails exists
+        //    DataTable sizeTable = null;
+
+        //    if (dto.SizeDetails != null && dto.SizeDetails.Any())
+        //    {
+        //        sizeTable = new DataTable();
+        //        sizeTable.Columns.Add("SizeId", typeof(int));
+        //        sizeTable.Columns.Add("Size", typeof(string));
+        //        sizeTable.Columns.Add("Qty", typeof(int));
+        //        sizeTable.Columns.Add("Kg", typeof(decimal));
+
+        //        foreach (var s in dto.SizeDetails)
+        //        {
+        //            sizeTable.Rows.Add(
+        //                s.sizeId,
+        //                s.size,
+        //                s.qty,
+        //                s.kg
+        //            );
+        //        }
+        //    }
+
+        //    var param = new DynamicParameters();
+
+        //    // ===== MASTER =====
+        //    param.Add("@Operation", dto.Master.operation);
+        //    param.Add("@CreatedBy", _currentUserService?.EmployeeId ?? "SYSTEM");
+        //    param.Add("@MasterId", dto.Master.masterId);
+        //    param.Add("@UnitId", dto.Master.unitId);
+        //    param.Add("@TrackingNo", dto.Master.trackingNo);
+
+        //    param.Add("@BatchNo", dto.Master.batchNo);
+        //    param.Add("@DocumentNo", dto.Master.documentNo);
+        //    param.Add("@EffectiveDate", dto.Master.effectiveDate);
+        //    param.Add("@RevisionDate", dto.Master.revisionDate);
+        //    param.Add("@RevisionNo", dto.Master.revisionNo);
+        //    param.Add("@Date", dto.Master.date);
+        //    param.Add("@Type", dto.Master.type);
+        //    param.Add("@Composition", dto.Master.composition);
+
+        //    param.Add("@BuyerId", dto.Master.buyerId);
+        //    param.Add("@JobId", dto.Master.jobId);
+        //    param.Add("@StyleId", dto.Master.styleId);
+        //    param.Add("@OrderId", dto.Master.orderId);
+        //    param.Add("@FabricationId", dto.Master.fabricationId);
+        //    param.Add("@ColorId", dto.Master.colorId);
+        //    param.Add("@DressPartId", dto.Master.dressPartId);
+        //    param.Add("@UomId", dto.Master.uomId);
+        //    param.Add("@IszId", dto.Master.iszId);
+
+        //    param.Add("@ProcessIds", dto.Master.processIds);
+        //    param.Add("@MachineIds", dto.Master.machineIds);
+
+        //    // ✅ FIXED TOTALS
+        //    param.Add("@TotalPcs", dto.Master.totalPcs);
+        //    param.Add("@TotalKg", dto.Master.totalKg);
+
+        //    // ✅ NEW FIELDS
+        //    param.Add("@IsManualTotal", dto.Master.IsManualTotal);
+        //    param.Add("@Shade", dto.Master.shade);
+
+        //    // ===== TVP (NULL SAFE) =====
+        //    if (sizeTable != null)
+        //    {
+        //        param.Add(
+        //            "@SizeDetails",
+        //            sizeTable.AsTableValuedParameter("dbo.TVP_WashPrepare_Size")
+        //        );
+        //    }
+        //    else
+        //    {
+        //        param.Add("@SizeDetails", null);
+        //    }
+
+        //    try
+        //    {
+        //        using var conn = CreateConnection();
+
+        //        var result = await conn.QueryFirstOrDefaultAsync<SaveWashBatchResponse>(
+        //            "[dbo].[sp_SaveWashBatchPrepare]",
+        //            param,
+        //            commandType: CommandType.StoredProcedure
+        //        );
+
+        //        return Result.Success(result?.AutoBatchNo);
+        //    }
+        //    catch (SqlException ex)
+        //    {
+        //        return Result.Failure(new[] { ex.Message });
+        //    }
+        //}
+        public async Task<Result> SaveWashBatchPrepareData(SaveWashBatchPrepareModel dto)
         {
             if (dto == null)
                 return Result.Failure(new[] { "Request data is null" });
 
-            // 🔥 Convert SizeDetails → DataTable (TVP)
-            var sizeTable = new DataTable();
-            sizeTable.Columns.Add("SizeId", typeof(int));
-            sizeTable.Columns.Add("Size", typeof(string));
-            sizeTable.Columns.Add("Qty", typeof(int));
-            sizeTable.Columns.Add("Kg", typeof(decimal));
+            if (dto.Master == null)
+                return Result.Failure(new[] { "Master data is missing" });
 
-            foreach (var s in dto.SizeDetails)
+            DataTable sizeTable = null;
+
+            /* ================= SIZE DETAILS ================= */
+            if (dto.SizeDetails != null && dto.SizeDetails.Any())
             {
-                sizeTable.Rows.Add(
-                    s.sizeId,
-                    s.size,
-                    s.qty,
-                    s.kg
-                );
+                sizeTable = new DataTable();
+                sizeTable.Columns.Add("SizeId", typeof(int));
+                sizeTable.Columns.Add("Size", typeof(string));
+                sizeTable.Columns.Add("Qty", typeof(int));
+                sizeTable.Columns.Add("Kg", typeof(decimal));
+
+                foreach (var s in dto.SizeDetails)
+                {
+                    sizeTable.Rows.Add(
+                        s.sizeId ?? (object)DBNull.Value,
+                        s.size ?? (object)DBNull.Value,
+                        s.qty,
+                        s.kg
+                    );
+                }
             }
 
             var param = new DynamicParameters();
 
-            // ===== MASTER =====
+            /* ================= MASTER ================= */
             param.Add("@Operation", dto.Master.operation);
             param.Add("@CreatedBy", _currentUserService?.EmployeeId ?? "SYSTEM");
-            //param.Add("@CreatedBy", dto.Master.createdBy);
-            param.Add("@MasterId", dto.Master.masterId);
+            //param.Add("@MasterId", dto.Master.masterId);
             param.Add("@UnitId", dto.Master.unitId);
             param.Add("@TrackingNo", dto.Master.trackingNo);
+
             param.Add("@BatchNo", dto.Master.batchNo);
             param.Add("@DocumentNo", dto.Master.documentNo);
             param.Add("@EffectiveDate", dto.Master.effectiveDate);
             param.Add("@RevisionDate", dto.Master.revisionDate);
             param.Add("@RevisionNo", dto.Master.revisionNo);
             param.Add("@Date", dto.Master.date);
+            param.Add("@Type", dto.Master.type);
+            param.Add("@Composition", dto.Master.composition);
 
             param.Add("@BuyerId", dto.Master.buyerId);
             param.Add("@JobId", dto.Master.jobId);
@@ -1474,31 +1579,62 @@ namespace Erp.Infrastructure.Services.MascoWash
 
             param.Add("@ProcessIds", dto.Master.processIds);
             param.Add("@MachineIds", dto.Master.machineIds);
-            param.Add("@TotalPcs", dto.Master.totalKg);
-            param.Add("@TotalKg", dto.Master.totalPcs);
-            param.Add("@Type", dto.Master.type);
 
-            // ===== TVP =====
-            param.Add(
-                "@SizeDetails",
-                sizeTable.AsTableValuedParameter("dbo.TVP_WashPrepare_Size")
-            );
+            param.Add("@TotalPcs", dto.Master.totalPcs);
+            param.Add("@TotalKg", dto.Master.totalKg);
+
+            param.Add("@IsManualTotal", dto.Master.IsManualTotal);
+            param.Add("@Shade", dto.Master.shade);
+
+            /* ================= TVP ================= */
+            if (sizeTable != null)
+            {
+                param.Add(
+                    "@SizeDetails",
+                    sizeTable.AsTableValuedParameter("dbo.TVP_WashPrepare_Size")
+                );
+            }
+            else
+            {
+                // ✅ Send EMPTY table instead of null (BEST PRACTICE)
+                var emptyTable = new DataTable();
+                emptyTable.Columns.Add("SizeId", typeof(int));
+                emptyTable.Columns.Add("Size", typeof(string));
+                emptyTable.Columns.Add("Qty", typeof(int));
+                emptyTable.Columns.Add("Kg", typeof(decimal));
+
+                param.Add(
+                    "@SizeDetails",
+                    emptyTable.AsTableValuedParameter("dbo.TVP_WashPrepare_Size")
+                );
+            }
 
             try
             {
                 using var conn = CreateConnection();
 
                 var result = await conn.QueryFirstOrDefaultAsync<SaveWashBatchResponse>(
-                  "[dbo].[sp_SaveWashBatchPrepare]",
-                  param,
-                  commandType: CommandType.StoredProcedure
-              );
+                    "[dbo].[sp_SaveWashBatchPrepare]",
+                    param,
+                    commandType: CommandType.StoredProcedure
+                );
+
+                /* ================= RESULT CHECK ================= */
+                if (result == null)
+                    return Result.Failure(new[] { "No response from database" });
+
+                if (result.ResultCode != 1)
+                    return Result.Failure(new[] { "Save failed in stored procedure" });
 
                 return Result.Success(result.AutoBatchNo);
             }
             catch (SqlException ex)
             {
-                return Result.Failure(new[] { ex.Message });
+                return Result.Failure(new[] { $"SQL Error: {ex.Message}" });
+            }
+            catch (Exception ex)
+            {
+                return Result.Failure(new[] { $"System Error: {ex.Message}" });
             }
         }
         public class SaveWashBatchResponse
@@ -1913,6 +2049,8 @@ namespace Erp.Infrastructure.Services.MascoWash
                parameter
            );
 
+            
+            
             return result?.ToList() ?? new List<BatchWishQCDataDto>();
         }
 
@@ -2054,9 +2192,152 @@ namespace Erp.Infrastructure.Services.MascoWash
             return result?.ToList() ?? new List<BatchWishQCDataDto>();
         }
 
+        public async Task<WrapperResponseData> SaveWashStartEndService(SaveWashStartEndModel dto)
+        {
+            // ============================
+            // VALIDATION
+            // ============================
+            if (dto?.Rows == null || !dto.Rows.Any())
+            {
+                return new WrapperResponseData
+                {
+                    IsSuccess = false,
+                    Message = "Request data is null or empty",
+                    Data = new List<WashStartEndResponseDto>()
+                };
+            }
+
+            try
+            {
+                // ============================
+                // CREATED BY
+                // ============================
+                var createdBy = _currentUserService?.EmployeeId ?? "SYSTEM";
+
+                // ============================
+                // CREATE TVP DATATABLE
+                // ============================
+                var table = new DataTable();
+
+                table.Columns.Add("UnitId", typeof(int));
+                table.Columns.Add("BuyerId", typeof(int));
+                table.Columns.Add("BatchNo", typeof(string));
+
+                table.Columns.Add("ProcessId", typeof(string));
+                table.Columns.Add("MachineId", typeof(string));
+
+                table.Columns.Add("StartDate", typeof(DateTime));
+                table.Columns.Add("EndDate", typeof(DateTime));
+
+                table.Columns.Add("StartTime", typeof(string));
+                table.Columns.Add("EndTime", typeof(string));
+
+                table.Columns.Add("CreatedBy", typeof(string));
+
+                // ============================
+                // FILL DATATABLE
+                // ============================
+                foreach (var item in dto.Rows)
+                {
+                    table.Rows.Add(
+                        item.UnitId,
+                        item.BuyerId,
+                        item.BatchNo,
+
+                        item.ProcessId ?? (object)DBNull.Value,
+                        item.MachineId ?? (object)DBNull.Value,
+
+                        (object)item.StartDate ?? DBNull.Value,
+                        (object)item.EndDate ?? DBNull.Value,
+
+                        item.StartTime ?? (object)DBNull.Value,
+                        item.EndTime ?? (object)DBNull.Value,
+
+                        createdBy
+                    );
+                }
+
+                // ============================
+                // PARAMETERS
+                // ============================
+                var parameters = new DynamicParameters();
+                parameters.Add("@CreatedBy", createdBy);
+
+                parameters.Add(
+                    "@Details",
+                    table.AsTableValuedParameter("dbo.TVP_WashStartEnd")
+                );
+
+                // ============================
+                // EXECUTE SP (IMPORTANT FIX)
+                // ============================
+                using var conn = CreateConnection();
+
+                var result = (await conn.QueryAsync<WashStartEndResponseDto>(
+                    "dbo.sp_Save_WashStartEnd",
+                    parameters,
+                    commandType: CommandType.StoredProcedure
+                )).ToList();
+
+                // ============================
+                // HANDLE RESULT
+                // ============================
+                if (result == null || !result.Any())
+                {
+                    return new WrapperResponseData
+                    {
+                        IsSuccess = false,
+                        Message = "No data returned from database",
+                        Data = new List<WashStartEndResponseDto>()
+                    };
+                }
+
+                return new WrapperResponseData
+                {
+                    IsSuccess = true,
+                    Message = "Saved successfully",
+                    Data = result
+                };
+            }
+            catch (SqlException ex)
+            {
+                return new WrapperResponseData
+                {
+                    IsSuccess = false,
+                    Message = $"Database error: {ex.Message}",
+                    Data = new List<WashStartEndResponseDto>()
+                };
+            }
+            catch (Exception ex)
+            {
+                return new WrapperResponseData
+                {
+                    IsSuccess = false,
+                    Message = $"Unexpected error: {ex.Message}",
+                    Data = new List<WashStartEndResponseDto>()
+                };
+            }
+        }
+
+
+        public async Task<List<WashStartEndResponseDtos>> GetStartEndOperationData(string batchNo)
+        {
+            var parameter = new DynamicParameters();
+            parameter.Add("@BatchNo", batchNo, DbType.String);
+
+            const string spName = "[dbo].[SP_GetStartEndDataForOperation]";
+
+            var result = await GetDisposeErrorFreeListAsyncNew<WashStartEndResponseDtos>(
+                spName,
+                parameter
+            );
+
+            return result?.ToList() ?? new List<WashStartEndResponseDtos>();
+        }
 
     }
 
+ 
 
 }
 
