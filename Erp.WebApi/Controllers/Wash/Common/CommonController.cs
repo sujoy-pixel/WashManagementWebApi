@@ -190,7 +190,7 @@ namespace Erp.WebApi.Controllers.Commercial.Common
         [ActionName("GetProcessNameDDL")]
         public async Task<IActionResult> GetProcessNameDDL()
         {
-            return Ok(await _mediator.Send(new MachineNoDDL()));
+            return Ok(await _mediator.Send(new ProcessNameDDL()));
         }
     }
 }
