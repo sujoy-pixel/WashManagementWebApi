@@ -192,5 +192,17 @@ namespace Erp.WebApi.Controllers.Commercial.Common
         {
             return Ok(await _mediator.Send(new ProcessNameDDL()));
         }
+
+        [HttpGet]
+        [ActionName("GetMachineByProcessData")]
+        public async Task<IActionResult> GetMachineByProcess([FromQuery] string processIds)
+        {
+            var result = await _mediator.Send(new GetMachineByProcessQuery
+            {
+                ProcessIds = processIds
+            });
+
+            return Ok(result);
+        }
     }
 }

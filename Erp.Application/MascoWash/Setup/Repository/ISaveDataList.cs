@@ -100,5 +100,6 @@ namespace Erp.Application.MascoWash.Setup.Repository
         Task<WrapperResponseData> SaveWashStartEndService(SaveWashStartEndModel dto);
 
         Task<List<WashStartEndResponseDtos>> GetStartEndOperationData(string batchNo);
+        Task<List<GetMachineByProcessDto>> GetMachineByProcess(string processIds);
     }
 }

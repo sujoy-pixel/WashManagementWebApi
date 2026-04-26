@@ -24,6 +24,7 @@ namespace Erp.Application.MascoWash.Handlers
             saveProcessNameData obj = new saveProcessNameData
             {
                 Operation = request.Operation,
+                OperationId=request.OperationId,
                 ProcessId = request.ProcessId,
                 UnitId = request.UnitId,
                 ProcessName = request.ProcessName,

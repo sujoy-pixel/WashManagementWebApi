@@ -9,6 +9,7 @@ namespace Erp.Application.MascoWash.Commands
     {
 
         public string Operation { get;set; }
+        public int OperationId { get; set; }
         public int ProcessId { get; set; }
         public int UnitId { get; set; }
         public string ProcessName { get; set; }

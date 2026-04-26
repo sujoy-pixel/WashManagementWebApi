@@ -95,6 +95,7 @@ namespace Erp.Infrastructure.Services.MascoWash
 
             parameter.Add("@Operation", saveDataListDto.Operation, DbType.String);
             parameter.Add("@ProcessId", saveDataListDto.ProcessId, DbType.Int32);
+            parameter.Add("@OperationId", saveDataListDto.OperationId, DbType.Int32);
             parameter.Add("@UnitId", saveDataListDto.UnitId, DbType.Int32);
             parameter.Add("@ProcessName", saveDataListDto.ProcessName, DbType.String);
             parameter.Add("@Priority", saveDataListDto.Priority, DbType.Int32);
@@ -131,10 +132,12 @@ namespace Erp.Infrastructure.Services.MascoWash
             {
                 var obj = new ProcessNameEntryGetList
                 {
+                    OperationId=item.OperationId,
+                    OperationName = item.OperationName,
                     ProcessId = item.ProcessId,
                     ProcessName = item.ProcessName,
                     UnitId = item.UnitId,
-                    UnitEName = item.UnitEName,
+                    UnitName = item.UnitName,
                     Priority = item.Priority,
                     IsActive = item.IsActive
 
@@ -2335,6 +2338,21 @@ namespace Erp.Infrastructure.Services.MascoWash
             return result?.ToList() ?? new List<WashStartEndResponseDtos>();
         }
 
+
+        public async Task<List<GetMachineByProcessDto>> GetMachineByProcess(string processIds)
+        {
+            var parameter = new DynamicParameters();
+            parameter.Add("@ProcessIds", processIds, DbType.String);
+
+            const string spName = "[dbo].[sp_Get_Machine_By_Process]";
+
+            var result = await GetDisposeErrorFreeListAsyncNew<GetMachineByProcessDto>(
+                spName,
+                parameter
+            );
+
+            return result?.ToList() ?? new List<GetMachineByProcessDto>();
+        }
     }
 
  

@@ -12,8 +12,11 @@ namespace Erp.Application.MascoWash.Queries
     public class ProcessNameEntryGetList
     {
         public int ProcessId { get; set; }
+
+        public int OperationId { get; set; }
         public int UnitId { get; set; }
-        public string UnitEName { get; set; }
+        public string UnitName { get; set; }
+        public string OperationName { get; set; }
         public string ProcessName { get; set; }
         public int Priority { get; set; }
         public bool IsActive { get; set; }
