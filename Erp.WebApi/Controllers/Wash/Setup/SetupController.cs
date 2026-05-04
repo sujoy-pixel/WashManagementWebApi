@@ -288,7 +288,16 @@ namespace Erp.WebApi.Controllers.Commercial.Setup
 
             return Ok(result);
         }
+        [HttpGet]
+        [ActionName("getWashBatchPrepareGridEdit")]
+        public async Task<IActionResult> getWashBatchPrepareGridEditData(int unitId, int buyerId, int jobId, int styleId, int orderId)
+        {
+            var result = await _mediator.Send(
+                new BatchPrepareEditQuery(unitId, buyerId, jobId, styleId, orderId)
+            );
 
+            return Ok(result);
+        }
         [HttpPost]
         [ActionName("SaveWashBatchPrepare")]
         public async Task<IActionResult> SaveWashBatchPrepare(SaveWashBatchPrepareModel command)
@@ -384,6 +393,17 @@ namespace Erp.WebApi.Controllers.Commercial.Setup
 
             return Ok(result);
         }
+
+        [HttpGet]
+        [ActionName("getBatchWishShadeData")]
+        public async Task<IActionResult> GetgetBatchWishShadeData(string batchNo)
+        {
+            var result = await _mediator.Send(
+                new BathchWiseShadeDataQuery(batchNo)
+            );
+
+            return Ok(result);
+        }
         [HttpGet]
         [ActionName("getStartEndOperationData")]
         public async Task<IActionResult> StartEndOperationData(string batchNo)
@@ -403,6 +423,14 @@ namespace Erp.WebApi.Controllers.Commercial.Setup
             var result = await _mediator.Send(command);
             return Ok(result);
         }
+        [HttpPost]
+        [ActionName("SaveBatchWiseShadeStatus")]
+        public async Task<IActionResult> SaveBatchWiseShadeStatusData(SaveBatchWiseShadeStatusModel command)
+        {
+            var result = await _mediator.Send(command);
+            return Ok(result);
+        }
+        
     }
 
 }

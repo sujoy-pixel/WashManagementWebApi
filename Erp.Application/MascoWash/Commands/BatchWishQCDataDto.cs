@@ -44,6 +44,15 @@ namespace Erp.Application.MascoWash.Commands
         public int SizeId { get; set; }
         public string Size { get; set; }
         public int GoodGarments { get; set; }
+        public decimal Weight { get; set; }
+        public decimal RemainingWeight { get; set; }
+        public decimal UsedWeight { get; set; }
+        public bool Shade { get; set; }
+        public string OperationTime { get; set; }
+        public string CreatedBy { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public decimal OperationWeight { get; set; }
+
 
     }
 }

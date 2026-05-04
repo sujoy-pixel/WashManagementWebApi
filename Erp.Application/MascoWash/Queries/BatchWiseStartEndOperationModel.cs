@@ -19,5 +19,6 @@ namespace Erp.Application.MascoWash.Queries
         public DateTime CreatedDate { get; set; }
         public string MachineNames { get; set; }
         public string ProcessNames { get; set; }
+        public decimal Weight { get; set; }
     }
 }

@@ -132,7 +132,7 @@ namespace Erp.Infrastructure.Services.MascoWash
             {
                 var obj = new ProcessNameEntryGetList
                 {
-                    OperationId=item.OperationId,
+                    OperationId = item.OperationId,
                     OperationName = item.OperationName,
                     ProcessId = item.ProcessId,
                     ProcessName = item.ProcessName,
@@ -1557,7 +1557,7 @@ namespace Erp.Infrastructure.Services.MascoWash
             /* ================= MASTER ================= */
             param.Add("@Operation", dto.Master.operation);
             param.Add("@CreatedBy", _currentUserService?.EmployeeId ?? "SYSTEM");
-            //param.Add("@MasterId", dto.Master.masterId);
+            param.Add("@MasterId", dto.Master.masterId);
             param.Add("@UnitId", dto.Master.unitId);
             param.Add("@TrackingNo", dto.Master.trackingNo);
 
@@ -1761,7 +1761,7 @@ namespace Erp.Infrastructure.Services.MascoWash
             parameter.Add("@FaultHeadId", faultHeadId, DbType.Int32, ParameterDirection.Input);
 
 
-           
+
             const string spName = "[dbo].[SP_GetFaultNameAndValueByTypeInspectionHeadAndFaultHeade]";
 
             var result = await GetDisposeErrorFreeListAsyncNew<GetFaultWiseListDto>(
@@ -1854,7 +1854,7 @@ namespace Erp.Infrastructure.Services.MascoWash
         {
             var parameter = new DynamicParameters();
 
-            parameter.Add("@UnitId", unitId, DbType.Int32, ParameterDirection.Input); 
+            parameter.Add("@UnitId", unitId, DbType.Int32, ParameterDirection.Input);
             parameter.Add("@Date", date, DbType.String, ParameterDirection.Input);
 
 
@@ -1961,13 +1961,14 @@ namespace Erp.Infrastructure.Services.MascoWash
                 // Convert List → DataTable (TVP)
                 // ============================
                 var table = new DataTable();
+                //table.Columns.Add("MasterId", typeof(int));
                 table.Columns.Add("UnitId", typeof(int));
                 table.Columns.Add("BatchNo", typeof(string));
-               
-               // table.Columns.Add("Date", typeof(DateTime));
+
+                // table.Columns.Add("Date", typeof(DateTime));
                 table.Columns.Add("MachineId", typeof(int));
-                
-               
+
+
                 table.Columns.Add("BuyerId", typeof(int));
                 table.Columns.Add("JobId", typeof(int));
                 table.Columns.Add("StyleId", typeof(int));
@@ -1981,10 +1982,10 @@ namespace Erp.Infrastructure.Services.MascoWash
                     table.Rows.Add(
                         item.UnitId,
                         item.BatchNo,
-                        
-                       // item.Date,
+
+                        // item.Date,
                         item.MachineId,
-                       
+
                         item.BuyerId,
                         item.JobId,
                         item.StyleId,
@@ -2037,11 +2038,11 @@ namespace Erp.Infrastructure.Services.MascoWash
         }
 
 
-        public async Task<List<BatchWishQCDataDto>> GetBatchWishQCDataList( string batchNo)
+        public async Task<List<BatchWishQCDataDto>> GetBatchWishQCDataList(string batchNo)
         {
             var parameter = new DynamicParameters();
 
-         
+
             parameter.Add("@BatchNo", batchNo, DbType.String, ParameterDirection.Input);
 
 
@@ -2052,8 +2053,8 @@ namespace Erp.Infrastructure.Services.MascoWash
                parameter
            );
 
-            
-            
+
+
             return result?.ToList() ?? new List<BatchWishQCDataDto>();
         }
 
@@ -2082,14 +2083,14 @@ namespace Erp.Infrastructure.Services.MascoWash
                 var repairableTable = new DataTable();
                 repairableTable.Columns.Add("DefectId", typeof(int));
                 repairableTable.Columns.Add("Qty", typeof(int));
-                
+
 
                 foreach (var item in dto.RepairableDetails)
                 {
                     repairableTable.Rows.Add(
                         item.DefectId,
                         item.Qty
-                      
+
                     );
                 }
 
@@ -2099,14 +2100,14 @@ namespace Erp.Infrastructure.Services.MascoWash
                 var rejectTable = new DataTable();
                 rejectTable.Columns.Add("DefectId", typeof(int));
                 rejectTable.Columns.Add("Qty", typeof(int));
-               
+
 
                 foreach (var item in dto.RejectDetails)
                 {
                     rejectTable.Rows.Add(
                         item.DefectId,
                         item.Qty
-                     
+
                     );
                 }
 
@@ -2229,14 +2230,15 @@ namespace Erp.Infrastructure.Services.MascoWash
                 table.Columns.Add("ProcessId", typeof(string));
                 table.Columns.Add("MachineId", typeof(string));
 
+
                 table.Columns.Add("StartDate", typeof(DateTime));
                 table.Columns.Add("EndDate", typeof(DateTime));
 
                 table.Columns.Add("StartTime", typeof(string));
                 table.Columns.Add("EndTime", typeof(string));
 
-                table.Columns.Add("CreatedBy", typeof(string));
 
+                table.Columns.Add("Weight", typeof(decimal));
                 // ============================
                 // FILL DATATABLE
                 // ============================
@@ -2256,7 +2258,8 @@ namespace Erp.Infrastructure.Services.MascoWash
                         item.StartTime ?? (object)DBNull.Value,
                         item.EndTime ?? (object)DBNull.Value,
 
-                        createdBy
+
+                          item.Weight
                     );
                 }
 
@@ -2353,9 +2356,108 @@ namespace Erp.Infrastructure.Services.MascoWash
 
             return result?.ToList() ?? new List<GetMachineByProcessDto>();
         }
-    }
 
- 
+
+        public async Task<List<BatchPrepareEditDto>> GetBatchPrepareDataEditList(int unitId, int buyerId, int jobId, int styleId, int orderId)
+        {
+            var parameter = new DynamicParameters();
+            parameter.Add("@UnitId", unitId, DbType.Int32, ParameterDirection.Input);
+            parameter.Add("@BuyerId", buyerId, DbType.Int32, ParameterDirection.Input);
+            parameter.Add("@JobId", jobId, DbType.Int32, ParameterDirection.Input);
+            parameter.Add("@StyleId", styleId, DbType.Int32, ParameterDirection.Input);
+            parameter.Add("@OrderId", orderId, DbType.Int32, ParameterDirection.Input);
+
+            const string spName = "[dbo].[tbl_SP_GetBatchPrepareDataForEdit]";
+
+            var result = await GetDisposeErrorFreeListAsyncNew<BatchPrepareEditDto>(
+                spName,
+                parameter
+            );
+
+            return result?.ToList() ?? new List<BatchPrepareEditDto>();
+        }
+
+
+        public async Task<List<BatchWishQCDataDto>> GetBatchWishShadeDataList(string batchNo)
+        {
+            var parameter = new DynamicParameters();
+
+
+            parameter.Add("@BatchNo", batchNo, DbType.String, ParameterDirection.Input);
+
+
+            const string spName = "[dbo].[SP_GetDataForWashShadeStatus]";
+
+            var result = await GetDisposeErrorFreeListAsyncNew<BatchWishQCDataDto>(
+               spName,
+               parameter
+           );
+
+            return result?.ToList() ?? new List<BatchWishQCDataDto>();
+        }
+
+
+        public async Task<WrapperResponseDatas> SaveBatchWiseShadeStatusService(SaveBatchWiseShadeStatusModel dto)
+        {
+            if (dto == null)
+            {
+                return new WrapperResponseDatas
+                {
+                    IsSuccess = false,
+                    Message = "Request data is null",
+                    Data = null
+                };
+            }
+
+            if (string.IsNullOrEmpty(dto.BatchNo))
+            {
+                return new WrapperResponseDatas
+                {
+                    IsSuccess = false,
+                    Message = "BatchNo is required",
+                    Data = null
+                };
+            }
+
+            try
+            {
+                var createdBy = _currentUserService?.EmployeeId ?? "SYSTEM";
+
+                var parameters = new DynamicParameters();
+                parameters.Add("@UnitId", dto.UnitId);
+                parameters.Add("@BatchNo", dto.BatchNo);
+                parameters.Add("@BuyerId", dto.BuyerId);
+                parameters.Add("@Weight", dto.Weight);
+                parameters.Add("@Shade", dto.Shade);
+                parameters.Add("@CreatedBy", createdBy);
+
+                using var conn = CreateConnection();
+
+                var result = (await conn.QueryAsync<OperationWiseDto>(
+                    "dbo.SP_Save_BatchWiseShadeStatus",
+                    parameters,
+                    commandType: CommandType.StoredProcedure
+                )).ToList();
+
+                return new WrapperResponseDatas
+                {
+                    IsSuccess = true,
+                    Message = "Saved successfully",
+                    Data = result
+                };
+            }
+            catch (Exception ex)
+            {
+                return new WrapperResponseDatas
+                {
+                    IsSuccess = false,
+                    Message = ex.Message,
+                    Data = null
+                };
+            }
+        }
+
+    }
 
 }
 

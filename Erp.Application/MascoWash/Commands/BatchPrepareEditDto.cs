@@ -1,14 +1,19 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Erp.Application.MascoWash.Queries
+namespace Erp.Application.MascoWash.Commands
 {
-    public class TrackingNoWiseReceiveDto
+    public class BatchPrepareEditDto
     {
         public string TrackingNo { get; set; }
         public string ReceiveNo { get; set; }
         public string ReceivedBy { get; set; }
 
         public int FromUnitId { get; set; }
+
         public int MasterId { get; set; }
         public int DetailsId { get; set; }
         public int UnitId { get; set; }
@@ -30,7 +35,7 @@ namespace Erp.Application.MascoWash.Queries
 
         public string Type { get; set; }
 
-        public string Fabrication { get; set; }    
+        public string Fabrication { get; set; }
         public string FabricationName { get; set; }
         public string Composition { get; set; }
 
@@ -50,9 +55,10 @@ namespace Erp.Application.MascoWash.Queries
         public string OperationType { get; set; }
 
         public int? UOMDetailsId { get; set; }
-     
+
         public string UOM { get; set; }
         public string BatchNo { get; set; }
+        public string LoadUnload { get; set; }
 
 
         public DateTime ProbableDeliveryDate { get; set; }
@@ -60,6 +66,9 @@ namespace Erp.Application.MascoWash.Queries
         public int? TotalQty { get; set; }
         public int? RemainingQty { get; set; }
         public int? AlreadyPreparedQty { get; set; }
+        public int? AlreadyPreparedKg { get; set; }
 
     }
 }
+
+

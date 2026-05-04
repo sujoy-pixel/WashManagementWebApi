@@ -77,6 +77,7 @@ namespace Erp.Application.MascoWash.Setup.Repository
         Task<List<DropdownListDto1>> GetStyleDDLListData(int unitId, int buyerId, int jobId);
         Task<List<DropdownListDto1>> GetOrderDDLListData(int unitId, int buyerId, int jobId, int styleId);
         Task<List<TrackingNoWiseReceiveDto>> GetBatchPrepareDataList(int unitId, int buyerId, int jobId, int styleId,int orderId);
+        Task<List<BatchPrepareEditDto>> GetBatchPrepareDataEditList(int unitId, int buyerId, int jobId, int styleId,int orderId);
 
         Task<List<DropdownListDto1>> GetProcessNameList();
         Task<List<DropdownListDto1>> GetMachineNoList();
@@ -92,12 +93,14 @@ namespace Erp.Application.MascoWash.Setup.Repository
         Task<List<GetBatchPriorityDto>> GetPrioritySetDataList(int unitId,string date);
         Task<List<BatchWishQCDataDto>> GetBatchWishQCDataList(string batchNo);
         Task<List<BatchWishQCDataDto>> GetBatchWishStartEndDataList(string batchNo);
+        Task<List<BatchWishQCDataDto>> GetBatchWishShadeDataList(string batchNo);
 
 
         Task<WrapperResponseBatchPriority> SaveBatchPriorityBulk(SaveBatchPriorityModel saveDataListDto);
         Task<WrapperResponseQCData> SaveQcData(SaveQCDataModel saveDataListDto);
 
         Task<WrapperResponseData> SaveWashStartEndService(SaveWashStartEndModel dto);
+        Task<WrapperResponseDatas> SaveBatchWiseShadeStatusService(SaveBatchWiseShadeStatusModel dto);
 
         Task<List<WashStartEndResponseDtos>> GetStartEndOperationData(string batchNo);
         Task<List<GetMachineByProcessDto>> GetMachineByProcess(string processIds);

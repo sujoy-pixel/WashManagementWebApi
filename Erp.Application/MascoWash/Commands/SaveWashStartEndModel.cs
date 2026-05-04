@@ -21,33 +21,16 @@ public class WashStartEndRow
     public DateTime? StartDate { get; set; }
     public DateTime? EndDate { get; set; }
 
-    //public TimeSpan? StartTime { get; set; }
-    //public TimeSpan? EndTime { get; set; }
 
     //[JsonConverter(typeof(TimeSpanJsonConverter))]
     public string StartTime { get; set; }
+    public decimal Weight { get; set; }
 
     //[JsonConverter(typeof(TimeSpanJsonConverter))]
     public string EndTime { get; set; }
     public string CreatedBy { get; set; }
 }
-//public class WrapperResponseData
-//{
 
-//    public bool IsSuccess { get; set; }
-//    public string Message { get; set; }
-
-//    public int? MasterId { get; set; }
-//    public DateTime? StartDate { get; set; }
-//    public DateTime? EndDate { get; set; }
-
-//    public string StartTime { get; set; }
-//    public TimeSpan? EndTime { get; set; }
-//    public string ProcessId { get; set; }
-//    public string MachineId { get; set; }
-//    public string MachineNames { get; set; }
-//    public string ProcessNames { get; set; }
-//}
 public class WrapperResponseData
 {
     public bool IsSuccess { get; set; }
@@ -55,6 +38,14 @@ public class WrapperResponseData
 
     public List<WashStartEndResponseDto> Data { get; set; }
 }
+public class WrapperResponseDatas
+{
+    public bool IsSuccess { get; set; }
+    public string Message { get; set; }
+
+    public object Data { get; set; }
+}
+
 public class WashStartEndResponseDto
 {
     public int Id { get; set; }
@@ -73,6 +64,7 @@ public class WashStartEndResponseDto
 
     public string Operation { get; set; }
     public string CreatedBy { get; set; }
+    public decimal Weight { get; set; }
 
     public DateTime CreatedDate { get; set; }
 

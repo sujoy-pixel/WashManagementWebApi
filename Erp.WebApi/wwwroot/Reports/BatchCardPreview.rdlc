@@ -437,7 +437,7 @@
                   </TextRun>
                 </TextRuns>
                 <Style>
-                  <TextAlign>Center</TextAlign>
+                  <TextAlign>Left</TextAlign>
                 </Style>
               </Paragraph>
             </Paragraphs>
@@ -470,7 +470,7 @@
                   </TextRun>
                 </TextRuns>
                 <Style>
-                  <TextAlign>Center</TextAlign>
+                  <TextAlign>Left</TextAlign>
                 </Style>
               </Paragraph>
             </Paragraphs>
@@ -575,7 +575,7 @@
                   </TextRun>
                 </TextRuns>
                 <Style>
-                  <TextAlign>Center</TextAlign>
+                  <TextAlign>Left</TextAlign>
                 </Style>
               </Paragraph>
             </Paragraphs>
@@ -608,7 +608,7 @@
                   </TextRun>
                 </TextRuns>
                 <Style>
-                  <TextAlign>Center</TextAlign>
+                  <TextAlign>Left</TextAlign>
                 </Style>
               </Paragraph>
             </Paragraphs>
@@ -641,7 +641,7 @@
                   </TextRun>
                 </TextRuns>
                 <Style>
-                  <TextAlign>Center</TextAlign>
+                  <TextAlign>Left</TextAlign>
                 </Style>
               </Paragraph>
             </Paragraphs>
@@ -674,7 +674,7 @@
                   </TextRun>
                 </TextRuns>
                 <Style>
-                  <TextAlign>Center</TextAlign>
+                  <TextAlign>Left</TextAlign>
                 </Style>
               </Paragraph>
             </Paragraphs>
@@ -707,7 +707,7 @@
                   </TextRun>
                 </TextRuns>
                 <Style>
-                  <TextAlign>Center</TextAlign>
+                  <TextAlign>Left</TextAlign>
                 </Style>
               </Paragraph>
             </Paragraphs>
@@ -740,7 +740,7 @@
                   </TextRun>
                 </TextRuns>
                 <Style>
-                  <TextAlign>Center</TextAlign>
+                  <TextAlign>Left</TextAlign>
                 </Style>
               </Paragraph>
             </Paragraphs>
@@ -1242,7 +1242,7 @@
                   </TextRun>
                 </TextRuns>
                 <Style>
-                  <TextAlign>Center</TextAlign>
+                  <TextAlign>Left</TextAlign>
                 </Style>
               </Paragraph>
             </Paragraphs>
@@ -1275,7 +1275,7 @@
                   </TextRun>
                 </TextRuns>
                 <Style>
-                  <TextAlign>Center</TextAlign>
+                  <TextAlign>Left</TextAlign>
                 </Style>
               </Paragraph>
             </Paragraphs>
@@ -1308,7 +1308,7 @@
                   </TextRun>
                 </TextRuns>
                 <Style>
-                  <TextAlign>Center</TextAlign>
+                  <TextAlign>Left</TextAlign>
                 </Style>
               </Paragraph>
             </Paragraphs>
@@ -1341,7 +1341,7 @@
                   </TextRun>
                 </TextRuns>
                 <Style>
-                  <TextAlign>Center</TextAlign>
+                  <TextAlign>Left</TextAlign>
                 </Style>
               </Paragraph>
             </Paragraphs>
@@ -1612,7 +1612,7 @@
                   </TextRun>
                 </TextRuns>
                 <Style>
-                  <TextAlign>Center</TextAlign>
+                  <TextAlign>Left</TextAlign>
                 </Style>
               </Paragraph>
             </Paragraphs>
@@ -1646,19 +1646,22 @@
                     </Style>
                   </TextRun>
                 </TextRuns>
-                <Style />
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox45</rd:DefaultName>
             <Top>2.14133in</Top>
             <Left>0.18891in</Left>
             <Height>0.24207in</Height>
-            <Width>0.9132in</Width>
+            <Width>0.70004in</Width>
             <ZIndex>53</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
               </Border>
+              <VerticalAlign>Middle</VerticalAlign>
             </Style>
           </Textbox>
           <Textbox Name="Textbox62">
@@ -1674,19 +1677,22 @@
                     </Style>
                   </TextRun>
                 </TextRuns>
-                <Style />
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox45</rd:DefaultName>
             <Top>2.13866in</Top>
             <Left>2.12606in</Left>
             <Height>0.19768in</Height>
-            <Width>0.81428in</Width>
+            <Width>0.64105in</Width>
             <ZIndex>54</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
               </Border>
+              <VerticalAlign>Middle</VerticalAlign>
             </Style>
           </Textbox>
           <Textbox Name="TotalPcs">
@@ -1700,12 +1706,14 @@
                     <Style />
                   </TextRun>
                 </TextRuns>
-                <Style />
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>TotalPcs</rd:DefaultName>
-            <Top>2.1334in</Top>
-            <Left>1.19582in</Left>
+            <Top>2.11088in</Top>
+            <Left>0.95839in</Left>
             <Height>0.25in</Height>
             <Width>0.84574in</Width>
             <ZIndex>55</ZIndex>
@@ -1713,6 +1721,7 @@
               <Border>
                 <Style>None</Style>
               </Border>
+              <VerticalAlign>Middle</VerticalAlign>
               <PaddingLeft>2pt</PaddingLeft>
               <PaddingRight>2pt</PaddingRight>
               <PaddingTop>2pt</PaddingTop>
@@ -1726,16 +1735,20 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=Sum(Fields!TotalKg.Value, "dsBatchCardPreview")</Value>
-                    <Style />
+                    <Value>=First(Fields!TotalKg.Value, "dsBatchCardPreview")</Value>
+                    <Style>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
                   </TextRun>
                 </TextRuns>
-                <Style />
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>TotalKg</rd:DefaultName>
-            <Top>2.08136in</Top>
-            <Left>3.02916in</Left>
+            <Top>2.12477in</Top>
+            <Left>2.80878in</Left>
             <Height>0.25in</Height>
             <Width>0.83826in</Width>
             <ZIndex>56</ZIndex>
@@ -1743,6 +1756,7 @@
               <Border>
                 <Style>None</Style>
               </Border>
+              <VerticalAlign>Middle</VerticalAlign>
               <PaddingLeft>2pt</PaddingLeft>
               <PaddingRight>2pt</PaddingRight>
               <PaddingTop>2pt</PaddingTop>
