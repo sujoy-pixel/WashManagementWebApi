@@ -50,6 +50,7 @@ namespace Erp.Application.MascoWash.Commands
         public bool Shade { get; set; }
         public string OperationTime { get; set; }
         public string CreatedBy { get; set; }
+        public string TrackingNo { get; set; }
         public DateTime CreatedDate { get; set; }
         public decimal OperationWeight { get; set; }
 

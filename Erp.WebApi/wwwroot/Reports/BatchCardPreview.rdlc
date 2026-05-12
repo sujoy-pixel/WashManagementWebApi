@@ -1702,8 +1702,11 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=Sum(Fields!TotalPcs.Value, "dsBatchCardPreview")</Value>
-                    <Style />
+                    <Value>=Fields!TotalPcs.Value</Value>
+                    <Style>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
                   </TextRun>
                 </TextRuns>
                 <Style>

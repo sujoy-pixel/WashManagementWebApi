@@ -393,6 +393,17 @@ namespace Erp.WebApi.Controllers.Commercial.Setup
 
             return Ok(result);
         }
+        [HttpGet]
+        [ActionName("getBatchWishAsidPrepareData")]
+        public async Task<IActionResult> getBatchWishAsidPrepareData(string batchNo)
+        {
+            var result = await _mediator.Send(
+                new getBatchWishAsidPrepareDataDataQuery(batchNo)
+            );
+
+            return Ok(result);
+        }
+
 
         [HttpGet]
         [ActionName("getBatchWishShadeData")]

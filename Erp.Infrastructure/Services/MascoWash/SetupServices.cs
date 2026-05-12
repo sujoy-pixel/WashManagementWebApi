@@ -1154,7 +1154,7 @@ namespace Erp.Infrastructure.Services.MascoWash
                         BuyerId = d.BuyerId,
                         JobId = d.JobId,
                         StyleId = d.StyleId,
-                        OrderId = d.StyleId,
+                        OrderId = d.OrderId,
                         TypeName = d.TypeName,
                         FabricationId = d.FabricationId,
                         Composition = d.Composition,

@@ -29,7 +29,7 @@ namespace Erp.Application.MascoWash.Commands
 
         public DateTime Date { get; set; }
         public string BatchNo { get; set; }
-
+        public string TrackingNo { get; set; }
         public string Type { get; set; }
         public string Color { get; set; }
 
