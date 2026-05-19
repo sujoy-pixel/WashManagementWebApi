@@ -22,6 +22,8 @@ namespace Erp.Application.MascoWash.Commands
         public DateTime ReceiveDate { get; set; }
 
         public string BuyerNo { get; set; }
+        public string ProcessIds { get; set; }
+        public string MachineIds { get; set; }
         public string BuyerName { get; set; }
 
         public string JobId { get; set; }

@@ -103,6 +103,9 @@ namespace Erp.Application.MascoWash.Setup.Repository
         Task<WrapperResponseDatas> SaveBatchWiseShadeStatusService(SaveBatchWiseShadeStatusModel dto);
 
         Task<List<WashStartEndResponseDtos>> GetStartEndOperationData(string batchNo);
+        Task<List<BatchWishQCDataDto>> GetBatchWishAcidWashPrepareList(string batchNo);
         Task<List<GetMachineByProcessDto>> GetMachineByProcess(string processIds);
+        // Add to ISaveDataList.cs
+        Task<Result> SaveAcidWashBatchPrepareData(SaveAcidWashBatchPrepareCommand dto);
     }
 }

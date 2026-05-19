@@ -46,6 +46,16 @@ public class WrapperResponseDatas
     public object Data { get; set; }
 }
 
+// Same class used by QueryFirstOrDefaultAsync
+public class AcidWashBatchPrepareDbResponse
+{
+    public int ResultCode { get; set; }
+    public string AcidBatchNo { get; set; }
+    public string CreatedBy { get; set; }
+    public DateTime CreatedDate { get; set; }
+    public string Message { get; set; }
+}
+
 public class WashStartEndResponseDto
 {
     public int Id { get; set; }

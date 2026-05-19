@@ -42,11 +42,17 @@ namespace Erp.Application.MascoWash.Commands
         public string ProcessName { get; set; }
         public int Priority { get; set; }
         public int SizeId { get; set; }
+        public int TotalQty { get; set; }
         public string Size { get; set; }
         public int GoodGarments { get; set; }
         public decimal Weight { get; set; }
+        public decimal RemainingQty { get; set; }
         public decimal RemainingWeight { get; set; }
+        public decimal RemainingKg { get; set; }
+        public decimal AlreadyPreparedQty { get; set; }
         public decimal UsedWeight { get; set; }
+        public decimal AlreadyPreparedKg { get; set; }
+        public decimal TotalKg { get; set; }
         public bool Shade { get; set; }
         public string OperationTime { get; set; }
         public string CreatedBy { get; set; }

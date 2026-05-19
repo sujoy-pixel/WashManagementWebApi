@@ -17,6 +17,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.EntityFrameworkCore.SqlServer.Query.Internal;
 using Microsoft.Extensions.Configuration;
+using Microsoft.ReportingServices.ReportProcessing.ReportObjectModel;
 using Newtonsoft.Json;
 using Org.BouncyCastle.Asn1.Ocsp;
 using SixLabors.ImageSharp;
@@ -1648,10 +1649,10 @@ namespace Erp.Infrastructure.Services.MascoWash
         }
 
         public async Task<List<TrackingNoWiseReceiveDto>> GetWashItemDeliveryList(
-    int unitId,
-    string fromDate,
-    string toDate,
-    string trackingBatchNo)
+            int unitId,
+            string fromDate,
+            string toDate,
+            string trackingBatchNo)
         {
             var parameter = new DynamicParameters();
 
@@ -2196,6 +2197,24 @@ namespace Erp.Infrastructure.Services.MascoWash
             return result?.ToList() ?? new List<BatchWishQCDataDto>();
         }
 
+        public async Task<List<BatchWishQCDataDto>> GetBatchWishAcidWashPrepareList(string batchNo)
+        {
+            var parameter = new DynamicParameters();
+
+
+            parameter.Add("@BatchNo", batchNo, DbType.String, ParameterDirection.Input);
+
+
+            const string spName = "[dbo].[SP_GetDataForAcidWashBatchPrepare]";
+
+            var result = await GetDisposeErrorFreeListAsyncNew<BatchWishQCDataDto>(
+               spName,
+               parameter
+           );
+
+            return result?.ToList() ?? new List<BatchWishQCDataDto>();
+        }
+
         public async Task<WrapperResponseData> SaveWashStartEndService(SaveWashStartEndModel dto)
         {
             // ============================
@@ -2456,6 +2475,264 @@ namespace Erp.Infrastructure.Services.MascoWash
                 };
             }
         }
+        public async Task<Result> SaveAcidWashBatchPrepareData(
+        SaveAcidWashBatchPrepareCommand dto)
+        {
+            /* ── Basic guard (handler already validates, but
+               keep this as a safety net for direct calls) ─ */
+            if (dto?.Master == null)
+                return Result.Failure(new[] { "Master data is missing" });
+
+            /* ════════════════════════════════════════════════
+               BUILD TVP
+               Must match the column order of
+               dbo.TVP_AcidWashBatchPrepareSizeDetails exactly
+            ════════════════════════════════════════════════ */
+            var sizeTable = new DataTable();
+            sizeTable.Columns.Add("BatchNo", typeof(string));
+            sizeTable.Columns.Add("SizeId", typeof(int));
+            sizeTable.Columns.Add("SizeName", typeof(string));
+            sizeTable.Columns.Add("SizeQty", typeof(decimal));
+            sizeTable.Columns.Add("SizeWeight", typeof(decimal));
+
+            if (dto.Details != null && dto.Details.Any())
+            {
+                foreach (var s in dto.Details)
+                {
+                    sizeTable.Rows.Add(
+                        dto.Master.BatchNo ?? (object)DBNull.Value,
+                        s.SizeId.HasValue ? (object)s.SizeId.Value : DBNull.Value,
+                        s.SizeName ?? (object)DBNull.Value,
+                        s.SizeQty,
+                        s.SizeWeight
+                    );
+                }
+            }
+            // An empty DataTable is valid — SP handles READONLY TVP with 0 rows cleanly.
+
+            /* ════════════════════════════════════════════════
+               PARAMETERS
+               Names must match SP parameter names exactly
+            ════════════════════════════════════════════════ */
+            var param = new DynamicParameters();
+            param.Add("@Operation", dto.Master.Operation);
+            param.Add("@MasterId", dto.Master.MasterId);
+            param.Add("@CreatedBy", _currentUserService?.EmployeeId ?? "SYSTEM");
+            param.Add("@BatchNo", dto.Master.BatchNo);
+            param.Add("@TotalPcs", dto.Master.TotalPcs);
+            param.Add("@TotalKg", dto.Master.TotalKg);
+            param.Add("@ProcessIds", dto.Master.ProcessIds);
+            param.Add("@MachineIds", dto.Master.MachineIds);
+
+            // TVP — use the exact type name registered in SQL Server
+            param.Add(
+                "@SizeDetails",
+                sizeTable.AsTableValuedParameter(
+                    "dbo.TVP_AcidWashBatchPrepareSizeDetails")
+            );
+
+            /* ════════════════════════════════════════════════
+               EXECUTE SP
+            ════════════════════════════════════════════════ */
+            try
+            {
+                using var conn = CreateConnection();
+
+                var dbResult =
+                    await conn.QueryFirstOrDefaultAsync<AcidWashBatchPrepareDbResponse>(
+                        "[dbo].[sp_SaveAcidWashBatchPrepare]",
+                        param,
+                        commandType: CommandType.StoredProcedure
+                    );
+
+                /* ── Result check ─────────────────────────── */
+                if (dbResult == null)
+                    return Result.Failure(new[] { "No response returned from database" });
+
+                if (dbResult.ResultCode != 1)
+                    return Result.Failure(new[]
+                    {
+                        dbResult.Message ?? "Stored procedure reported a failure"
+                    });
+
+                // ✅ Return AcidBatchNo as the success message
+                return Result.Success(dbResult.AcidBatchNo);
+            }
+            catch (SqlException ex)
+            {
+                return Result.Failure(new[]
+                {
+                    $"SQL Error [{ex.Number}]: {ex.Message}"
+                });
+            }
+            catch (Exception ex)
+            {
+                return Result.Failure(new[]
+                {
+                    $"System Error: {ex.Message}"
+                });
+            }
+        }
+
+        //public async Task<Result> SaveAcidWashBatchPrepareData(SaveAcidWashBatchPrepareCommand dto)
+        //{
+        //    try
+        //    {
+        //        /* =========================================================
+        //           VALIDATION
+        //        ========================================================= */
+        //        if (dto == null)
+        //            return Result.Failure(new[] { "Request data is null" });
+
+        //        if (dto.Master == null)
+        //            return Result.Failure(new[] { "Master data is missing" });
+
+        //        if (string.IsNullOrWhiteSpace(dto.Master.Operation))
+        //            return Result.Failure(new[] { "Operation is required" });
+
+        //        if (string.IsNullOrWhiteSpace(dto.Master.BatchNo))
+        //            return Result.Failure(new[] { "Batch No is required" });
+
+        //        /* =========================================================
+        //           CREATE SIZE DETAILS TVP
+        //        ========================================================= */
+        //        var sizeTable = new DataTable();
+
+        //        sizeTable.Columns.Add("BatchNo", typeof(string));
+        //        sizeTable.Columns.Add("SizeId", typeof(int));
+        //        sizeTable.Columns.Add("SizeName", typeof(string));
+        //        sizeTable.Columns.Add("SizeQty", typeof(decimal));
+        //        sizeTable.Columns.Add("SizeWeight", typeof(decimal));
+
+        //        if (dto.Details != null && dto.Details.Any())
+        //        {
+        //            foreach (var s in dto.Details)
+        //            {
+        //                sizeTable.Rows.Add(
+        //                    dto.Master.BatchNo ?? (object)DBNull.Value,
+        //                    s.SizeId.HasValue ? s.SizeId.Value : DBNull.Value,
+        //                    s.SizeName ?? (object)DBNull.Value,
+        //                    s.SizeQty,
+        //                    s.SizeWeight
+        //                );
+        //            }
+        //        }
+
+        //        /* =========================================================
+        //           PARAMETERS
+        //        ========================================================= */
+        //        var param = new DynamicParameters();
+
+        //        param.Add("@Operation", dto.Master.Operation);
+        //        param.Add("@MasterId", dto.Master.MasterId);
+        //        param.Add("@CreatedBy", _currentUserService?.EmployeeId ?? "SYSTEM");
+        //        param.Add("@BatchNo", dto.Master.BatchNo);
+        //        param.Add("@TotalPcs", dto.Master.TotalPcs);
+        //        param.Add("@TotalKg", dto.Master.TotalKg);
+        //        param.Add("@ProcessIds", dto.Master.ProcessIds);
+        //        param.Add("@MachineIds", dto.Master.MachineIds);
+
+        //        /* =========================================================
+        //           TVP PARAMETER
+        //        ========================================================= */
+        //        param.Add(
+        //            "@SizeDetails",
+        //            sizeTable.AsTableValuedParameter("dbo.TVP_AcidWashBatchPrepareSizeDetails")
+        //        );
+
+        //        /* =========================================================
+        //           DATABASE EXECUTION
+        //        ========================================================= */
+        //        //using var conn = CreateConnection();
+
+        //        //var results = await conn.QueryFirstOrDefaultAsync<AcidWashBatchPrepareDbResponse>(
+        //        //    "[dbo].[sp_SaveAcidWashBatchPrepare]",
+        //        //    param,
+        //        //    commandType: CommandType.StoredProcedure
+        //        //);
+
+        //        //using var conn = CreateConnection();
+
+        //        //var result = (await conn.QueryAsync<AcidWashBatchPrepareDbResponse>(
+        //        //    "dbo.SP_Save_BatchWiseShadeStatus",
+        //        //    param,
+        //        //    commandType: CommandType.StoredProcedure
+        //        //)).ToList();
+        //        /* =========================================================
+        //   DATABASE EXECUTION
+        //========================================================= */
+        //        using var conn = CreateConnection();
+
+        //        var result = await conn.QueryFirstOrDefaultAsync<AcidWashBatchPrepareDbResponse>(
+        //            "[dbo].[sp_SaveAcidWashBatchPrepare]",
+        //            param,
+        //            commandType: CommandType.StoredProcedure
+        //        );
+
+        //        /* =========================================================
+        //           RESULT CHECK
+        //        ========================================================= */
+        //        if (result == null)
+        //            return Result.Failure(new[] { "No response from database" });
+
+        //        if (result.ResultCode != 1)
+        //            return Result.Failure(new[]
+        //            {
+        //        result.Message ?? "Save failed in stored procedure"
+        //    });
+
+        //        return Result.Success(result.AcidBatchNo);
+        //    }
+        //    catch (SqlException ex)
+        //    {
+        //        return Result.Failure(new[]
+        //        {
+        //    $"SQL Error: {ex.Message}"
+        //});
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return Result.Failure(new[]
+        //        {
+        //    $"System Error: {ex.Message}"
+        //});
+        //    }
+
+
+
+
+        //    //try
+        //    //    {
+        //    //        using var conn = CreateConnection();
+
+        //    //        var result = await conn.QueryFirstOrDefaultAsync<AcidWashBatchPrepareDbResponse>(
+        //    //            "[dbo].[SP_Save_BatchWiseShadeStatus]",
+        //    //            param,
+        //    //            commandType: CommandType.StoredProcedure
+        //    //        );
+
+        //    //        /* ================= RESULT CHECK ================= */
+        //    //        if (result == null)
+        //    //            return Result.Failure(new[] { "No response from database" });
+
+        //    //        if (result.ResultCode != 1)
+        //    //            return Result.Failure(new[] { "Save failed in stored procedure" });
+
+        //    //        return Result.Success(result.AcidBatchNo);
+        //    //    }
+        //    //    catch (SqlException ex)
+        //    //    {
+        //    //        return Result.Failure(new[] { $"SQL Error: {ex.Message}" });
+        //    //    }
+        //    //    catch (Exception ex)
+        //    //    {
+        //    //        return Result.Failure(new[] { $"System Error: {ex.Message}" });
+        //    //    }
+
+        //    //}
+        //}
+
+
 
     }
 

@@ -441,7 +441,16 @@ namespace Erp.WebApi.Controllers.Commercial.Setup
             var result = await _mediator.Send(command);
             return Ok(result);
         }
-        
+
+        [HttpPost]
+        [ActionName("SaveAcidWashBatchPrepare")]
+        public async Task<IActionResult> SaveAcidWashBatchPrepare(
+[FromBody] SaveAcidWashBatchPrepareCommand command)
+        {
+            return Ok(await _mediator.Send(command));
+        }
+
+
     }
 
 }
