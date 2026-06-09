@@ -362,8 +362,8 @@ namespace Erp.WebApi.Controllers.Commercial.Setup
         {
             var result = await _mediator.Send(command);
             return Ok(result);
-        }
-
+        } 
+      
 
         [HttpGet]
         [ActionName("getBatchWishQCDataList")]
@@ -375,13 +375,28 @@ namespace Erp.WebApi.Controllers.Commercial.Setup
 
             return Ok(result);
         }
+        //[HttpPost("SaveQCData")]
+        //public async Task<IActionResult> SaveQCData([FromBody] SaveQCDataModel command)
+        //{
+        //    if (command == null)
+        //        return BadRequest(new { isSuccess = false, message = "Payload is NULL — JSON binding failed" });
 
-        [HttpPost("SaveQCData")]
-        public async Task<IActionResult> SaveQCData([FromBody] SaveQCDataModel command)
+        //    if (command.Master == null)
+        //        return BadRequest(new { isSuccess = false, message = "Master is NULL — check property name casing" });
+
+        //    var result = await _mediator.Send(command);
+
+        //    return Ok(result);
+        //}
+
+        [HttpPost]
+        [ActionName("SaveQCData")]
+        public async Task<IActionResult> SaveQCData(SaveQCDataModel command)
         {
             var result = await _mediator.Send(command);
             return Ok(result);
         }
+
 
         [HttpGet]
         [ActionName("getBatchWishStartEndData")]
@@ -445,11 +460,17 @@ namespace Erp.WebApi.Controllers.Commercial.Setup
         [HttpPost]
         [ActionName("SaveAcidWashBatchPrepare")]
         public async Task<IActionResult> SaveAcidWashBatchPrepare(
-[FromBody] SaveAcidWashBatchPrepareCommand command)
+        [FromBody] SaveAcidWashBatchPrepareCommand command)
         {
             return Ok(await _mediator.Send(command));
         }
 
+        [HttpGet]
+        [ActionName("GetBatchNoDDL")]
+        public async Task<IActionResult> GetBatchNo(string itemText)
+        {
+            return Ok(await _mediator.Send(new BatchNoAutoCompleteDDL(itemText)));
+        }
 
     }
 

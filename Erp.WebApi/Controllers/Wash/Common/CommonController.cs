@@ -204,5 +204,19 @@ namespace Erp.WebApi.Controllers.Commercial.Common
 
             return Ok(result);
         }
+
+        [HttpGet]
+        [ActionName("GetReportNameDDL")]
+        public async Task<IActionResult> GetReportName(string itemText)
+        {
+            return Ok(await _mediator.Send(new ReportNameDDL(itemText)));
+        }
+        [HttpGet]
+        [ActionName("GetShiftNameDDL")]
+        public async Task<IActionResult> GetShiftName(string itemText)
+        {
+            return Ok(await _mediator.Send(new ShiftNameDDL(itemText)));
+        }
+        
     }
 }

@@ -1,4 +1,5 @@
-﻿using Erp.Application.MascoWash.Commands;
+﻿using Erp.Application.Common.Models;
+using Erp.Application.MascoWash.Commands;
 using Erp.Application.MascoWash.Setup.Repository;
 using MediatR;
 using System;
@@ -29,24 +30,22 @@ using System.Threading.Tasks;
 //        }
 //    }
 //}
-namespace Erp.Application.MascoWash.Handlers
+// ── Handler ──────────────────────────────────
+public class SaveQCDataModelHandler
+    : IRequestHandler<SaveQCDataModel, WrapperResponseQCData>
 {
-    public class SaveQCDataModelHandler
-        : IRequestHandler<SaveQCDataModel, WrapperResponseQCData>
+    private readonly ISaveDataList _setupservice;
+
+    public SaveQCDataModelHandler(ISaveDataList setupservice)
     {
-        private readonly ISaveDataList _setupservice;
+        _setupservice = setupservice;
+    }
 
-        public SaveQCDataModelHandler(ISaveDataList setupservice)
-        {
-            _setupservice = setupservice;
-        }
-
-        public async Task<WrapperResponseQCData> Handle(
-            SaveQCDataModel request,
-            CancellationToken cancellationToken)
-        {
-            var response = await _setupservice.SaveQcData(request);
-            return response;
-        }
+    public async Task<WrapperResponseQCData> Handle(
+        SaveQCDataModel request,
+        CancellationToken cancellationToken)
+    {
+        var response = await _setupservice.SaveQcData(request);
+        return response;
     }
 }
