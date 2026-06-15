@@ -81,7 +81,16 @@ namespace Erp.Infrastructure.Services.MascoWash
 
                 
             }
-            
+
+
+            if (ReportName == "Date Wise Hourly QC Report")
+            {
+
+
+                _storeProcedure = "rpt_SP_Get_HourlyQCReport";
+
+
+            }
             return _storeProcedure;
         }
        

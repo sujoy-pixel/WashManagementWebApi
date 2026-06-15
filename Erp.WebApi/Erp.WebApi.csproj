@@ -27,6 +27,7 @@
 
   <!-- ================= NUGET PACKAGES ================= -->
   <ItemGroup>
+    <PackageReference Include="Microsoft.ReportingServices.ReportViewerControl.WebForms" Version="150.1652.0" />
     <PackageReference Include="QRCoder" Version="1.6.0" />
     <PackageReference Include="ReportViewerCore.NETCore" Version="15.1.10" />
     <PackageReference Include="System.Drawing.Common" Version="7.0.0" />
@@ -68,6 +69,17 @@
   <ItemGroup>
     <Folder Include="Validators\" />
     <Folder Include="wwwroot\Files\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Update="wwwroot\DataSet\dsDateWiseHourlyQCReport.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>dsDateWiseHourlyQCReport.xsd</DependentUpon>
+    </Content>
+    <Content Update="wwwroot\DataSet\dsDateWiseHourlyQCReport.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsDateWiseHourlyQCReport.Designer.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
 
 </Project>

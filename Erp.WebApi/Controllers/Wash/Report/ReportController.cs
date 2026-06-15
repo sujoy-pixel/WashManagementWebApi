@@ -73,7 +73,20 @@ namespace Erp.WebApi.Controllers.MascoWash.Report
 
                     qrBytes = GenerateQrCode(trackingNo);
                 }
-
+                if (reportName == "Date Wise Hourly QC Report")
+                {
+                    // validate mandatory filters
+                    if (!objparam.UnitId.HasValue || !objparam.BuyerId.HasValue || !objparam.StyleId.HasValue || !objparam.Date.HasValue)
+                        return BadRequest("UnitId, BuyerId, StyleId and Date are required for Date Wise Hourly QC Report.");
+                    param.Add("@UnitId", objparam.UnitId, DbType.Int32, ParameterDirection.Input);
+                    param.Add("@BuyerId", objparam.BuyerId, DbType.Int32, ParameterDirection.Input);
+                    param.Add("@StyleId", objparam.StyleId, DbType.Int32, ParameterDirection.Input);
+                    param.Add("@Date", objparam.Date, DbType.Date, ParameterDirection.Input);
+                    param.Add("@OrderId", objparam.OrderId, DbType.Int32, ParameterDirection.Input); // nullable
+                    param.Add("@JobId", objparam.JobId, DbType.Int32, ParameterDirection.Input); // nullable
+                    param.Add("@BatchNo", objparam.BatchNo, DbType.String, ParameterDirection.Input); // nullable
+                    param.Add("@ShiftId", objparam.ShiftId, DbType.Int32, ParameterDirection.Input); // nullable
+                }
 
                 // ==============================
                 // GET DATA FROM DB
@@ -141,6 +154,10 @@ namespace Erp.WebApi.Controllers.MascoWash.Report
                 {
                     parameters.Add("ReportHeader", reportName);
                 }
+                if (reportName == "Date Wise Hourly QC Report")
+                {
+                    parameters.Add("ReportHeader", reportName);
+                }
 
                 // ==============================
                 // RENDER REPORT
@@ -203,6 +220,14 @@ namespace Erp.WebApi.Controllers.MascoWash.Report
             public string? ReportName { get; set; }
             public string? Type { get; set; }
             public string? GenerateNumber { get; set; }
+            public int? UnitId { get; set; }
+            public int? BuyerId { get; set; }
+            public int? StyleId { get; set; }
+            public DateTime? Date { get; set; }
+            public int? OrderId { get; set; }
+            public int? JobId { get; set; }
+            public string? BatchNo { get; set; }
+            public int? ShiftId { get; set; }
         }
 
         #endregion
