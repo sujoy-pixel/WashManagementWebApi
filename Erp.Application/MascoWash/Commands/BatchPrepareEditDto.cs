@@ -47,6 +47,7 @@ namespace Erp.Application.MascoWash.Commands
         public string GSM { get; set; }
         public string Size { get; set; }
         public decimal Qty { get; set; }
+        public decimal Kg { get; set; }
 
         public int ICLEID { get; set; }
         public string Color { get; set; }
@@ -61,12 +62,16 @@ namespace Erp.Application.MascoWash.Commands
         public string UOM { get; set; }
         public string BatchNo { get; set; }
         public string LoadUnload { get; set; }
+        public string SourceTable { get; set; }
 
 
         public DateTime ProbableDeliveryDate { get; set; }
         public DateTime ShipmentDate { get; set; }
         public int? TotalQty { get; set; }
         public int? RemainingQty { get; set; }
+        public int? RemainingKg { get; set; }
+        
+
         public int? AlreadyPreparedQty { get; set; }
         public int? AlreadyPreparedKg { get; set; }
 
