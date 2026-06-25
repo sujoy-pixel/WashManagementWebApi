@@ -8,6 +8,14 @@ public class SaveQCDataModel : IRequest<WrapperResponseQCData>
     public QCMasterRow Master { get; set; }
     public List<QCRepairableDetailRow> RepairableDetails { get; set; } = new();
     public List<QCRejectDetailRow> RejectDetails { get; set; } = new();
+    public List<QCSizeDetailRow> SizeDetails { get; set; } = new();
+}
+public class QCSizeDetailRow
+{
+    public int SizeId { get; set; }
+    public string SizeName { get; set; }
+    public int Qty { get; set; }
+    public int RejectQty { get; set; }
 }
 
 public class QCMasterRow

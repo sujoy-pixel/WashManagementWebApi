@@ -91,7 +91,8 @@ namespace Erp.Application.MascoWash.Setup.Repository
         Task<List<TrackingNoWiseReceiveDto>> GetWashItemDeliveryList(int unitId, string fromDate, string toDate, string trackingBatchNo);
         Task<List<GetFaultWiseListDto>> GetFaultWiseListDataList(int inspectionTypeId, int inspectionHeadId, int faultHeadId);
         Task<List<GetBatchPriorityDto>> GetPrioritySetDataList(int unitId,string date);
-        Task<List<BatchWishQCDataDto>> GetBatchWishQCDataList(string batchNo);
+        //Task<List<BatchWishQCDataDto>> GetBatchWishQCDataList(string batchNo);
+        Task<BatchWiseQCDataResult> GetBatchWiseQCDataWithSizes(string batchNo);
         Task<List<BatchWishQCDataDto>> GetBatchWishStartEndDataList(string batchNo);
         Task<List<BatchWishQCDataDto>> GetBatchWishShadeDataList(string batchNo);
 

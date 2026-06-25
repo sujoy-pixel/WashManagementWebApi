@@ -362,8 +362,8 @@ namespace Erp.WebApi.Controllers.Commercial.Setup
         {
             var result = await _mediator.Send(command);
             return Ok(result);
-        } 
-      
+        }
+
 
         [HttpGet]
         [ActionName("getBatchWishQCDataList")]
@@ -391,7 +391,7 @@ namespace Erp.WebApi.Controllers.Commercial.Setup
 
         [HttpPost]
         [ActionName("SaveQCData")]
-        public async Task<IActionResult> SaveQCData(SaveQCDataModel command)
+        public async Task<IActionResult> SaveQCDataModel(SaveQCDataModel command)
         {
             var result = await _mediator.Send(command);
             return Ok(result);

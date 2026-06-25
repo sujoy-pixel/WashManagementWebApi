@@ -2039,28 +2039,42 @@ namespace Erp.Infrastructure.Services.MascoWash
         }
 
 
-        public async Task<List<BatchWishQCDataDto>> GetBatchWishQCDataList(string batchNo)
+        //public async Task<List<BatchWishQCDataDto>> GetBatchWishQCDataList(string batchNo)
+        //{
+        //    var parameter = new DynamicParameters();
+
+
+        //    parameter.Add("@BatchNo", batchNo, DbType.String, ParameterDirection.Input);
+
+
+        //    const string spName = "[dbo].[tbl_SP_Get_BatchWiseQCData]";
+
+        //    var result = await GetDisposeErrorFreeListAsyncNew<BatchWishQCDataDto>(
+        //       spName,
+        //       parameter
+        //   );
+
+
+
+        //    return result?.ToList() ?? new List<BatchWishQCDataDto>();
+        //}
+        public async Task<BatchWiseQCDataResult> GetBatchWiseQCDataWithSizes(string batchNo)
         {
+            var result = new BatchWiseQCDataResult();
             var parameter = new DynamicParameters();
-
-
             parameter.Add("@BatchNo", batchNo, DbType.String, ParameterDirection.Input);
-
-
             const string spName = "[dbo].[tbl_SP_Get_BatchWiseQCData]";
 
-            var result = await GetDisposeErrorFreeListAsyncNew<BatchWishQCDataDto>(
-               spName,
-               parameter
-           );
+            using var conn = CreateConnection();
+            using var multi = await conn.QueryMultipleAsync(
+                spName, parameter, commandType: CommandType.StoredProcedure
+            );
 
+            result.Header = (await multi.ReadAsync<BatchWishQCDataDto>()).FirstOrDefault();
+            result.SizeList = (await multi.ReadAsync<BatchWiseQCSizeDto>()).ToList();
 
-
-            return result?.ToList() ?? new List<BatchWishQCDataDto>();
+            return result;
         }
-
-
-
 
         //public async Task<WrapperResponseQCData> SaveQcData(SaveQCDataModel dto)
         //{
@@ -2198,6 +2212,7 @@ namespace Erp.Infrastructure.Services.MascoWash
         //        };
         //    }
         //}
+
         public async Task<WrapperResponseQCData> SaveQcData(SaveQCDataModel dto)
         {
             if (dto?.Master == null)
@@ -2210,25 +2225,32 @@ namespace Erp.Infrastructure.Services.MascoWash
 
             try
             {
-                // ── Repairable TVP ───────────────────
+                // ── Repairable TVP ───────────────────────────
                 var repairableTable = new DataTable();
                 repairableTable.Columns.Add("GroupId", typeof(int));
                 repairableTable.Columns.Add("DefectId", typeof(int));
                 repairableTable.Columns.Add("Qty", typeof(int));
-
                 foreach (var item in dto.RepairableDetails ?? new())
                     repairableTable.Rows.Add(item.GroupId ?? 0, item.DefectId, item.Qty);
 
-                // ── Reject TVP ───────────────────────
+                // ── Reject TVP ──────────────────────────────
                 var rejectTable = new DataTable();
                 rejectTable.Columns.Add("GroupId", typeof(int));
                 rejectTable.Columns.Add("RejectId", typeof(int));
                 rejectTable.Columns.Add("Qty", typeof(int));
-
                 foreach (var item in dto.RejectDetails ?? new())
                     rejectTable.Rows.Add(item.GroupId ?? 0, item.RejectId, item.Qty);
 
-                // ── Parameters ───────────────────────
+                // ── Size TVP 🔥 ──────────────────────────────
+                var sizeTable = new DataTable();
+                sizeTable.Columns.Add("SizeId", typeof(int));
+                sizeTable.Columns.Add("SizeName", typeof(string));
+                sizeTable.Columns.Add("Qty", typeof(int));
+                sizeTable.Columns.Add("RejectQty", typeof(int));
+                foreach (var item in dto.SizeDetails ?? new())
+                    sizeTable.Rows.Add(item.SizeId, item.SizeName, item.Qty, item.RejectQty);
+
+                // ── Parameters ──────────────────────────────
                 var parameter = new DynamicParameters();
 
                 var createdBy = dto.Master.CreatedBy
@@ -2245,25 +2267,24 @@ namespace Erp.Infrastructure.Services.MascoWash
                 parameter.Add("@UomId", dto.Master.UomId);
                 parameter.Add("@TrackingNo", dto.Master.TrackingNo);
                 parameter.Add("@BatchNo", dto.Master.BatchNo);
-                
                 parameter.Add("@Type", dto.Master.Type);
-                //parameter.Add("@Color", dto.Master.Color);
                 parameter.Add("@ColorId", dto.Master.ColorId);
-               // parameter.Add("@Date", dto.Master.Date);
                 parameter.Add("@GoodGarments", dto.Master.GoodGarments);
                 parameter.Add("@RepairableQty", dto.Master.Repairable);
                 parameter.Add("@RejectQty", dto.Master.Reject);
                 parameter.Add("@MachineIds", dto.Master.MachineIds);
                 parameter.Add("@ProcessIds", dto.Master.ProcessIds);
+
                 parameter.Add("@RepairableDetails",
                     repairableTable.AsTableValuedParameter("dbo.tbl_QCRepairable_TVP"));
                 parameter.Add("@RejectDetails",
                     rejectTable.AsTableValuedParameter("dbo.tbl_QCReject_TVP"));
+                parameter.Add("@SizeDetails",                                    // 🔥
+                    sizeTable.AsTableValuedParameter("dbo.tbl_QCSizeDetail_TVP"));
 
-                // ── Execute ──────────────────────────
+                // ── Execute ─────────────────────────────────
                 using var conn = CreateConnection();
 
-                // ✅ QueryFirstOrDefaultAsync — captures SP SELECT result
                 var result = await conn.QueryFirstOrDefaultAsync<WrapperResponseQCData>(
                     "dbo.sp_Save_QCData",
                     parameter,
@@ -2296,6 +2317,105 @@ namespace Erp.Infrastructure.Services.MascoWash
                 };
             }
         }
+
+        //public async Task<WrapperResponseQCData> SaveQcData(SaveQCDataModel dto)
+        //{
+        //    if (dto?.Master == null)
+        //        return new WrapperResponseQCData
+        //        {
+        //            IsSuccess = false,
+        //            Message = "Request data is null or invalid",
+        //            ResultCode = "0"
+        //        };
+
+        //    try
+        //    {
+        //        // ── Repairable TVP ───────────────────
+        //        var repairableTable = new DataTable();
+        //        repairableTable.Columns.Add("GroupId", typeof(int));
+        //        repairableTable.Columns.Add("DefectId", typeof(int));
+        //        repairableTable.Columns.Add("Qty", typeof(int));
+
+        //        foreach (var item in dto.RepairableDetails ?? new())
+        //            repairableTable.Rows.Add(item.GroupId ?? 0, item.DefectId, item.Qty);
+
+        //        // ── Reject TVP ───────────────────────
+        //        var rejectTable = new DataTable();
+        //        rejectTable.Columns.Add("GroupId", typeof(int));
+        //        rejectTable.Columns.Add("RejectId", typeof(int));
+        //        rejectTable.Columns.Add("Qty", typeof(int));
+
+        //        foreach (var item in dto.RejectDetails ?? new())
+        //            rejectTable.Rows.Add(item.GroupId ?? 0, item.RejectId, item.Qty);
+
+        //        // ── Parameters ───────────────────────
+        //        var parameter = new DynamicParameters();
+
+        //        var createdBy = dto.Master.CreatedBy
+        //                        ?? _currentUserService?.EmployeeId
+        //                        ?? "SYSTEM";
+
+        //        parameter.Add("@CreatedBy", createdBy);
+        //        parameter.Add("@UnitId", dto.Master.UnitId);
+        //        parameter.Add("@BuyerId", dto.Master.BuyerId);
+        //        parameter.Add("@StyleId", dto.Master.StyleId);
+        //        parameter.Add("@OrderId", dto.Master.OrderId);
+        //        parameter.Add("@JobId", dto.Master.JobId);
+        //        parameter.Add("@DressPartId", dto.Master.DressPartId);
+        //        parameter.Add("@UomId", dto.Master.UomId);
+        //        parameter.Add("@TrackingNo", dto.Master.TrackingNo);
+        //        parameter.Add("@BatchNo", dto.Master.BatchNo);
+
+        //        parameter.Add("@Type", dto.Master.Type);
+        //        //parameter.Add("@Color", dto.Master.Color);
+        //        parameter.Add("@ColorId", dto.Master.ColorId);
+        //       // parameter.Add("@Date", dto.Master.Date);
+        //        parameter.Add("@GoodGarments", dto.Master.GoodGarments);
+        //        parameter.Add("@RepairableQty", dto.Master.Repairable);
+        //        parameter.Add("@RejectQty", dto.Master.Reject);
+        //        parameter.Add("@MachineIds", dto.Master.MachineIds);
+        //        parameter.Add("@ProcessIds", dto.Master.ProcessIds);
+        //        parameter.Add("@RepairableDetails",
+        //            repairableTable.AsTableValuedParameter("dbo.tbl_QCRepairable_TVP"));
+        //        parameter.Add("@RejectDetails",
+        //            rejectTable.AsTableValuedParameter("dbo.tbl_QCReject_TVP"));
+
+        //        // ── Execute ──────────────────────────
+        //        using var conn = CreateConnection();
+
+        //        // ✅ QueryFirstOrDefaultAsync — captures SP SELECT result
+        //        var result = await conn.QueryFirstOrDefaultAsync<WrapperResponseQCData>(
+        //            "dbo.sp_Save_QCData",
+        //            parameter,
+        //            commandType: CommandType.StoredProcedure
+        //        );
+
+        //        return result ?? new WrapperResponseQCData
+        //        {
+        //            IsSuccess = true,
+        //            ResultCode = "1",
+        //            Message = "Saved successfully"
+        //        };
+        //    }
+        //    catch (SqlException ex)
+        //    {
+        //        return new WrapperResponseQCData
+        //        {
+        //            IsSuccess = false,
+        //            ResultCode = "0",
+        //            Message = $"DB error: {ex.Message}"
+        //        };
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return new WrapperResponseQCData
+        //        {
+        //            IsSuccess = false,
+        //            ResultCode = "0",
+        //            Message = $"Error: {ex.Message}"
+        //        };
+        //    }
+        //}
         public async Task<List<BatchWishQCDataDto>> GetBatchWishStartEndDataList(string batchNo)
         {
             var parameter = new DynamicParameters();

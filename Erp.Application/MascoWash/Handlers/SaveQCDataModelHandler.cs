@@ -1,6 +1,7 @@
 ﻿using Erp.Application.Common.Models;
 using Erp.Application.MascoWash.Commands;
 using Erp.Application.MascoWash.Setup.Repository;
+using Erp.Application.Requests.ErpApp.Commercial.Setup;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -40,7 +41,7 @@ public class SaveQCDataModelHandler
     {
         _setupservice = setupservice;
     }
-
+   
     public async Task<WrapperResponseQCData> Handle(
         SaveQCDataModel request,
         CancellationToken cancellationToken)
