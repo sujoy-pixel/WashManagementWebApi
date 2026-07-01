@@ -2442,7 +2442,7 @@ namespace Erp.Infrastructure.Services.MascoWash
             parameter.Add("@BatchNo", batchNo, DbType.String, ParameterDirection.Input);
 
 
-            const string spName = "[dbo].[SP_GetDataForAcidWashBatchPrepare]";
+            const string spName = "[dbo].[SP_GetDataForAcidWashBatchPrepare]"; 
 
             var result = await GetDisposeErrorFreeListAsyncNew<BatchWishQCDataDto>(
                spName,
