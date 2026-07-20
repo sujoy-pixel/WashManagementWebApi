@@ -71,6 +71,15 @@
     <Folder Include="wwwroot\Files\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Update="wwwroot\DataSet\dsDateWiseHourlyQCReportSummary.Designer.cs">
+      <DependentUpon>dsDateWiseHourlyQCReportSummary.xsd</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Content>
+    <Content Update="wwwroot\DataSet\dsDateWiseHourlyQCReportSummary.xsd">
+      <LastGenOutput>dsDateWiseHourlyQCReportSummary.Designer.cs</LastGenOutput>
+      <Generator>MSDataSetGenerator</Generator>
+    </Content>
     <Content Update="wwwroot\DataSet\dsDateWiseHourlyQCReport.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

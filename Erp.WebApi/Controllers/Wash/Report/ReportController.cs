@@ -73,24 +73,26 @@ namespace Erp.WebApi.Controllers.MascoWash.Report
 
                     qrBytes = GenerateQrCode(trackingNo);
                 }
-                if (reportName == "Date Wise Hourly QC Report")
-                {
-                    // validate mandatory filters
-                    if (!objparam.UnitId.HasValue || !objparam.BuyerId.HasValue || !objparam.StyleId.HasValue || !objparam.Date.HasValue)
-                        return BadRequest("UnitId, BuyerId, StyleId and Date are required for Date Wise Hourly QC Report.");
-                    param.Add("@UnitId", objparam.UnitId, DbType.Int32, ParameterDirection.Input);
-                    param.Add("@BuyerId", objparam.BuyerId, DbType.Int32, ParameterDirection.Input);
-                    param.Add("@StyleId", objparam.StyleId, DbType.Int32, ParameterDirection.Input);
-                    param.Add("@Date", objparam.Date, DbType.Date, ParameterDirection.Input);
-                    param.Add("@OrderId", objparam.OrderId, DbType.Int32, ParameterDirection.Input); // nullable
-                    param.Add("@JobId", objparam.JobId, DbType.Int32, ParameterDirection.Input); // nullable
-                    param.Add("@BatchNo", objparam.BatchNo, DbType.String, ParameterDirection.Input); // nullable
-                    param.Add("@ShiftId", objparam.ShiftId, DbType.Int32, ParameterDirection.Input); // nullable
-                }
+                //if (reportName == "Date Wise Hourly QC Report")
+                //{
+                //    // validate mandatory filters
+                //    if (!objparam.UnitId.HasValue || !objparam.BuyerId.HasValue || !objparam.StyleId.HasValue || !objparam.Date.HasValue)
+                //        return BadRequest("UnitId, BuyerId, StyleId and Date are required for Date Wise Hourly QC Report.");
+                //    param.Add("@UnitId", objparam.UnitId, DbType.Int32, ParameterDirection.Input);
+                //    param.Add("@BuyerId", objparam.BuyerId, DbType.Int32, ParameterDirection.Input);
+                //    param.Add("@StyleId", objparam.StyleId, DbType.Int32, ParameterDirection.Input);
+                //    param.Add("@Date", objparam.Date, DbType.Date, ParameterDirection.Input);
+                //    param.Add("@OrderId", objparam.OrderId, DbType.Int32, ParameterDirection.Input); // nullable
+                //    param.Add("@JobId", objparam.JobId, DbType.Int32, ParameterDirection.Input); // nullable
+                //    param.Add("@BatchNo", objparam.BatchNo, DbType.String, ParameterDirection.Input); // nullable
+                //    param.Add("@ShiftId", objparam.ShiftId, DbType.Int32, ParameterDirection.Input); // nullable
+                //}
 
                 // ==============================
                 // GET DATA FROM DB
                 // ==============================
+
+
                 DataTable dt = await _service.GetDataByDataTable(query, param);
 
                 if (dt == null || dt.Rows.Count == 0)
@@ -196,6 +198,253 @@ namespace Erp.WebApi.Controllers.MascoWash.Report
                 return StatusCode(500, ex.Message);
             }
         }
+        [HttpPost]
+        [ActionName("ShowReportMultiResult")]
+        public async Task<IActionResult> ReportMultiResult([FromBody] Model objparam)
+        {
+            try
+            {
+                if (objparam == null)
+                    return BadRequest("Invalid request.");
+
+                string originalReportName = objparam.ReportName?.Trim();
+
+                if (string.IsNullOrWhiteSpace(originalReportName))
+                    return BadRequest("ReportName is required.");
+
+                string reportType = objparam.Type?.Trim().ToUpper() ?? "PDF";
+
+                //==============================================
+                // Determine RDLC based on Shift
+                //==============================================
+                string rdlcReportName = originalReportName;
+
+                if (originalReportName == "Date Wise Hourly QC Report")
+                {
+                    if (!objparam.ShiftId.HasValue)
+                        return BadRequest("Shift is required.");
+
+                    rdlcReportName = objparam.ShiftId == 1
+                        ? "DateWiseHourlyQCReportMShift"
+                        : "DateWiseHourlyQCReport";
+                }
+
+                string cleanName = Regex.Replace(rdlcReportName, @"\s+", "");
+
+                // Always use the original report name to fetch SP
+                string query = _service.GetStoredProcedure(originalReportName);
+
+                var param = new DynamicParameters();
+
+                if (originalReportName == "Date Wise Hourly QC Report")
+                {
+                    if (!objparam.UnitId.HasValue ||
+                        !objparam.BuyerId.HasValue ||
+                        !objparam.StyleId.HasValue ||
+                        !objparam.Date.HasValue)
+                    {
+                        return BadRequest("UnitId, BuyerId, StyleId and Date are required.");
+                    }
+
+                    param.Add("@UnitId", objparam.UnitId, DbType.Int32, ParameterDirection.Input);
+                    param.Add("@BuyerId", objparam.BuyerId, DbType.Int32, ParameterDirection.Input);
+                    param.Add("@StyleId", objparam.StyleId, DbType.Int32, ParameterDirection.Input);
+                    param.Add("@Date", objparam.Date, DbType.Date, ParameterDirection.Input);
+                    param.Add("@OrderId", objparam.OrderId, DbType.Int32, ParameterDirection.Input);
+                    param.Add("@JobId", objparam.JobId, DbType.Int32, ParameterDirection.Input);
+                    param.Add("@BatchNo", objparam.BatchNo, DbType.String, ParameterDirection.Input);
+                    param.Add("@ShiftId", objparam.ShiftId, DbType.Int32, ParameterDirection.Input);
+                }
+
+                //==============================================
+                // Load RDLC
+                //==============================================
+                string rdlcPath = Path.Combine(
+                    _webHostEnvironment.WebRootPath,
+                    "Reports",
+                    $"{cleanName}.rdlc"
+                );
+
+                if (!System.IO.File.Exists(rdlcPath))
+                    return NotFound($"RDLC file '{cleanName}.rdlc' not found.");
+
+                var localReport = new LocalReport(rdlcPath);
+
+                //==============================================
+                // Load Data
+                //==============================================
+                if (originalReportName == "Date Wise Hourly QC Report")
+                {
+                    DataSet ds = await _service.ExecuteStoredProcedureToDataSetAsync(query, param);
+
+                    localReport.AddDataSource("dsDateWiseHourlyQCReport", ds.Tables[0]);
+                    localReport.AddDataSource("dsDateWiseHourlyQCReportSummary", ds.Tables[1]);
+                }
+
+                //==============================================
+                // Parameters
+                //==============================================
+                var parameters = new Dictionary<string, string>();
+
+                if (originalReportName == "Date Wise Hourly QC Report")
+                {
+                    parameters.Add("ReportHeader", originalReportName);
+                }
+
+                //==============================================
+                // Render Report
+                //==============================================
+                RenderType renderType = reportType == "PDF"
+                    ? RenderType.Pdf
+                    : RenderType.ExcelOpenXml;
+
+                var result = localReport.Execute(renderType, 1, parameters, "");
+
+                string fileName = reportType == "PDF"
+                    ? $"{cleanName}.pdf"
+                    : $"{cleanName}.xlsx";
+
+                string mimeType = reportType == "PDF"
+                    ? "application/pdf"
+                    : "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+
+                string filePath = Path.Combine(_webHostEnvironment.WebRootPath, "reports", fileName);
+
+                if (reportType == "PDF")
+                {
+                    System.IO.File.WriteAllBytes(filePath, result.MainStream);
+
+                    string url = $"{Request.Scheme}://{Request.Host}/reports/{fileName}?t={DateTime.Now.Ticks}";
+
+                    return Ok(new { url });
+                }
+
+                return File(result.MainStream, mimeType, fileName);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
+        //[HttpPost]
+        //[ActionName("ShowReportMultiResult")]
+        //public async Task<IActionResult> ReportMultiResult([FromBody] Model objparam)
+        //{
+        //    try
+        //    {
+        //        if (objparam == null)
+        //            return BadRequest("Invalid request.");
+
+        //        string reportName = objparam.ReportName?.Trim();
+        //        if (string.IsNullOrWhiteSpace(reportName))
+        //            return BadRequest("ReportName is required.");
+
+        //        string reportType = objparam.Type?.Trim().ToUpper() ?? "PDF";
+
+        //        string cleanName = Regex.Replace(reportName, @"\s+", "");
+
+        //        string query = _service.GetStoredProcedure(reportName);
+
+        //        var param = new DynamicParameters();
+
+        //        byte[] qrBytes = null;
+
+        //        // ==============================
+        //        // SPECIAL CASE: QR GENERATION
+        //        // ==============================
+
+        //        if (reportName == "Date Wise Hourly QC Report")
+        //        {
+        //            // validate mandatory filters
+        //            if (!objparam.UnitId.HasValue || !objparam.BuyerId.HasValue || !objparam.StyleId.HasValue || !objparam.Date.HasValue)
+        //                return BadRequest("UnitId, BuyerId, StyleId and Date are required for Date Wise Hourly QC Report.");
+        //            param.Add("@UnitId", objparam.UnitId, DbType.Int32, ParameterDirection.Input);
+        //            param.Add("@BuyerId", objparam.BuyerId, DbType.Int32, ParameterDirection.Input);
+        //            param.Add("@StyleId", objparam.StyleId, DbType.Int32, ParameterDirection.Input);
+        //            param.Add("@Date", objparam.Date, DbType.Date, ParameterDirection.Input);
+        //            param.Add("@OrderId", objparam.OrderId, DbType.Int32, ParameterDirection.Input); // nullable
+        //            param.Add("@JobId", objparam.JobId, DbType.Int32, ParameterDirection.Input); // nullable
+        //            param.Add("@BatchNo", objparam.BatchNo, DbType.String, ParameterDirection.Input); // nullable
+        //            param.Add("@ShiftId", objparam.ShiftId, DbType.Int32, ParameterDirection.Input); // nullable
+        //        }
+
+        //        // ==============================
+        //        // GET DATA FROM DB
+        //        // ==============================
+        //        string rdlcPath = Path.Combine(
+        //            _webHostEnvironment.WebRootPath,
+        //            "Reports",
+        //            $"{cleanName}.rdlc"
+        //        );
+        //        var localReport = new LocalReport(rdlcPath);
+        //        if (reportName == "Date Wise Hourly QC Report")
+        //        {
+        //            DataSet ds = await _service.ExecuteStoredProcedureToDataSetAsync(query, param);
+        //            DataTable dt1 = ds.Tables[0];
+        //            DataTable dt2 = ds.Tables[1];
+        //            localReport.AddDataSource("dsDateWiseHourlyQCReport", dt1);
+        //            localReport.AddDataSource("dsDateWiseHourlyQCReportSummary", dt2);
+
+
+        //        }
+
+
+        //        // ==============================
+        //        // LOAD RDLC FILE
+        //        // ==============================
+
+
+        //        if (!System.IO.File.Exists(rdlcPath))
+        //            return NotFound("RDLC file not found.");
+
+
+
+        //        // ==============================
+        //        // PARAMETERS
+        //        // ==============================
+        //        var parameters = new Dictionary<string, string>();
+        //        if (reportName == "Date Wise Hourly QC Report")
+        //        {
+        //            parameters.Add("ReportHeader", reportName);
+        //        }
+
+        //        // ==============================
+        //        // RENDER REPORT
+        //        // ==============================
+        //        RenderType renderType =
+        //            reportType == "PDF"
+        //                ? RenderType.Pdf
+        //                : RenderType.ExcelOpenXml;
+
+        //        var result = localReport.Execute(renderType, 1, parameters, "");
+
+        //        string fileName = reportType == "PDF"
+        //            ? $"{cleanName}.pdf"
+        //            : $"{cleanName}.xlsx";
+
+        //        string mimeType = reportType == "PDF"
+        //            ? "application/pdf"
+        //            : "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+
+        //        string filePath = Path.Combine(_webHostEnvironment.WebRootPath, "reports", fileName);
+
+        //        if (reportType == "PDF")
+        //        {
+        //            System.IO.File.WriteAllBytes(filePath, result.MainStream);
+
+        //            string url =
+        //                $"{Request.Scheme}://{Request.Host}/reports/{fileName}?t={DateTime.Now.Ticks}";
+
+        //            return Ok(new { url });
+        //        }
+
+        //        return File(result.MainStream, mimeType, fileName);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return StatusCode(500, ex.Message);
+        //    }
+        //}
 
         #endregion
 

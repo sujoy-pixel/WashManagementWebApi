@@ -2811,6 +2811,11 @@ namespace Erp.Infrastructure.Services.MascoWash
             }
         }
 
+        public Task<List<ReportNameDDLList>> GetReportName()
+        {
+            return _setupService.GetReportName();
+        }
+
         //public async Task<Result> SaveAcidWashBatchPrepareData(SaveAcidWashBatchPrepareCommand dto)
         //{
         //    try

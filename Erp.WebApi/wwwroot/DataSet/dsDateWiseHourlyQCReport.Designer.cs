@@ -279,31 +279,31 @@ namespace Erp.WebApi.wwwroot.DataSet {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class dsDateWiseHourlyQCReportDataTable : global::System.Data.TypedTableBase<dsDateWiseHourlyQCReportRow> {
             
-            private global::System.Data.DataColumn columnSeven_Eight;
+            private global::System.Data.DataColumn columnH07PMTo08PM;
             
-            private global::System.Data.DataColumn columnSix_Seven;
+            private global::System.Data.DataColumn columnH06PMTo07PM;
             
-            private global::System.Data.DataColumn columnFive_Six;
+            private global::System.Data.DataColumn columnH05PMTo06PM;
             
-            private global::System.Data.DataColumn columnFour_Five;
+            private global::System.Data.DataColumn columnH04PMTo05PM;
             
-            private global::System.Data.DataColumn columnThree_Four;
+            private global::System.Data.DataColumn columnH03PMTo04PM;
             
-            private global::System.Data.DataColumn columnTwo_Three;
+            private global::System.Data.DataColumn columnH02PMTo03PM;
             
-            private global::System.Data.DataColumn columnTwelve_One;
+            private global::System.Data.DataColumn columnH12PMTo01PM;
             
-            private global::System.Data.DataColumn columnEleven_Twelve;
+            private global::System.Data.DataColumn columnH11AMTo12PM;
             
-            private global::System.Data.DataColumn columnTen_Eleven;
+            private global::System.Data.DataColumn columnH10AMTo11AM;
             
-            private global::System.Data.DataColumn columnNine_Ten;
+            private global::System.Data.DataColumn columnH09AMTo10AM;
             
-            private global::System.Data.DataColumn columnEight_Nine;
+            private global::System.Data.DataColumn columnH08AMTo09AM;
             
             private global::System.Data.DataColumn columnGroupName;
             
-            private global::System.Data.DataColumn columnShift;
+            private global::System.Data.DataColumn columnShiftName;
             
             private global::System.Data.DataColumn columnDefectPer;
             
@@ -343,6 +343,38 @@ namespace Erp.WebApi.wwwroot.DataSet {
             
             private global::System.Data.DataColumn columnGrandTotal;
             
+            private global::System.Data.DataColumn columnQCName;
+            
+            private global::System.Data.DataColumn columnItemName;
+            
+            private global::System.Data.DataColumn columnWashCategory;
+            
+            private global::System.Data.DataColumn columnDHUPercent;
+            
+            private global::System.Data.DataColumn columnH08PMTo09PM;
+            
+            private global::System.Data.DataColumn columnH09PMTo10PM;
+            
+            private global::System.Data.DataColumn columnH10PMTo11PM;
+            
+            private global::System.Data.DataColumn columnH11PMTo12AM;
+            
+            private global::System.Data.DataColumn columnH12AMTo01AM;
+            
+            private global::System.Data.DataColumn columnH01AMTo02AM;
+            
+            private global::System.Data.DataColumn columnH02AMTo03AM;
+            
+            private global::System.Data.DataColumn columnH03AMTo04AM;
+            
+            private global::System.Data.DataColumn columnH04AMTo05AM;
+            
+            private global::System.Data.DataColumn columnH05AMTo06AM;
+            
+            private global::System.Data.DataColumn columnH06AMTo07AM;
+            
+            private global::System.Data.DataColumn columnH07AMTo08AM;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
             public dsDateWiseHourlyQCReportDataTable() {
@@ -378,89 +410,89 @@ namespace Erp.WebApi.wwwroot.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public global::System.Data.DataColumn Seven_EightColumn {
+            public global::System.Data.DataColumn H07PMTo08PMColumn {
                 get {
-                    return this.columnSeven_Eight;
+                    return this.columnH07PMTo08PM;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public global::System.Data.DataColumn Six_SevenColumn {
+            public global::System.Data.DataColumn H06PMTo07PMColumn {
                 get {
-                    return this.columnSix_Seven;
+                    return this.columnH06PMTo07PM;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public global::System.Data.DataColumn Five_SixColumn {
+            public global::System.Data.DataColumn H05PMTo06PMColumn {
                 get {
-                    return this.columnFive_Six;
+                    return this.columnH05PMTo06PM;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public global::System.Data.DataColumn Four_FiveColumn {
+            public global::System.Data.DataColumn H04PMTo05PMColumn {
                 get {
-                    return this.columnFour_Five;
+                    return this.columnH04PMTo05PM;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public global::System.Data.DataColumn Three_FourColumn {
+            public global::System.Data.DataColumn H03PMTo04PMColumn {
                 get {
-                    return this.columnThree_Four;
+                    return this.columnH03PMTo04PM;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public global::System.Data.DataColumn Two_ThreeColumn {
+            public global::System.Data.DataColumn H02PMTo03PMColumn {
                 get {
-                    return this.columnTwo_Three;
+                    return this.columnH02PMTo03PM;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public global::System.Data.DataColumn Twelve_OneColumn {
+            public global::System.Data.DataColumn H12PMTo01PMColumn {
                 get {
-                    return this.columnTwelve_One;
+                    return this.columnH12PMTo01PM;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public global::System.Data.DataColumn Eleven_TwelveColumn {
+            public global::System.Data.DataColumn H11AMTo12PMColumn {
                 get {
-                    return this.columnEleven_Twelve;
+                    return this.columnH11AMTo12PM;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public global::System.Data.DataColumn Ten_ElevenColumn {
+            public global::System.Data.DataColumn H10AMTo11AMColumn {
                 get {
-                    return this.columnTen_Eleven;
+                    return this.columnH10AMTo11AM;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public global::System.Data.DataColumn Nine_TenColumn {
+            public global::System.Data.DataColumn H09AMTo10AMColumn {
                 get {
-                    return this.columnNine_Ten;
+                    return this.columnH09AMTo10AM;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public global::System.Data.DataColumn Eight_NineColumn {
+            public global::System.Data.DataColumn H08AMTo09AMColumn {
                 get {
-                    return this.columnEight_Nine;
+                    return this.columnH08AMTo09AM;
                 }
             }
             
@@ -474,9 +506,9 @@ namespace Erp.WebApi.wwwroot.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public global::System.Data.DataColumn ShiftColumn {
+            public global::System.Data.DataColumn ShiftNameColumn {
                 get {
-                    return this.columnShift;
+                    return this.columnShiftName;
                 }
             }
             
@@ -634,6 +666,134 @@ namespace Erp.WebApi.wwwroot.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public global::System.Data.DataColumn QCNameColumn {
+                get {
+                    return this.columnQCName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public global::System.Data.DataColumn ItemNameColumn {
+                get {
+                    return this.columnItemName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public global::System.Data.DataColumn WashCategoryColumn {
+                get {
+                    return this.columnWashCategory;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public global::System.Data.DataColumn DHUPercentColumn {
+                get {
+                    return this.columnDHUPercent;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public global::System.Data.DataColumn H08PMTo09PMColumn {
+                get {
+                    return this.columnH08PMTo09PM;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public global::System.Data.DataColumn H09PMTo10PMColumn {
+                get {
+                    return this.columnH09PMTo10PM;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public global::System.Data.DataColumn H10PMTo11PMColumn {
+                get {
+                    return this.columnH10PMTo11PM;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public global::System.Data.DataColumn H11PMTo12AMColumn {
+                get {
+                    return this.columnH11PMTo12AM;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public global::System.Data.DataColumn H12AMTo01AMColumn {
+                get {
+                    return this.columnH12AMTo01AM;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public global::System.Data.DataColumn H01AMTo02AMColumn {
+                get {
+                    return this.columnH01AMTo02AM;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public global::System.Data.DataColumn H02AMTo03AMColumn {
+                get {
+                    return this.columnH02AMTo03AM;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public global::System.Data.DataColumn H03AMTo04AMColumn {
+                get {
+                    return this.columnH03AMTo04AM;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public global::System.Data.DataColumn H04AMTo05AMColumn {
+                get {
+                    return this.columnH04AMTo05AM;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public global::System.Data.DataColumn H05AMTo06AMColumn {
+                get {
+                    return this.columnH05AMTo06AM;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public global::System.Data.DataColumn H06AMTo07AMColumn {
+                get {
+                    return this.columnH06AMTo07AM;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public global::System.Data.DataColumn H07AMTo08AMColumn {
+                get {
+                    return this.columnH07AMTo08AM;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -670,19 +830,19 @@ namespace Erp.WebApi.wwwroot.DataSet {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
             public dsDateWiseHourlyQCReportRow AdddsDateWiseHourlyQCReportRow(
-                        string Seven_Eight, 
-                        string Six_Seven, 
-                        string Five_Six, 
-                        string Four_Five, 
-                        string Three_Four, 
-                        string Two_Three, 
-                        string Twelve_One, 
-                        string Eleven_Twelve, 
-                        string Ten_Eleven, 
-                        string Nine_Ten, 
-                        string Eight_Nine, 
+                        string H07PMTo08PM, 
+                        string H06PMTo07PM, 
+                        string H05PMTo06PM, 
+                        string H04PMTo05PM, 
+                        string H03PMTo04PM, 
+                        string H02PMTo03PM, 
+                        string H12PMTo01PM, 
+                        string H11AMTo12PM, 
+                        string H10AMTo11AM, 
+                        string H09AMTo10AM, 
+                        string H08AMTo09AM, 
                         string GroupName, 
-                        string Shift, 
+                        string ShiftName, 
                         string DefectPer, 
                         string BuyerName, 
                         string TotalDefectQTY, 
@@ -701,22 +861,38 @@ namespace Erp.WebApi.wwwroot.DataSet {
                         string DefectsBalanceQty, 
                         string RectifyDefectsCheckAndPass, 
                         string TotalRejectQTY, 
-                        string GrandTotal) {
+                        string GrandTotal, 
+                        string QCName, 
+                        string ItemName, 
+                        string WashCategory, 
+                        string DHUPercent, 
+                        string H08PMTo09PM, 
+                        string H09PMTo10PM, 
+                        string H10PMTo11PM, 
+                        string H11PMTo12AM, 
+                        string H12AMTo01AM, 
+                        string H01AMTo02AM, 
+                        string H02AMTo03AM, 
+                        string H03AMTo04AM, 
+                        string H04AMTo05AM, 
+                        string H05AMTo06AM, 
+                        string H06AMTo07AM, 
+                        string H07AMTo08AM) {
                 dsDateWiseHourlyQCReportRow rowdsDateWiseHourlyQCReportRow = ((dsDateWiseHourlyQCReportRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        Seven_Eight,
-                        Six_Seven,
-                        Five_Six,
-                        Four_Five,
-                        Three_Four,
-                        Two_Three,
-                        Twelve_One,
-                        Eleven_Twelve,
-                        Ten_Eleven,
-                        Nine_Ten,
-                        Eight_Nine,
+                        H07PMTo08PM,
+                        H06PMTo07PM,
+                        H05PMTo06PM,
+                        H04PMTo05PM,
+                        H03PMTo04PM,
+                        H02PMTo03PM,
+                        H12PMTo01PM,
+                        H11AMTo12PM,
+                        H10AMTo11AM,
+                        H09AMTo10AM,
+                        H08AMTo09AM,
                         GroupName,
-                        Shift,
+                        ShiftName,
                         DefectPer,
                         BuyerName,
                         TotalDefectQTY,
@@ -735,7 +911,23 @@ namespace Erp.WebApi.wwwroot.DataSet {
                         DefectsBalanceQty,
                         RectifyDefectsCheckAndPass,
                         TotalRejectQTY,
-                        GrandTotal};
+                        GrandTotal,
+                        QCName,
+                        ItemName,
+                        WashCategory,
+                        DHUPercent,
+                        H08PMTo09PM,
+                        H09PMTo10PM,
+                        H10PMTo11PM,
+                        H11PMTo12AM,
+                        H12AMTo01AM,
+                        H01AMTo02AM,
+                        H02AMTo03AM,
+                        H03AMTo04AM,
+                        H04AMTo05AM,
+                        H05AMTo06AM,
+                        H06AMTo07AM,
+                        H07AMTo08AM};
                 rowdsDateWiseHourlyQCReportRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowdsDateWiseHourlyQCReportRow);
                 return rowdsDateWiseHourlyQCReportRow;
@@ -758,19 +950,19 @@ namespace Erp.WebApi.wwwroot.DataSet {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
             internal void InitVars() {
-                this.columnSeven_Eight = base.Columns["Seven_Eight"];
-                this.columnSix_Seven = base.Columns["Six_Seven"];
-                this.columnFive_Six = base.Columns["Five_Six"];
-                this.columnFour_Five = base.Columns["Four_Five"];
-                this.columnThree_Four = base.Columns["Three_Four"];
-                this.columnTwo_Three = base.Columns["Two_Three"];
-                this.columnTwelve_One = base.Columns["Twelve_One"];
-                this.columnEleven_Twelve = base.Columns["Eleven_Twelve"];
-                this.columnTen_Eleven = base.Columns["Ten_Eleven"];
-                this.columnNine_Ten = base.Columns["Nine_Ten"];
-                this.columnEight_Nine = base.Columns["Eight_Nine"];
+                this.columnH07PMTo08PM = base.Columns["H07PMTo08PM"];
+                this.columnH06PMTo07PM = base.Columns["H06PMTo07PM"];
+                this.columnH05PMTo06PM = base.Columns["H05PMTo06PM"];
+                this.columnH04PMTo05PM = base.Columns["H04PMTo05PM"];
+                this.columnH03PMTo04PM = base.Columns["H03PMTo04PM"];
+                this.columnH02PMTo03PM = base.Columns["H02PMTo03PM"];
+                this.columnH12PMTo01PM = base.Columns["H12PMTo01PM"];
+                this.columnH11AMTo12PM = base.Columns["H11AMTo12PM"];
+                this.columnH10AMTo11AM = base.Columns["H10AMTo11AM"];
+                this.columnH09AMTo10AM = base.Columns["H09AMTo10AM"];
+                this.columnH08AMTo09AM = base.Columns["H08AMTo09AM"];
                 this.columnGroupName = base.Columns["GroupName"];
-                this.columnShift = base.Columns["Shift"];
+                this.columnShiftName = base.Columns["ShiftName"];
                 this.columnDefectPer = base.Columns["DefectPer"];
                 this.columnBuyerName = base.Columns["BuyerName"];
                 this.columnTotalDefectQTY = base.Columns["TotalDefectQTY"];
@@ -790,37 +982,53 @@ namespace Erp.WebApi.wwwroot.DataSet {
                 this.columnRectifyDefectsCheckAndPass = base.Columns["RectifyDefectsCheckAndPass"];
                 this.columnTotalRejectQTY = base.Columns["TotalRejectQTY"];
                 this.columnGrandTotal = base.Columns["GrandTotal"];
+                this.columnQCName = base.Columns["QCName"];
+                this.columnItemName = base.Columns["ItemName"];
+                this.columnWashCategory = base.Columns["WashCategory"];
+                this.columnDHUPercent = base.Columns["DHUPercent"];
+                this.columnH08PMTo09PM = base.Columns["H08PMTo09PM"];
+                this.columnH09PMTo10PM = base.Columns["H09PMTo10PM"];
+                this.columnH10PMTo11PM = base.Columns["H10PMTo11PM"];
+                this.columnH11PMTo12AM = base.Columns["H11PMTo12AM"];
+                this.columnH12AMTo01AM = base.Columns["H12AMTo01AM"];
+                this.columnH01AMTo02AM = base.Columns["H01AMTo02AM"];
+                this.columnH02AMTo03AM = base.Columns["H02AMTo03AM"];
+                this.columnH03AMTo04AM = base.Columns["H03AMTo04AM"];
+                this.columnH04AMTo05AM = base.Columns["H04AMTo05AM"];
+                this.columnH05AMTo06AM = base.Columns["H05AMTo06AM"];
+                this.columnH06AMTo07AM = base.Columns["H06AMTo07AM"];
+                this.columnH07AMTo08AM = base.Columns["H07AMTo08AM"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
             private void InitClass() {
-                this.columnSeven_Eight = new global::System.Data.DataColumn("Seven_Eight", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSeven_Eight);
-                this.columnSix_Seven = new global::System.Data.DataColumn("Six_Seven", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSix_Seven);
-                this.columnFive_Six = new global::System.Data.DataColumn("Five_Six", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnFive_Six);
-                this.columnFour_Five = new global::System.Data.DataColumn("Four_Five", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnFour_Five);
-                this.columnThree_Four = new global::System.Data.DataColumn("Three_Four", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnThree_Four);
-                this.columnTwo_Three = new global::System.Data.DataColumn("Two_Three", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTwo_Three);
-                this.columnTwelve_One = new global::System.Data.DataColumn("Twelve_One", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTwelve_One);
-                this.columnEleven_Twelve = new global::System.Data.DataColumn("Eleven_Twelve", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnEleven_Twelve);
-                this.columnTen_Eleven = new global::System.Data.DataColumn("Ten_Eleven", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTen_Eleven);
-                this.columnNine_Ten = new global::System.Data.DataColumn("Nine_Ten", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNine_Ten);
-                this.columnEight_Nine = new global::System.Data.DataColumn("Eight_Nine", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnEight_Nine);
+                this.columnH07PMTo08PM = new global::System.Data.DataColumn("H07PMTo08PM", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnH07PMTo08PM);
+                this.columnH06PMTo07PM = new global::System.Data.DataColumn("H06PMTo07PM", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnH06PMTo07PM);
+                this.columnH05PMTo06PM = new global::System.Data.DataColumn("H05PMTo06PM", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnH05PMTo06PM);
+                this.columnH04PMTo05PM = new global::System.Data.DataColumn("H04PMTo05PM", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnH04PMTo05PM);
+                this.columnH03PMTo04PM = new global::System.Data.DataColumn("H03PMTo04PM", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnH03PMTo04PM);
+                this.columnH02PMTo03PM = new global::System.Data.DataColumn("H02PMTo03PM", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnH02PMTo03PM);
+                this.columnH12PMTo01PM = new global::System.Data.DataColumn("H12PMTo01PM", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnH12PMTo01PM);
+                this.columnH11AMTo12PM = new global::System.Data.DataColumn("H11AMTo12PM", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnH11AMTo12PM);
+                this.columnH10AMTo11AM = new global::System.Data.DataColumn("H10AMTo11AM", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnH10AMTo11AM);
+                this.columnH09AMTo10AM = new global::System.Data.DataColumn("H09AMTo10AM", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnH09AMTo10AM);
+                this.columnH08AMTo09AM = new global::System.Data.DataColumn("H08AMTo09AM", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnH08AMTo09AM);
                 this.columnGroupName = new global::System.Data.DataColumn("GroupName", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnGroupName);
-                this.columnShift = new global::System.Data.DataColumn("Shift", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnShift);
+                this.columnShiftName = new global::System.Data.DataColumn("ShiftName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnShiftName);
                 this.columnDefectPer = new global::System.Data.DataColumn("DefectPer", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDefectPer);
                 this.columnBuyerName = new global::System.Data.DataColumn("BuyerName", typeof(string), null, global::System.Data.MappingType.Element);
@@ -859,6 +1067,38 @@ namespace Erp.WebApi.wwwroot.DataSet {
                 base.Columns.Add(this.columnTotalRejectQTY);
                 this.columnGrandTotal = new global::System.Data.DataColumn("GrandTotal", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnGrandTotal);
+                this.columnQCName = new global::System.Data.DataColumn("QCName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnQCName);
+                this.columnItemName = new global::System.Data.DataColumn("ItemName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnItemName);
+                this.columnWashCategory = new global::System.Data.DataColumn("WashCategory", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnWashCategory);
+                this.columnDHUPercent = new global::System.Data.DataColumn("DHUPercent", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDHUPercent);
+                this.columnH08PMTo09PM = new global::System.Data.DataColumn("H08PMTo09PM", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnH08PMTo09PM);
+                this.columnH09PMTo10PM = new global::System.Data.DataColumn("H09PMTo10PM", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnH09PMTo10PM);
+                this.columnH10PMTo11PM = new global::System.Data.DataColumn("H10PMTo11PM", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnH10PMTo11PM);
+                this.columnH11PMTo12AM = new global::System.Data.DataColumn("H11PMTo12AM", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnH11PMTo12AM);
+                this.columnH12AMTo01AM = new global::System.Data.DataColumn("H12AMTo01AM", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnH12AMTo01AM);
+                this.columnH01AMTo02AM = new global::System.Data.DataColumn("H01AMTo02AM", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnH01AMTo02AM);
+                this.columnH02AMTo03AM = new global::System.Data.DataColumn("H02AMTo03AM", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnH02AMTo03AM);
+                this.columnH03AMTo04AM = new global::System.Data.DataColumn("H03AMTo04AM", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnH03AMTo04AM);
+                this.columnH04AMTo05AM = new global::System.Data.DataColumn("H04AMTo05AM", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnH04AMTo05AM);
+                this.columnH05AMTo06AM = new global::System.Data.DataColumn("H05AMTo06AM", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnH05AMTo06AM);
+                this.columnH06AMTo07AM = new global::System.Data.DataColumn("H06AMTo07AM", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnH06AMTo07AM);
+                this.columnH07AMTo08AM = new global::System.Data.DataColumn("H07AMTo08AM", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnH07AMTo08AM);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1001,179 +1241,188 @@ namespace Erp.WebApi.wwwroot.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public string Seven_Eight {
+            public string H07PMTo08PM {
                 get {
                     try {
-                        return ((string)(this[this.tabledsDateWiseHourlyQCReport.Seven_EightColumn]));
+                        return ((string)(this[this.tabledsDateWiseHourlyQCReport.H07PMTo08PMColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Seven_Eight\' in table \'dsDateWiseHourlyQCReport\' is DBNull." +
+                        throw new global::System.Data.StrongTypingException("The value for column \'H07PMTo08PM\' in table \'dsDateWiseHourlyQCReport\' is DBNull." +
                                 "", e);
                     }
                 }
                 set {
-                    this[this.tabledsDateWiseHourlyQCReport.Seven_EightColumn] = value;
+                    this[this.tabledsDateWiseHourlyQCReport.H07PMTo08PMColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public string Six_Seven {
+            public string H06PMTo07PM {
                 get {
                     try {
-                        return ((string)(this[this.tabledsDateWiseHourlyQCReport.Six_SevenColumn]));
+                        return ((string)(this[this.tabledsDateWiseHourlyQCReport.H06PMTo07PMColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Six_Seven\' in table \'dsDateWiseHourlyQCReport\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'H06PMTo07PM\' in table \'dsDateWiseHourlyQCReport\' is DBNull." +
+                                "", e);
                     }
                 }
                 set {
-                    this[this.tabledsDateWiseHourlyQCReport.Six_SevenColumn] = value;
+                    this[this.tabledsDateWiseHourlyQCReport.H06PMTo07PMColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public string Five_Six {
+            public string H05PMTo06PM {
                 get {
                     try {
-                        return ((string)(this[this.tabledsDateWiseHourlyQCReport.Five_SixColumn]));
+                        return ((string)(this[this.tabledsDateWiseHourlyQCReport.H05PMTo06PMColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Five_Six\' in table \'dsDateWiseHourlyQCReport\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'H05PMTo06PM\' in table \'dsDateWiseHourlyQCReport\' is DBNull." +
+                                "", e);
                     }
                 }
                 set {
-                    this[this.tabledsDateWiseHourlyQCReport.Five_SixColumn] = value;
+                    this[this.tabledsDateWiseHourlyQCReport.H05PMTo06PMColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public string Four_Five {
+            public string H04PMTo05PM {
                 get {
                     try {
-                        return ((string)(this[this.tabledsDateWiseHourlyQCReport.Four_FiveColumn]));
+                        return ((string)(this[this.tabledsDateWiseHourlyQCReport.H04PMTo05PMColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Four_Five\' in table \'dsDateWiseHourlyQCReport\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'H04PMTo05PM\' in table \'dsDateWiseHourlyQCReport\' is DBNull." +
+                                "", e);
                     }
                 }
                 set {
-                    this[this.tabledsDateWiseHourlyQCReport.Four_FiveColumn] = value;
+                    this[this.tabledsDateWiseHourlyQCReport.H04PMTo05PMColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public string Three_Four {
+            public string H03PMTo04PM {
                 get {
                     try {
-                        return ((string)(this[this.tabledsDateWiseHourlyQCReport.Three_FourColumn]));
+                        return ((string)(this[this.tabledsDateWiseHourlyQCReport.H03PMTo04PMColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Three_Four\' in table \'dsDateWiseHourlyQCReport\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'H03PMTo04PM\' in table \'dsDateWiseHourlyQCReport\' is DBNull." +
+                                "", e);
                     }
                 }
                 set {
-                    this[this.tabledsDateWiseHourlyQCReport.Three_FourColumn] = value;
+                    this[this.tabledsDateWiseHourlyQCReport.H03PMTo04PMColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public string Two_Three {
+            public string H02PMTo03PM {
                 get {
                     try {
-                        return ((string)(this[this.tabledsDateWiseHourlyQCReport.Two_ThreeColumn]));
+                        return ((string)(this[this.tabledsDateWiseHourlyQCReport.H02PMTo03PMColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Two_Three\' in table \'dsDateWiseHourlyQCReport\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'H02PMTo03PM\' in table \'dsDateWiseHourlyQCReport\' is DBNull." +
+                                "", e);
                     }
                 }
                 set {
-                    this[this.tabledsDateWiseHourlyQCReport.Two_ThreeColumn] = value;
+                    this[this.tabledsDateWiseHourlyQCReport.H02PMTo03PMColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public string Twelve_One {
+            public string H12PMTo01PM {
                 get {
                     try {
-                        return ((string)(this[this.tabledsDateWiseHourlyQCReport.Twelve_OneColumn]));
+                        return ((string)(this[this.tabledsDateWiseHourlyQCReport.H12PMTo01PMColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Twelve_One\' in table \'dsDateWiseHourlyQCReport\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'H12PMTo01PM\' in table \'dsDateWiseHourlyQCReport\' is DBNull." +
+                                "", e);
                     }
                 }
                 set {
-                    this[this.tabledsDateWiseHourlyQCReport.Twelve_OneColumn] = value;
+                    this[this.tabledsDateWiseHourlyQCReport.H12PMTo01PMColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public string Eleven_Twelve {
+            public string H11AMTo12PM {
                 get {
                     try {
-                        return ((string)(this[this.tabledsDateWiseHourlyQCReport.Eleven_TwelveColumn]));
+                        return ((string)(this[this.tabledsDateWiseHourlyQCReport.H11AMTo12PMColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Eleven_Twelve\' in table \'dsDateWiseHourlyQCReport\' is DBNul" +
-                                "l.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'H11AMTo12PM\' in table \'dsDateWiseHourlyQCReport\' is DBNull." +
+                                "", e);
                     }
                 }
                 set {
-                    this[this.tabledsDateWiseHourlyQCReport.Eleven_TwelveColumn] = value;
+                    this[this.tabledsDateWiseHourlyQCReport.H11AMTo12PMColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public string Ten_Eleven {
+            public string H10AMTo11AM {
                 get {
                     try {
-                        return ((string)(this[this.tabledsDateWiseHourlyQCReport.Ten_ElevenColumn]));
+                        return ((string)(this[this.tabledsDateWiseHourlyQCReport.H10AMTo11AMColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Ten_Eleven\' in table \'dsDateWiseHourlyQCReport\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'H10AMTo11AM\' in table \'dsDateWiseHourlyQCReport\' is DBNull." +
+                                "", e);
                     }
                 }
                 set {
-                    this[this.tabledsDateWiseHourlyQCReport.Ten_ElevenColumn] = value;
+                    this[this.tabledsDateWiseHourlyQCReport.H10AMTo11AMColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public string Nine_Ten {
+            public string H09AMTo10AM {
                 get {
                     try {
-                        return ((string)(this[this.tabledsDateWiseHourlyQCReport.Nine_TenColumn]));
+                        return ((string)(this[this.tabledsDateWiseHourlyQCReport.H09AMTo10AMColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Nine_Ten\' in table \'dsDateWiseHourlyQCReport\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'H09AMTo10AM\' in table \'dsDateWiseHourlyQCReport\' is DBNull." +
+                                "", e);
                     }
                 }
                 set {
-                    this[this.tabledsDateWiseHourlyQCReport.Nine_TenColumn] = value;
+                    this[this.tabledsDateWiseHourlyQCReport.H09AMTo10AMColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public string Eight_Nine {
+            public string H08AMTo09AM {
                 get {
                     try {
-                        return ((string)(this[this.tabledsDateWiseHourlyQCReport.Eight_NineColumn]));
+                        return ((string)(this[this.tabledsDateWiseHourlyQCReport.H08AMTo09AMColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Eight_Nine\' in table \'dsDateWiseHourlyQCReport\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'H08AMTo09AM\' in table \'dsDateWiseHourlyQCReport\' is DBNull." +
+                                "", e);
                     }
                 }
                 set {
-                    this[this.tabledsDateWiseHourlyQCReport.Eight_NineColumn] = value;
+                    this[this.tabledsDateWiseHourlyQCReport.H08AMTo09AMColumn] = value;
                 }
             }
             
@@ -1195,17 +1444,17 @@ namespace Erp.WebApi.wwwroot.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public string Shift {
+            public string ShiftName {
                 get {
                     try {
-                        return ((string)(this[this.tabledsDateWiseHourlyQCReport.ShiftColumn]));
+                        return ((string)(this[this.tabledsDateWiseHourlyQCReport.ShiftNameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Shift\' in table \'dsDateWiseHourlyQCReport\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'ShiftName\' in table \'dsDateWiseHourlyQCReport\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabledsDateWiseHourlyQCReport.ShiftColumn] = value;
+                    this[this.tabledsDateWiseHourlyQCReport.ShiftNameColumn] = value;
                 }
             }
             
@@ -1522,134 +1771,403 @@ namespace Erp.WebApi.wwwroot.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public bool IsSeven_EightNull() {
-                return this.IsNull(this.tabledsDateWiseHourlyQCReport.Seven_EightColumn);
+            public string QCName {
+                get {
+                    try {
+                        return ((string)(this[this.tabledsDateWiseHourlyQCReport.QCNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'QCName\' in table \'dsDateWiseHourlyQCReport\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledsDateWiseHourlyQCReport.QCNameColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public void SetSeven_EightNull() {
-                this[this.tabledsDateWiseHourlyQCReport.Seven_EightColumn] = global::System.Convert.DBNull;
+            public string ItemName {
+                get {
+                    try {
+                        return ((string)(this[this.tabledsDateWiseHourlyQCReport.ItemNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ItemName\' in table \'dsDateWiseHourlyQCReport\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledsDateWiseHourlyQCReport.ItemNameColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public bool IsSix_SevenNull() {
-                return this.IsNull(this.tabledsDateWiseHourlyQCReport.Six_SevenColumn);
+            public string WashCategory {
+                get {
+                    try {
+                        return ((string)(this[this.tabledsDateWiseHourlyQCReport.WashCategoryColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'WashCategory\' in table \'dsDateWiseHourlyQCReport\' is DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tabledsDateWiseHourlyQCReport.WashCategoryColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public void SetSix_SevenNull() {
-                this[this.tabledsDateWiseHourlyQCReport.Six_SevenColumn] = global::System.Convert.DBNull;
+            public string DHUPercent {
+                get {
+                    try {
+                        return ((string)(this[this.tabledsDateWiseHourlyQCReport.DHUPercentColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DHUPercent\' in table \'dsDateWiseHourlyQCReport\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledsDateWiseHourlyQCReport.DHUPercentColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public bool IsFive_SixNull() {
-                return this.IsNull(this.tabledsDateWiseHourlyQCReport.Five_SixColumn);
+            public string H08PMTo09PM {
+                get {
+                    try {
+                        return ((string)(this[this.tabledsDateWiseHourlyQCReport.H08PMTo09PMColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'H08PMTo09PM\' in table \'dsDateWiseHourlyQCReport\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tabledsDateWiseHourlyQCReport.H08PMTo09PMColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public void SetFive_SixNull() {
-                this[this.tabledsDateWiseHourlyQCReport.Five_SixColumn] = global::System.Convert.DBNull;
+            public string H09PMTo10PM {
+                get {
+                    try {
+                        return ((string)(this[this.tabledsDateWiseHourlyQCReport.H09PMTo10PMColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'H09PMTo10PM\' in table \'dsDateWiseHourlyQCReport\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tabledsDateWiseHourlyQCReport.H09PMTo10PMColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public bool IsFour_FiveNull() {
-                return this.IsNull(this.tabledsDateWiseHourlyQCReport.Four_FiveColumn);
+            public string H10PMTo11PM {
+                get {
+                    try {
+                        return ((string)(this[this.tabledsDateWiseHourlyQCReport.H10PMTo11PMColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'H10PMTo11PM\' in table \'dsDateWiseHourlyQCReport\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tabledsDateWiseHourlyQCReport.H10PMTo11PMColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public void SetFour_FiveNull() {
-                this[this.tabledsDateWiseHourlyQCReport.Four_FiveColumn] = global::System.Convert.DBNull;
+            public string H11PMTo12AM {
+                get {
+                    try {
+                        return ((string)(this[this.tabledsDateWiseHourlyQCReport.H11PMTo12AMColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'H11PMTo12AM\' in table \'dsDateWiseHourlyQCReport\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tabledsDateWiseHourlyQCReport.H11PMTo12AMColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public bool IsThree_FourNull() {
-                return this.IsNull(this.tabledsDateWiseHourlyQCReport.Three_FourColumn);
+            public string H12AMTo01AM {
+                get {
+                    try {
+                        return ((string)(this[this.tabledsDateWiseHourlyQCReport.H12AMTo01AMColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'H12AMTo01AM\' in table \'dsDateWiseHourlyQCReport\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tabledsDateWiseHourlyQCReport.H12AMTo01AMColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public void SetThree_FourNull() {
-                this[this.tabledsDateWiseHourlyQCReport.Three_FourColumn] = global::System.Convert.DBNull;
+            public string H01AMTo02AM {
+                get {
+                    try {
+                        return ((string)(this[this.tabledsDateWiseHourlyQCReport.H01AMTo02AMColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'H01AMTo02AM\' in table \'dsDateWiseHourlyQCReport\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tabledsDateWiseHourlyQCReport.H01AMTo02AMColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public bool IsTwo_ThreeNull() {
-                return this.IsNull(this.tabledsDateWiseHourlyQCReport.Two_ThreeColumn);
+            public string H02AMTo03AM {
+                get {
+                    try {
+                        return ((string)(this[this.tabledsDateWiseHourlyQCReport.H02AMTo03AMColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'H02AMTo03AM\' in table \'dsDateWiseHourlyQCReport\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tabledsDateWiseHourlyQCReport.H02AMTo03AMColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public void SetTwo_ThreeNull() {
-                this[this.tabledsDateWiseHourlyQCReport.Two_ThreeColumn] = global::System.Convert.DBNull;
+            public string H03AMTo04AM {
+                get {
+                    try {
+                        return ((string)(this[this.tabledsDateWiseHourlyQCReport.H03AMTo04AMColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'H03AMTo04AM\' in table \'dsDateWiseHourlyQCReport\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tabledsDateWiseHourlyQCReport.H03AMTo04AMColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public bool IsTwelve_OneNull() {
-                return this.IsNull(this.tabledsDateWiseHourlyQCReport.Twelve_OneColumn);
+            public string H04AMTo05AM {
+                get {
+                    try {
+                        return ((string)(this[this.tabledsDateWiseHourlyQCReport.H04AMTo05AMColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'H04AMTo05AM\' in table \'dsDateWiseHourlyQCReport\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tabledsDateWiseHourlyQCReport.H04AMTo05AMColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public void SetTwelve_OneNull() {
-                this[this.tabledsDateWiseHourlyQCReport.Twelve_OneColumn] = global::System.Convert.DBNull;
+            public string H05AMTo06AM {
+                get {
+                    try {
+                        return ((string)(this[this.tabledsDateWiseHourlyQCReport.H05AMTo06AMColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'H05AMTo06AM\' in table \'dsDateWiseHourlyQCReport\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tabledsDateWiseHourlyQCReport.H05AMTo06AMColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public bool IsEleven_TwelveNull() {
-                return this.IsNull(this.tabledsDateWiseHourlyQCReport.Eleven_TwelveColumn);
+            public string H06AMTo07AM {
+                get {
+                    try {
+                        return ((string)(this[this.tabledsDateWiseHourlyQCReport.H06AMTo07AMColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'H06AMTo07AM\' in table \'dsDateWiseHourlyQCReport\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tabledsDateWiseHourlyQCReport.H06AMTo07AMColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public void SetEleven_TwelveNull() {
-                this[this.tabledsDateWiseHourlyQCReport.Eleven_TwelveColumn] = global::System.Convert.DBNull;
+            public string H07AMTo08AM {
+                get {
+                    try {
+                        return ((string)(this[this.tabledsDateWiseHourlyQCReport.H07AMTo08AMColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'H07AMTo08AM\' in table \'dsDateWiseHourlyQCReport\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tabledsDateWiseHourlyQCReport.H07AMTo08AMColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public bool IsTen_ElevenNull() {
-                return this.IsNull(this.tabledsDateWiseHourlyQCReport.Ten_ElevenColumn);
+            public bool IsH07PMTo08PMNull() {
+                return this.IsNull(this.tabledsDateWiseHourlyQCReport.H07PMTo08PMColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public void SetTen_ElevenNull() {
-                this[this.tabledsDateWiseHourlyQCReport.Ten_ElevenColumn] = global::System.Convert.DBNull;
+            public void SetH07PMTo08PMNull() {
+                this[this.tabledsDateWiseHourlyQCReport.H07PMTo08PMColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public bool IsNine_TenNull() {
-                return this.IsNull(this.tabledsDateWiseHourlyQCReport.Nine_TenColumn);
+            public bool IsH06PMTo07PMNull() {
+                return this.IsNull(this.tabledsDateWiseHourlyQCReport.H06PMTo07PMColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public void SetNine_TenNull() {
-                this[this.tabledsDateWiseHourlyQCReport.Nine_TenColumn] = global::System.Convert.DBNull;
+            public void SetH06PMTo07PMNull() {
+                this[this.tabledsDateWiseHourlyQCReport.H06PMTo07PMColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public bool IsEight_NineNull() {
-                return this.IsNull(this.tabledsDateWiseHourlyQCReport.Eight_NineColumn);
+            public bool IsH05PMTo06PMNull() {
+                return this.IsNull(this.tabledsDateWiseHourlyQCReport.H05PMTo06PMColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public void SetEight_NineNull() {
-                this[this.tabledsDateWiseHourlyQCReport.Eight_NineColumn] = global::System.Convert.DBNull;
+            public void SetH05PMTo06PMNull() {
+                this[this.tabledsDateWiseHourlyQCReport.H05PMTo06PMColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public bool IsH04PMTo05PMNull() {
+                return this.IsNull(this.tabledsDateWiseHourlyQCReport.H04PMTo05PMColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public void SetH04PMTo05PMNull() {
+                this[this.tabledsDateWiseHourlyQCReport.H04PMTo05PMColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public bool IsH03PMTo04PMNull() {
+                return this.IsNull(this.tabledsDateWiseHourlyQCReport.H03PMTo04PMColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public void SetH03PMTo04PMNull() {
+                this[this.tabledsDateWiseHourlyQCReport.H03PMTo04PMColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public bool IsH02PMTo03PMNull() {
+                return this.IsNull(this.tabledsDateWiseHourlyQCReport.H02PMTo03PMColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public void SetH02PMTo03PMNull() {
+                this[this.tabledsDateWiseHourlyQCReport.H02PMTo03PMColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public bool IsH12PMTo01PMNull() {
+                return this.IsNull(this.tabledsDateWiseHourlyQCReport.H12PMTo01PMColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public void SetH12PMTo01PMNull() {
+                this[this.tabledsDateWiseHourlyQCReport.H12PMTo01PMColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public bool IsH11AMTo12PMNull() {
+                return this.IsNull(this.tabledsDateWiseHourlyQCReport.H11AMTo12PMColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public void SetH11AMTo12PMNull() {
+                this[this.tabledsDateWiseHourlyQCReport.H11AMTo12PMColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public bool IsH10AMTo11AMNull() {
+                return this.IsNull(this.tabledsDateWiseHourlyQCReport.H10AMTo11AMColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public void SetH10AMTo11AMNull() {
+                this[this.tabledsDateWiseHourlyQCReport.H10AMTo11AMColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public bool IsH09AMTo10AMNull() {
+                return this.IsNull(this.tabledsDateWiseHourlyQCReport.H09AMTo10AMColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public void SetH09AMTo10AMNull() {
+                this[this.tabledsDateWiseHourlyQCReport.H09AMTo10AMColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public bool IsH08AMTo09AMNull() {
+                return this.IsNull(this.tabledsDateWiseHourlyQCReport.H08AMTo09AMColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public void SetH08AMTo09AMNull() {
+                this[this.tabledsDateWiseHourlyQCReport.H08AMTo09AMColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1666,14 +2184,14 @@ namespace Erp.WebApi.wwwroot.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public bool IsShiftNull() {
-                return this.IsNull(this.tabledsDateWiseHourlyQCReport.ShiftColumn);
+            public bool IsShiftNameNull() {
+                return this.IsNull(this.tabledsDateWiseHourlyQCReport.ShiftNameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
-            public void SetShiftNull() {
-                this[this.tabledsDateWiseHourlyQCReport.ShiftColumn] = global::System.Convert.DBNull;
+            public void SetShiftNameNull() {
+                this[this.tabledsDateWiseHourlyQCReport.ShiftNameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1902,6 +2420,198 @@ namespace Erp.WebApi.wwwroot.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
             public void SetGrandTotalNull() {
                 this[this.tabledsDateWiseHourlyQCReport.GrandTotalColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public bool IsQCNameNull() {
+                return this.IsNull(this.tabledsDateWiseHourlyQCReport.QCNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public void SetQCNameNull() {
+                this[this.tabledsDateWiseHourlyQCReport.QCNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public bool IsItemNameNull() {
+                return this.IsNull(this.tabledsDateWiseHourlyQCReport.ItemNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public void SetItemNameNull() {
+                this[this.tabledsDateWiseHourlyQCReport.ItemNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public bool IsWashCategoryNull() {
+                return this.IsNull(this.tabledsDateWiseHourlyQCReport.WashCategoryColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public void SetWashCategoryNull() {
+                this[this.tabledsDateWiseHourlyQCReport.WashCategoryColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public bool IsDHUPercentNull() {
+                return this.IsNull(this.tabledsDateWiseHourlyQCReport.DHUPercentColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public void SetDHUPercentNull() {
+                this[this.tabledsDateWiseHourlyQCReport.DHUPercentColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public bool IsH08PMTo09PMNull() {
+                return this.IsNull(this.tabledsDateWiseHourlyQCReport.H08PMTo09PMColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public void SetH08PMTo09PMNull() {
+                this[this.tabledsDateWiseHourlyQCReport.H08PMTo09PMColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public bool IsH09PMTo10PMNull() {
+                return this.IsNull(this.tabledsDateWiseHourlyQCReport.H09PMTo10PMColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public void SetH09PMTo10PMNull() {
+                this[this.tabledsDateWiseHourlyQCReport.H09PMTo10PMColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public bool IsH10PMTo11PMNull() {
+                return this.IsNull(this.tabledsDateWiseHourlyQCReport.H10PMTo11PMColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public void SetH10PMTo11PMNull() {
+                this[this.tabledsDateWiseHourlyQCReport.H10PMTo11PMColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public bool IsH11PMTo12AMNull() {
+                return this.IsNull(this.tabledsDateWiseHourlyQCReport.H11PMTo12AMColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public void SetH11PMTo12AMNull() {
+                this[this.tabledsDateWiseHourlyQCReport.H11PMTo12AMColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public bool IsH12AMTo01AMNull() {
+                return this.IsNull(this.tabledsDateWiseHourlyQCReport.H12AMTo01AMColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public void SetH12AMTo01AMNull() {
+                this[this.tabledsDateWiseHourlyQCReport.H12AMTo01AMColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public bool IsH01AMTo02AMNull() {
+                return this.IsNull(this.tabledsDateWiseHourlyQCReport.H01AMTo02AMColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public void SetH01AMTo02AMNull() {
+                this[this.tabledsDateWiseHourlyQCReport.H01AMTo02AMColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public bool IsH02AMTo03AMNull() {
+                return this.IsNull(this.tabledsDateWiseHourlyQCReport.H02AMTo03AMColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public void SetH02AMTo03AMNull() {
+                this[this.tabledsDateWiseHourlyQCReport.H02AMTo03AMColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public bool IsH03AMTo04AMNull() {
+                return this.IsNull(this.tabledsDateWiseHourlyQCReport.H03AMTo04AMColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public void SetH03AMTo04AMNull() {
+                this[this.tabledsDateWiseHourlyQCReport.H03AMTo04AMColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public bool IsH04AMTo05AMNull() {
+                return this.IsNull(this.tabledsDateWiseHourlyQCReport.H04AMTo05AMColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public void SetH04AMTo05AMNull() {
+                this[this.tabledsDateWiseHourlyQCReport.H04AMTo05AMColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public bool IsH05AMTo06AMNull() {
+                return this.IsNull(this.tabledsDateWiseHourlyQCReport.H05AMTo06AMColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public void SetH05AMTo06AMNull() {
+                this[this.tabledsDateWiseHourlyQCReport.H05AMTo06AMColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public bool IsH06AMTo07AMNull() {
+                return this.IsNull(this.tabledsDateWiseHourlyQCReport.H06AMTo07AMColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public void SetH06AMTo07AMNull() {
+                this[this.tabledsDateWiseHourlyQCReport.H06AMTo07AMColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public bool IsH07AMTo08AMNull() {
+                return this.IsNull(this.tabledsDateWiseHourlyQCReport.H07AMTo08AMColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public void SetH07AMTo08AMNull() {
+                this[this.tabledsDateWiseHourlyQCReport.H07AMTo08AMColumn] = global::System.Convert.DBNull;
             }
         }
         

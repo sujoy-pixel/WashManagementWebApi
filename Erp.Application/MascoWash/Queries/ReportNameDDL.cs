@@ -18,7 +18,7 @@ namespace Erp.Application.MascoWash.Queries
 
     public class ReportNameDDLList
     {
-        public int ReportId { get; set; }
-        public string ReportName { get; set; }
+        public int ID { get; set; }
+        public string DisplayName { get; set; }
     }
 }

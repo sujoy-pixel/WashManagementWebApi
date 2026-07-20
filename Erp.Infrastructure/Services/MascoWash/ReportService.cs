@@ -41,6 +41,50 @@ namespace Erp.Infrastructure.Services.MascoWash
 
             return dt;
         }
+
+        public async Task<DataSet> ExecuteStoredProcedureToDataSetAsync(string storedProcedure,DynamicParameters parameters)
+        {
+            DataSet ds = new DataSet();
+
+            string connectionString = "Data Source=192.168.50.77;Initial Catalog=MascoWashDB;User ID=sa;Password=1ndex@2023%24#new;";
+
+            try
+            {
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    await connection.OpenAsync();
+
+                    using (var command = new SqlCommand(storedProcedure, connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        // Add Dapper parameters to SqlCommand
+                        if (parameters != null)
+                        {
+                            foreach (var paramName in parameters.ParameterNames)
+                            {
+                                command.Parameters.AddWithValue(
+                                    paramName,
+                                    parameters.Get<object>(paramName) ?? DBNull.Value);
+                            }
+                        }
+
+                        using (var adapter = new SqlDataAdapter(command))
+                        {
+                            adapter.Fill(ds);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.Error.WriteLine($"Error executing stored procedure '{storedProcedure}': {ex.Message}");
+                throw;
+            }
+
+            return ds;
+        }
+
         public async Task<DataTable> GetDataByDataTableReadOnly(string storedProcedure, DynamicParameters parameters)
         {
             DataTable dt = new DataTable();

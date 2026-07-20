@@ -83,8 +83,8 @@ namespace Erp.Application.MascoWash.Setup.Repository
         Task<List<DropdownListDto1>> GetMachineNoList();
 
         //Task<Result> SaveWashBatchPrepareData(SaveWashBatchPrepareModel saveDataListDto);
+        Task<List<ReportNameDDLList>> GetReportName();
 
-       
         Task<Result> SaveWashBatchPrepareData(SaveWashBatchPrepareModel dto);
         Task<Result> SaveWashItemDeliveryData(SaveWashItemDeliveryModel dto);
         Task<Result> SaveFaultWiseValueData(SaveFaultWiseValueModel dto);
