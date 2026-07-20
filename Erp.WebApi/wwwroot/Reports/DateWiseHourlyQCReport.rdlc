@@ -2722,7 +2722,7 @@
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>Date                        :</Value>
+                          <Value>Date                              :</Value>
                           <Style>
                             <FontFamily>Times New Roman</FontFamily>
                             <FontSize>7pt</FontSize>
@@ -2736,9 +2736,10 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox2</rd:DefaultName>
-                  <Top>0.05318in</Top>
-                  <Height>0.1875in</Height>
-                  <Width>0.97097in</Width>
+                  <Top>0.0322in</Top>
+                  <Left>0.04039in</Left>
+                  <Height>0.17322in</Height>
+                  <Width>1.0925in</Width>
                   <Style>
                     <Border>
                       <Style>None</Style>
@@ -2757,7 +2758,7 @@
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>Shift                       :</Value>
+                          <Value>Shift                              :</Value>
                           <Style>
                             <FontFamily>Times New Roman</FontFamily>
                             <FontSize>7pt</FontSize>
@@ -2771,10 +2772,10 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox2</rd:DefaultName>
-                  <Top>0.3004in</Top>
-                  <Left>0.00219in</Left>
-                  <Height>0.18056in</Height>
-                  <Width>0.94378in</Width>
+                  <Top>0.2332in</Top>
+                  <Left>0.02596in</Left>
+                  <Height>0.17014in</Height>
+                  <Width>1.10693in</Width>
                   <ZIndex>1</ZIndex>
                   <Style>
                     <Border>
@@ -2794,10 +2795,10 @@
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>QC Name            : </Value>
+                          <Value>QC Name                           : </Value>
                           <Style>
                             <FontFamily>Times New Roman</FontFamily>
-                            <FontSize>7pt</FontSize>
+                            <FontSize>6pt</FontSize>
                             <FontWeight>Bold</FontWeight>
                           </Style>
                         </TextRun>
@@ -2808,10 +2809,10 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox2</rd:DefaultName>
-                  <Top>0.66846in</Top>
-                  <Left>0.00219in</Left>
-                  <Height>0.25in</Height>
-                  <Width>0.94378in</Width>
+                  <Top>0.43736in</Top>
+                  <Left>0.04258in</Left>
+                  <Height>0.17708in</Height>
+                  <Width>1.09031in</Width>
                   <ZIndex>2</ZIndex>
                   <Style>
                     <Border>
@@ -2831,7 +2832,7 @@
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>Item Name            :</Value>
+                          <Value>Item Name                   :</Value>
                           <Style>
                             <FontFamily>Times New Roman</FontFamily>
                             <FontSize>7pt</FontSize>
@@ -2845,10 +2846,10 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox2</rd:DefaultName>
-                  <Top>0.62401in</Top>
-                  <Left>2.11875in</Left>
-                  <Height>0.1875in</Height>
-                  <Width>1.06656in</Width>
+                  <Top>0.88952in</Top>
+                  <Left>0.04039in</Left>
+                  <Height>0.16667in</Height>
+                  <Width>1.08601in</Width>
                   <ZIndex>3</ZIndex>
                   <Style>
                     <Border>
@@ -2868,7 +2869,7 @@
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>Wash Category   :</Value>
+                          <Value>Wash Category           :</Value>
                           <Style>
                             <FontFamily>Times New Roman</FontFamily>
                             <FontSize>7pt</FontSize>
@@ -2882,10 +2883,10 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox2</rd:DefaultName>
-                  <Top>0.18651in</Top>
-                  <Left>2.13542in</Left>
-                  <Height>0.20422in</Height>
-                  <Width>1.04989in</Width>
+                  <Top>0.67347in</Top>
+                  <Left>0.04666in</Left>
+                  <Height>0.17644in</Height>
+                  <Width>1.08625in</Width>
                   <ZIndex>4</ZIndex>
                   <Style>
                     <Border>
@@ -2909,6 +2910,7 @@
                           <Style>
                             <FontFamily>Times New Roman</FontFamily>
                             <FontSize>6pt</FontSize>
+                            <FontWeight>Bold</FontWeight>
                           </Style>
                         </TextRun>
                       </TextRuns>
@@ -2916,9 +2918,9 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>QCDate</rd:DefaultName>
-                  <Top>0.05457in</Top>
-                  <Left>1.04389in</Left>
-                  <Height>0.1875in</Height>
+                  <Top>0.02972in</Top>
+                  <Left>1.45928in</Left>
+                  <Height>0.14583in</Height>
                   <Width>1in</Width>
                   <ZIndex>5</ZIndex>
                   <Style>
@@ -2942,6 +2944,7 @@
                           <Style>
                             <FontFamily>Times New Roman</FontFamily>
                             <FontSize>6pt</FontSize>
+                            <FontWeight>Bold</FontWeight>
                           </Style>
                         </TextRun>
                       </TextRuns>
@@ -2949,9 +2952,9 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>ShiftName</rd:DefaultName>
-                  <Top>0.36915in</Top>
-                  <Left>1.01542in</Left>
-                  <Height>0.19792in</Height>
+                  <Top>0.22208in</Top>
+                  <Left>1.45928in</Left>
+                  <Height>0.14584in</Height>
                   <Width>1in</Width>
                   <ZIndex>6</ZIndex>
                   <Style>
@@ -2964,50 +2967,6 @@
                     <PaddingBottom>2pt</PaddingBottom>
                   </Style>
                 </Textbox>
-                <Textbox Name="WashCategory">
-                  <CanGrow>true</CanGrow>
-                  <KeepTogether>true</KeepTogether>
-                  <Paragraphs>
-                    <Paragraph>
-                      <TextRuns>
-                        <TextRun>
-                          <Value>=First(Fields!WashCategory.Value, "dsDateWiseHourlyQCReport")</Value>
-                          <Style>
-                            <FontFamily>Times New Roman</FontFamily>
-                            <FontSize>6pt</FontSize>
-                          </Style>
-                        </TextRun>
-                      </TextRuns>
-                      <Style />
-                    </Paragraph>
-                  </Paragraphs>
-                  <rd:DefaultName>WashCategory</rd:DefaultName>
-                  <Top>0.19276in</Top>
-                  <Left>3.47792in</Left>
-                  <Height>0.1875in</Height>
-                  <Width>1.20833in</Width>
-                  <ZIndex>7</ZIndex>
-                  <Style>
-                    <Border>
-                      <Style>None</Style>
-                    </Border>
-                    <PaddingLeft>2pt</PaddingLeft>
-                    <PaddingRight>2pt</PaddingRight>
-                    <PaddingTop>2pt</PaddingTop>
-                    <PaddingBottom>2pt</PaddingBottom>
-                  </Style>
-                </Textbox>
-                <Line Name="Line3">
-                  <Left>2.07167in</Left>
-                  <Height>1.10556in</Height>
-                  <Width>0in</Width>
-                  <ZIndex>8</ZIndex>
-                  <Style>
-                    <Border>
-                      <Style>Solid</Style>
-                    </Border>
-                  </Style>
-                </Line>
                 <Textbox Name="QCName">
                   <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
@@ -3027,11 +2986,11 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>QCName</rd:DefaultName>
-                  <Top>0.66846in</Top>
-                  <Left>1.01541in</Left>
-                  <Height>0.25in</Height>
-                  <Width>1in</Width>
-                  <ZIndex>9</ZIndex>
+                  <Top>0.43736in</Top>
+                  <Left>1.45582in</Left>
+                  <Height>0.16667in</Height>
+                  <Width>1.00348in</Width>
+                  <ZIndex>7</ZIndex>
                   <Style>
                     <Border>
                       <Style>None</Style>
@@ -3046,7 +3005,7 @@
               <KeepTogether>true</KeepTogether>
               <Top>0.94974in</Top>
               <Left>0.10887in</Left>
-              <Height>1.10556in</Height>
+              <Height>1.0859in</Height>
               <Width>4.98526in</Width>
               <ZIndex>3</ZIndex>
               <Style>
