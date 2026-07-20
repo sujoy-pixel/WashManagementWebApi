@@ -2044,7 +2044,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>7AM-8PAM</Value>
+                                  <Value>7AM-8AM</Value>
                                   <Style>
                                     <FontFamily>Times New Roman</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -2141,7 +2141,6 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -2737,7 +2736,7 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox2</rd:DefaultName>
-                  <Top>0.09068in</Top>
+                  <Top>0.05318in</Top>
                   <Height>0.1875in</Height>
                   <Width>0.97097in</Width>
                   <Style>
@@ -2772,7 +2771,7 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox2</rd:DefaultName>
-                  <Top>0.3754in</Top>
+                  <Top>0.3004in</Top>
                   <Left>0.00219in</Left>
                   <Height>0.18056in</Height>
                   <Width>0.94378in</Width>
@@ -2917,8 +2916,8 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>QCDate</rd:DefaultName>
-                  <Top>0.10457in</Top>
-                  <Left>1.04042in</Left>
+                  <Top>0.05457in</Top>
+                  <Left>1.04389in</Left>
                   <Height>0.1875in</Height>
                   <Width>1in</Width>
                   <ZIndex>5</ZIndex>
@@ -3687,7 +3686,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>DHU%  =  TotalDefectQty / TotalChrckQty * 100</Value>
+                      <Value>DHU%  =  (TotalDefectQty / TotalChrckQty) * 100</Value>
                       <Style>
                         <FontFamily>Times New Roman</FontFamily>
                         <FontSize>6pt</FontSize>

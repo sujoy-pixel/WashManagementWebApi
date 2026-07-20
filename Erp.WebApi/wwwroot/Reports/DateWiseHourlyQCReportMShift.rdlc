@@ -3595,7 +3595,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>DHU%  =  TotalDefectQty / TotalChrckQty * 100</Value>
+                      <Value>DHU%  = ( TotalDefectQty / TotalChrckQty )* 100</Value>
                       <Style>
                         <FontFamily>Times New Roman</FontFamily>
                         <FontSize>6pt</FontSize>
