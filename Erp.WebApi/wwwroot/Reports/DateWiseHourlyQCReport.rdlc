@@ -451,51 +451,51 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>0.84794in</Width>
+                  <Width>0.8454in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.71892in</Width>
+                  <Width>0.71638in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.65122in</Width>
+                  <Width>0.64868in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.67449in</Width>
+                  <Width>0.67195in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.70823in</Width>
+                  <Width>0.70569in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.64659in</Width>
+                  <Width>0.64405in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.57747in</Width>
+                  <Width>0.57493in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.567in</Width>
+                  <Width>0.56446in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.52126in</Width>
+                  <Width>0.51872in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.55588in</Width>
+                  <Width>0.55334in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.63603in</Width>
+                  <Width>0.63349in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.80277in</Width>
+                  <Width>0.80023in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.88853in</Width>
+                  <Width>0.88599in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.2293in</Width>
+                  <Width>1.22676in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>0.16667in</Height>
+                  <Height>0.14584in</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -522,6 +522,7 @@
                           <rd:DefaultName>Textbox9</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -557,6 +558,7 @@
                           <rd:DefaultName>Textbox11</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -592,6 +594,7 @@
                           <rd:DefaultName>Textbox52</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -627,6 +630,7 @@
                           <rd:DefaultName>Textbox13</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -662,6 +666,7 @@
                           <rd:DefaultName>Textbox54</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -697,6 +702,7 @@
                           <rd:DefaultName>Textbox62</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -732,6 +738,7 @@
                           <rd:DefaultName>Textbox62</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -767,6 +774,7 @@
                           <rd:DefaultName>Textbox60</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -802,6 +810,7 @@
                           <rd:DefaultName>Textbox58</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -837,6 +846,7 @@
                           <rd:DefaultName>Textbox56</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -872,6 +882,7 @@
                           <rd:DefaultName>Textbox64</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -907,6 +918,7 @@
                           <rd:DefaultName>Textbox66</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -942,6 +954,7 @@
                           <rd:DefaultName>Textbox68</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -977,6 +990,7 @@
                           <rd:DefaultName>Textbox70</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -990,7 +1004,7 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>0.17708in</Height>
+                  <Height>0.15625in</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -1017,6 +1031,7 @@
                           <rd:DefaultName>DefectName</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1052,6 +1067,7 @@
                           <rd:DefaultName>H08PMTo09PM</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1087,6 +1103,7 @@
                           <rd:DefaultName>H09PMTo10PM</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1122,6 +1139,7 @@
                           <rd:DefaultName>H10PMTo11PM</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1157,6 +1175,7 @@
                           <rd:DefaultName>H11PMTo12AM</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1192,6 +1211,7 @@
                           <rd:DefaultName>H12AMTo01AM</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1227,6 +1247,7 @@
                           <rd:DefaultName>H12PMTo01PM</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1262,6 +1283,7 @@
                           <rd:DefaultName>H02AMTo03AM</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1297,6 +1319,7 @@
                           <rd:DefaultName>H03AMTo04AM</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1332,6 +1355,7 @@
                           <rd:DefaultName>H04AMTo05AM</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1367,6 +1391,7 @@
                           <rd:DefaultName>H05AMTo06AM</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1402,6 +1427,7 @@
                           <rd:DefaultName>H06AMTo07AM</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1436,6 +1462,7 @@
                           <rd:DefaultName>H07AMTo08AM</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1472,6 +1499,7 @@
                           <rd:DefaultName>GrandTotal</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1515,10 +1543,10 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>dsDateWiseHourlyQCReport</DataSetName>
-            <Top>0.0112in</Top>
-            <Left>0.10887in</Left>
-            <Height>0.34375in</Height>
-            <Width>10.02563in</Width>
+            <Top>0.0375in</Top>
+            <Left>0.10437in</Left>
+            <Height>0.30208in</Height>
+            <Width>9.99012in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1554,6 +1582,7 @@
                   <Border>
                     <Style>None</Style>
                   </Border>
+                  <BackgroundColor>Silver</BackgroundColor>
                   <VerticalAlign>Top</VerticalAlign>
                   <PaddingLeft>2pt</PaddingLeft>
                   <PaddingRight>2pt</PaddingRight>
@@ -1563,7 +1592,7 @@
               </Textbox>
             </ReportItems>
             <KeepTogether>true</KeepTogether>
-            <Top>0.37023in</Top>
+            <Top>0.37153in</Top>
             <Left>4.17616in</Left>
             <Height>0.1875in</Height>
             <Width>2.44188in</Width>
@@ -1579,51 +1608,51 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>0.82919in</Width>
+                  <Width>0.82894in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.71892in</Width>
+                  <Width>0.71867in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.66449in</Width>
+                  <Width>0.66424in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.66122in</Width>
+                  <Width>0.66097in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.70823in</Width>
+                  <Width>0.70798in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.64659in</Width>
+                  <Width>0.64634in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.57747in</Width>
+                  <Width>0.57722in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.567in</Width>
+                  <Width>0.56675in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.52126in</Width>
+                  <Width>0.52101in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.55588in</Width>
+                  <Width>0.55563in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.63603in</Width>
+                  <Width>0.63578in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.80277in</Width>
+                  <Width>0.80252in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.88853in</Width>
+                  <Width>0.88828in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.23148in</Width>
+                  <Width>1.23123in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>0.17917in</Height>
+                  <Height>0.18368in</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -1648,6 +1677,7 @@
                           <rd:DefaultName>Textbox9</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1683,6 +1713,7 @@
                           <rd:DefaultName>Textbox11</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1718,6 +1749,7 @@
                           <rd:DefaultName>Textbox52</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1753,6 +1785,7 @@
                           <rd:DefaultName>Textbox13</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1788,6 +1821,7 @@
                           <rd:DefaultName>Textbox54</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1823,6 +1857,7 @@
                           <rd:DefaultName>Textbox62</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1858,6 +1893,7 @@
                           <rd:DefaultName>Textbox100</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1893,6 +1929,7 @@
                           <rd:DefaultName>Textbox60</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1928,6 +1965,7 @@
                           <rd:DefaultName>Textbox58</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1963,6 +2001,7 @@
                           <rd:DefaultName>Textbox56</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -2116,7 +2155,7 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>0.1375in</Height>
+                  <Height>0.14202in</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -2141,6 +2180,7 @@
                           <rd:DefaultName>DefectName</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -2176,6 +2216,7 @@
                           <rd:DefaultName>Eight_Nine</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -2211,6 +2252,7 @@
                           <rd:DefaultName>Nine_Ten</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -2246,6 +2288,7 @@
                           <rd:DefaultName>Ten_Eleven</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -2281,6 +2324,7 @@
                           <rd:DefaultName>Eleven_Twelve1</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -2316,6 +2360,7 @@
                           <rd:DefaultName>Twelve_One</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -2350,6 +2395,7 @@
                           <rd:DefaultName>H01AMTo02AM</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -2385,6 +2431,7 @@
                           <rd:DefaultName>Two_Three</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -2420,6 +2467,7 @@
                           <rd:DefaultName>Three_Four</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -2455,6 +2503,7 @@
                           <rd:DefaultName>Four_Five</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -2637,10 +2686,10 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>dsDateWiseHourlyQCReportSummary</DataSetName>
-            <Top>0.55565in</Top>
-            <Left>0.12762in</Left>
-            <Height>0.31667in</Height>
-            <Width>10.00906in</Width>
+            <Top>0.59653in</Top>
+            <Left>0.10437in</Left>
+            <Height>0.3257in</Height>
+            <Width>10.00555in</Width>
             <ZIndex>2</ZIndex>
             <Style>
               <Border>
@@ -2649,14 +2698,15 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>0.89732in</Height>
+        <Height>0.97223in</Height>
         <Style>
           <Border>
-            <Style>None</Style>
+            <Color>Gray</Color>
+            <Style>Solid</Style>
           </Border>
         </Style>
       </Body>
-      <Width>10.155in</Width>
+      <Width>10.13668in</Width>
       <Page>
         <PageHeader>
           <Height>2.08in</Height>
@@ -2676,45 +2726,12 @@
                 </Border>
               </Style>
             </Image>
-            <Textbox Name="ReportHeader">
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Label>Batch Card</Label>
-                      <Value>=Parameters!ReportHeader.Value</Value>
-                      <Style>
-                        <FontFamily>Times New Roman</FontFamily>
-                        <FontWeight>Bold</FontWeight>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <TextAlign>Center</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>ReportHeader</rd:DefaultName>
-              <Top>0.69035in</Top>
-              <Left>2.65324in</Left>
-              <Height>0.23161in</Height>
-              <Width>5.20231in</Width>
-              <ZIndex>1</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <BackgroundColor>Silver</BackgroundColor>
-                <VerticalAlign>Middle</VerticalAlign>
-              </Style>
-            </Textbox>
             <Line Name="Line16">
               <Top>0.63479in</Top>
               <Left>0.11106in</Left>
               <Height>0in</Height>
               <Width>10.02562in</Width>
-              <ZIndex>2</ZIndex>
+              <ZIndex>1</ZIndex>
               <Style>
                 <Border>
                   <Style>Solid</Style>
@@ -3013,11 +3030,12 @@
               <KeepTogether>true</KeepTogether>
               <Top>0.94557in</Top>
               <Left>0.10887in</Left>
-              <Height>1.07896in</Height>
+              <Height>1.05813in</Height>
               <Width>4.97484in</Width>
-              <ZIndex>3</ZIndex>
+              <ZIndex>2</ZIndex>
               <Style>
                 <Border>
+                  <Color>Gray</Color>
                   <Style>Solid</Style>
                 </Border>
               </Style>
@@ -3046,7 +3064,7 @@
                   </Paragraphs>
                   <rd:DefaultName>Textbox2</rd:DefaultName>
                   <Top>0.58363in</Top>
-                  <Left>0.06084in</Left>
+                  <Left>0.04834in</Left>
                   <Height>0.16806in</Height>
                   <Width>0.76988in</Width>
                   <Style>
@@ -3082,7 +3100,7 @@
                   </Paragraphs>
                   <rd:DefaultName>Textbox2</rd:DefaultName>
                   <Top>0.33468in</Top>
-                  <Left>0.06084in</Left>
+                  <Left>0.04834in</Left>
                   <Height>0.1809in</Height>
                   <Width>0.76988in</Width>
                   <ZIndex>1</ZIndex>
@@ -3118,9 +3136,9 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox2</rd:DefaultName>
-                  <Top>0.79613in</Top>
-                  <Left>0.05251in</Left>
-                  <Height>0.23888in</Height>
+                  <Top>0.82738in</Top>
+                  <Left>0.04001in</Left>
+                  <Height>0.17638in</Height>
                   <Width>0.78147in</Width>
                   <ZIndex>2</ZIndex>
                   <Style>
@@ -3478,8 +3496,8 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>OrderNo</rd:DefaultName>
-                  <Top>0.37946in</Top>
-                  <Left>3.16368in</Left>
+                  <Top>0.36905in</Top>
+                  <Left>3.15118in</Left>
                   <Height>0.13611in</Height>
                   <Width>1.54854in</Width>
                   <ZIndex>15</ZIndex>
@@ -3511,8 +3529,8 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>JobNo</rd:DefaultName>
-                  <Top>0.62807in</Top>
-                  <Left>3.16368in</Left>
+                  <Top>0.61557in</Top>
+                  <Left>3.15118in</Left>
                   <Height>0.14028in</Height>
                   <Width>1.54854in</Width>
                   <ZIndex>16</ZIndex>
@@ -3546,8 +3564,8 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>DHUPercent</rd:DefaultName>
-                  <Top>0.88988in</Top>
-                  <Left>3.16368in</Left>
+                  <Top>0.86488in</Top>
+                  <Left>3.15118in</Left>
                   <Height>0.14306in</Height>
                   <Width>1.54854in</Width>
                   <ZIndex>17</ZIndex>
@@ -3563,13 +3581,14 @@
                 </Textbox>
               </ReportItems>
               <KeepTogether>true</KeepTogether>
-              <Top>0.95262in</Top>
-              <Left>5.20746in</Left>
-              <Height>1.07052in</Height>
-              <Width>4.92704in</Width>
-              <ZIndex>4</ZIndex>
+              <Top>0.94012in</Top>
+              <Left>5.18246in</Left>
+              <Height>1.05238in</Height>
+              <Width>4.91203in</Width>
+              <ZIndex>3</ZIndex>
               <Style>
                 <Border>
+                  <Color>Gray</Color>
                   <Style>Solid</Style>
                 </Border>
               </Style>
@@ -3583,8 +3602,8 @@
                     <TextRun>
                       <Value>=First(Fields!GroupName.Value, "dsDateWiseHourlyQCReport")</Value>
                       <Style>
-                        <FontFamily>Times New Roman</FontFamily>
-                        <FontSize>14pt</FontSize>
+                        <FontFamily>Verdana</FontFamily>
+                        <FontSize>16pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
@@ -3597,9 +3616,9 @@
               <rd:DefaultName>GroupName</rd:DefaultName>
               <Top>0.03172in</Top>
               <Left>2.65324in</Left>
-              <Height>0.25in</Height>
+              <Height>0.22807in</Height>
               <Width>5.10894in</Width>
-              <ZIndex>5</ZIndex>
+              <ZIndex>4</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -3636,7 +3655,7 @@
               <Left>2.65324in</Left>
               <Height>0.25in</Height>
               <Width>5.10894in</Width>
-              <ZIndex>6</ZIndex>
+              <ZIndex>5</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -3703,7 +3722,7 @@
               <Left>7.91111in</Left>
               <Height>0.29167in</Height>
               <Width>2.22339in</Width>
-              <ZIndex>7</ZIndex>
+              <ZIndex>6</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -3719,13 +3738,46 @@
               <Left>8.38364in</Left>
               <Height>0in</Height>
               <Width>0.58406in</Width>
-              <ZIndex>8</ZIndex>
+              <ZIndex>7</ZIndex>
               <Style>
                 <Border>
                   <Style>Solid</Style>
                 </Border>
               </Style>
             </Line>
+            <Textbox Name="ReportHeader">
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Label>Batch Card</Label>
+                      <Value>=Parameters!ReportHeader.Value</Value>
+                      <Style>
+                        <FontFamily>Times New Roman</FontFamily>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>ReportHeader</rd:DefaultName>
+              <Top>0.6742in</Top>
+              <Left>2.66718in</Left>
+              <Height>0.23161in</Height>
+              <Width>5.20231in</Width>
+              <ZIndex>8</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <BackgroundColor>LightGrey</BackgroundColor>
+                <VerticalAlign>Middle</VerticalAlign>
+              </Style>
+            </Textbox>
           </ReportItems>
           <Style>
             <Border>

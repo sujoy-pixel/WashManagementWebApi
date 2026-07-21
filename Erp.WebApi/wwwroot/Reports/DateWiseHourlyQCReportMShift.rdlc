@@ -522,6 +522,7 @@
                           <rd:DefaultName>Textbox9</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -557,6 +558,7 @@
                           <rd:DefaultName>Textbox11</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -592,6 +594,7 @@
                           <rd:DefaultName>Textbox52</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -627,6 +630,7 @@
                           <rd:DefaultName>Textbox13</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -662,6 +666,7 @@
                           <rd:DefaultName>Textbox54</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -697,6 +702,7 @@
                           <rd:DefaultName>Textbox62</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -732,6 +738,7 @@
                           <rd:DefaultName>Textbox62</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -767,6 +774,7 @@
                           <rd:DefaultName>Textbox60</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -802,6 +810,7 @@
                           <rd:DefaultName>Textbox58</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -837,6 +846,7 @@
                           <rd:DefaultName>Textbox56</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -872,6 +882,7 @@
                           <rd:DefaultName>Textbox64</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -907,6 +918,7 @@
                           <rd:DefaultName>Textbox66</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -942,6 +954,7 @@
                           <rd:DefaultName>Textbox68</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -977,6 +990,7 @@
                           <rd:DefaultName>Textbox70</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1017,6 +1031,7 @@
                           <rd:DefaultName>DefectName</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1052,6 +1067,7 @@
                           <rd:DefaultName>H08AMTo09AM</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1087,6 +1103,7 @@
                           <rd:DefaultName>H09AMTo10AM</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1095,7 +1112,6 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -1123,6 +1139,7 @@
                           <rd:DefaultName>H10AMTo11AM</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1158,6 +1175,7 @@
                           <rd:DefaultName>H11AMTo12PM</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1193,6 +1211,7 @@
                           <rd:DefaultName>H12PMTo01PM</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1229,14 +1248,22 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
                           <rd:DefaultName>Textbox24</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Style>None</Style>
+                              <Color>White</Color>
+                              <Style>Solid</Style>
                             </Border>
+                            <BottomBorder>
+                              <Style>None</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                            </LeftBorder>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -1264,6 +1291,7 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
                           <rd:DefaultName>H02PMTo03PM</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1299,6 +1327,7 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
                           <rd:DefaultName>H03PMTo04PM</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1334,6 +1363,7 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
                           <rd:DefaultName>H04PMTo05PM</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1369,6 +1399,7 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
                           <rd:DefaultName>H05PMTo06PM</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1404,6 +1435,7 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
                           <rd:DefaultName>H06PMTo07PM</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1438,6 +1470,7 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
                           <rd:DefaultName>H07PMTo08PM</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1474,6 +1507,7 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
                           <rd:DefaultName>GrandTotal</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1652,6 +1686,7 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
                           <rd:DefaultName>Textbox9</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1687,6 +1722,7 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
                           <rd:DefaultName>Textbox11</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1722,6 +1758,7 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
                           <rd:DefaultName>Textbox52</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1757,6 +1794,7 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
                           <rd:DefaultName>Textbox13</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1792,6 +1830,7 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
                           <rd:DefaultName>Textbox54</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1827,6 +1866,7 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
                           <rd:DefaultName>Textbox62</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1897,6 +1937,7 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
                           <rd:DefaultName>Textbox60</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1932,6 +1973,7 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
                           <rd:DefaultName>Textbox58</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -1967,6 +2009,7 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
                           <rd:DefaultName>Textbox56</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -2002,6 +2045,7 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
                           <rd:DefaultName>Textbox64</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -2037,6 +2081,7 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
                           <rd:DefaultName>Textbox66</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -2072,6 +2117,7 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
                           <rd:DefaultName>Textbox68</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -2107,6 +2153,7 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
                           <rd:DefaultName>Textbox70</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -2147,6 +2194,7 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
                           <rd:DefaultName>DefectName</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -2182,6 +2230,7 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
                           <rd:DefaultName>Eight_Nine</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -2217,6 +2266,7 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
                           <rd:DefaultName>Nine_Ten</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -2252,6 +2302,7 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
                           <rd:DefaultName>Ten_Eleven</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -2287,6 +2338,7 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
                           <rd:DefaultName>Eleven_Twelve1</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -2322,6 +2374,7 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
                           <rd:DefaultName>Twelve_One</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -2359,8 +2412,21 @@ Fields!SortOrder.Value = Ceiling(8/2),
                           <ZIndex>8</ZIndex>
                           <Style>
                             <Border>
-                              <Style>None</Style>
+                              <Color>White</Color>
+                              <Style>Solid</Style>
                             </Border>
+                            <TopBorder>
+                              <Style>None</Style>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Style>None</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>None</Style>
+                            </RightBorder>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -2394,6 +2460,7 @@ Fields!SortOrder.Value = Ceiling(8/2),
                           <rd:DefaultName>Two_Three</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -2429,6 +2496,7 @@ Fields!SortOrder.Value = Ceiling(8/2),
                           <rd:DefaultName>Three_Four</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -2464,6 +2532,7 @@ Fields!SortOrder.Value = Ceiling(8/2),
                           <rd:DefaultName>Four_Five</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -2499,6 +2568,7 @@ Fields!SortOrder.Value = Ceiling(8/2),
                           <rd:DefaultName>Five_Six</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -2534,6 +2604,7 @@ Fields!SortOrder.Value = Ceiling(8/2),
                           <rd:DefaultName>Six_Seven</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -2568,6 +2639,7 @@ Fields!SortOrder.Value = Ceiling(8/2),
                           <rd:DefaultName>H07PMTo08PM1</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -2603,6 +2675,7 @@ Fields!SortOrder.Value = Ceiling(8/2),
                           <rd:DefaultName>GrandTotal</rd:DefaultName>
                           <Style>
                             <Border>
+                              <Color>Gray</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -2766,7 +2839,7 @@ Fields!SortOrder.Value = Ceiling(8/2),
                   </Paragraphs>
                   <rd:DefaultName>Textbox2</rd:DefaultName>
                   <Top>0.04794in</Top>
-                  <Left>0.03318in</Left>
+                  <Left>0.04761in</Left>
                   <Height>0.17322in</Height>
                   <Width>1.0925in</Width>
                   <Style>
@@ -2802,7 +2875,7 @@ Fields!SortOrder.Value = Ceiling(8/2),
                   </Paragraphs>
                   <rd:DefaultName>Textbox2</rd:DefaultName>
                   <Top>0.24894in</Top>
-                  <Left>0.01875in</Left>
+                  <Left>0.03318in</Left>
                   <Height>0.17014in</Height>
                   <Width>1.10693in</Width>
                   <ZIndex>1</ZIndex>
@@ -2839,7 +2912,7 @@ Fields!SortOrder.Value = Ceiling(8/2),
                   </Paragraphs>
                   <rd:DefaultName>Textbox2</rd:DefaultName>
                   <Top>0.4531in</Top>
-                  <Left>0.03537in</Left>
+                  <Left>0.0498in</Left>
                   <Height>0.17708in</Height>
                   <Width>1.09031in</Width>
                   <ZIndex>2</ZIndex>
@@ -2876,7 +2949,7 @@ Fields!SortOrder.Value = Ceiling(8/2),
                   </Paragraphs>
                   <rd:DefaultName>Textbox2</rd:DefaultName>
                   <Top>0.86704in</Top>
-                  <Left>0.03968in</Left>
+                  <Left>0.05411in</Left>
                   <Height>0.14791in</Height>
                   <Width>1.08601in</Width>
                   <ZIndex>3</ZIndex>
@@ -2913,7 +2986,7 @@ Fields!SortOrder.Value = Ceiling(8/2),
                   </Paragraphs>
                   <rd:DefaultName>Textbox2</rd:DefaultName>
                   <Top>0.67671in</Top>
-                  <Left>0.03944in</Left>
+                  <Left>0.05387in</Left>
                   <Height>0.17644in</Height>
                   <Width>1.08625in</Width>
                   <ZIndex>4</ZIndex>
@@ -2948,7 +3021,7 @@ Fields!SortOrder.Value = Ceiling(8/2),
                   </Paragraphs>
                   <rd:DefaultName>QCDate</rd:DefaultName>
                   <Top>0.04546in</Top>
-                  <Left>1.15207in</Left>
+                  <Left>1.1665in</Left>
                   <Height>0.14583in</Height>
                   <Width>1in</Width>
                   <ZIndex>5</ZIndex>
@@ -2982,7 +3055,7 @@ Fields!SortOrder.Value = Ceiling(8/2),
                   </Paragraphs>
                   <rd:DefaultName>ShiftName</rd:DefaultName>
                   <Top>0.23782in</Top>
-                  <Left>1.15207in</Left>
+                  <Left>1.1665in</Left>
                   <Height>0.14584in</Height>
                   <Width>1in</Width>
                   <ZIndex>6</ZIndex>
@@ -3016,7 +3089,7 @@ Fields!SortOrder.Value = Ceiling(8/2),
                   </Paragraphs>
                   <rd:DefaultName>QCName</rd:DefaultName>
                   <Top>0.4531in</Top>
-                  <Left>1.1486in</Left>
+                  <Left>1.16303in</Left>
                   <Height>0.16667in</Height>
                   <Width>1.00348in</Width>
                   <ZIndex>7</ZIndex>
@@ -3032,13 +3105,14 @@ Fields!SortOrder.Value = Ceiling(8/2),
                 </Textbox>
               </ReportItems>
               <KeepTogether>true</KeepTogether>
-              <Top>0.92683in</Top>
-              <Left>0.10887in</Left>
-              <Height>1.04136in</Height>
-              <Width>4.93318in</Width>
+              <Top>0.95183in</Top>
+              <Left>0.12762in</Left>
+              <Height>1.01706in</Height>
+              <Width>4.94761in</Width>
               <ZIndex>3</ZIndex>
               <Style>
                 <Border>
+                  <Color>Gray</Color>
                   <Style>Solid</Style>
                 </Border>
               </Style>
@@ -3067,7 +3141,7 @@ Fields!SortOrder.Value = Ceiling(8/2),
                   </Paragraphs>
                   <rd:DefaultName>Textbox2</rd:DefaultName>
                   <Top>0.58363in</Top>
-                  <Left>0.04834in</Left>
+                  <Left>0.01084in</Left>
                   <Height>0.16806in</Height>
                   <Width>0.69792in</Width>
                   <Style>
@@ -3103,7 +3177,7 @@ Fields!SortOrder.Value = Ceiling(8/2),
                   </Paragraphs>
                   <rd:DefaultName>Textbox2</rd:DefaultName>
                   <Top>0.32323in</Top>
-                  <Left>0.04109in</Left>
+                  <Left>0.00359in</Left>
                   <Height>0.1809in</Height>
                   <Width>0.68307in</Width>
                   <ZIndex>1</ZIndex>
@@ -3139,9 +3213,9 @@ Fields!SortOrder.Value = Ceiling(8/2),
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox2</rd:DefaultName>
-                  <Top>0.79613in</Top>
-                  <Height>0.23889in</Height>
-                  <Width>0.74626in</Width>
+                  <Top>0.82738in</Top>
+                  <Height>0.18681in</Height>
+                  <Width>0.70876in</Width>
                   <ZIndex>2</ZIndex>
                   <Style>
                     <Border>
@@ -3286,8 +3360,8 @@ Fields!SortOrder.Value = Ceiling(8/2),
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox2</rd:DefaultName>
-                  <Top>0.09891in</Top>
-                  <Left>0.06501in</Left>
+                  <Top>0.08851in</Top>
+                  <Left>0.0414in</Left>
                   <Height>0.16527in</Height>
                   <Width>0.65915in</Width>
                   <ZIndex>6</ZIndex>
@@ -3303,7 +3377,7 @@ Fields!SortOrder.Value = Ceiling(8/2),
                   </Style>
                 </Textbox>
                 <Line Name="Line4">
-                  <Top>0.32982in</Top>
+                  <Top>0.30482in</Top>
                   <Height>0in</Height>
                   <Width>4.91203in</Width>
                   <ZIndex>7</ZIndex>
@@ -3315,7 +3389,7 @@ Fields!SortOrder.Value = Ceiling(8/2),
                 </Line>
                 <Line Name="Line5">
                   <Top>0.30968in</Top>
-                  <Left>2.16474in</Left>
+                  <Left>2.11474in</Left>
                   <Height>0.7427in</Height>
                   <Width>0in</Width>
                   <ZIndex>8</ZIndex>
@@ -3400,9 +3474,9 @@ Fields!SortOrder.Value = Ceiling(8/2),
                   </Paragraphs>
                   <rd:DefaultName>BuyerName</rd:DefaultName>
                   <Top>0.3576in</Top>
-                  <Left>0.75125in</Left>
+                  <Left>0.73875in</Left>
                   <Height>0.14653in</Height>
-                  <Width>1.15655in</Width>
+                  <Width>1.23631in</Width>
                   <ZIndex>12</ZIndex>
                   <Style>
                     <Border>
@@ -3433,9 +3507,9 @@ Fields!SortOrder.Value = Ceiling(8/2),
                   </Paragraphs>
                   <rd:DefaultName>StyleName</rd:DefaultName>
                   <Top>0.59821in</Top>
-                  <Left>0.76375in</Left>
+                  <Left>0.75125in</Left>
                   <Height>0.14237in</Height>
-                  <Width>1.17044in</Width>
+                  <Width>1.22381in</Width>
                   <ZIndex>13</ZIndex>
                   <Style>
                     <Border>
@@ -3466,7 +3540,7 @@ Fields!SortOrder.Value = Ceiling(8/2),
                   </Paragraphs>
                   <rd:DefaultName>Color</rd:DefaultName>
                   <Top>0.82738in</Top>
-                  <Left>0.76374in</Left>
+                  <Left>0.75124in</Left>
                   <Height>0.18056in</Height>
                   <Width>1.22382in</Width>
                   <ZIndex>14</ZIndex>
@@ -3590,6 +3664,7 @@ Fields!SortOrder.Value = Ceiling(8/2),
               <ZIndex>4</ZIndex>
               <Style>
                 <Border>
+                  <Color>Gray</Color>
                   <Style>Solid</Style>
                 </Border>
               </Style>
