@@ -1411,8 +1411,8 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>dsDateWiseHourlyQCReport</DataSetName>
-            <Top>0.0112in</Top>
-            <Left>0.10887in</Left>
+            <Top>0.01259in</Top>
+            <Left>0.11272in</Left>
             <Height>0.34375in</Height>
             <Width>10.02782in</Width>
             <Style>
@@ -1449,6 +1449,7 @@
                   <Border>
                     <Style>None</Style>
                   </Border>
+                  <BackgroundColor>LightGrey</BackgroundColor>
                   <VerticalAlign>Top</VerticalAlign>
                   <PaddingLeft>2pt</PaddingLeft>
                   <PaddingRight>2pt</PaddingRight>
@@ -2536,7 +2537,7 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>dsDateWiseHourlyQCReportSummary</DataSetName>
-            <Top>0.55565in</Top>
+            <Top>0.56815in</Top>
             <Left>0.12762in</Left>
             <Height>0.31667in</Height>
             <Width>10.00907in</Width>
@@ -2604,7 +2605,7 @@
                 <Border>
                   <Style>None</Style>
                 </Border>
-                <BackgroundColor>Silver</BackgroundColor>
+                <BackgroundColor>LightGrey</BackgroundColor>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
             </Textbox>
@@ -2753,9 +2754,9 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox2</rd:DefaultName>
-                  <Top>0.90526in</Top>
+                  <Top>0.89276in</Top>
                   <Left>0.03318in</Left>
-                  <Height>0.16667in</Height>
+                  <Height>0.14791in</Height>
                   <Width>1.08601in</Width>
                   <ZIndex>3</ZIndex>
                   <Style>
@@ -2790,7 +2791,7 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox2</rd:DefaultName>
-                  <Top>0.68921in</Top>
+                  <Top>0.67671in</Top>
                   <Left>0.03944in</Left>
                   <Height>0.17644in</Height>
                   <Width>1.08625in</Width>
@@ -2826,7 +2827,7 @@
                   </Paragraphs>
                   <rd:DefaultName>QCDate</rd:DefaultName>
                   <Top>0.04546in</Top>
-                  <Left>1.45207in</Left>
+                  <Left>1.15207in</Left>
                   <Height>0.14583in</Height>
                   <Width>1in</Width>
                   <ZIndex>5</ZIndex>
@@ -2860,7 +2861,7 @@
                   </Paragraphs>
                   <rd:DefaultName>ShiftName</rd:DefaultName>
                   <Top>0.23782in</Top>
-                  <Left>1.45207in</Left>
+                  <Left>1.15207in</Left>
                   <Height>0.14584in</Height>
                   <Width>1in</Width>
                   <ZIndex>6</ZIndex>
@@ -2894,7 +2895,7 @@
                   </Paragraphs>
                   <rd:DefaultName>QCName</rd:DefaultName>
                   <Top>0.4531in</Top>
-                  <Left>1.4486in</Left>
+                  <Left>1.1486in</Left>
                   <Height>0.16667in</Height>
                   <Width>1.00348in</Width>
                   <ZIndex>7</ZIndex>
@@ -2912,8 +2913,8 @@
               <KeepTogether>true</KeepTogether>
               <Top>0.93933in</Top>
               <Left>0.10887in</Left>
-              <Height>1.08026in</Height>
-              <Width>4.92276in</Width>
+              <Height>1.08511in</Height>
+              <Width>4.93318in</Width>
               <ZIndex>3</ZIndex>
               <Style>
                 <Border>
@@ -2947,7 +2948,7 @@
                   <Top>0.58363in</Top>
                   <Left>0.04834in</Left>
                   <Height>0.16806in</Height>
-                  <Width>0.76988in</Width>
+                  <Width>0.69792in</Width>
                   <Style>
                     <Border>
                       <Style>None</Style>
@@ -2980,10 +2981,10 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox2</rd:DefaultName>
-                  <Top>0.33468in</Top>
-                  <Left>0.04834in</Left>
+                  <Top>0.32323in</Top>
+                  <Left>0.04109in</Left>
                   <Height>0.1809in</Height>
-                  <Width>0.76988in</Width>
+                  <Width>0.68307in</Width>
                   <ZIndex>1</ZIndex>
                   <Style>
                     <Border>
@@ -3019,7 +3020,7 @@
                   <rd:DefaultName>Textbox2</rd:DefaultName>
                   <Top>0.79613in</Top>
                   <Height>0.23889in</Height>
-                  <Width>0.82148in</Width>
+                  <Width>0.74626in</Width>
                   <ZIndex>2</ZIndex>
                   <Style>
                     <Border>
@@ -3039,7 +3040,7 @@
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>Job     :    </Value>
+                          <Value>Job         :    </Value>
                           <Style>
                             <FontFamily>Times New Roman</FontFamily>
                             <FontSize>7pt</FontSize>
@@ -3056,7 +3057,7 @@
                   <Top>0.60238in</Top>
                   <Left>2.19669in</Left>
                   <Height>0.18681in</Height>
-                  <Width>0.87031in</Width>
+                  <Width>0.88591in</Width>
                   <ZIndex>3</ZIndex>
                   <Style>
                     <Border>
@@ -3076,7 +3077,7 @@
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>Order : </Value>
+                          <Value>Order    : </Value>
                           <Style>
                             <FontFamily>Times New Roman</FontFamily>
                             <FontSize>7pt</FontSize>
@@ -3093,7 +3094,7 @@
                   <Top>0.36732in</Top>
                   <Left>2.19669in</Left>
                   <Height>0.1684in</Height>
-                  <Width>0.87031in</Width>
+                  <Width>0.88591in</Width>
                   <ZIndex>4</ZIndex>
                   <Style>
                     <Border>
@@ -3113,7 +3114,7 @@
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>DHU % </Value>
+                          <Value>DHU % :</Value>
                           <Style>
                             <FontFamily>Times New Roman</FontFamily>
                             <FontSize>7pt</FontSize>
@@ -3277,8 +3278,8 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>BuyerName</rd:DefaultName>
-                  <Top>0.36905in</Top>
-                  <Left>0.90125in</Left>
+                  <Top>0.3576in</Top>
+                  <Left>0.75125in</Left>
                   <Height>0.14653in</Height>
                   <Width>1.15655in</Width>
                   <ZIndex>12</ZIndex>
@@ -3311,7 +3312,7 @@
                   </Paragraphs>
                   <rd:DefaultName>StyleName</rd:DefaultName>
                   <Top>0.59821in</Top>
-                  <Left>0.90125in</Left>
+                  <Left>0.76375in</Left>
                   <Height>0.14237in</Height>
                   <Width>1.17044in</Width>
                   <ZIndex>13</ZIndex>
@@ -3343,8 +3344,8 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Color</rd:DefaultName>
-                  <Top>0.85238in</Top>
-                  <Left>0.90342in</Left>
+                  <Top>0.82738in</Top>
+                  <Left>0.76374in</Left>
                   <Height>0.18056in</Height>
                   <Width>1.22382in</Width>
                   <ZIndex>14</ZIndex>
@@ -3376,8 +3377,8 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>OrderNo</rd:DefaultName>
-                  <Top>0.37946in</Top>
-                  <Left>3.16368in</Left>
+                  <Top>0.36696in</Top>
+                  <Left>3.12618in</Left>
                   <Height>0.13611in</Height>
                   <Width>1.54854in</Width>
                   <ZIndex>15</ZIndex>
@@ -3409,8 +3410,8 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>JobNo</rd:DefaultName>
-                  <Top>0.62807in</Top>
-                  <Left>3.16368in</Left>
+                  <Top>0.61557in</Top>
+                  <Left>3.12618in</Left>
                   <Height>0.14028in</Height>
                   <Width>1.54854in</Width>
                   <ZIndex>16</ZIndex>
@@ -3438,12 +3439,14 @@
                           </Style>
                         </TextRun>
                       </TextRuns>
-                      <Style />
+                      <Style>
+                        <TextAlign>Left</TextAlign>
+                      </Style>
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>DHUPercent</rd:DefaultName>
-                  <Top>0.88988in</Top>
-                  <Left>3.16368in</Left>
+                  <Top>0.86488in</Top>
+                  <Left>3.12618in</Left>
                   <Height>0.14306in</Height>
                   <Width>1.54854in</Width>
                   <ZIndex>17</ZIndex>
@@ -3461,7 +3464,7 @@
               <KeepTogether>true</KeepTogether>
               <Top>0.94012in</Top>
               <Left>5.20746in</Left>
-              <Height>1.07668in</Height>
+              <Height>1.06627in</Height>
               <Width>4.91203in</Width>
               <ZIndex>4</ZIndex>
               <Style>
@@ -3479,8 +3482,8 @@
                     <TextRun>
                       <Value>=First(Fields!GroupName.Value, "dsDateWiseHourlyQCReport")</Value>
                       <Style>
-                        <FontFamily>Times New Roman</FontFamily>
-                        <FontSize>14pt</FontSize>
+                        <FontFamily>Verdana</FontFamily>
+                        <FontSize>16pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
@@ -3544,18 +3547,6 @@
                 <PaddingBottom>2pt</PaddingBottom>
               </Style>
             </Textbox>
-            <Line Name="Line17">
-              <Top>0.64416in</Top>
-              <Left>0.09594in</Left>
-              <Height>0in</Height>
-              <Width>10.02562in</Width>
-              <ZIndex>7</ZIndex>
-              <Style>
-                <Border>
-                  <Style>Solid</Style>
-                </Border>
-              </Style>
-            </Line>
             <Textbox Name="Textbox8">
               <CanGrow>true</CanGrow>
               <KeepTogether>true</KeepTogether>
@@ -3567,7 +3558,6 @@
                       <Style>
                         <FontFamily>Times New Roman</FontFamily>
                         <FontSize>6pt</FontSize>
-                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -3582,7 +3572,6 @@
                       <Style>
                         <FontFamily>Times New Roman</FontFamily>
                         <FontSize>6pt</FontSize>
-                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -3593,7 +3582,14 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>                     TotalChrckQty     </Value>
+                      <Value>                     TotalChrckQty   </Value>
+                      <Style>
+                        <FontFamily>Times New Roman</FontFamily>
+                        <FontSize>6pt</FontSize>
+                      </Style>
+                    </TextRun>
+                    <TextRun>
+                      <Value xml:space="preserve">  </Value>
                       <Style>
                         <FontFamily>Times New Roman</FontFamily>
                         <FontSize>6pt</FontSize>
@@ -3611,7 +3607,7 @@
               <Left>7.89599in</Left>
               <Height>0.29167in</Height>
               <Width>2.22339in</Width>
-              <ZIndex>8</ZIndex>
+              <ZIndex>7</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -3627,7 +3623,7 @@
               <Left>8.34614in</Left>
               <Height>0in</Height>
               <Width>0.55208in</Width>
-              <ZIndex>9</ZIndex>
+              <ZIndex>8</ZIndex>
               <Style>
                 <Border>
                   <Style>Solid</Style>
