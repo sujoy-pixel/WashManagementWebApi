@@ -286,11 +286,15 @@ namespace Erp.WebApi.Controllers.MascoWash.Report
                 //==============================================
                 var parameters = new Dictionary<string, string>();
 
+                //if (originalReportName == "Date Wise Hourly QC Report")
+                //{
+
+                //    parameters.Add("ReportHeader", originalReportName);
+                //}
                 if (originalReportName == "Date Wise Hourly QC Report")
                 {
-                    parameters.Add("ReportHeader", originalReportName);
+                    parameters.Add("ReportHeader", "Hourly QC Pass & DHU Report");
                 }
-
                 //==============================================
                 // Render Report
                 //==============================================

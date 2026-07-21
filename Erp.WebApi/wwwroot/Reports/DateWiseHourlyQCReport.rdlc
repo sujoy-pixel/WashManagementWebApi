@@ -2648,7 +2648,7 @@
           </Border>
         </Style>
       </Body>
-      <Width>10.165in</Width>
+      <Width>10.155in</Width>
       <Page>
         <PageHeader>
           <Height>2.08in</Height>
@@ -2736,7 +2736,7 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox2</rd:DefaultName>
-                  <Top>0.0322in</Top>
+                  <Top>0.01137in</Top>
                   <Left>0.04039in</Left>
                   <Height>0.17322in</Height>
                   <Width>1.0925in</Width>
@@ -2772,7 +2772,7 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox2</rd:DefaultName>
-                  <Top>0.2332in</Top>
+                  <Top>0.21237in</Top>
                   <Left>0.02596in</Left>
                   <Height>0.17014in</Height>
                   <Width>1.10693in</Width>
@@ -2809,7 +2809,7 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox2</rd:DefaultName>
-                  <Top>0.43736in</Top>
+                  <Top>0.41653in</Top>
                   <Left>0.04258in</Left>
                   <Height>0.17708in</Height>
                   <Width>1.09031in</Width>
@@ -2846,7 +2846,7 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox2</rd:DefaultName>
-                  <Top>0.88952in</Top>
+                  <Top>0.86869in</Top>
                   <Left>0.04039in</Left>
                   <Height>0.16667in</Height>
                   <Width>1.08601in</Width>
@@ -2883,7 +2883,7 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox2</rd:DefaultName>
-                  <Top>0.67347in</Top>
+                  <Top>0.65264in</Top>
                   <Left>0.04666in</Left>
                   <Height>0.17644in</Height>
                   <Width>1.08625in</Width>
@@ -2918,7 +2918,7 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>QCDate</rd:DefaultName>
-                  <Top>0.02972in</Top>
+                  <Top>0.00889in</Top>
                   <Left>1.45928in</Left>
                   <Height>0.14583in</Height>
                   <Width>1in</Width>
@@ -2952,7 +2952,7 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>ShiftName</rd:DefaultName>
-                  <Top>0.22208in</Top>
+                  <Top>0.20125in</Top>
                   <Left>1.45928in</Left>
                   <Height>0.14584in</Height>
                   <Width>1in</Width>
@@ -2986,7 +2986,7 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>QCName</rd:DefaultName>
-                  <Top>0.43736in</Top>
+                  <Top>0.41653in</Top>
                   <Left>1.45582in</Left>
                   <Height>0.16667in</Height>
                   <Width>1.00348in</Width>
@@ -3003,10 +3003,10 @@
                 </Textbox>
               </ReportItems>
               <KeepTogether>true</KeepTogether>
-              <Top>0.94974in</Top>
+              <Top>0.94557in</Top>
               <Left>0.10887in</Left>
-              <Height>1.0859in</Height>
-              <Width>4.98526in</Width>
+              <Height>1.07896in</Height>
+              <Width>4.97484in</Width>
               <ZIndex>3</ZIndex>
               <Style>
                 <Border>
@@ -3532,7 +3532,9 @@
                           </Style>
                         </TextRun>
                       </TextRuns>
-                      <Style />
+                      <Style>
+                        <TextAlign>Left</TextAlign>
+                      </Style>
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>DHUPercent</rd:DefaultName>
@@ -3553,10 +3555,10 @@
                 </Textbox>
               </ReportItems>
               <KeepTogether>true</KeepTogether>
-              <Top>0.96512in</Top>
-              <Left>5.21996in</Left>
-              <Height>1.0871in</Height>
-              <Width>4.91673in</Width>
+              <Top>0.95262in</Top>
+              <Left>5.20746in</Left>
+              <Height>1.07052in</Height>
+              <Width>4.92704in</Width>
               <ZIndex>4</ZIndex>
               <Style>
                 <Border>
@@ -3645,7 +3647,37 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>DHU%  =  (TotalDefectQty / TotalChrckQty) * 100</Value>
+                      <Value>                     TotalDefectQty </Value>
+                      <Style>
+                        <FontFamily>Times New Roman</FontFamily>
+                        <FontSize>6pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Left</TextAlign>
+                  </Style>
+                </Paragraph>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>DHU%  =                                 *100</Value>
+                      <Style>
+                        <FontFamily>Times New Roman</FontFamily>
+                        <FontSize>6pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Left</TextAlign>
+                  </Style>
+                </Paragraph>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>                       TotalChrckQty     </Value>
                       <Style>
                         <FontFamily>Times New Roman</FontFamily>
                         <FontSize>6pt</FontSize>
@@ -3659,9 +3691,9 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox8</rd:DefaultName>
-              <Top>0.67646in</Top>
+              <Top>0.63479in</Top>
               <Left>7.91111in</Left>
-              <Height>0.25in</Height>
+              <Height>0.29167in</Height>
               <Width>2.22339in</Width>
               <ZIndex>7</ZIndex>
               <Style>
@@ -3674,6 +3706,18 @@
                 <PaddingBottom>2pt</PaddingBottom>
               </Style>
             </Textbox>
+            <Line Name="Line1">
+              <Top>0.80917in</Top>
+              <Left>8.38364in</Left>
+              <Height>0in</Height>
+              <Width>0.58406in</Width>
+              <ZIndex>8</ZIndex>
+              <Style>
+                <Border>
+                  <Style>Solid</Style>
+                </Border>
+              </Style>
+            </Line>
           </ReportItems>
           <Style>
             <Border>
