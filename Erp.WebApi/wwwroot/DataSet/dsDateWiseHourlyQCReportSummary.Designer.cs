@@ -375,6 +375,8 @@ namespace Erp.WebApi.wwwroot.DataSet {
             
             private global::System.Data.DataColumn columnH07AMTo08AM;
             
+            private global::System.Data.DataColumn columnSortOrder;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
             public dsDateWiseHourlyQCReportSummaryDataTable() {
@@ -794,6 +796,14 @@ namespace Erp.WebApi.wwwroot.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public global::System.Data.DataColumn SortOrderColumn {
+                get {
+                    return this.columnSortOrder;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -877,7 +887,8 @@ namespace Erp.WebApi.wwwroot.DataSet {
                         string H04AMTo05AM, 
                         string H05AMTo06AM, 
                         string H06AMTo07AM, 
-                        string H07AMTo08AM) {
+                        string H07AMTo08AM, 
+                        string SortOrder) {
                 dsDateWiseHourlyQCReportSummaryRow rowdsDateWiseHourlyQCReportSummaryRow = ((dsDateWiseHourlyQCReportSummaryRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         H07PMTo08PM,
@@ -927,7 +938,8 @@ namespace Erp.WebApi.wwwroot.DataSet {
                         H04AMTo05AM,
                         H05AMTo06AM,
                         H06AMTo07AM,
-                        H07AMTo08AM};
+                        H07AMTo08AM,
+                        SortOrder};
                 rowdsDateWiseHourlyQCReportSummaryRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowdsDateWiseHourlyQCReportSummaryRow);
                 return rowdsDateWiseHourlyQCReportSummaryRow;
@@ -998,6 +1010,7 @@ namespace Erp.WebApi.wwwroot.DataSet {
                 this.columnH05AMTo06AM = base.Columns["H05AMTo06AM"];
                 this.columnH06AMTo07AM = base.Columns["H06AMTo07AM"];
                 this.columnH07AMTo08AM = base.Columns["H07AMTo08AM"];
+                this.columnSortOrder = base.Columns["SortOrder"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1099,6 +1112,8 @@ namespace Erp.WebApi.wwwroot.DataSet {
                 base.Columns.Add(this.columnH06AMTo07AM);
                 this.columnH07AMTo08AM = new global::System.Data.DataColumn("H07AMTo08AM", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnH07AMTo08AM);
+                this.columnSortOrder = new global::System.Data.DataColumn("SortOrder", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSortOrder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2057,6 +2072,23 @@ namespace Erp.WebApi.wwwroot.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public string SortOrder {
+                get {
+                    try {
+                        return ((string)(this[this.tabledsDateWiseHourlyQCReportSummary.SortOrderColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'SortOrder\' in table \'dsDateWiseHourlyQCReportSummary\' is DB" +
+                                "Null.", e);
+                    }
+                }
+                set {
+                    this[this.tabledsDateWiseHourlyQCReportSummary.SortOrderColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
             public bool IsH07PMTo08PMNull() {
                 return this.IsNull(this.tabledsDateWiseHourlyQCReportSummary.H07PMTo08PMColumn);
             }
@@ -2629,6 +2661,18 @@ namespace Erp.WebApi.wwwroot.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
             public void SetH07AMTo08AMNull() {
                 this[this.tabledsDateWiseHourlyQCReportSummary.H07AMTo08AMColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public bool IsSortOrderNull() {
+                return this.IsNull(this.tabledsDateWiseHourlyQCReportSummary.SortOrderColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "18.0.0.0")]
+            public void SetSortOrderNull() {
+                this[this.tabledsDateWiseHourlyQCReportSummary.SortOrderColumn] = global::System.Convert.DBNull;
             }
         }
         

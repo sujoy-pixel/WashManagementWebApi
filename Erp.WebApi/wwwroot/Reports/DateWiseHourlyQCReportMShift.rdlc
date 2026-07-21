@@ -168,6 +168,58 @@
           <DataField>DHUPercent</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="H08PMTo09PM">
+          <DataField>H08PMTo09PM</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="H09PMTo10PM">
+          <DataField>H09PMTo10PM</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="H10PMTo11PM">
+          <DataField>H10PMTo11PM</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="H11PMTo12AM">
+          <DataField>H11PMTo12AM</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="H12AMTo01AM">
+          <DataField>H12AMTo01AM</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="H01AMTo02AM">
+          <DataField>H01AMTo02AM</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="H02AMTo03AM">
+          <DataField>H02AMTo03AM</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="H03AMTo04AM">
+          <DataField>H03AMTo04AM</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="H04AMTo05AM">
+          <DataField>H04AMTo05AM</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="H05AMTo06AM">
+          <DataField>H05AMTo06AM</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="H06AMTo07AM">
+          <DataField>H06AMTo07AM</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="H07AMTo08AM">
+          <DataField>H07AMTo08AM</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="SortOrder">
+          <DataField>SortOrder</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>dsEmployee</rd:DataSetName>
@@ -328,6 +380,58 @@
           <DataField>DHUPercent</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="H08PMTo09PM">
+          <DataField>H08PMTo09PM</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="H09PMTo10PM">
+          <DataField>H09PMTo10PM</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="H10PMTo11PM">
+          <DataField>H10PMTo11PM</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="H11PMTo12AM">
+          <DataField>H11PMTo12AM</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="H12AMTo01AM">
+          <DataField>H12AMTo01AM</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="H01AMTo02AM">
+          <DataField>H01AMTo02AM</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="H02AMTo03AM">
+          <DataField>H02AMTo03AM</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="H03AMTo04AM">
+          <DataField>H03AMTo04AM</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="H04AMTo05AM">
+          <DataField>H04AMTo05AM</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="H05AMTo06AM">
+          <DataField>H05AMTo06AM</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="H06AMTo07AM">
+          <DataField>H06AMTo07AM</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="H07AMTo08AM">
+          <DataField>H07AMTo08AM</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="SortOrder">
+          <DataField>SortOrder</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>dsEmployee</rd:DataSetName>
@@ -347,7 +451,7 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>0.96225in</Width>
+                  <Width>0.95364in</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>0.72277in</Width>
@@ -991,6 +1095,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -1100,30 +1205,31 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="H12PMTo01PM2">
+                        <Textbox Name="Textbox24">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Lunch Break</Value>
+                                  <Value>=IIF(
+Fields!SortOrder.Value = Ceiling(18 / 2),
+"Lunch Break",
+""
+)</Value>
                                   <Style>
                                     <FontFamily>Times New Roman</FontFamily>
                                     <FontSize>6pt</FontSize>
-                                    <Format>0;(0)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
+                              <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>H12PMTo01PM</rd:DefaultName>
+                          <rd:DefaultName>Textbox24</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Style>Solid</Style>
+                              <Style>None</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -1411,10 +1517,10 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>dsDateWiseHourlyQCReport</DataSetName>
-            <Top>0.01259in</Top>
-            <Left>0.11272in</Left>
+            <Top>0.01398in</Top>
+            <Left>0.11344in</Left>
             <Height>0.34375in</Height>
-            <Width>10.02782in</Width>
+            <Width>10.01921in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -2228,29 +2334,32 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox7">
+                        <Textbox Name="Textbox44">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Lunch Break</Value>
+                                  <Value>=IIF(
+Fields!SortOrder.Value = Ceiling(8/2),
+"Lunch Break",
+""
+)</Value>
                                   <Style>
                                     <FontFamily>Times New Roman</FontFamily>
-                                    <FontSize>6pt</FontSize>
+                                    <FontSize>5pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
+                              <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox7</rd:DefaultName>
+                          <rd:DefaultName>Textbox44</rd:DefaultName>
+                          <ZIndex>8</ZIndex>
                           <Style>
                             <Border>
-                              <Style>Solid</Style>
+                              <Style>None</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -2537,7 +2646,7 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>dsDateWiseHourlyQCReportSummary</DataSetName>
-            <Top>0.56815in</Top>
+            <Top>0.58065in</Top>
             <Left>0.12762in</Left>
             <Height>0.31667in</Height>
             <Width>10.00907in</Width>
@@ -2548,8 +2657,20 @@
               </Border>
             </Style>
           </Tablix>
+          <Line Name="Line13">
+            <Top>0.9001in</Top>
+            <Left>4.71411in</Left>
+            <Height>0in</Height>
+            <Width>0.55783in</Width>
+            <ZIndex>3</ZIndex>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+              </Border>
+            </Style>
+          </Line>
         </ReportItems>
-        <Height>0.89732in</Height>
+        <Height>1.18958in</Height>
         <Style>
           <Border>
             <Style>None</Style>
@@ -2754,8 +2875,8 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox2</rd:DefaultName>
-                  <Top>0.89276in</Top>
-                  <Left>0.03318in</Left>
+                  <Top>0.86704in</Top>
+                  <Left>0.03968in</Left>
                   <Height>0.14791in</Height>
                   <Width>1.08601in</Width>
                   <ZIndex>3</ZIndex>
@@ -2911,9 +3032,9 @@
                 </Textbox>
               </ReportItems>
               <KeepTogether>true</KeepTogether>
-              <Top>0.93933in</Top>
+              <Top>0.92683in</Top>
               <Left>0.10887in</Left>
-              <Height>1.08511in</Height>
+              <Height>1.04136in</Height>
               <Width>4.93318in</Width>
               <ZIndex>3</ZIndex>
               <Style>
@@ -3246,7 +3367,7 @@
                   </Paragraphs>
                   <rd:DefaultName>BatchNo</rd:DefaultName>
                   <Top>0.09891in</Top>
-                  <Left>0.80472in</Left>
+                  <Left>0.7936in</Left>
                   <Height>0.15972in</Height>
                   <Width>4.05813in</Width>
                   <ZIndex>11</ZIndex>
@@ -3462,9 +3583,9 @@
                 </Textbox>
               </ReportItems>
               <KeepTogether>true</KeepTogether>
-              <Top>0.94012in</Top>
+              <Top>0.92762in</Top>
               <Left>5.20746in</Left>
-              <Height>1.06627in</Height>
+              <Height>1.05377in</Height>
               <Width>4.91203in</Width>
               <ZIndex>4</ZIndex>
               <Style>
@@ -3554,10 +3675,17 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>                    TotalDefectQty </Value>
+                      <Value xml:space="preserve">                    </Value>
                       <Style>
                         <FontFamily>Times New Roman</FontFamily>
                         <FontSize>6pt</FontSize>
+                      </Style>
+                    </TextRun>
+                    <TextRun>
+                      <Value>TotalDefectQty </Value>
+                      <Style>
+                        <FontFamily>Times New Roman</FontFamily>
+                        <FontSize>5pt</FontSize>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -3568,10 +3696,10 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>DHU%  =                                *100</Value>
+                      <Value>DHU%  =                                   *100</Value>
                       <Style>
                         <FontFamily>Times New Roman</FontFamily>
-                        <FontSize>6pt</FontSize>
+                        <FontSize>5pt</FontSize>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -3582,17 +3710,24 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>                     TotalChrckQty   </Value>
+                      <Value xml:space="preserve">                     </Value>
                       <Style>
                         <FontFamily>Times New Roman</FontFamily>
                         <FontSize>6pt</FontSize>
+                      </Style>
+                    </TextRun>
+                    <TextRun>
+                      <Value>TotalChrckQty   </Value>
+                      <Style>
+                        <FontFamily>Times New Roman</FontFamily>
+                        <FontSize>5pt</FontSize>
                       </Style>
                     </TextRun>
                     <TextRun>
                       <Value xml:space="preserve">  </Value>
                       <Style>
                         <FontFamily>Times New Roman</FontFamily>
-                        <FontSize>6pt</FontSize>
+                        <FontSize>5pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
@@ -3603,8 +3738,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox8</rd:DefaultName>
-              <Top>0.64416in</Top>
-              <Left>7.89599in</Left>
+              <Top>0.63479in</Top>
+              <Left>7.88333in</Left>
               <Height>0.29167in</Height>
               <Width>2.22339in</Width>
               <ZIndex>7</ZIndex>
@@ -3618,11 +3753,11 @@
                 <PaddingBottom>2pt</PaddingBottom>
               </Style>
             </Textbox>
-            <Line Name="Line10">
-              <Top>0.80153in</Top>
-              <Left>8.34614in</Left>
-              <Height>0in</Height>
-              <Width>0.55208in</Width>
+            <Line Name="Line12">
+              <Top>0.80083in</Top>
+              <Left>8.33364in</Left>
+              <Height>-0.01042in</Height>
+              <Width>0.42553in</Width>
               <ZIndex>8</ZIndex>
               <Style>
                 <Border>

@@ -216,6 +216,10 @@
           <DataField>H07AMTo08AM</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="SortOrder">
+          <DataField>SortOrder</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>dsEmployee</rd:DataSetName>
@@ -422,6 +426,10 @@
         </Field>
         <Field Name="H07AMTo08AM">
           <DataField>H07AMTo08AM</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="SortOrder">
+          <DataField>SortOrder</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
