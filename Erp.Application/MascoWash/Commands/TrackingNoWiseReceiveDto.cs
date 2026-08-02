@@ -60,6 +60,9 @@ namespace Erp.Application.MascoWash.Queries
         public int? TotalQty { get; set; }
         public int? RemainingQty { get; set; }
         public int? AlreadyPreparedQty { get; set; }
+        public  string  RevisionNo { get; set; }
+        public int RevesionNo { get; set; }
+        public  DateTime RevisionDate { get; set; }
 
     }
 }

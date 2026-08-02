@@ -2253,10 +2253,7 @@ namespace Erp.Infrastructure.Services.MascoWash
                 // ── Parameters ──────────────────────────────
                 var parameter = new DynamicParameters();
 
-                var createdBy = dto.Master.CreatedBy
-                                ?? _currentUserService?.EmployeeId
-                                ?? "SYSTEM";
-
+                var createdBy = _currentUserService?.EmployeeId ?? "SYSTEM";
                 parameter.Add("@CreatedBy", createdBy);
                 parameter.Add("@UnitId", dto.Master.UnitId);
                 parameter.Add("@BuyerId", dto.Master.BuyerId);

@@ -74,6 +74,8 @@ namespace Erp.Application.MascoWash.Commands
 
         public int? AlreadyPreparedQty { get; set; }
         public int? AlreadyPreparedKg { get; set; }
+        public int RevesionNo { get; set; }
+        public DateTime RevisionDate { get; set; }
 
     }
 }
