@@ -1557,37 +1557,37 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>0.83394in</Width>
+                  <Width>1.30367in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.72367in</Width>
+                  <Width>0.61709in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.66924in</Width>
+                  <Width>0.61715in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.66597in</Width>
+                  <Width>0.63578in</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>0.71298in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.65134in</Width>
+                  <Width>0.52634in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.58222in</Width>
+                  <Width>0.50676in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.57175in</Width>
+                  <Width>0.57084in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.52601in</Width>
+                  <Width>0.54739in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.56063in</Width>
+                  <Width>0.6441in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.64078in</Width>
+                  <Width>0.73409in</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>0.80752in</Width>
@@ -1596,7 +1596,7 @@
                   <Width>0.89328in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.2504in</Width>
+                  <Width>0.95983in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -2643,10 +2643,10 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>dsDateWiseHourlyQCReportSummary</DataSetName>
-            <Top>0.72813in</Top>
-            <Left>0.08804in</Left>
+            <Top>0.71875in</Top>
+            <Left>0.10094in</Left>
             <Height>0.3257in</Height>
-            <Width>10.08973in</Width>
+            <Width>10.07682in</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -2693,7 +2693,7 @@
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>0.47536in</Top>
-            <Left>4.3313in</Left>
+            <Left>4.4563in</Left>
             <Height>0.20972in</Height>
             <Width>2.23314in</Width>
             <ZIndex>2</ZIndex>
@@ -3968,7 +3968,7 @@
               <Top>0.05417in</Top>
               <Left>8.96975in</Left>
               <Height>0.17708in</Height>
-              <Width>1.09993in</Width>
+              <Width>1.18087in</Width>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -4082,6 +4082,134 @@
                 <PaddingBottom>2pt</PaddingBottom>
               </Style>
             </Textbox>
+            <Line Name="Line1">
+              <Top>0.06621in</Top>
+              <Left>3.21337in</Left>
+              <Height>0.01042in</Height>
+              <Width>1.33077in</Width>
+              <ZIndex>4</ZIndex>
+              <Style>
+                <Border>
+                  <Style>Dotted</Style>
+                </Border>
+                <TopBorder>
+                  <Color>Black</Color>
+                  <Style>Dotted</Style>
+                  <Width>1pt</Width>
+                </TopBorder>
+                <BottomBorder>
+                  <Color>Black</Color>
+                  <Style>Dotted</Style>
+                  <Width>1pt</Width>
+                </BottomBorder>
+                <LeftBorder>
+                  <Color>Black</Color>
+                  <Style>Dotted</Style>
+                  <Width>1pt</Width>
+                </LeftBorder>
+                <RightBorder>
+                  <Color>Black</Color>
+                  <Style>Dotted</Style>
+                  <Width>1pt</Width>
+                </RightBorder>
+              </Style>
+            </Line>
+            <Line Name="Line7">
+              <Top>0.06621in</Top>
+              <Left>6.1337in</Left>
+              <Height>0in</Height>
+              <Width>1.3125in</Width>
+              <ZIndex>5</ZIndex>
+              <Style>
+                <Border>
+                  <Style>Dotted</Style>
+                </Border>
+                <TopBorder>
+                  <Color>Black</Color>
+                  <Style>Dotted</Style>
+                  <Width>1pt</Width>
+                </TopBorder>
+                <BottomBorder>
+                  <Color>Black</Color>
+                  <Style>Dotted</Style>
+                  <Width>1pt</Width>
+                </BottomBorder>
+                <LeftBorder>
+                  <Color>Black</Color>
+                  <Style>Dotted</Style>
+                  <Width>1pt</Width>
+                </LeftBorder>
+                <RightBorder>
+                  <Color>Black</Color>
+                  <Style>Dotted</Style>
+                  <Width>1pt</Width>
+                </RightBorder>
+              </Style>
+            </Line>
+            <Line Name="Line8">
+              <Top>0.05371in</Top>
+              <Left>0.14926in</Left>
+              <Height>0in</Height>
+              <Width>1.87244in</Width>
+              <ZIndex>6</ZIndex>
+              <Style>
+                <Border>
+                  <Style>Dotted</Style>
+                </Border>
+                <TopBorder>
+                  <Color>Black</Color>
+                  <Style>Dotted</Style>
+                  <Width>1pt</Width>
+                </TopBorder>
+                <BottomBorder>
+                  <Color>Black</Color>
+                  <Style>Dotted</Style>
+                  <Width>1pt</Width>
+                </BottomBorder>
+                <LeftBorder>
+                  <Color>Black</Color>
+                  <Style>Dotted</Style>
+                  <Width>1pt</Width>
+                </LeftBorder>
+                <RightBorder>
+                  <Color>Black</Color>
+                  <Style>Dotted</Style>
+                  <Width>1pt</Width>
+                </RightBorder>
+              </Style>
+            </Line>
+            <Line Name="Line9">
+              <Top>0.09121in</Top>
+              <Left>8.96975in</Left>
+              <Height>0in</Height>
+              <Width>1.19106in</Width>
+              <ZIndex>7</ZIndex>
+              <Style>
+                <Border>
+                  <Style>Dotted</Style>
+                </Border>
+                <TopBorder>
+                  <Color>Black</Color>
+                  <Style>Dotted</Style>
+                  <Width>1pt</Width>
+                </TopBorder>
+                <BottomBorder>
+                  <Color>Black</Color>
+                  <Style>Dotted</Style>
+                  <Width>1pt</Width>
+                </BottomBorder>
+                <LeftBorder>
+                  <Color>Black</Color>
+                  <Style>Dotted</Style>
+                  <Width>1pt</Width>
+                </LeftBorder>
+                <RightBorder>
+                  <Color>Black</Color>
+                  <Style>Dotted</Style>
+                  <Width>1pt</Width>
+                </RightBorder>
+              </Style>
+            </Line>
           </ReportItems>
           <Style>
             <Border>
