@@ -472,6 +472,29 @@ namespace Erp.WebApi.Controllers.Commercial.Setup
             return Ok(await _mediator.Send(new BatchNoAutoCompleteDDL(itemText)));
         }
 
+        [HttpGet]
+        [ActionName("GetBatchNoQCAutoComplete")]
+        public async Task<IActionResult> GetBatchNoQCAutoComplete(string searchText)
+        {
+            return Ok(
+                await _mediator.Send(
+                    new BatchNoQCAutoCompleteQuery(searchText)
+                )
+            );
+        }
+
+    
+
+            [HttpPost]
+            public async Task<IActionResult> GetBatchNoByDateAndShift(
+                [FromBody] GetBatchNoByDateAndShiftQuery query)
+            {
+                var result = await _mediator.Send(query);
+
+                return Ok(result);
+            }
+    
+    }
     }
 
-}
+

@@ -451,51 +451,51 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>0.95364in</Width>
+                  <Width>1.1089in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.72277in</Width>
+                  <Width>0.73145in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.76967in</Width>
+                  <Width>0.77835in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.72476in</Width>
+                  <Width>0.73344in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.71208in</Width>
+                  <Width>0.72076in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.70914in</Width>
+                  <Width>0.57526in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.55783in</Width>
+                  <Width>0.50303in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.6825in</Width>
+                  <Width>0.69118in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.53415in</Width>
+                  <Width>0.54283in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.7347in</Width>
+                  <Width>0.74338in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.6931in</Width>
+                  <Width>0.70178in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.55655in</Width>
+                  <Width>0.56523in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.71499in</Width>
+                  <Width>0.72367in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.81536in</Width>
+                  <Width>0.63907in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>0.16667in</Height>
+                  <Height>0.10417in</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -1004,7 +1004,7 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>0.17708in</Height>
+                  <Height>0.0625in</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -1019,12 +1019,11 @@
                                   <Style>
                                     <FontFamily>Times New Roman</FontFamily>
                                     <FontSize>6pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
-                                <TextAlign>Center</TextAlign>
+                                <TextAlign>Left</TextAlign>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
@@ -1501,7 +1500,6 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
                                   <Style>
                                     <FontFamily>Times New Roman</FontFamily>
                                     <FontSize>6pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
                                     <Format>0;(0)</Format>
                                   </Style>
                                 </TextRun>
@@ -1558,10 +1556,10 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>dsDateWiseHourlyQCReport</DataSetName>
-            <Top>0.12465in</Top>
-            <Left>0.11344in</Left>
-            <Height>0.34375in</Height>
-            <Width>9.88124in</Width>
+            <Top>0.06215in</Top>
+            <Left>0.12594in</Left>
+            <Height>0.16667in</Height>
+            <Width>9.75833in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1575,31 +1573,31 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
                   <Width>1.10022in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.71872in</Width>
+                  <Width>0.74013in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.76562in</Width>
+                  <Width>0.77835in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.72071in</Width>
+                  <Width>0.74438in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.70803in</Width>
+                  <Width>0.73349in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.61377in</Width>
+                  <Width>0.56658in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.56148in</Width>
+                  <Width>0.53631in</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>0.67845in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.5301in</Width>
+                  <Width>0.50833in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.73065in</Width>
+                  <Width>0.75783in</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>0.70445in</Width>
@@ -1608,15 +1606,15 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
                   <Width>0.5525in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.68437in</Width>
+                  <Width>0.69895in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.79964in</Width>
+                  <Width>0.63907in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>0.17917in</Height>
+                  <Height>0.16354in</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -2125,7 +2123,7 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>0.1375in</Height>
+                  <Height>0.12188in</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -2145,7 +2143,7 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
                                 </TextRun>
                               </TextRuns>
                               <Style>
-                                <TextAlign>Center</TextAlign>
+                                <TextAlign>Left</TextAlign>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
@@ -2674,10 +2672,10 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>dsDateWiseHourlyQCReportSummary</DataSetName>
-            <Top>0.77882in</Top>
-            <Left>0.11344in</Left>
-            <Height>0.31667in</Height>
-            <Width>9.86871in</Width>
+            <Top>0.61493in</Top>
+            <Left>0.12594in</Left>
+            <Height>0.28542in</Height>
+            <Width>9.73904in</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -2724,7 +2722,7 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
               </Textbox>
             </ReportItems>
             <KeepTogether>true</KeepTogether>
-            <Top>0.52743in</Top>
+            <Top>0.31493in</Top>
             <Left>3.97019in</Left>
             <Height>0.20972in</Height>
             <Width>2.21462in</Width>
@@ -2737,10 +2735,10 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
             </Style>
           </Rectangle>
           <Line Name="Line7">
-            <Top>1.09688in</Top>
-            <Left>5.29687in</Left>
+            <Top>0.90208in</Top>
+            <Left>5.35665in</Left>
             <Height>0in</Height>
-            <Width>-0.53716in</Width>
+            <Width>-0.5547in</Width>
             <ZIndex>3</ZIndex>
             <Style>
               <Border>
@@ -2770,26 +2768,26 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
             </Style>
           </Line>
         </ReportItems>
-        <Height>1.12813in</Height>
+        <Height>0.90208in</Height>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
         </Style>
       </Body>
-      <Width>10.01967in</Width>
+      <Width>9.90662in</Width>
       <Page>
         <PageHeader>
-          <Height>2.23625in</Height>
+          <Height>2.31958in</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <ReportItems>
             <Image Name="Image1">
               <Source>Embedded</Source>
               <Value>Masco</Value>
               <Sizing>FitProportional</Sizing>
-              <Top>0.03172in</Top>
-              <Left>0.32699in</Left>
-              <Height>0.4935in</Height>
+              <Top>0.10775in</Top>
+              <Left>0.18173in</Left>
+              <Height>0.47426in</Height>
               <Width>0.36875in</Width>
               <Style>
                 <Border>
@@ -2798,10 +2796,10 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
               </Style>
             </Image>
             <Line Name="Line16">
-              <Top>0.62229in</Top>
-              <Left>0.11106in</Left>
+              <Top>0.60979in</Top>
+              <Left>0.12356in</Left>
               <Height>0in</Height>
-              <Width>9.88362in</Width>
+              <Width>9.7482in</Width>
               <ZIndex>1</ZIndex>
               <Style>
                 <Border>
@@ -2942,7 +2940,7 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox2</rd:DefaultName>
-                  <Top>0.86704in</Top>
+                  <Top>0.89204in</Top>
                   <Left>0.05411in</Left>
                   <Height>0.14791in</Height>
                   <Width>1.08601in</Width>
@@ -3015,7 +3013,7 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
                   </Paragraphs>
                   <rd:DefaultName>QCDate</rd:DefaultName>
                   <Top>0.04546in</Top>
-                  <Left>1.1665in</Left>
+                  <Left>1.204in</Left>
                   <Height>0.14583in</Height>
                   <Width>1in</Width>
                   <ZIndex>5</ZIndex>
@@ -3048,9 +3046,9 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>ShiftName</rd:DefaultName>
-                  <Top>0.23782in</Top>
-                  <Left>1.1665in</Left>
-                  <Height>0.14584in</Height>
+                  <Top>0.24894in</Top>
+                  <Left>1.20053in</Left>
+                  <Height>0.12501in</Height>
                   <Width>1in</Width>
                   <ZIndex>6</ZIndex>
                   <Style>
@@ -3083,10 +3081,78 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
                   </Paragraphs>
                   <rd:DefaultName>QCName</rd:DefaultName>
                   <Top>0.4531in</Top>
-                  <Left>1.16303in</Left>
+                  <Left>1.20053in</Left>
                   <Height>0.16667in</Height>
                   <Width>1.00348in</Width>
                   <ZIndex>7</ZIndex>
+                  <Style>
+                    <Border>
+                      <Style>None</Style>
+                    </Border>
+                    <PaddingLeft>2pt</PaddingLeft>
+                    <PaddingRight>2pt</PaddingRight>
+                    <PaddingTop>2pt</PaddingTop>
+                    <PaddingBottom>2pt</PaddingBottom>
+                  </Style>
+                </Textbox>
+                <Textbox Name="WashCategory">
+                  <CanGrow>true</CanGrow>
+                  <KeepTogether>true</KeepTogether>
+                  <Paragraphs>
+                    <Paragraph>
+                      <TextRuns>
+                        <TextRun>
+                          <Value>=First(Fields!WashCategory.Value, "dsDateWiseHourlyQCReportSummary")</Value>
+                          <Style>
+                            <FontFamily>Times New Roman</FontFamily>
+                            <FontSize>6pt</FontSize>
+                            <FontWeight>Bold</FontWeight>
+                          </Style>
+                        </TextRun>
+                      </TextRuns>
+                      <Style />
+                    </Paragraph>
+                  </Paragraphs>
+                  <rd:DefaultName>WashCategory</rd:DefaultName>
+                  <Top>0.69018in</Top>
+                  <Left>1.19151in</Left>
+                  <Height>0.18265in</Height>
+                  <Width>1in</Width>
+                  <ZIndex>8</ZIndex>
+                  <Style>
+                    <Border>
+                      <Style>None</Style>
+                    </Border>
+                    <PaddingLeft>2pt</PaddingLeft>
+                    <PaddingRight>2pt</PaddingRight>
+                    <PaddingTop>2pt</PaddingTop>
+                    <PaddingBottom>2pt</PaddingBottom>
+                  </Style>
+                </Textbox>
+                <Textbox Name="ItemName">
+                  <CanGrow>true</CanGrow>
+                  <KeepTogether>true</KeepTogether>
+                  <Paragraphs>
+                    <Paragraph>
+                      <TextRuns>
+                        <TextRun>
+                          <Value>=First(Fields!ItemName.Value, "dsDateWiseHourlyQCReportSummary")</Value>
+                          <Style>
+                            <FontFamily>Times New Roman</FontFamily>
+                            <FontSize>6pt</FontSize>
+                            <FontWeight>Bold</FontWeight>
+                          </Style>
+                        </TextRun>
+                      </TextRuns>
+                      <Style />
+                    </Paragraph>
+                  </Paragraphs>
+                  <rd:DefaultName>ItemName</rd:DefaultName>
+                  <Top>0.88672in</Top>
+                  <Left>1.204in</Left>
+                  <Height>0.17424in</Height>
+                  <Width>0.98751in</Width>
+                  <ZIndex>9</ZIndex>
                   <Style>
                     <Border>
                       <Style>None</Style>
@@ -3101,8 +3167,8 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
               <KeepTogether>true</KeepTogether>
               <Top>0.95183in</Top>
               <Left>0.12762in</Left>
-              <Height>1.07624in</Height>
-              <Width>4.57788in</Width>
+              <Height>1.099in</Height>
+              <Width>4.63398in</Width>
               <ZIndex>2</ZIndex>
               <Style>
                 <Border>
@@ -3120,10 +3186,18 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>Style  :</Value>
+                          <Value>Style          </Value>
                           <Style>
                             <FontFamily>Times New Roman</FontFamily>
                             <FontSize>7pt</FontSize>
+                            <FontWeight>Bold</FontWeight>
+                          </Style>
+                        </TextRun>
+                        <TextRun>
+                          <Value>:</Value>
+                          <Style>
+                            <FontFamily>Times New Roman</FontFamily>
+                            <FontSize>6pt</FontSize>
                             <FontWeight>Bold</FontWeight>
                           </Style>
                         </TextRun>
@@ -3134,10 +3208,10 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox2</rd:DefaultName>
-                  <Top>0.53363in</Top>
-                  <Left>0.02997in</Left>
+                  <Top>0.51031in</Top>
+                  <Left>0.02327in</Left>
                   <Height>0.16806in</Height>
-                  <Width>0.69792in</Width>
+                  <Width>0.67334in</Width>
                   <Style>
                     <Border>
                       <Style>None</Style>
@@ -3156,7 +3230,7 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>Buyer:</Value>
+                          <Value>Buyer        :</Value>
                           <Style>
                             <FontFamily>Times New Roman</FontFamily>
                             <FontSize>7pt</FontSize>
@@ -3170,10 +3244,10 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox2</rd:DefaultName>
-                  <Top>0.27323in</Top>
-                  <Left>0.02272in</Left>
+                  <Top>0.25997in</Top>
+                  <Left>0.02173in</Left>
                   <Height>0.1809in</Height>
-                  <Width>0.68307in</Width>
+                  <Width>0.67767in</Width>
                   <ZIndex>1</ZIndex>
                   <Style>
                     <Border>
@@ -3193,7 +3267,7 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>Color :           </Value>
+                          <Value>Color         :     </Value>
                           <Style>
                             <FontFamily>Times New Roman</FontFamily>
                             <FontSize>7pt</FontSize>
@@ -3207,10 +3281,10 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox2</rd:DefaultName>
-                  <Top>0.78988in</Top>
-                  <Left>0.05663in</Left>
-                  <Height>0.18681in</Height>
-                  <Width>0.70876in</Width>
+                  <Top>0.77662in</Top>
+                  <Left>0.01725in</Left>
+                  <Height>0.17428in</Height>
+                  <Width>0.67936in</Width>
                   <ZIndex>2</ZIndex>
                   <Style>
                     <Border>
@@ -3230,7 +3304,7 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>Job         :    </Value>
+                          <Value>Job            :    </Value>
                           <Style>
                             <FontFamily>Times New Roman</FontFamily>
                             <FontSize>7pt</FontSize>
@@ -3244,8 +3318,8 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox2</rd:DefaultName>
-                  <Top>0.51488in</Top>
-                  <Left>2.19082in</Left>
+                  <Top>0.50162in</Top>
+                  <Left>2.17702in</Left>
                   <Height>0.18681in</Height>
                   <Width>0.88591in</Width>
                   <ZIndex>3</ZIndex>
@@ -3267,7 +3341,7 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>Order    : </Value>
+                          <Value>Order       : </Value>
                           <Style>
                             <FontFamily>Times New Roman</FontFamily>
                             <FontSize>7pt</FontSize>
@@ -3281,8 +3355,8 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox2</rd:DefaultName>
-                  <Top>0.29232in</Top>
-                  <Left>2.20332in</Left>
+                  <Top>0.27906in</Top>
+                  <Left>2.18952in</Left>
                   <Height>0.1684in</Height>
                   <Width>0.88591in</Width>
                   <ZIndex>4</ZIndex>
@@ -3304,7 +3378,7 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>DHU % :</Value>
+                          <Value>DHU %    :</Value>
                           <Style>
                             <FontFamily>Times New Roman</FontFamily>
                             <FontSize>7pt</FontSize>
@@ -3318,8 +3392,8 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox2</rd:DefaultName>
-                  <Top>0.78225in</Top>
-                  <Left>2.1967in</Left>
+                  <Top>0.76899in</Top>
+                  <Left>2.1829in</Left>
                   <Height>0.18191in</Height>
                   <Width>0.89253in</Width>
                   <ZIndex>5</ZIndex>
@@ -3341,7 +3415,7 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>Batch No:</Value>
+                          <Value>Batch No  :</Value>
                           <Style>
                             <FontFamily>Times New Roman</FontFamily>
                             <FontSize>7pt</FontSize>
@@ -3355,10 +3429,10 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox2</rd:DefaultName>
-                  <Top>0.03851in</Top>
-                  <Left>0.02303in</Left>
+                  <Top>0.01435in</Top>
+                  <Left>0.02173in</Left>
                   <Height>0.16527in</Height>
-                  <Width>0.72026in</Width>
+                  <Width>0.67488in</Width>
                   <ZIndex>6</ZIndex>
                   <Style>
                     <Border>
@@ -3381,19 +3455,21 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
                           <Value>=First(Fields!BatchNo.Value, "dsDateWiseHourlyQCReport")</Value>
                           <Style>
                             <FontFamily>Times New Roman</FontFamily>
-                            <FontSize>6pt</FontSize>
+                            <FontSize>4pt</FontSize>
                             <FontWeight>Bold</FontWeight>
                           </Style>
                         </TextRun>
                       </TextRuns>
-                      <Style />
+                      <Style>
+                        <TextAlign>Left</TextAlign>
+                      </Style>
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>BatchNo</rd:DefaultName>
-                  <Top>0.03851in</Top>
-                  <Left>0.85023in</Left>
+                  <Top>0.02525in</Top>
+                  <Left>0.75658in</Left>
                   <Height>0.15972in</Height>
-                  <Width>3.88112in</Width>
+                  <Width>3.82347in</Width>
                   <ZIndex>7</ZIndex>
                   <Style>
                     <Border>
@@ -3423,8 +3499,8 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>BuyerName</rd:DefaultName>
-                  <Top>0.2826in</Top>
-                  <Left>0.79538in</Left>
+                  <Top>0.26934in</Top>
+                  <Left>0.75658in</Left>
                   <Height>0.14653in</Height>
                   <Width>1.23631in</Width>
                   <ZIndex>8</ZIndex>
@@ -3456,8 +3532,8 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>StyleName</rd:DefaultName>
-                  <Top>0.53571in</Top>
-                  <Left>0.80788in</Left>
+                  <Top>0.52245in</Top>
+                  <Left>0.75658in</Left>
                   <Height>0.14237in</Height>
                   <Width>1.22381in</Width>
                   <ZIndex>9</ZIndex>
@@ -3489,8 +3565,8 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Color</rd:DefaultName>
-                  <Top>0.78988in</Top>
-                  <Left>0.80787in</Left>
+                  <Top>0.77662in</Top>
+                  <Left>0.75657in</Left>
                   <Height>0.18056in</Height>
                   <Width>1.22382in</Width>
                   <ZIndex>10</ZIndex>
@@ -3522,10 +3598,10 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>OrderNo</rd:DefaultName>
-                  <Top>0.29196in</Top>
-                  <Left>3.18281in</Left>
+                  <Top>0.2787in</Top>
+                  <Left>3.16901in</Left>
                   <Height>0.13611in</Height>
-                  <Width>1.49854in</Width>
+                  <Width>1.41104in</Width>
                   <ZIndex>11</ZIndex>
                   <Style>
                     <Border>
@@ -3555,10 +3631,10 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>JobNo</rd:DefaultName>
-                  <Top>0.54057in</Top>
-                  <Left>3.18281in</Left>
+                  <Top>0.51641in</Top>
+                  <Left>3.16901in</Left>
                   <Height>0.14028in</Height>
-                  <Width>1.49854in</Width>
+                  <Width>1.41104in</Width>
                   <ZIndex>12</ZIndex>
                   <Style>
                     <Border>
@@ -3590,10 +3666,10 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>DHUPercent</rd:DefaultName>
-                  <Top>0.78988in</Top>
-                  <Left>3.18281in</Left>
+                  <Top>0.76572in</Top>
+                  <Left>3.16901in</Left>
                   <Height>0.14306in</Height>
-                  <Width>1.49854in</Width>
+                  <Width>1.41104in</Width>
                   <ZIndex>13</ZIndex>
                   <Style>
                     <Border>
@@ -3606,10 +3682,10 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
                   </Style>
                 </Textbox>
                 <Line Name="Line2">
-                  <Top>0.24545in</Top>
-                  <Left>0.0012in</Left>
+                  <Top>0.23219in</Top>
+                  <Left>0.01894in</Left>
                   <Height>0in</Height>
-                  <Width>4.73016in</Width>
+                  <Width>4.56111in</Width>
                   <ZIndex>14</ZIndex>
                   <Style>
                     <Border>
@@ -3639,10 +3715,10 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
                   </Style>
                 </Line>
                 <Line Name="Line3">
-                  <Top>0.48939in</Top>
-                  <Left>0.0006in</Left>
+                  <Top>0.47613in</Top>
+                  <Left>0.00644in</Left>
                   <Height>0in</Height>
-                  <Width>4.73016in</Width>
+                  <Width>4.56891in</Width>
                   <ZIndex>15</ZIndex>
                   <Style>
                     <Border>
@@ -3672,10 +3748,10 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
                   </Style>
                 </Line>
                 <Line Name="Line4">
-                  <Top>0.73939in</Top>
-                  <Left>0.0006in</Left>
+                  <Top>0.72613in</Top>
+                  <Left>0.02173in</Left>
                   <Height>0in</Height>
-                  <Width>4.73016in</Width>
+                  <Width>4.55832in</Width>
                   <ZIndex>16</ZIndex>
                   <Style>
                     <Border>
@@ -3705,9 +3781,9 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
                   </Style>
                 </Line>
                 <Line Name="Line5">
-                  <Top>0.24299in</Top>
-                  <Left>2.1356in</Left>
-                  <Height>0.84496in</Height>
+                  <Top>0.23219in</Top>
+                  <Left>2.09508in</Left>
+                  <Height>0.82375in</Height>
                   <Width>0in</Width>
                   <ZIndex>17</ZIndex>
                   <Style>
@@ -3739,10 +3815,10 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
                 </Line>
               </ReportItems>
               <KeepTogether>true</KeepTogether>
-              <Top>0.94012in</Top>
-              <Left>5.26333in</Left>
-              <Height>1.08795in</Height>
-              <Width>4.73136in</Width>
+              <Top>0.96588in</Top>
+              <Left>5.27713in</Left>
+              <Height>1.05594in</Height>
+              <Width>4.59463in</Width>
               <ZIndex>3</ZIndex>
               <Style>
                 <Border>
@@ -3762,7 +3838,6 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
                       <Style>
                         <FontFamily>Times New Roman</FontFamily>
                         <FontSize>6pt</FontSize>
-                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -3795,7 +3870,15 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value xml:space="preserve">                    </Value>
+                      <Value xml:space="preserve">   </Value>
+                      <Style>
+                        <FontFamily>Times New Roman</FontFamily>
+                        <FontSize>6pt</FontSize>
+                        <Color>Gray</Color>
+                      </Style>
+                    </TextRun>
+                    <TextRun>
+                      <Value xml:space="preserve">                 </Value>
                       <Style>
                         <FontFamily>Times New Roman</FontFamily>
                         <FontSize>6pt</FontSize>
@@ -3858,10 +3941,10 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox8</rd:DefaultName>
-              <Top>0.63479in</Top>
-              <Left>7.88274in</Left>
-              <Height>0.29167in</Height>
-              <Width>2.11135in</Width>
+              <Top>0.65146in</Top>
+              <Left>7.85774in</Left>
+              <Height>0.2713in</Height>
+              <Width>2.00361in</Width>
               <ZIndex>5</ZIndex>
               <Style>
                 <Border>
@@ -3963,7 +4046,7 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
               </Style>
             </Rectangle>
             <Line Name="Line6">
-              <Top>0.79937in</Top>
+              <Top>0.82437in</Top>
               <Left>8.30463in</Left>
               <Height>0in</Height>
               <Width>0.44792in</Width>
@@ -4003,7 +4086,7 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
           </Style>
         </PageHeader>
         <PageFooter>
-          <Height>0.46422in</Height>
+          <Height>0.22464in</Height>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
             <Textbox Name="ExecutionTime">
@@ -4017,15 +4100,18 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
                       <Style>
                         <FontFamily>times New Roman</FontFamily>
                         <FontSize>8pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
-                  <Style />
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>ExecutionTime</rd:DefaultName>
-              <Top>0.25479in</Top>
-              <Left>8.84475in</Left>
+              <Top>0.00271in</Top>
+              <Left>8.65725in</Left>
               <Height>0.17708in</Height>
               <Width>1.09993in</Width>
               <Style>
@@ -4053,12 +4139,14 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
                       </Style>
                     </TextRun>
                   </TextRuns>
-                  <Style />
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox33</rd:DefaultName>
-              <Top>0.24091in</Top>
-              <Left>0.12594in</Left>
+              <Top>0in</Top>
+              <Left>0.12762in</Left>
               <Height>0.2014in</Height>
               <Width>1.88067in</Width>
               <ZIndex>1</ZIndex>
@@ -4083,6 +4171,7 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
                       <Style>
                         <FontFamily>Times New Roman</FontFamily>
                         <FontSize>8pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -4092,7 +4181,7 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox33</rd:DefaultName>
-              <Top>0.2375in</Top>
+              <Top>0in</Top>
               <Left>6.1212in</Left>
               <Height>0.1875in</Height>
               <Width>1.3125in</Width>
@@ -4119,14 +4208,17 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
                       <Style>
                         <FontFamily>Times New Roman</FontFamily>
                         <FontSize>8pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
-                  <Style />
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox33</rd:DefaultName>
-              <Top>0.25479in</Top>
+              <Top>0.00271in</Top>
               <Left>3.21179in</Left>
               <Height>0.18056in</Height>
               <Width>1.3125in</Width>
@@ -4142,10 +4234,10 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
               </Style>
             </Textbox>
             <Line Name="Line1">
-              <Top>0.26562in</Top>
-              <Left>0.12594in</Left>
+              <Top>0.01562in</Top>
+              <Left>0.1608in</Left>
               <Height>0in</Height>
-              <Width>1.87244in</Width>
+              <Width>1.80549in</Width>
               <ZIndex>4</ZIndex>
               <Style>
                 <Border>
@@ -4174,7 +4266,7 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
               </Style>
             </Line>
             <Line Name="Line8">
-              <Top>0.28211in</Top>
+              <Top>0.03211in</Top>
               <Left>3.21179in</Left>
               <Height>0in</Height>
               <Width>1.3125in</Width>
@@ -4206,7 +4298,7 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
               </Style>
             </Line>
             <Line Name="Line9">
-              <Top>0.26961in</Top>
+              <Top>0.01961in</Top>
               <Left>6.13682in</Left>
               <Height>0in</Height>
               <Width>1.33077in</Width>
@@ -4238,10 +4330,10 @@ Fields!SortOrder.Value = Ceiling(18 / 2),
               </Style>
             </Line>
             <Line Name="Line10">
-              <Top>0.28211in</Top>
-              <Left>8.84475in</Left>
-              <Height>0in</Height>
-              <Width>1.10201in</Width>
+              <Top>0.04045in</Top>
+              <Left>8.53017in</Left>
+              <Height>-0.01042in</Height>
+              <Width>1.33118in</Width>
               <ZIndex>7</ZIndex>
               <Style>
                 <Border>

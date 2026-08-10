@@ -451,51 +451,51 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>0.85178in</Width>
+                  <Width>1.12452in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.72276in</Width>
+                  <Width>0.62305in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.6541in</Width>
+                  <Width>0.62311in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.67833in</Width>
+                  <Width>0.64174in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.71207in</Width>
+                  <Width>0.70853in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.64947in</Width>
+                  <Width>0.57166in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.58131in</Width>
+                  <Width>0.55933in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.57084in</Width>
+                  <Width>0.56586in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.52414in</Width>
+                  <Width>0.57641in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.55972in</Width>
+                  <Width>0.78175in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.63987in</Width>
+                  <Width>0.85in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.80565in</Width>
+                  <Width>0.79781in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.89237in</Width>
+                  <Width>0.81963in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.24731in</Width>
+                  <Width>0.87804in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>0.14584in</Height>
+                  <Height>0.11616in</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -1004,7 +1004,7 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>0.15625in</Height>
+                  <Height>0.12657in</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -1019,7 +1019,6 @@
                                   <Style>
                                     <FontFamily>Times New Roman</FontFamily>
                                     <FontSize>6pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1543,10 +1542,10 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>dsDateWiseHourlyQCReport</DataSetName>
-            <Top>0.125in</Top>
+            <Top>0.06944in</Top>
             <Left>0.08804in</Left>
-            <Height>0.30209in</Height>
-            <Width>10.08972in</Width>
+            <Height>0.24273in</Height>
+            <Width>10.12144in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1557,51 +1556,51 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>1.30367in</Width>
+                  <Width>1.12412in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.61709in</Width>
+                  <Width>0.62305in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.61715in</Width>
+                  <Width>0.62311in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.63578in</Width>
+                  <Width>0.64174in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.71298in</Width>
+                  <Width>0.70853in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.52634in</Width>
+                  <Width>0.57166in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.50676in</Width>
+                  <Width>0.55933in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.57084in</Width>
+                  <Width>0.56586in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.54739in</Width>
+                  <Width>0.61042in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.6441in</Width>
+                  <Width>0.74774in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.73409in</Width>
+                  <Width>0.85in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.80752in</Width>
+                  <Width>0.81211in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.89328in</Width>
+                  <Width>0.80533in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.95983in</Width>
+                  <Width>0.87804in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>0.18368in</Height>
+                  <Height>0.1316in</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -2108,7 +2107,7 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>0.14202in</Height>
+                  <Height>0.08994in</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -2643,10 +2642,10 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>dsDateWiseHourlyQCReportSummary</DataSetName>
-            <Top>0.71875in</Top>
-            <Left>0.10094in</Left>
-            <Height>0.3257in</Height>
-            <Width>10.07682in</Width>
+            <Top>0.7in</Top>
+            <Left>0.08844in</Left>
+            <Height>0.22154in</Height>
+            <Width>10.12104in</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -2692,8 +2691,8 @@
               </Textbox>
             </ReportItems>
             <KeepTogether>true</KeepTogether>
-            <Top>0.47536in</Top>
-            <Left>4.4563in</Left>
+            <Top>0.42083in</Top>
+            <Left>4.0563in</Left>
             <Height>0.20972in</Height>
             <Width>2.23314in</Width>
             <ZIndex>2</ZIndex>
@@ -2705,7 +2704,7 @@
             </Style>
           </Rectangle>
         </ReportItems>
-        <Height>1.09583in</Height>
+        <Height>0.93958in</Height>
         <Style>
           <Border>
             <Color>White</Color>
@@ -2713,32 +2712,17 @@
           </Border>
         </Style>
       </Body>
-      <Width>10.19918in</Width>
+      <Width>10.2199in</Width>
       <Page>
         <PageHeader>
-          <Height>2.205in</Height>
+          <Height>2.38111in</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <ReportItems>
-            <Image Name="Image1">
-              <Source>Embedded</Source>
-              <Value>Masco</Value>
-              <Sizing>FitProportional</Sizing>
-              <Top>0.03172in</Top>
-              <Left>0.32699in</Left>
-              <Height>0.4935in</Height>
-              <Width>0.36875in</Width>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-              </Style>
-            </Image>
             <Line Name="Line16">
               <Top>0.62229in</Top>
               <Left>0.11106in</Left>
               <Height>0in</Height>
               <Width>10.08812in</Width>
-              <ZIndex>1</ZIndex>
               <Style>
                 <Border>
                   <Style>Solid</Style>
@@ -3032,13 +3016,81 @@
                     <PaddingBottom>2pt</PaddingBottom>
                   </Style>
                 </Textbox>
+                <Textbox Name="ItemName">
+                  <CanGrow>true</CanGrow>
+                  <KeepTogether>true</KeepTogether>
+                  <Paragraphs>
+                    <Paragraph>
+                      <TextRuns>
+                        <TextRun>
+                          <Value>=First(Fields!ItemName.Value, "dsDateWiseHourlyQCReportSummary")</Value>
+                          <Style>
+                            <FontFamily>Times New Roman</FontFamily>
+                            <FontSize>6pt</FontSize>
+                            <FontWeight>Bold</FontWeight>
+                          </Style>
+                        </TextRun>
+                      </TextRuns>
+                      <Style />
+                    </Paragraph>
+                  </Paragraphs>
+                  <rd:DefaultName>ItemName</rd:DefaultName>
+                  <Top>0.87713in</Top>
+                  <Left>1.47665in</Left>
+                  <Height>0.1602in</Height>
+                  <Width>1.00346in</Width>
+                  <ZIndex>8</ZIndex>
+                  <Style>
+                    <Border>
+                      <Style>None</Style>
+                    </Border>
+                    <PaddingLeft>2pt</PaddingLeft>
+                    <PaddingRight>2pt</PaddingRight>
+                    <PaddingTop>2pt</PaddingTop>
+                    <PaddingBottom>2pt</PaddingBottom>
+                  </Style>
+                </Textbox>
+                <Textbox Name="WashCategory">
+                  <CanGrow>true</CanGrow>
+                  <KeepTogether>true</KeepTogether>
+                  <Paragraphs>
+                    <Paragraph>
+                      <TextRuns>
+                        <TextRun>
+                          <Value>=First(Fields!WashCategory.Value, "dsDateWiseHourlyQCReportSummary")</Value>
+                          <Style>
+                            <FontFamily>Times New Roman</FontFamily>
+                            <FontSize>6pt</FontSize>
+                            <FontWeight>Bold</FontWeight>
+                          </Style>
+                        </TextRun>
+                      </TextRuns>
+                      <Style />
+                    </Paragraph>
+                  </Paragraphs>
+                  <rd:DefaultName>WashCategory</rd:DefaultName>
+                  <Top>0.61598in</Top>
+                  <Left>1.47665in</Left>
+                  <Height>0.19171in</Height>
+                  <Width>1.00346in</Width>
+                  <ZIndex>9</ZIndex>
+                  <Style>
+                    <Border>
+                      <Style>None</Style>
+                    </Border>
+                    <PaddingLeft>2pt</PaddingLeft>
+                    <PaddingRight>2pt</PaddingRight>
+                    <PaddingTop>2pt</PaddingTop>
+                    <PaddingBottom>2pt</PaddingBottom>
+                  </Style>
+                </Textbox>
               </ReportItems>
               <KeepTogether>true</KeepTogether>
               <Top>0.91696in</Top>
               <Left>0.08804in</Left>
               <Height>1.08804in</Height>
               <Width>4.84455in</Width>
-              <ZIndex>2</ZIndex>
+              <ZIndex>1</ZIndex>
               <Style>
                 <Border>
                   <Color>Gray</Color>
@@ -3055,7 +3107,7 @@
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>Style  :</Value>
+                          <Value>Style            :</Value>
                           <Style>
                             <FontFamily>Times New Roman</FontFamily>
                             <FontSize>7pt</FontSize>
@@ -3069,8 +3121,8 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox2</rd:DefaultName>
-                  <Top>0.55655in</Top>
-                  <Left>0.04095in</Left>
+                  <Top>0.55099in</Top>
+                  <Left>0.03262in</Left>
                   <Height>0.17848in</Height>
                   <Width>0.76988in</Width>
                   <Style>
@@ -3091,7 +3143,7 @@
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>Buyer:</Value>
+                          <Value>Buyer           :</Value>
                           <Style>
                             <FontFamily>Times New Roman</FontFamily>
                             <FontSize>7pt</FontSize>
@@ -3105,10 +3157,10 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox2</rd:DefaultName>
-                  <Top>0.30968in</Top>
-                  <Left>0.04095in</Left>
+                  <Top>0.31697in</Top>
+                  <Left>0.01842in</Left>
                   <Height>0.19132in</Height>
-                  <Width>0.76988in</Width>
+                  <Width>0.78117in</Width>
                   <ZIndex>1</ZIndex>
                   <Style>
                     <Border>
@@ -3128,7 +3180,7 @@
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>Color :           </Value>
+                          <Value>Color           :           </Value>
                           <Style>
                             <FontFamily>Times New Roman</FontFamily>
                             <FontSize>7pt</FontSize>
@@ -3142,8 +3194,8 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox2</rd:DefaultName>
-                  <Top>0.8003in</Top>
-                  <Left>0.02936in</Left>
+                  <Top>0.7932in</Top>
+                  <Left>0.01686in</Left>
                   <Height>0.15555in</Height>
                   <Width>0.78147in</Width>
                   <ZIndex>2</ZIndex>
@@ -3165,7 +3217,7 @@
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>Job     :    </Value>
+                          <Value>Job             :    </Value>
                           <Style>
                             <FontFamily>Times New Roman</FontFamily>
                             <FontSize>7pt</FontSize>
@@ -3179,10 +3231,10 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox2</rd:DefaultName>
-                  <Top>0.5628in</Top>
+                  <Top>0.5392in</Top>
                   <Left>2.2018in</Left>
-                  <Height>0.16181in</Height>
-                  <Width>0.87031in</Width>
+                  <Height>0.18541in</Height>
+                  <Width>0.89253in</Width>
                   <ZIndex>3</ZIndex>
                   <Style>
                     <Border>
@@ -3202,7 +3254,7 @@
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>Order : </Value>
+                          <Value>Order        : </Value>
                           <Style>
                             <FontFamily>Times New Roman</FontFamily>
                             <FontSize>7pt</FontSize>
@@ -3239,7 +3291,7 @@
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>DHU%:</Value>
+                          <Value>DHU%          :</Value>
                           <Style>
                             <FontFamily>Times New Roman</FontFamily>
                             <FontSize>6pt</FontSize>
@@ -3254,7 +3306,7 @@
                   </Paragraphs>
                   <rd:DefaultName>Textbox2</rd:DefaultName>
                   <Top>0.79405in</Top>
-                  <Left>2.19518in</Left>
+                  <Left>2.2018in</Left>
                   <Height>0.15902in</Height>
                   <Width>0.89253in</Width>
                   <ZIndex>5</ZIndex>
@@ -3276,7 +3328,7 @@
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>Batch No:</Value>
+                          <Value>Batch No     :</Value>
                           <Style>
                             <FontFamily>Times New Roman</FontFamily>
                             <FontSize>7pt</FontSize>
@@ -3291,9 +3343,9 @@
                   </Paragraphs>
                   <rd:DefaultName>Textbox2</rd:DefaultName>
                   <Top>0.07183in</Top>
-                  <Left>0.09512in</Left>
+                  <Left>0.03262in</Left>
                   <Height>0.16527in</Height>
-                  <Width>0.65915in</Width>
+                  <Width>0.76571in</Width>
                   <ZIndex>6</ZIndex>
                   <Style>
                     <Border>
@@ -3316,7 +3368,7 @@
                           <Value>=First(Fields!BatchNo.Value, "dsDateWiseHourlyQCReport")</Value>
                           <Style>
                             <FontFamily>Times New Roman</FontFamily>
-                            <FontSize>6pt</FontSize>
+                            <FontSize>4pt</FontSize>
                             <FontWeight>Bold</FontWeight>
                           </Style>
                         </TextRun>
@@ -3326,7 +3378,7 @@
                   </Paragraphs>
                   <rd:DefaultName>BatchNo</rd:DefaultName>
                   <Top>0.06177in</Top>
-                  <Left>0.84446in</Left>
+                  <Left>0.8459in</Left>
                   <Height>0.15972in</Height>
                   <Width>3.80237in</Width>
                   <ZIndex>7</ZIndex>
@@ -3543,7 +3595,7 @@
                 <Line Name="Line2">
                   <Top>0.26349in</Top>
                   <Height>0in</Height>
-                  <Width>4.64683in</Width>
+                  <Width>4.67545in</Width>
                   <ZIndex>14</ZIndex>
                   <Style>
                     <Border>
@@ -3576,7 +3628,7 @@
                   <Top>0.51542in</Top>
                   <Left>0.01394in</Left>
                   <Height>0in</Height>
-                  <Width>4.64683in</Width>
+                  <Width>4.66151in</Width>
                   <ZIndex>15</ZIndex>
                   <Style>
                     <Border>
@@ -3609,7 +3661,7 @@
                   <Top>0.76542in</Top>
                   <Left>0.01394in</Left>
                   <Height>0in</Height>
-                  <Width>4.64683in</Width>
+                  <Width>4.66151in</Width>
                   <ZIndex>16</ZIndex>
                   <Style>
                     <Border>
@@ -3641,7 +3693,7 @@
                 <Line Name="Line5">
                   <Top>0.26349in</Top>
                   <Left>2.15458in</Left>
-                  <Height>0.78472in</Height>
+                  <Height>0.82431in</Height>
                   <Width>0in</Width>
                   <ZIndex>17</ZIndex>
                   <Style>
@@ -3675,9 +3727,9 @@
               <KeepTogether>true</KeepTogether>
               <Top>0.9172in</Top>
               <Left>5.48985in</Left>
-              <Height>1.07252in</Height>
+              <Height>1.0878in</Height>
               <Width>4.68795in</Width>
-              <ZIndex>3</ZIndex>
+              <ZIndex>2</ZIndex>
               <Style>
                 <Border>
                   <Color>Gray</Color>
@@ -3710,7 +3762,7 @@
               <Left>1.67219in</Left>
               <Height>0.22807in</Height>
               <Width>6.76707in</Width>
-              <ZIndex>4</ZIndex>
+              <ZIndex>3</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -3733,7 +3785,6 @@
                       <Style>
                         <FontFamily>Times New Roman</FontFamily>
                         <FontSize>6pt</FontSize>
-                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -3747,7 +3798,7 @@
               <Left>2.65324in</Left>
               <Height>0.25in</Height>
               <Width>5.10894in</Width>
-              <ZIndex>5</ZIndex>
+              <ZIndex>4</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -3766,7 +3817,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value xml:space="preserve">                    </Value>
+                      <Value xml:space="preserve">   </Value>
                       <Style>
                         <FontFamily>Times New Roman</FontFamily>
                         <FontSize>6pt</FontSize>
@@ -3774,11 +3825,17 @@
                       </Style>
                     </TextRun>
                     <TextRun>
+                      <Value xml:space="preserve">                 </Value>
+                      <Style>
+                        <FontFamily>Times New Roman</FontFamily>
+                        <FontSize>6pt</FontSize>
+                      </Style>
+                    </TextRun>
+                    <TextRun>
                       <Value>TotalDefectQty </Value>
                       <Style>
                         <FontFamily>Times New Roman</FontFamily>
                         <FontSize>5pt</FontSize>
-                        <Color>Gray</Color>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -3793,7 +3850,6 @@
                       <Style>
                         <FontFamily>Times New Roman</FontFamily>
                         <FontSize>5pt</FontSize>
-                        <Color>Gray</Color>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -3808,7 +3864,6 @@
                       <Style>
                         <FontFamily>Times New Roman</FontFamily>
                         <FontSize>6pt</FontSize>
-                        <Color>Gray</Color>
                       </Style>
                     </TextRun>
                     <TextRun>
@@ -3816,7 +3871,6 @@
                       <Style>
                         <FontFamily>Times New Roman</FontFamily>
                         <FontSize>5pt</FontSize>
-                        <Color>Gray</Color>
                       </Style>
                     </TextRun>
                     <TextRun>
@@ -3825,7 +3879,6 @@
                         <FontFamily>Times New Roman</FontFamily>
                         <FontSize>5pt</FontSize>
                         <FontWeight>Bold</FontWeight>
-                        <Color>Gray</Color>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -3835,11 +3888,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox8</rd:DefaultName>
-              <Top>0.63479in</Top>
-              <Left>7.84863in</Left>
-              <Height>0.27474in</Height>
+              <Top>0.67923in</Top>
+              <Left>7.83613in</Left>
+              <Height>0.19769in</Height>
               <Width>2.32917in</Width>
-              <ZIndex>6</ZIndex>
+              <ZIndex>5</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -3850,6 +3903,54 @@
                 <PaddingBottom>2pt</PaddingBottom>
               </Style>
             </Textbox>
+            <Line Name="Line6">
+              <Top>0.84312in</Top>
+              <Left>8.2639in</Left>
+              <Height>-0.00624in</Height>
+              <Width>0.46875in</Width>
+              <ZIndex>6</ZIndex>
+              <Style>
+                <Border>
+                  <Color>Silver</Color>
+                  <Style>Solid</Style>
+                </Border>
+                <TopBorder>
+                  <Color>Silver</Color>
+                  <Style>Solid</Style>
+                  <Width>1pt</Width>
+                </TopBorder>
+                <BottomBorder>
+                  <Color>Silver</Color>
+                  <Style>Solid</Style>
+                  <Width>1pt</Width>
+                </BottomBorder>
+                <LeftBorder>
+                  <Color>Silver</Color>
+                  <Style>Solid</Style>
+                  <Width>1pt</Width>
+                </LeftBorder>
+                <RightBorder>
+                  <Color>Silver</Color>
+                  <Style>Solid</Style>
+                  <Width>1pt</Width>
+                </RightBorder>
+              </Style>
+            </Line>
+            <Image Name="Image1">
+              <Source>Embedded</Source>
+              <Value>Masco</Value>
+              <Sizing>FitProportional</Sizing>
+              <Top>0.13414in</Top>
+              <Left>0.14926in</Left>
+              <Height>0.47426in</Height>
+              <Width>0.36875in</Width>
+              <ZIndex>7</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+              </Style>
+            </Image>
             <Rectangle Name="Rectangle4">
               <ReportItems>
                 <Textbox Name="Textbox7">
@@ -3874,7 +3975,6 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox7</rd:DefaultName>
-                  <Top>0.0125in</Top>
                   <Height>0.19203in</Height>
                   <Width>3.29167in</Width>
                   <Style>
@@ -3890,11 +3990,11 @@
                 </Textbox>
               </ReportItems>
               <KeepTogether>true</KeepTogether>
-              <Top>0.67507in</Top>
-              <Left>3.69472in</Left>
+              <Top>0.69468in</Top>
+              <Left>3.57233in</Left>
               <Height>0.21564in</Height>
               <Width>3.30452in</Width>
-              <ZIndex>7</ZIndex>
+              <ZIndex>8</ZIndex>
               <Style>
                 <Border>
                   <Color>Gray</Color>
@@ -3903,39 +4003,6 @@
                 </Border>
               </Style>
             </Rectangle>
-            <Line Name="Line6">
-              <Top>0.80562in</Top>
-              <Left>8.2764in</Left>
-              <Height>-0.00624in</Height>
-              <Width>0.46875in</Width>
-              <ZIndex>8</ZIndex>
-              <Style>
-                <Border>
-                  <Color>Silver</Color>
-                  <Style>Solid</Style>
-                </Border>
-                <TopBorder>
-                  <Color>Silver</Color>
-                  <Style>Solid</Style>
-                  <Width>1pt</Width>
-                </TopBorder>
-                <BottomBorder>
-                  <Color>Silver</Color>
-                  <Style>Solid</Style>
-                  <Width>1pt</Width>
-                </BottomBorder>
-                <LeftBorder>
-                  <Color>Silver</Color>
-                  <Style>Solid</Style>
-                  <Width>1pt</Width>
-                </LeftBorder>
-                <RightBorder>
-                  <Color>Silver</Color>
-                  <Style>Solid</Style>
-                  <Width>1pt</Width>
-                </RightBorder>
-              </Style>
-            </Line>
           </ReportItems>
           <Style>
             <Border>
@@ -3944,182 +4011,14 @@
           </Style>
         </PageHeader>
         <PageFooter>
-          <Height>0.25742in</Height>
+          <Height>0.26784in</Height>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
-            <Textbox Name="ExecutionTime">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>Production Head</Value>
-                      <Style>
-                        <FontFamily>times New Roman</FontFamily>
-                        <FontSize>8pt</FontSize>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>ExecutionTime</rd:DefaultName>
-              <Top>0.05417in</Top>
-              <Left>8.96975in</Left>
-              <Height>0.17708in</Height>
-              <Width>1.18087in</Width>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox33">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>QC Supervisor</Value>
-                      <Style>
-                        <FontFamily>times New Roman</FontFamily>
-                        <FontSize>8pt</FontSize>
-                        <FontWeight>Bold</FontWeight>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox33</rd:DefaultName>
-              <Top>0.03056in</Top>
-              <Left>0.12594in</Left>
-              <Height>0.2014in</Height>
-              <Width>1.88067in</Width>
-              <ZIndex>1</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox34">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>QM</Value>
-                      <Style>
-                        <FontFamily>Times New Roman</FontFamily>
-                        <FontSize>8pt</FontSize>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <TextAlign>Center</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox33</rd:DefaultName>
-              <Top>0.01806in</Top>
-              <Left>6.1212in</Left>
-              <Height>0.1875in</Height>
-              <Width>1.3125in</Width>
-              <ZIndex>2</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <VerticalAlign>Middle</VerticalAlign>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox35">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>QC Incharge</Value>
-                      <Style>
-                        <FontFamily>Times New Roman</FontFamily>
-                        <FontSize>8pt</FontSize>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox33</rd:DefaultName>
-              <Top>0.04444in</Top>
-              <Left>3.21179in</Left>
-              <Height>0.18056in</Height>
-              <Width>1.3125in</Width>
-              <ZIndex>3</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
             <Line Name="Line1">
-              <Top>0.06621in</Top>
-              <Left>3.21337in</Left>
-              <Height>0.01042in</Height>
-              <Width>1.33077in</Width>
-              <ZIndex>4</ZIndex>
-              <Style>
-                <Border>
-                  <Style>Dotted</Style>
-                </Border>
-                <TopBorder>
-                  <Color>Black</Color>
-                  <Style>Dotted</Style>
-                  <Width>1pt</Width>
-                </TopBorder>
-                <BottomBorder>
-                  <Color>Black</Color>
-                  <Style>Dotted</Style>
-                  <Width>1pt</Width>
-                </BottomBorder>
-                <LeftBorder>
-                  <Color>Black</Color>
-                  <Style>Dotted</Style>
-                  <Width>1pt</Width>
-                </LeftBorder>
-                <RightBorder>
-                  <Color>Black</Color>
-                  <Style>Dotted</Style>
-                  <Width>1pt</Width>
-                </RightBorder>
-              </Style>
-            </Line>
-            <Line Name="Line7">
-              <Top>0.06621in</Top>
-              <Left>6.1337in</Left>
+              <Top>0.05097in</Top>
+              <Left>0.14292in</Left>
               <Height>0in</Height>
-              <Width>1.3125in</Width>
-              <ZIndex>5</ZIndex>
+              <Width>1.80549in</Width>
               <Style>
                 <Border>
                   <Style>Dotted</Style>
@@ -4147,11 +4046,11 @@
               </Style>
             </Line>
             <Line Name="Line8">
-              <Top>0.05371in</Top>
-              <Left>0.14926in</Left>
+              <Top>0.06746in</Top>
+              <Left>3.53141in</Left>
               <Height>0in</Height>
-              <Width>1.87244in</Width>
-              <ZIndex>6</ZIndex>
+              <Width>1.3125in</Width>
+              <ZIndex>1</ZIndex>
               <Style>
                 <Border>
                   <Style>Dotted</Style>
@@ -4179,11 +4078,11 @@
               </Style>
             </Line>
             <Line Name="Line9">
-              <Top>0.09121in</Top>
-              <Left>8.96975in</Left>
+              <Top>0.05496in</Top>
+              <Left>6.45644in</Left>
               <Height>0in</Height>
-              <Width>1.19106in</Width>
-              <ZIndex>7</ZIndex>
+              <Width>1.33077in</Width>
+              <ZIndex>2</ZIndex>
               <Style>
                 <Border>
                   <Style>Dotted</Style>
@@ -4210,6 +4109,183 @@
                 </RightBorder>
               </Style>
             </Line>
+            <Line Name="Line10">
+              <Top>0.0758in</Top>
+              <Left>8.84979in</Left>
+              <Height>-0.01042in</Height>
+              <Width>1.33118in</Width>
+              <ZIndex>3</ZIndex>
+              <Style>
+                <Border>
+                  <Style>Dotted</Style>
+                </Border>
+                <TopBorder>
+                  <Color>Black</Color>
+                  <Style>Dotted</Style>
+                  <Width>1pt</Width>
+                </TopBorder>
+                <BottomBorder>
+                  <Color>Black</Color>
+                  <Style>Dotted</Style>
+                  <Width>1pt</Width>
+                </BottomBorder>
+                <LeftBorder>
+                  <Color>Black</Color>
+                  <Style>Dotted</Style>
+                  <Width>1pt</Width>
+                </LeftBorder>
+                <RightBorder>
+                  <Color>Black</Color>
+                  <Style>Dotted</Style>
+                  <Width>1pt</Width>
+                </RightBorder>
+              </Style>
+            </Line>
+            <Textbox Name="ExecutionTime">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>Production Head</Value>
+                      <Style>
+                        <FontFamily>times New Roman</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>ExecutionTime</rd:DefaultName>
+              <Top>0.03806in</Top>
+              <Left>9.00187in</Left>
+              <Height>0.17708in</Height>
+              <Width>1.09993in</Width>
+              <ZIndex>4</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox34">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>QM</Value>
+                      <Style>
+                        <FontFamily>Times New Roman</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox33</rd:DefaultName>
+              <Top>0.03535in</Top>
+              <Left>6.45124in</Left>
+              <Height>0.1875in</Height>
+              <Width>1.3125in</Width>
+              <ZIndex>5</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox35">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>QC Incharge</Value>
+                      <Style>
+                        <FontFamily>Times New Roman</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox33</rd:DefaultName>
+              <Top>0.03806in</Top>
+              <Left>3.53141in</Left>
+              <Height>0.18056in</Height>
+              <Width>1.3125in</Width>
+              <ZIndex>6</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox33">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>QC Supervisor</Value>
+                      <Style>
+                        <FontFamily>times New Roman</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox33</rd:DefaultName>
+              <Top>0.01374in</Top>
+              <Left>0.13609in</Left>
+              <Height>0.2014in</Height>
+              <Width>1.83732in</Width>
+              <ZIndex>7</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
           </ReportItems>
           <Style>
             <Border>

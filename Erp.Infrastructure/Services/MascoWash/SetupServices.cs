@@ -2971,8 +2971,83 @@ namespace Erp.Infrastructure.Services.MascoWash
         //    //}
         //}
 
+        public async Task<List<BatchNoQCAutoCompleteDto>> GetBatchNoQCAutoComplete(string searchText)
+        {
+            List<BatchNoQCAutoCompleteDto> list = new List<BatchNoQCAutoCompleteDto>();
 
+            DynamicParameters parameter = new DynamicParameters();
 
+            string query = "SP_GetBatchNoQCAutoComplete";
+
+            parameter.Add(
+                "@SearchText",
+                searchText,
+                DbType.String,
+                ParameterDirection.Input
+            );
+
+            var getList = await GetDisposeErrorFreeListAsyncNew<BatchNoQCAutoCompleteDto>(
+                query,
+                parameter
+            );
+
+            foreach (var item in getList)
+            {
+                var obj = new BatchNoQCAutoCompleteDto
+                {
+                    MasterId = item.MasterId,
+                    BatchNo = item.BatchNo
+                };
+
+                list.Add(obj);
+            }
+
+            return list;
+        }
+        public async Task<List<GetBatchNoByDateAndShiftDto>> GetBatchNoByDateAndShift(
+    DateTime date,
+    int shiftId)
+        {
+            List<GetBatchNoByDateAndShiftDto> list =
+                new List<GetBatchNoByDateAndShiftDto>();
+
+            DynamicParameters parameter = new DynamicParameters();
+
+            string query = "SP_GetBatchNoQCByDateAndShift";
+
+            parameter.Add(
+                "@Date",
+                date,
+                DbType.Date,
+                ParameterDirection.Input
+            );
+
+            parameter.Add(
+                "@ShiftId",
+                shiftId,
+                DbType.Int32,
+                ParameterDirection.Input
+            );
+
+            var getList =
+                await GetDisposeErrorFreeListAsyncNew<GetBatchNoByDateAndShiftDto>(
+                    query,
+                    parameter
+                );
+
+            foreach (var item in getList)
+            {
+                var obj = new GetBatchNoByDateAndShiftDto
+                {
+                    MasterId = item.MasterId,
+                    BatchNo = item.BatchNo
+                };
+
+                list.Add(obj);
+            }
+
+            return list;
+        }
     }
 
 }
