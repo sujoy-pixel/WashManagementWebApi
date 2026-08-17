@@ -493,7 +493,29 @@ namespace Erp.WebApi.Controllers.Commercial.Setup
 
                 return Ok(result);
             }
-    
+
+        [HttpPost]
+        [ActionName("getFloorStatusData")]
+        public async Task<IActionResult> GetFloorStatusData(
+    [FromBody] FloorStatusRequestDto objparam)
+        {
+            if (objparam == null)
+                return BadRequest("Invalid request.");
+
+            var result = await _mediator.Send(
+                new FloorStatusQuery(
+                    objparam.UnitId,
+                    objparam.FromDate,
+                    objparam.ToDate,
+                    objparam.OrderType
+                )
+            );
+
+            return Ok(result);
+        }
+
+
+
     }
     }
 

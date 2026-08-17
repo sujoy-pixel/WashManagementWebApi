@@ -111,7 +111,8 @@ namespace Erp.Application.MascoWash.Setup.Repository
 
         Task<List<BatchNoQCAutoCompleteDto>> GetBatchNoQCAutoComplete(string searchText);
 
-        Task<List<GetBatchNoByDateAndShiftDto>> GetBatchNoByDateAndShift(DateTime date,int shiftId);
+        Task<List<GetBatchNoByDateAndShiftDto>> GetBatchNoByDateAndShift(DateTime date, int shiftId);
+        Task<List<FloorStatusResponseDtos>> GetFloorStatusData(int unitId,DateTime fromDate,DateTime toDate,string orderType);
 
     }
 }

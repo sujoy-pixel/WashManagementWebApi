@@ -3048,6 +3048,54 @@ namespace Erp.Infrastructure.Services.MascoWash
 
             return list;
         }
+
+        public async Task<List<FloorStatusResponseDtos>> GetFloorStatusData(
+    int unitId,
+    DateTime fromDate,
+    DateTime toDate,
+    string orderType)
+        {
+            var parameter = new DynamicParameters();
+
+            parameter.Add(
+                "@UnitId",
+                unitId,
+                DbType.Int32
+            );
+
+            parameter.Add(
+                "@FromDate",
+                fromDate,
+                DbType.Date
+            );
+
+            parameter.Add(
+                "@ToDate",
+                toDate,
+                DbType.Date
+            );
+
+            parameter.Add(
+                "@OrderType",
+                orderType,
+                DbType.String
+            );
+
+
+            const string spName =
+                "[dbo].[sp_Get_FloorStatusDashboard]";
+
+
+            var result =
+                await GetDisposeErrorFreeListAsyncNew<FloorStatusResponseDtos>(
+                    spName,
+                    parameter
+                );
+
+
+            return result?.ToList()
+                ?? new List<FloorStatusResponseDtos>();
+        }
     }
 
 }
