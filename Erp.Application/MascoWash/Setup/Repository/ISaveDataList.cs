@@ -113,6 +113,7 @@ namespace Erp.Application.MascoWash.Setup.Repository
 
         Task<List<GetBatchNoByDateAndShiftDto>> GetBatchNoByDateAndShift(DateTime date, int shiftId);
         Task<List<FloorStatusResponseDtos>> GetFloorStatusData(int unitId,DateTime fromDate,DateTime toDate,string orderType);
-
+        Task<List<DateWiseQCPassDHUDashboardResponseDtos>>GetDateWiseQCPassDHUDashboard(int unitId,DateTime fromDate, DateTime toDate);
+        Task<List<StyleWiseQCPassDHUDashboardResponseDtos>>GetStyleWiseQCPassDHUDashboard( int unitId, DateTime fromDate,DateTime toDate);
     }
 }

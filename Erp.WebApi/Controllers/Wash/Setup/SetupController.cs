@@ -483,16 +483,16 @@ namespace Erp.WebApi.Controllers.Commercial.Setup
             );
         }
 
-    
 
-            [HttpPost]
-            public async Task<IActionResult> GetBatchNoByDateAndShift(
-                [FromBody] GetBatchNoByDateAndShiftQuery query)
-            {
-                var result = await _mediator.Send(query);
 
-                return Ok(result);
-            }
+        [HttpPost]
+        public async Task<IActionResult> GetBatchNoByDateAndShift(
+            [FromBody] GetBatchNoByDateAndShiftQuery query)
+        {
+            var result = await _mediator.Send(query);
+
+            return Ok(result);
+        }
 
         [HttpPost]
         [ActionName("getFloorStatusData")]
@@ -514,9 +514,45 @@ namespace Erp.WebApi.Controllers.Commercial.Setup
             return Ok(result);
         }
 
+        [HttpPost]
+        [ActionName("getDateWiseQcPassDhuData")]
+        public async Task<IActionResult> GetDateWiseQCPassDHUDashboard(
+    [FromBody] DateWiseQCPassDHUDashboardRequestDto objparam)
+        {
+            if (objparam == null)
+                return BadRequest("Invalid request.");
+
+            var result = await _mediator.Send(
+                new DateWiseQCPassDHUDashboardQuery(
+                    objparam.UnitId,
+                    objparam.FromDate,
+                    objparam.ToDate
+                )
+            );
+
+            return Ok(result);
+        }
 
 
+        [HttpPost]
+        [ActionName("getStyleWiseQcPassDhuData")]
+        public async Task<IActionResult> GetStyleWiseQCPassDHUDashboard(
+         [FromBody] StyleWiseQCPassDHUDashboardRequestDto objparam)
+        {
+            if (objparam == null)
+                return BadRequest("Invalid request.");
+
+            var result = await _mediator.Send(
+                new StyleWiseQCPassDHUDashboardQuery(
+                    objparam.UnitId,
+                    objparam.FromDate,
+                    objparam.ToDate
+                )
+            );
+
+            return Ok(result);
+        }
     }
-    }
+}
 
 

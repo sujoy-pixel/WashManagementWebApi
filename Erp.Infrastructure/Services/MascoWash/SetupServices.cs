@@ -2439,7 +2439,7 @@ namespace Erp.Infrastructure.Services.MascoWash
             parameter.Add("@BatchNo", batchNo, DbType.String, ParameterDirection.Input);
 
 
-            const string spName = "[dbo].[SP_GetDataForAcidWashBatchPrepare]"; 
+            const string spName = "[dbo].[SP_GetDataForAcidWashBatchPrepare]";
 
             var result = await GetDisposeErrorFreeListAsyncNew<BatchWishQCDataDto>(
                spName,
@@ -3050,10 +3050,10 @@ namespace Erp.Infrastructure.Services.MascoWash
         }
 
         public async Task<List<FloorStatusResponseDtos>> GetFloorStatusData(
-    int unitId,
-    DateTime fromDate,
-    DateTime toDate,
-    string orderType)
+               int unitId,
+               DateTime fromDate,
+               DateTime toDate,
+               string orderType)
         {
             var parameter = new DynamicParameters();
 
@@ -3095,6 +3095,91 @@ namespace Erp.Infrastructure.Services.MascoWash
 
             return result?.ToList()
                 ?? new List<FloorStatusResponseDtos>();
+        }
+        public async Task<List<DateWiseQCPassDHUDashboardResponseDtos>>
+    GetDateWiseQCPassDHUDashboard(
+        int unitId,
+        DateTime fromDate,
+        DateTime toDate)
+        {
+            var parameter = new DynamicParameters();
+
+            parameter.Add(
+                "@UnitId",
+                unitId,
+                DbType.Int32
+            );
+
+            parameter.Add(
+                "@FromDate",
+                fromDate,
+                DbType.Date
+            );
+
+            parameter.Add(
+                "@ToDate",
+                toDate,
+                DbType.Date
+            );
+
+
+            const string spName =
+                "[dbo].[SP_Get_DateWiseQCPassDHUDashboard]";
+
+
+            var result =
+                await GetDisposeErrorFreeListAsyncNew<
+                    DateWiseQCPassDHUDashboardResponseDtos>(
+                        spName,
+                        parameter
+                    );
+
+
+            return result?.ToList()
+                ?? new List<DateWiseQCPassDHUDashboardResponseDtos>();
+        }
+
+        public async Task<List<StyleWiseQCPassDHUDashboardResponseDtos>>
+    GetStyleWiseQCPassDHUDashboard(
+        int unitId,
+        DateTime fromDate,
+        DateTime toDate)
+        {
+            var parameter = new DynamicParameters();
+
+            parameter.Add(
+                "@UnitId",
+                unitId,
+                DbType.Int32
+            );
+
+            parameter.Add(
+                "@FromDate",
+                fromDate,
+                DbType.Date
+            );
+
+            parameter.Add(
+                "@ToDate",
+                toDate,
+                DbType.Date
+            );
+
+
+            const string spName =
+                "[dbo].[SP_Get_StyleWiseQCPassDHUDashboard]";
+
+
+            var result =
+                await GetDisposeErrorFreeListAsyncNew<
+                    StyleWiseQCPassDHUDashboardResponseDtos>(
+                        spName,
+                        parameter
+                    );
+
+
+            return result?.ToList()
+                ?? new List<StyleWiseQCPassDHUDashboardResponseDtos>();
         }
     }
 
