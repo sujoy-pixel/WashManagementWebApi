@@ -3181,9 +3181,349 @@ namespace Erp.Infrastructure.Services.MascoWash
             return result?.ToList()
                 ?? new List<StyleWiseQCPassDHUDashboardResponseDtos>();
         }
-    }
 
+
+
+
+
+
+
+
+
+        public async Task<List<StyleWiseRejectionResponseDto>> GetStyleWiseRejectionData(
+          int unitId,
+          int buyerId,
+          DateTime fromDate,
+          DateTime toDate)
+        {
+            var parameter = new DynamicParameters();
+
+            parameter.Add("@UnitId", unitId, DbType.Int32);
+            parameter.Add("@BuyerId", buyerId, DbType.Int32);
+            parameter.Add("@FromDate", fromDate, DbType.Date);
+            parameter.Add("@ToDate", toDate, DbType.Date);
+
+            const string spName = "[dbo].[SP_Get_StyleWiseRejectionData]";
+
+            // Read using Query<dynamic> - Dapper's native approach for dynamic result sets
+            DefaultTypeMap.MatchNamesWithUnderscores = true;
+
+            try
+            {
+                using var connection = CreateConnection();
+
+                var rawRowsList = connection.Query<dynamic>(
+                    spName,
+                    parameter,
+                    commandType: CommandType.StoredProcedure
+                )?.ToList() ?? new List<dynamic>();
+
+                if (!rawRowsList.Any())
+                    return new List<StyleWiseRejectionResponseDto>();
+
+                // Fixed column names - anything NOT in this set is treated
+                // as a dynamic size column.
+                var fixedColumns = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
+                {
+                    "ReceiveFrom", "Buyer", "Job", "Order", "Style", "Color",
+                    "DressPart", "WashCategory", "ItemName",
+                    "ReceiveQty", "UoM", "NoOfBatch", "TotalCheckQty",
+                    "TotalRejectQty", "RejectPercent",
+                    "NoSizeDataYet",
+                    "RowKey"
+                };
+
+                var result = new List<StyleWiseRejectionResponseDto>(rawRowsList.Count);
+
+                foreach (var row in rawRowsList)
+                {
+                    var rowDict = (IDictionary<string, object>)row;
+
+                    var dto = new StyleWiseRejectionResponseDto
+                    {
+                        ReceiveFrom = AsString(rowDict, "ReceiveFrom"),
+                        Buyer = AsString(rowDict, "Buyer"),
+                        Job = AsString(rowDict, "Job"),
+                        Order = AsString(rowDict, "Order"),
+                        Style = AsString(rowDict, "Style"),
+                        Color = AsString(rowDict, "Color"),
+                        DressPart = AsString(rowDict, "DressPart"),
+                        WashCategory = AsString(rowDict, "WashCategory"),
+                        ItemName = AsString(rowDict, "ItemName"),
+                        ReceiveQty = AsDecimal(rowDict, "ReceiveQty"),
+                        UoM = AsString(rowDict, "UoM"),
+                        NoOfBatch = AsInt(rowDict, "NoOfBatch"),
+                        TotalCheckQty = AsInt(rowDict, "TotalCheckQty"),
+                        TotalRejectQty = AsInt(rowDict, "TotalRejectQty"),
+                        RejectPercent = AsString(rowDict, "RejectPercent"),
+                    };
+
+                    // Walk every column in the row; any column NOT in the
+                    // fixed set is a dynamic size column. Skip NULL cells.
+                    foreach (var kv in rowDict)
+                    {
+                        if (kv.Key == null) continue;
+                        if (fixedColumns.Contains(kv.Key)) continue;
+
+                        var sizeName = kv.Key.TrimStart('_');
+                        var rejectQty = AsInt(rowDict, kv.Key) ?? 0;
+                        dto.SizeRejects[sizeName] = rejectQty;
+                    }
+
+                    result.Add(dto);
+                }
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error retrieving style-wise rejection data: {ex.Message}", ex);
+            }
+        }
+
+        // ------------------------------------------------------------------
+        // Tiny helpers - Dapper returns objects, we coerce to the
+        // destination type. Null-safe.
+        // ------------------------------------------------------------------
+
+        private static string AsString(IDictionary<string, object> row, string key)
+        {
+            if (!row.TryGetValue(key, out var val) || val == null || val == DBNull.Value)
+                return null;
+            var s = val.ToString();
+            // SP may return literal "null" / "NULL" for some text
+            // cells via ISNULL coalesce - normalize to null here.
+            if (string.IsNullOrWhiteSpace(s)) return null;
+            if (string.Equals(s, "null", StringComparison.OrdinalIgnoreCase) ||
+                string.Equals(s, "none", StringComparison.OrdinalIgnoreCase) ||
+                string.Equals(s, "undefined", StringComparison.OrdinalIgnoreCase))
+                return null;
+            return s;
+        }
+
+        private static int? AsInt(IDictionary<string, object> row, string key)
+        {
+            if (!row.TryGetValue(key, out var val) || val == null || val == DBNull.Value)
+                return null;
+            if (val is int i) return i;
+            if (val is long l) return (int)l;
+            if (val is decimal d) return (int)d;
+            if (val is double db) return (int)db;
+            if (int.TryParse(val.ToString(), out var parsed)) return parsed;
+            return null;
+        }
+
+        private static decimal? AsDecimal(IDictionary<string, object> row, string key)
+        {
+            if (!row.TryGetValue(key, out var val) || val == null || val == DBNull.Value)
+                return null;
+            if (val is decimal d) return d;
+            if (val is double db) return (decimal)db;
+            if (val is int i) return i;
+            if (val is long l) return l;
+            if (decimal.TryParse(val.ToString(), out var parsed)) return parsed;
+            return null;
+        }
+
+        public async Task<List<DateWiseRejectionResponseDto>> GetDateWiseRejectionData(
+            int unitId,
+            int buyerId,
+            DateTime fromDate,
+            DateTime toDate)
+        {
+            var parameter = new DynamicParameters();
+
+            parameter.Add("@UnitId", unitId, DbType.Int32);
+            parameter.Add("@BuyerId", buyerId, DbType.Int32);
+            parameter.Add("@FromDate", fromDate, DbType.Date);
+            parameter.Add("@ToDate", toDate, DbType.Date);
+
+            const string spName = "[dbo].[SP_Get_DateWiseRejectionDashboard]";
+
+            // Important for Dapper column-name mapping
+            DefaultTypeMap.MatchNamesWithUnderscores = true;
+
+            try
+            {
+                using var connection = CreateConnection();
+
+                var rawRows = await connection.QueryAsync<dynamic>(
+                    spName,
+                    parameter,
+                    commandType: CommandType.StoredProcedure
+                );
+
+                var rawRowsList = rawRows?.ToList() ?? new List<dynamic>();
+
+                if (!rawRowsList.Any())
+                    return new List<DateWiseRejectionResponseDto>();
+
+                // -------------------------------------------------------------
+                // Fixed columns returned by the Stored Procedure.
+                // Anything outside this list will be considered a Size column.
+                // -------------------------------------------------------------
+                var fixedColumns = new HashSet<string>(
+                    StringComparer.OrdinalIgnoreCase)
+        {
+            "Date",
+            "TrackingNo",
+            "ReceiveFrom",
+            "Buyer",
+            "Job",
+            "Order",
+            "Style",
+            "Color",
+            "DressPart",
+            "WashCategory",
+            "ItemName",
+            "Shift",
+            "QCName",
+            "ReceiveQty",
+            "UoM",
+            "BatchNo",
+            "TotalCheckQty",
+            "TotalRejectQty",
+            "RejectPercent",
+
+            // If your SP contains these helper columns,
+            // they should NOT be treated as size columns.
+            "NoOfBatch",
+            "NoSizeDataYet",
+            "RowKey"
+        };
+
+                var result = new List<DateWiseRejectionResponseDto>(
+                    rawRowsList.Count);
+
+                foreach (var row in rawRowsList)
+                {
+                    var rowDict = (IDictionary<string, object>)row;
+
+                    var dto = new DateWiseRejectionResponseDto
+                    {
+                        Date = rowDict.ContainsKey("Date") &&
+           rowDict["Date"] != null &&
+           rowDict["Date"] != DBNull.Value
+        ? Convert.ToDateTime(rowDict["Date"])
+        : (DateTime?)null,
+
+
+                        TrackingNo = AsString(
+                            rowDict, "TrackingNo"),
+
+                        ReceiveFrom = AsString(
+                            rowDict, "ReceiveFrom"),
+
+                        Buyer = AsString(
+                            rowDict, "Buyer"),
+
+                        Job = AsString(
+                            rowDict, "Job"),
+
+                        Order = AsString(
+                            rowDict, "Order"),
+
+                        Style = AsString(
+                            rowDict, "Style"),
+
+                        Color = AsString(
+                            rowDict, "Color"),
+
+                        DressPart = AsString(
+                            rowDict, "DressPart"),
+
+                        WashCategory = AsString(
+                            rowDict, "WashCategory"),
+
+                        ItemName = AsString(
+                            rowDict, "ItemName"),
+
+                        Shift = AsString(
+                            rowDict, "Shift"),
+
+                        QCName = AsString(
+                            rowDict, "QCName"),
+
+                        ReceiveQty = AsDecimal(
+                            rowDict, "ReceiveQty"),
+
+                        UoM = AsString(
+                            rowDict, "UoM"),
+
+                        BatchNo = AsString(
+                            rowDict, "BatchNo"),
+
+                        TotalCheckQty = AsInt(
+                            rowDict, "TotalCheckQty"),
+
+                        TotalRejectQty = AsInt(
+                            rowDict, "TotalRejectQty"),
+
+                        RejectPercent = AsString(
+                            rowDict, "RejectPercent")
+                    };
+
+                    // ---------------------------------------------------------
+                    // Dynamic Size Reject Columns
+                    //
+                    // Example SP columns:
+                    // XS, S, M, L, XL, XXL
+                    //
+                    // Or:
+                    // _XS, _S, _M, _L
+                    //
+                    // All columns not included in fixedColumns are treated
+                    // as size rejection quantities.
+                    // ---------------------------------------------------------
+                    foreach (var kv in rowDict)
+                    {
+                        if (string.IsNullOrWhiteSpace(kv.Key))
+                            continue;
+
+                        if (fixedColumns.Contains(kv.Key))
+                            continue;
+
+                        // Skip null values
+                        if (kv.Value == null || kv.Value == DBNull.Value)
+                            continue;
+
+                        var sizeName = kv.Key.Trim().TrimStart('_');
+
+                        if (string.IsNullOrWhiteSpace(sizeName))
+                            continue;
+
+                        var rejectQty = AsInt(rowDict, kv.Key) ?? 0;
+
+                        dto.SizeRejects[sizeName] = rejectQty;
+                    }
+
+                    result.Add(dto);
+                }
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(
+                    "Error retrieving date-wise rejection data: "
+                    + ex.Message,
+                    ex);
+            }
+        }
+
+
+
+
+
+
+
+
+
+    }
 }
+
+
+
 
 
 

@@ -552,6 +552,226 @@ namespace Erp.WebApi.Controllers.Commercial.Setup
 
             return Ok(result);
         }
+
+
+
+
+
+        [HttpPost]
+        [ActionName("getStyleWiseRejectionData")]
+        public async Task<IActionResult> GetStyleWiseRejectionData(
+           [FromBody] StyleWiseRejectionRequestDto objparam)
+        {
+            if (objparam == null)
+                return BadRequest("Invalid request.");
+
+            if (objparam.UnitId <= 0)
+                return BadRequest("UnitId is required.");
+
+            if (objparam.BuyerId <= 0)
+                return BadRequest("BuyerId is required.");
+
+            if (objparam.FromDate == default || objparam.ToDate == default)
+                return BadRequest("FromDate and ToDate are required.");
+
+            if (objparam.FromDate > objparam.ToDate)
+                return BadRequest("FromDate cannot be after ToDate.");
+
+            var result = await _mediator.Send(
+                new StyleWiseRejectionQuery(
+                    objparam.UnitId,
+                    objparam.BuyerId,
+                    objparam.FromDate,
+                    objparam.ToDate
+                )
+            );
+
+            return Ok(result);
+        }
+
+        // NOTE: The Angular UI calls getStyleWiseRejectionSizes() in
+        // onBuyerChange() to pre-load the size headers BEFORE the user
+        // picks a date range and clicks View. Two ways to implement:
+        //
+        //   (A) Reuse SP_Get_StyleWiseRejectionData with a wide date
+        //       range and grab the column names from the first row's
+        //       SizeRejects dictionary keys. Simple but heavy.
+        //
+        //   (B) Add a dedicated lightweight SP that returns just the
+        //       distinct size list for this buyer. Recommended.
+        //
+        // Below uses approach (A) so you don't have to add a new SP
+        // right now - but consider migrating to (B) once the dashboard
+        // is stable.
+        [HttpPost]
+        [ActionName("getStyleWiseRejectionSizes")]
+        public async Task<IActionResult> GetStyleWiseRejectionSizes(
+            [FromBody] StyleWiseRejectionSizesRequestDto objparam)
+        {
+            if (objparam == null)
+                return BadRequest("Invalid request.");
+
+            if (objparam.UnitId <= 0 || objparam.BuyerId <= 0)
+                return BadRequest("UnitId and BuyerId are required.");
+
+            // Use a wide 5-year window so every size the buyer has ever
+            // been recorded against in QC_SizeDetails shows up as a
+            // column. The SP derives its size column list from the
+            // buyer's full QC_SizeDetails history, NOT the date range,
+            // so the window is only here to ensure the SP returns at
+            // least one row whose SizeRejects dictionary we can read.
+            var fromDate = new System.DateTime(2020, 1, 1);
+            var toDate = System.DateTime.Today.AddYears(1);
+
+            var result = await _mediator.Send(
+                new StyleWiseRejectionQuery(
+                    objparam.UnitId,
+                    objparam.BuyerId,
+                    fromDate,
+                    toDate
+                )
+            );
+
+            // Build the distinct union of size column names across all
+            // returned rows. The column list is stable across date
+            // ranges (the SP's @SizeList is built without a date
+            // filter), so even one row is enough - but union across
+            // all rows in case the SP is later changed to filter
+            // sizes by date range.
+            var sizeNames = new System.Collections.Generic.List<string>();
+
+            if (result != null && result.Count > 0)
+            {
+                var seen = new System.Collections.Generic.HashSet<string>();
+                foreach (var row in result)
+                {
+                    if (row.SizeRejects == null) continue;
+                    foreach (var size in row.SizeRejects.Keys)
+                    {
+                        if (string.IsNullOrWhiteSpace(size)) continue;
+                        if (seen.Add(size))
+                            sizeNames.Add(size);
+                    }
+                }
+            }
+
+            // Project to a small { size, label } payload that matches
+            // what the Angular service expects (see WashSetupService.
+            // getStyleWiseRejectionSizes).
+            var payload = sizeNames
+                .Select(s => new { size = s, label = s })
+                .ToList();
+
+            return Ok(payload);
+        }
+
+        [HttpPost]
+        [ActionName("getDateWiseRejectionData")]
+        public async Task<IActionResult> GetDateWiseRejectionData(
+           [FromBody] DateWiseRejectionRequestDto objparam)
+        {
+            if (objparam == null)
+                return BadRequest("Invalid request.");
+
+            if (objparam.UnitId <= 0)
+                return BadRequest("UnitId is required.");
+
+            if (objparam.BuyerId <= 0)
+                return BadRequest("BuyerId is required.");
+
+            if (objparam.FromDate == default || objparam.ToDate == default)
+                return BadRequest("FromDate and ToDate are required.");
+
+            if (objparam.FromDate > objparam.ToDate)
+                return BadRequest("FromDate cannot be after ToDate.");
+
+            var result = await _mediator.Send(
+                new DateWiseRejectionQuery(
+                    objparam.UnitId,
+                    objparam.BuyerId,
+                    objparam.FromDate,
+                    objparam.ToDate
+                )
+            );
+
+            return Ok(result);
+        }
+
+        // NOTE: The Angular UI calls getStyleWiseRejectionSizes() in
+        // onBuyerChange() to pre-load the size headers BEFORE the user
+        // picks a date range and clicks View. Two ways to implement:
+        //
+        //   (A) Reuse SP_Get_StyleWiseRejectionData with a wide date
+        //       range and grab the column names from the first row's
+        //       SizeRejects dictionary keys. Simple but heavy.
+        //
+        //   (B) Add a dedicated lightweight SP that returns just the
+        //       distinct size list for this buyer. Recommended.
+        //
+        // Below uses approach (A) so you don't have to add a new SP
+        // right now - but consider migrating to (B) once the dashboard
+        // is stable.
+        [HttpPost]
+        [ActionName("getDateWiseRejectionSizes")]
+        public async Task<IActionResult> GetDateWiseRejectionSizes(
+            [FromBody] DateWiseRejectionSizesRequestDto objparam)
+        {
+            if (objparam == null)
+                return BadRequest("Invalid request.");
+
+            if (objparam.UnitId <= 0 || objparam.BuyerId <= 0)
+                return BadRequest("UnitId and BuyerId are required.");
+
+            // Use a wide 5-year window so every size the buyer has ever
+            // been recorded against in QC_SizeDetails shows up as a
+            // column. The SP derives its size column list from the
+            // buyer's full QC_SizeDetails history, NOT the date range,
+            // so the window is only here to ensure the SP returns at
+            // least one row whose SizeRejects dictionary we can read.
+            var fromDate = new System.DateTime(2020, 1, 1);
+            var toDate = System.DateTime.Today.AddYears(1);
+
+            var result = await _mediator.Send(
+                new StyleWiseRejectionQuery(
+                    objparam.UnitId,
+                    objparam.BuyerId,
+                    fromDate,
+                    toDate
+                )
+            );
+
+            // Build the distinct union of size column names across all
+            // returned rows. The column list is stable across date
+            // ranges (the SP's @SizeList is built without a date
+            // filter), so even one row is enough - but union across
+            // all rows in case the SP is later changed to filter
+            // sizes by date range.
+            var sizeNames = new System.Collections.Generic.List<string>();
+
+            if (result != null && result.Count > 0)
+            {
+                var seen = new System.Collections.Generic.HashSet<string>();
+                foreach (var row in result)
+                {
+                    if (row.SizeRejects == null) continue;
+                    foreach (var size in row.SizeRejects.Keys)
+                    {
+                        if (string.IsNullOrWhiteSpace(size)) continue;
+                        if (seen.Add(size))
+                            sizeNames.Add(size);
+                    }
+                }
+            }
+
+            // Project to a small { size, label } payload that matches
+            // what the Angular service expects (see WashSetupService.
+            // getStyleWiseRejectionSizes).
+            var payload = sizeNames
+                .Select(s => new { size = s, label = s })
+                .ToList();
+
+            return Ok(payload);
+        }
     }
 }
 

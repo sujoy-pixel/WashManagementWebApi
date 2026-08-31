@@ -115,5 +115,9 @@ namespace Erp.Application.MascoWash.Setup.Repository
         Task<List<FloorStatusResponseDtos>> GetFloorStatusData(int unitId,DateTime fromDate,DateTime toDate,string orderType);
         Task<List<DateWiseQCPassDHUDashboardResponseDtos>>GetDateWiseQCPassDHUDashboard(int unitId,DateTime fromDate, DateTime toDate);
         Task<List<StyleWiseQCPassDHUDashboardResponseDtos>>GetStyleWiseQCPassDHUDashboard( int unitId, DateTime fromDate,DateTime toDate);
+          
+            Task<List<StyleWiseRejectionResponseDto>> GetStyleWiseRejectionData( int unitId, int buyerId, DateTime fromDate,DateTime toDate);
+
+        Task<List<DateWiseRejectionResponseDto>> GetDateWiseRejectionData(int unitId, int buyerId, DateTime fromDate, DateTime toDate);
     }
 }
