@@ -3514,7 +3514,35 @@ namespace Erp.Infrastructure.Services.MascoWash
 
 
 
+        public async Task<List<DateWiseBalanceDashboardResponseDto>>
+    GetDateWiseBalanceDashboard(int unitId, DateTime fromDate, DateTime toDate, int viewType)
+        {
+            var parameter = new DynamicParameters();
+            parameter.Add("@UnitId", unitId, DbType.Int32);
+            parameter.Add("@FromDate", fromDate, DbType.Date);
+            parameter.Add("@ToDate", toDate, DbType.Date);
+            parameter.Add("@ViewType", viewType, DbType.Byte);   // TINYINT; SP normalizes invalid to 1
 
+            const string spName = "[dbo].[usp_WashDateWiseBalanceDashboard]";
+
+            var result = await GetDisposeErrorFreeListAsyncNew<DateWiseBalanceDashboardResponseDto>(spName, parameter);
+            return result?.ToList() ?? new List<DateWiseBalanceDashboardResponseDto>();
+        }
+
+        public async Task<List<OrderWiseBalanceDashboardResponseDto>>
+    GetOrderWiseBalanceDashboard(int unitId, DateTime fromDate, DateTime toDate, int viewType)
+        {
+            var parameter = new DynamicParameters();
+            parameter.Add("@UnitId", unitId, DbType.Int32);
+            parameter.Add("@FromDate", fromDate, DbType.Date);
+            parameter.Add("@ToDate", toDate, DbType.Date);
+            parameter.Add("@ViewType", viewType, DbType.Byte);   // TINYINT; SP normalizes invalid to 1
+
+            const string spName = "[dbo].[SP_Get_Wash_OrderWiseBalanceDashboard]"; 
+
+            var result = await GetDisposeErrorFreeListAsyncNew<OrderWiseBalanceDashboardResponseDto>(spName, parameter);
+            return result?.ToList() ?? new List<OrderWiseBalanceDashboardResponseDto>();
+        }
 
 
 

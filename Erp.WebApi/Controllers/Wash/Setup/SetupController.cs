@@ -772,6 +772,47 @@ namespace Erp.WebApi.Controllers.Commercial.Setup
 
             return Ok(payload);
         }
+
+        [HttpPost]
+        [ActionName("getDateWiseBalanceData")]
+        public async Task<IActionResult> GetDateWiseBalanceDashboard(
+  [FromBody] DateWiseBalanceDashboardRequestDto objparam)
+        {
+            if (objparam == null) return BadRequest("Invalid request.");
+            if (objparam.UnitId <= 0) return BadRequest("UnitId is required.");
+            if (objparam.ViewType != 1 && objparam.ViewType != 2)
+                return BadRequest("ViewType must be 1 (Garments) or 2 (Fabric & Cutting Parts).");
+
+            var result = await _mediator.Send(
+                new DateWiseBalanceDashboardQuery(
+                    objparam.UnitId,
+                    objparam.FromDate,
+                    objparam.ToDate,
+                    objparam.ViewType));
+
+            return Ok(result);
+        }
+
+
+        [HttpPost]
+        [ActionName("getOrderWiseBalanceData")]
+        public async Task<IActionResult> GetOrderWiseBalanceDashboard(
+  [FromBody] OrderWiseBalanceDashboardRequestDto objparam)
+        {
+            if (objparam == null) return BadRequest("Invalid request.");
+            if (objparam.UnitId <= 0) return BadRequest("UnitId is required.");
+            if (objparam.ViewType != 1 && objparam.ViewType != 2)
+                return BadRequest("ViewType must be 1 (Garments) or 2 (Fabric & Cutting Parts).");
+
+            var result = await _mediator.Send(
+                new OrderWiseBalanceDashboardQuery(
+                    objparam.UnitId,
+                    objparam.FromDate,
+                    objparam.ToDate,
+                    objparam.ViewType));
+
+            return Ok(result);
+        }
     }
 }
 

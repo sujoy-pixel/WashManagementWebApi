@@ -119,5 +119,7 @@ namespace Erp.Application.MascoWash.Setup.Repository
             Task<List<StyleWiseRejectionResponseDto>> GetStyleWiseRejectionData( int unitId, int buyerId, DateTime fromDate,DateTime toDate);
 
         Task<List<DateWiseRejectionResponseDto>> GetDateWiseRejectionData(int unitId, int buyerId, DateTime fromDate, DateTime toDate);
+        Task<List<DateWiseBalanceDashboardResponseDto>> GetDateWiseBalanceDashboard(int unitId, DateTime fromDate, DateTime toDate, int viewType);
+        Task<List<OrderWiseBalanceDashboardResponseDto>> GetOrderWiseBalanceDashboard(int unitId, DateTime fromDate, DateTime toDate, int viewType);
     }
 }

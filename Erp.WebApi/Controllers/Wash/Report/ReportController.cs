@@ -806,6 +806,8 @@ namespace Erp.WebApi.Controllers.MascoWash.Report
             public int? ShiftId { get; set; }
         }
 
+      
+
         #endregion
     }
 }
