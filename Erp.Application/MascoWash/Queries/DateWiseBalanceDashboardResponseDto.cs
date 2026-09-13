@@ -7,7 +7,7 @@ public class DateWiseBalanceDashboardResponseDto
     public string ReceiveFrom { get; set; }
     public string Buyer { get; set; }
     public string Job { get; set; }
-    public int? Order { get; set; }              // SP: DF.OrderId AS [Order]
+    public string Order { get; set; }              // SP: DF.OrderId AS [Order]
     public string Style { get; set; }
     public string Color { get; set; }
     public string DressPart { get; set; }
