@@ -3538,14 +3538,102 @@ namespace Erp.Infrastructure.Services.MascoWash
             parameter.Add("@ToDate", toDate, DbType.Date);
             parameter.Add("@ViewType", viewType, DbType.Byte);   // TINYINT; SP normalizes invalid to 1
 
-            const string spName = "[dbo].[SP_Get_Wash_OrderWiseBalanceDashboard]"; 
+            const string spName = "[dbo].[SP_Get_Wash_OrderWiseBalanceDashboard]";
 
             var result = await GetDisposeErrorFreeListAsyncNew<OrderWiseBalanceDashboardResponseDto>(spName, parameter);
             return result?.ToList() ?? new List<OrderWiseBalanceDashboardResponseDto>();
         }
 
+        // =====================================================================
+        // Date Wise Machine Plan
+        // =====================================================================
 
+        public async Task<List<DateWiseMachinePlanGridResponseDto>> GetDateWiseMachinePlanGrid(
+            int? unitId, int buyerId, int? jobId, int styleId, int? orderId, DateTime fromDate, DateTime toDate)
+        {
+            var parameter = new DynamicParameters();
+            parameter.Add("@UnitId", unitId, DbType.Int32);
+            parameter.Add("@BuyerId", buyerId, DbType.Int32);
+            parameter.Add("@JobId", jobId, DbType.Int32);
+            parameter.Add("@StyleId", styleId, DbType.Int32);
+            parameter.Add("@OrderId", orderId, DbType.Int32);
+            parameter.Add("@FromDate", fromDate, DbType.Date);
+            parameter.Add("@ToDate", toDate, DbType.Date);
 
+            const string spName = "[dbo].[SP_Get_DateWiseMachinePlanGrid]";
+
+            var result = await GetDisposeErrorFreeListAsyncNew<DateWiseMachinePlanGridResponseDto>(spName, parameter);
+            return result?.ToList() ?? new List<DateWiseMachinePlanGridResponseDto>();
+        }
+
+        /// <summary>
+        /// Mirrors SaveTrackingReceive/SaveQcData's TVP pattern: header scalars (@UnitId,
+        /// @CreatedBy) added directly, one DataTable per child grid (columns in the EXACT
+        /// order sp_SaveWashDateWiseMachinePlan's TVP types declare them - TVP structured
+        /// parameters bind positionally), each registered via AsTableValuedParameter with
+        /// the matching dbo.TVP_... type name, all executed in one round trip.
+        /// </summary>
+        public async Task<Result> SaveWashDateWiseMachinePlan(SaveDateWiseMachinePlanCommand dto)
+        {
+            if (dto?.PlanData == null || dto.PlanData.Count == 0)
+                return Result.Failure(new[] { "No plan lines to save" });
+
+            var planTable = new DataTable();
+            planTable.Columns.Add("RowGuid", typeof(Guid));
+            planTable.Columns.Add("OrderDetailId", typeof(int));
+            planTable.Columns.Add("PlanQty", typeof(decimal));
+            planTable.Columns.Add("PlanStartDate", typeof(DateTime));
+            planTable.Columns.Add("PlanEndDate", typeof(DateTime));
+            planTable.Columns.Add("Remarks", typeof(string));
+            foreach (var p in dto.PlanData)
+            {
+                planTable.Rows.Add(
+                    p.RowGuid,
+                    p.OrderDetailId,
+                    p.PlanQty,
+                    p.PlanStartDate,
+                    p.PlanEndDate,
+                    (object)p.Remarks ?? DBNull.Value
+                );
+            }
+
+            var processTable = new DataTable();
+            processTable.Columns.Add("RowGuid", typeof(Guid));
+            processTable.Columns.Add("ProcessId", typeof(int));
+            foreach (var pr in dto.ProcessData ?? new List<MachinePlanProcessLineDto>())
+                processTable.Rows.Add(pr.RowGuid, pr.ProcessId);
+
+            var machineTable = new DataTable();
+            machineTable.Columns.Add("RowGuid", typeof(Guid));
+            machineTable.Columns.Add("MachineId", typeof(int));
+            foreach (var mc in dto.MachineData ?? new List<MachinePlanMachineLineDto>())
+                machineTable.Rows.Add(mc.RowGuid, mc.MachineId);
+
+            var parameter = new DynamicParameters();
+            parameter.Add("@UnitId", dto.UnitId);
+            parameter.Add("@CreatedBy", _currentUserService?.UserId ?? 0);
+            parameter.Add("@PlanData", planTable.AsTableValuedParameter("dbo.TVP_Wash_DateWiseMachinePlan"));
+            parameter.Add("@ProcessData", processTable.AsTableValuedParameter("dbo.TVP_Wash_MachinePlanProcess"));
+            parameter.Add("@MachineData", machineTable.AsTableValuedParameter("dbo.TVP_Wash_MachinePlanMachine"));
+
+            try
+            {
+                using var conn = CreateConnection();
+
+                // The SP ends with a SELECT (RowGuid, PlanId) per inserted line - drain it
+                // via QueryAsync rather than ExecuteAsync so the result set is consumed cleanly.
+                var inserted = (await conn.QueryAsync(
+                    "[dbo].[sp_SaveWashDateWiseMachinePlan]",
+                    parameter,
+                    commandType: CommandType.StoredProcedure)).ToList();
+
+                return Result.Success($"Machine Plan saved successfully ({inserted.Count} line(s)).");
+            }
+            catch (SqlException ex)
+            {
+                return Result.Failure(new[] { $"DB error: {ex.Message}" });
+            }
+        }
 
     }
 }

@@ -2,6 +2,7 @@
 using AspNetCore.Reporting.ReportExecutionService;
 using Erp.Application.Commercial.Setup.Command;
 using Erp.Application.MascoWash.Commands;
+using Erp.Application.MascoWash.Handlers;
 using Erp.Application.MascoWash.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -812,6 +813,37 @@ namespace Erp.WebApi.Controllers.Commercial.Setup
                     objparam.ViewType));
 
             return Ok(result);
+        }
+
+        /// Date Wise Machine Plan ///
+
+        [HttpPost]
+        [ActionName("GetDateWiseMachinePlanGrid")]
+        public async Task<IActionResult> GetDateWiseMachinePlanGrid(
+            [FromBody] DateWiseMachinePlanGridRequestDto objparam)
+        {
+            if (objparam == null) return BadRequest("Invalid request.");
+            if (objparam.BuyerId <= 0) return BadRequest("BuyerId is required.");
+            if (objparam.StyleId <= 0) return BadRequest("StyleId is required.");
+
+            var result = await _mediator.Send(
+                new DateWiseMachinePlanGridQuery(
+                    objparam.UnitId,
+                    objparam.BuyerId,
+                    objparam.JobId,
+                    objparam.StyleId,
+                    objparam.OrderId,
+                    objparam.FromDate,
+                    objparam.ToDate));
+
+            return Ok(result);
+        }
+
+        [HttpPost]
+        [ActionName("SaveDateWiseMachinePlan")]
+        public async Task<IActionResult> SaveDateWiseMachinePlan(SaveDateWiseMachinePlanCommand command)
+        {
+            return Ok(await _mediator.Send(command));
         }
     }
 }

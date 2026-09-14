@@ -121,5 +121,8 @@ namespace Erp.Application.MascoWash.Setup.Repository
         Task<List<DateWiseRejectionResponseDto>> GetDateWiseRejectionData(int unitId, int buyerId, DateTime fromDate, DateTime toDate);
         Task<List<DateWiseBalanceDashboardResponseDto>> GetDateWiseBalanceDashboard(int unitId, DateTime fromDate, DateTime toDate, int viewType);
         Task<List<OrderWiseBalanceDashboardResponseDto>> GetOrderWiseBalanceDashboard(int unitId, DateTime fromDate, DateTime toDate, int viewType);
+
+        Task<List<DateWiseMachinePlanGridResponseDto>> GetDateWiseMachinePlanGrid(int? unitId, int buyerId, int? jobId, int styleId, int? orderId, DateTime fromDate, DateTime toDate);
+        Task<Result> SaveWashDateWiseMachinePlan(SaveDateWiseMachinePlanCommand dto);
     }
 }
