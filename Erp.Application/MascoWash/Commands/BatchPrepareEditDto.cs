@@ -77,6 +77,8 @@ namespace Erp.Application.MascoWash.Commands
         public int RevesionNo { get; set; }
         public DateTime RevisionDate { get; set; }
 
+        public bool ReWash { get; set; }
+
     }
 }
 

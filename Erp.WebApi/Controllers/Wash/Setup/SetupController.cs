@@ -732,8 +732,17 @@ namespace Erp.WebApi.Controllers.Commercial.Setup
             var fromDate = new System.DateTime(2020, 1, 1);
             var toDate = System.DateTime.Today.AddYears(1);
 
+            // FIX: this endpoint is Date-wise - it must query
+            // SP_Get_DateWiseRejectionDashboard (via DateWiseRejectionQuery),
+            // not the Style-wise procedure. It previously sent a
+            // StyleWiseRejectionQuery here (copy-paste from the sibling
+            // getStyleWiseRejectionSizes action above), which happened to
+            // return the same size names today only because both SPs derive
+            // @SizeList from QC_SizeDetails scoped by BuyerId alone - but it
+            // ran the wrong, heavier query and would silently diverge the
+            // moment either SP's size-list logic changes independently.
             var result = await _mediator.Send(
-                new StyleWiseRejectionQuery(
+                new DateWiseRejectionQuery(
                     objparam.UnitId,
                     objparam.BuyerId,
                     fromDate,

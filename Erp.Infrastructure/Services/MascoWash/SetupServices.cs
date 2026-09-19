@@ -1589,6 +1589,7 @@ namespace Erp.Infrastructure.Services.MascoWash
 
             param.Add("@IsManualTotal", dto.Master.IsManualTotal);
             param.Add("@Shade", dto.Master.shade);
+            param.Add("@ReWash", dto.Master.reWash);
 
             /* ================= TVP ================= */
             if (sizeTable != null)

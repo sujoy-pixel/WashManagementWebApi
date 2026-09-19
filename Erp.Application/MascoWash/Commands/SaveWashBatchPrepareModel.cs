@@ -57,6 +57,7 @@ namespace Erp.Application.MascoWash.Commands
 
         public bool IsManualTotal { get; set; }
         public bool shade { get; set; }
+        public bool reWash { get; set; }
     }
 
 
