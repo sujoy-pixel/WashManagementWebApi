@@ -36,7 +36,7 @@
 
         public int? DefectsBalanceQty { get; set; }
 
-        public int? RectifyDefectQty { get; set; }
+        public int? RectifyDefectsQty { get; set; }
 
         public int? TotalRejectQty { get; set; }
 
