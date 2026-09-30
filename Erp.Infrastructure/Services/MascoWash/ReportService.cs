@@ -119,11 +119,15 @@ namespace Erp.Infrastructure.Services.MascoWash
             string _storeProcedure = "";
             if(ReportName== "Batch Card Preview")
             {
-     
 
+
+                _storeProcedure = "c";
+
+
+            }
+            if (ReportName == "Batch Card Preview Dublicate")
+            {
                 _storeProcedure = "rpt_sp_BatchCardPreview";
-
-                
             }
 
 
