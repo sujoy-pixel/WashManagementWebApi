@@ -86,6 +86,12 @@ public class DateWiseRejectionResponseDto
 
     public string RejectPercent { get; set; }
 
+    // Buyer|Job|Style|Order|Color|DressPart - the screen counts each key ONCE in Sub/Grand Total
+    public string ReceiveKey { get; set; }
+
+    // Re-wash batch (WBN-...(Rn)): Check Qty is 0, Reject still counted
+    public bool? IsReWash { get; set; }
+
     public Dictionary<string, int> SizeRejects { get; set; }
         = new Dictionary<string, int>();
 }

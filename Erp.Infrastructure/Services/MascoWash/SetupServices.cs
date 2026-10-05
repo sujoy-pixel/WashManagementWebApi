@@ -3231,7 +3231,8 @@ namespace Erp.Infrastructure.Services.MascoWash
                     "ReceiveQty", "UoM", "NoOfBatch", "TotalCheckQty",
                     "TotalRejectQty", "RejectPercent",
                     "NoSizeDataYet",
-                    "RowKey"
+                    "RowKey",
+                    "ReceiveKey", "IsReWash"
                 };
 
                 var result = new List<StyleWiseRejectionResponseDto>(rawRowsList.Count);
@@ -3257,6 +3258,8 @@ namespace Erp.Infrastructure.Services.MascoWash
                         TotalCheckQty = AsInt(rowDict, "TotalCheckQty"),
                         TotalRejectQty = AsInt(rowDict, "TotalRejectQty"),
                         RejectPercent = AsString(rowDict, "RejectPercent"),
+                        ReceiveKey = AsString(rowDict, "ReceiveKey"),
+                        IsReWash = AsBool(rowDict, "IsReWash"),
                     };
 
                     // Walk every column in the row; any column NOT in the
@@ -3312,6 +3315,17 @@ namespace Erp.Infrastructure.Services.MascoWash
             if (val is double db) return (int)db;
             if (int.TryParse(val.ToString(), out var parsed)) return parsed;
             return null;
+        }
+
+        private static bool? AsBool(IDictionary<string, object> row, string key)
+        {
+            if (!row.TryGetValue(key, out var val) || val == null || val == DBNull.Value)
+                return null;
+            if (val is bool b) return b;
+            if (val is int i) return i != 0;
+            if (val is byte bt) return bt != 0;
+            if (bool.TryParse(val.ToString(), out var parsed)) return parsed;
+            return val.ToString() == "1";
         }
 
         private static decimal? AsDecimal(IDictionary<string, object> row, string key)
@@ -3390,7 +3404,9 @@ namespace Erp.Infrastructure.Services.MascoWash
             // they should NOT be treated as size columns.
             "NoOfBatch",
             "NoSizeDataYet",
-            "RowKey"
+            "RowKey",
+            "ReceiveKey",
+            "IsReWash"
         };
 
                 var result = new List<DateWiseRejectionResponseDto>(
@@ -3461,7 +3477,13 @@ namespace Erp.Infrastructure.Services.MascoWash
                             rowDict, "TotalRejectQty"),
 
                         RejectPercent = AsString(
-                            rowDict, "RejectPercent")
+                            rowDict, "RejectPercent"),
+
+                        ReceiveKey = AsString(
+                            rowDict, "ReceiveKey"),
+
+                        IsReWash = AsBool(
+                            rowDict, "IsReWash")
                     };
 
                     // ---------------------------------------------------------

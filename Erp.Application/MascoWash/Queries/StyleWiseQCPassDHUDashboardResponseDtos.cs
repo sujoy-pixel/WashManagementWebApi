@@ -41,5 +41,11 @@
         public int? TotalRejectQty { get; set; }
 
         public string RejectPercent { get; set; }
+
+        /// <summary>Buyer|Job|Style|Order|Color|DressPart (comma-separated if a row holds several) - counted ONCE in totals.</summary>
+        public string ReceiveKey { get; set; }
+
+        /// <summary>True when every batch in the row is a re-wash batch.</summary>
+        public bool? IsReWash { get; set; }
     }
 }

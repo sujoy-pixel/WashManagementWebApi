@@ -51,5 +51,11 @@ namespace Erp.Application.MascoWash.Queries
         public int? TotalRejectQty { get; set; }
 
         public string RejectPercent { get; set; }
+
+        /// <summary>Buyer|Job|Style|Order|Color|DressPart - the screen counts each key ONCE in Sub/Grand Total.</summary>
+        public string ReceiveKey { get; set; }
+
+        /// <summary>Re-wash batch (WBN-...(Rn)): Check Qty is 0, Okay/Defect/Reject still counted.</summary>
+        public bool? IsReWash { get; set; }
     }
 }

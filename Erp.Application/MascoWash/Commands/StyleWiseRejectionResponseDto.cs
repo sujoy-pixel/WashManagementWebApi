@@ -50,5 +50,11 @@ namespace Erp.Application.MascoWash.Queries
         // ---- Trailing fixed columns ----
         public int? TotalRejectQty { get; set; }
         public string RejectPercent { get; set; }
+
+        // Buyer|Job|Style|Order|Color|DressPart (comma-separated if a row holds several) - counted ONCE in totals
+        public string ReceiveKey { get; set; }
+
+        // True when every batch in the row is a re-wash batch (Check Qty 0, Reject counted)
+        public bool? IsReWash { get; set; }
     }
 }
