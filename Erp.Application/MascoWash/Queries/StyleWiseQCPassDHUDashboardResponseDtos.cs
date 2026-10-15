@@ -1,4 +1,4 @@
-﻿namespace Erp.Application.MascoWash.Queries
+namespace Erp.Application.MascoWash.Queries
 {
     public class StyleWiseQCPassDHUDashboardResponseDtos
     {

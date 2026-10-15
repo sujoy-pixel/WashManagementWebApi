@@ -57,6 +57,7 @@ namespace Erp.Application.MascoWash.Commands
         public decimal AlreadyPreparedKg { get; set; }
   
         public bool Shade { get; set; }
+        public int? ShadeStatus { get; set; }   // 1 = OK, 0 = Not OK, null = no shade entry
         public string OperationTime { get; set; }
         public string CreatedBy { get; set; }
 
