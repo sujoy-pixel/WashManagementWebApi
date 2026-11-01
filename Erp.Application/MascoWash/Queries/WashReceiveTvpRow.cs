@@ -27,6 +27,15 @@ namespace Erp.Application.MascoWash.Queries
         public decimal Qty { get; set; }
         public DateTime? ProbableDeliveryDate { get; set; }
         public DateTime? ShipmentDate { get; set; }
+        // Dyeing batch extras (null for Tracking No receive)
+        public string BatchLot { get; set; }
+        public string FDia { get; set; }
+        public string BodyPart { get; set; }
+        public string Roll { get; set; }
+        public string DyeingSystem { get; set; }
+        public long? DyeingDetailId { get; set; }
+        public string FabricationName { get; set; }
+        public string GSM { get; set; }
         
     }
     public class ReceiveResult

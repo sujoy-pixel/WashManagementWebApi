@@ -57,6 +57,18 @@ namespace Erp.Application.MascoWash.Queries
 
         public DateTime ProbableDeliveryDate { get; set; }
         public DateTime ShipmentDate { get; set; }
+        // Dyeing batch extras (null for Tracking No receive)
+        public string BatchLot { get; set; }
+        public string FDia { get; set; }
+        public string BodyPart { get; set; }
+        public string Roll { get; set; }
+        public decimal? BatchQty { get; set; }      // full batch qty (body part)
+        public decimal? ReceivedQty { get; set; }   // already received (partial receives)
+        public string Rolls { get; set; }            // Dyeing batch SP column name
+        public decimal? BalanceQty { get; set; }     // remaining receivable qty
+        public string ReceiveStatus { get; set; }    // Not Received / Partial Received / Full Received
+        public string DyeingSystem { get; set; }     // N = new, O = old
+        public long? DyeingDetailId { get; set; }
         public int? TotalQty { get; set; }
         public int? RemainingQty { get; set; }
         public int? AlreadyPreparedQty { get; set; }

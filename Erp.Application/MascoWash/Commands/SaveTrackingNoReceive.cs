@@ -45,13 +45,22 @@ namespace Erp.Application.MascoWash.Commands
         public decimal? TotalQty { get; set; }
         public DateTime? ProbableDeliveryDate { get; set; }
         public DateTime? ShipmentDate { get; set; }
+        // Dyeing batch extras (null for Tracking No receive)
+        public string BatchLot { get; set; }
+        public string FDia { get; set; }
+        public string BodyPart { get; set; }
+        public string Roll { get; set; }
+        public string DyeingSystem { get; set; }     // N = new, O = old
+        public long? DyeingDetailId { get; set; }
+        public string FabricationName { get; set; }  // varchar fabrication (dyeing)
+        public string GSM { get; set; }              // varchar GSM (dyeing)
 
         // 🔥 IMPORTANT: SIZE DETAILS
         public List<TrackingReceiveSizeDto> SizeDetails { get; set; } = new();
     }
     public class TrackingReceiveSizeDto
     {
-        public int SizeId { get; set; }
+        public int? SizeId { get; set; }
         public string Size { get; set; }
         public decimal Qty { get; set; }
     }

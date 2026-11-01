@@ -1146,8 +1146,17 @@ namespace Erp.Infrastructure.Services.MascoWash
 
             foreach (var d in dto.Details)
             {
-                foreach (var s in d.SizeDetails)
+                // No size breakdown (e.g. Dyeing batch rows) -> one size-less row carrying the detail total
+                var sizes = d.SizeDetails?.Any() == true
+                    ? d.SizeDetails
+                    : new List<TrackingReceiveSizeDto> { new TrackingReceiveSizeDto() };
+
+                foreach (var s in sizes)
                 {
+                    // Size 0 / null = "no size"; a size-less row with no qty takes the detail's TotalQty
+                    if (s.SizeId == 0) s.SizeId = null;
+                    if (s.SizeId == null && s.Qty == 0) s.Qty = d.TotalQty ?? 0;
+
                     tvpRows.Add(new WashReceiveTvpRow
                     {
                         TrackingBatchNo = d.TrackingBatchNo,
@@ -1168,7 +1177,15 @@ namespace Erp.Infrastructure.Services.MascoWash
                         Size = s.Size,
                         Qty = s.Qty,
                         ProbableDeliveryDate = d.ProbableDeliveryDate,
-                        ShipmentDate = d.ShipmentDate
+                        ShipmentDate = d.ShipmentDate,
+                        BatchLot = d.BatchLot,
+                        FDia = d.FDia,
+                        BodyPart = d.BodyPart,
+                        Roll = d.Roll,
+                        DyeingSystem = d.DyeingSystem,
+                        DyeingDetailId = d.DyeingDetailId,
+                        FabricationName = d.FabricationName,
+                        GSM = d.GSM
                     });
                 }
             }
@@ -1185,7 +1202,7 @@ namespace Erp.Infrastructure.Services.MascoWash
             param.Add("@MasterId", dto.Master.MasterId);
             param.Add("@CreatedBy", _currentUserService?.EmployeeId ?? "SYSTEM");
             param.Add("@DetailsTVP",
-                table.AsTableValuedParameter("dbo.tbl_Wash_Receive_Operation_TVP"));
+                table.AsTableValuedParameter("dbo.tbl_Wash_Receive_Operation_TVP_V2"));
 
             using var conn = CreateConnection();
             var result = await conn.QueryFirstOrDefaultAsync<ReceiveResult>(
@@ -1226,6 +1243,15 @@ namespace Erp.Infrastructure.Services.MascoWash
             dt.Columns.Add("Qty", typeof(decimal));
             dt.Columns.Add("ProbableDeliveryDate", typeof(DateTime));
             dt.Columns.Add("ShipmentDate", typeof(DateTime));
+            // appended last - TVP columns bind by position
+            dt.Columns.Add("BatchLot", typeof(string));
+            dt.Columns.Add("FDia", typeof(string));
+            dt.Columns.Add("BodyPart", typeof(string));
+            dt.Columns.Add("Roll", typeof(string));
+            dt.Columns.Add("DyeingSystem", typeof(string));
+            dt.Columns.Add("DyeingDetailId", typeof(long));
+            dt.Columns.Add("FabricationName", typeof(string));
+            dt.Columns.Add("GSM", typeof(string));
 
             foreach (var r in rows)
             {
@@ -1240,7 +1266,7 @@ namespace Erp.Infrastructure.Services.MascoWash
                     r.FabricationId,
                     r.Composition ?? (object)DBNull.Value,
                     r.GsmId ?? (object)DBNull.Value,
-                    r.SizeId,
+                    r.SizeId ?? (object)DBNull.Value,
                     r.ColorId ?? (object)DBNull.Value,
                     r.DressPartId ?? (object)DBNull.Value,
                     r.OperationType ?? (object)DBNull.Value,
@@ -1248,7 +1274,15 @@ namespace Erp.Infrastructure.Services.MascoWash
                     r.Size,
                     r.Qty,
                     r.ProbableDeliveryDate ?? (object)DBNull.Value,
-                    r.ShipmentDate ?? (object)DBNull.Value
+                    r.ShipmentDate ?? (object)DBNull.Value,
+                    r.BatchLot ?? (object)DBNull.Value,
+                    r.FDia ?? (object)DBNull.Value,
+                    r.BodyPart ?? (object)DBNull.Value,
+                    r.Roll ?? (object)DBNull.Value,
+                    r.DyeingSystem ?? (object)DBNull.Value,
+                    r.DyeingDetailId ?? (object)DBNull.Value,
+                    r.FabricationName ?? (object)DBNull.Value,
+                    r.GSM ?? (object)DBNull.Value
                 );
             }
 
