@@ -121,7 +121,7 @@ namespace Erp.Infrastructure.Services.MascoWash
             {
 
 
-                _storeProcedure = "c";
+                _storeProcedure = "rpt_sp_BatchCardPreview";
 
 
             }

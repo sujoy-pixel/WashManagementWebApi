@@ -11,6 +11,7 @@ public class DateWiseBalanceDashboardResponseDto
     public string Style { get; set; }
     public string Color { get; set; }
     public string DressPart { get; set; }
+    public string BodyPart { get; set; }           // dyeing receive body part(s)
     public string GSM { get; set; }
     public string FabricComposition { get; set; }
     public DateTime? ShipmentDate { get; set; }
@@ -28,9 +29,9 @@ public class DateWiseBalanceDashboardResponseDto
 
     // ---- ViewType = 2 : Fabric & Cutting Parts (Kg) ----
     public string BatchLot { get; set; }
-    public int? Dia { get; set; }
+    public string Dia { get; set; }                // dyeing F.Dia, comma-distinct
     public decimal? OrderQtyKg { get; set; }
-    public int? ReceiveRoll { get; set; }
+    public decimal? ReceiveRoll { get; set; }      // SUM(Rolls)
     public decimal? ReceiveQtyKg { get; set; }
     public decimal? CalculatedQtyKg { get; set; }
     public int? DeliveryRoll { get; set; }

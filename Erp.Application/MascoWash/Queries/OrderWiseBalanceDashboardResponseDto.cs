@@ -19,13 +19,14 @@ namespace Erp.Application.MascoWash.Queries
         public string Style { get; set; }
         public string Color { get; set; }
         public string DressPart { get; set; }
+        public string BodyPart { get; set; }           // dyeing receive body part(s)
         public string WashType { get; set; }
         public string FabricComposition { get; set; }
         public string GSM { get; set; }
 
         // ---------- VIEW TYPE = 2 ONLY ----------
-        public string BatchLot { get; set; }           // comma-distinct per group
-        public int? Dia { get; set; }                  // stub (0) until source confirmed
+        public string BatchLot { get; set; }           // dyeing lot, else wash batch no
+        public string Dia { get; set; }                // dyeing F.Dia, comma-distinct
 
         // ---------- VIEW TYPE = 1 : GARMENTS / PCS ----------
         public decimal? FabricConPerDzn { get; set; }      // OrderQtyKg / (OrderQtyPcs / 12)
@@ -39,7 +40,7 @@ namespace Erp.Application.MascoWash.Queries
 
         // ---------- VIEW TYPE = 2 : FABRIC / KG ----------
         public decimal? OrderQtyKg { get; set; }
-        public int? TotalReceiveRoll { get; set; }         // 0 until real source confirmed
+        public decimal? TotalReceiveRoll { get; set; }     // SUM(Rolls) from dyeing receive
         public decimal? TotalReceiveQtyKg { get; set; }
         public decimal? ReceiveBalanceKg { get; set; }     // OrderQtyKg - TotalReceiveQtyKg
         public int? TotalDeliveryRoll { get; set; }

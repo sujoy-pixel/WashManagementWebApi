@@ -59,7 +59,8 @@ namespace Erp.Application.MascoWash.Queries
         public DateTime ShipmentDate { get; set; }
         // Dyeing batch extras (null for Tracking No receive)
         public string BatchLot { get; set; }
-        public string FDia { get; set; }
+        public string FDia { get; set; }            // display text (tracking: FabricDiaDescription)
+        public int? FDiaId { get; set; }            // tracking: SCM..tbl_FabricDia.FabricDiaId (saved)
         public string BodyPart { get; set; }
         public string Roll { get; set; }
         public decimal? BatchQty { get; set; }      // full batch qty (body part)

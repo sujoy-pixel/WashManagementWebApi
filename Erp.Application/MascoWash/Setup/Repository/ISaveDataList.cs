@@ -124,5 +124,8 @@ namespace Erp.Application.MascoWash.Setup.Repository
 
         Task<List<DateWiseMachinePlanGridResponseDto>> GetDateWiseMachinePlanGrid(int? unitId, int buyerId, int? jobId, int styleId, int? orderId, DateTime fromDate, DateTime toDate);
         Task<Result> SaveWashDateWiseMachinePlan(SaveDateWiseMachinePlanCommand dto);
+
+        /// <summary>GatePass login for the Wash user: (username, encrypted password) from sp_GetUserCredentialByIdForWash.</summary>
+        Task<(string UserName, string Password)> GetGatePassCredential(string id, string database);
     }
 }

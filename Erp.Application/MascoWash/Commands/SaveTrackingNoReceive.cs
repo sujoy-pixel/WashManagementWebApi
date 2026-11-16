@@ -18,6 +18,8 @@ namespace Erp.Application.MascoWash.Commands
             public string CreatedBy { get; set; }
             public int UnitId { get; set; }
             public string TrackingNo { get; set; }   // TrackingNo
+            public bool? TrackingBit { get; set; }   // 1 = Tracking receive (Garments dashboards)
+            public bool? DyeingBit { get; set; }     // 1 = Dyeing batch receive (Fabric dashboards)
         }
 
 

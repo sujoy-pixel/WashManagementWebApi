@@ -1201,6 +1201,7 @@ namespace Erp.Infrastructure.Services.MascoWash
             param.Add("@TrackingNo", dto.Master.TrackingNo);
             param.Add("@MasterId", dto.Master.MasterId);
             param.Add("@CreatedBy", _currentUserService?.EmployeeId ?? "SYSTEM");
+            // TrackingBit / DyeingBit are set by the SP from the master's OperationType (BATCHNO -> DyeingBit)
             param.Add("@DetailsTVP",
                 table.AsTableValuedParameter("dbo.tbl_Wash_Receive_Operation_TVP_V2"));
 
@@ -2841,6 +2842,28 @@ namespace Erp.Infrastructure.Services.MascoWash
                     $"System Error: {ex.Message}"
                 });
             }
+        }
+
+        public async Task<(string UserName, string Password)> GetGatePassCredential(string id, string database)
+        {
+            var param = new DynamicParameters();
+            param.Add("@UserCode", id, DbType.String, ParameterDirection.Input);
+
+            // the SP lives in the ControlPanal database (same SQL Server as Wash) -> three-part name
+            var db = string.IsNullOrWhiteSpace(database) ? "ControlPanal" : database;
+
+            using var conn = CreateConnection();
+            var row = await conn.QueryFirstOrDefaultAsync<GatePassCredentialRow>(
+                $"[{db.Replace("]", "")}].[dbo].[sp_GetUserCredentialByIdForWash]", param, commandType: CommandType.StoredProcedure);
+
+            return (row?.USER_CODE?.Trim(), row?.USER_PASSWORD?.Trim());
+        }
+
+        // sp_GetUserCredentialByIdForWash output columns
+        private class GatePassCredentialRow
+        {
+            public string USER_CODE { get; set; }
+            public string USER_PASSWORD { get; set; }
         }
 
         public Task<List<ReportNameDDLList>> GetReportName()
